@@ -5,4 +5,5 @@
 <li>Andrew Lawson </li>
 <li>Joe Bursch </li>
 <li>Jacob Sisson</li>
+<li>Bradley Hays</li>
 </p>
