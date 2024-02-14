@@ -1,4 +1,4 @@
-# Rordan Gamsey's Culinary Calamity
+# Rordan Gamsay's Culinary Calamity
 
 <p>Created by:
 <li>Brennon Treadwell </li>
