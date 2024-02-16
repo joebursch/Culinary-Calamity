@@ -5,14 +5,18 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     // Private instance variables
-    private string characterName; 
+    private string characterName;
     [SerializeField]
     private Sprite mainSprite;
     private float movementSpeed;
-    private int characterHealth; 
+    private int characterHealth;
     [SerializeField]
-    private List<Animation> characterAnimations; 
+    private List<Animation> characterAnimations;
 
+    public Character()
+    {
+
+    }
     // Constructors
     public Character(string name, float speed, int health)
     {
@@ -29,7 +33,7 @@ public class Character : MonoBehaviour
         characterAnimations = animations;
     }
 
-    public string getName(){return characterName;}
+    public string getName() { return characterName; }
 }
 
 
