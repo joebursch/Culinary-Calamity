@@ -6,6 +6,7 @@
 /CulinaryCalamity/[Bb]uilds/
 /CulinaryCalamity/[Ll]ogs/
 /CulinaryCalamity/[Uu]ser[Ss]ettings/
+/CulinaryCalamity/[Pp]roject[Ss]ettings/ShaderGraphSettings.asset
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -23,6 +24,8 @@
 # Visual Studio cache directory
 /CulinaryCalamity/.vs/
 .vs/
+.vsconfig/
+/CulinaryCalamity/.vsconfig/
 
 # Gradle cache directory
 /CulinaryCalamity/.gradle/
