@@ -6,12 +6,12 @@ public class Character : MonoBehaviour
 {
     // Private instance variables
     private string characterName; 
+    [SerializeField]
     private Sprite mainSprite;
     private float movementSpeed;
     private int characterHealth; 
-
-    // Public instance variables
-    public List<Animation> characterAnimations; 
+    [SerializeField]
+    private List<Animation> characterAnimations; 
 
     // Constructors
     public Character(string name, float speed, int health)
@@ -28,4 +28,9 @@ public class Character : MonoBehaviour
         characterHealth = health;
         characterAnimations = animations;
     }
+
+    public string getName(){return characterName;}
 }
+
+
+
