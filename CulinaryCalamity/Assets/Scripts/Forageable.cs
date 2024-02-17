@@ -1,7 +1,9 @@
 
 using UnityEngine;
 
-public class Forageable : MonoBehaviour, InteractableObject
+public class Forageable : InteractableObject
 {
-
+    private int totalRespawnTime;
+    private bool isSpawned;
+    private int currentTimeToRespawn;
 }

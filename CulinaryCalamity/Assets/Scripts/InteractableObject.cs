@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
-public interface InteractableObject
+public class InteractableObject : MonoBehaviour
 {
-
+    [SerializeField] private InputAction interactionKey;
 }
