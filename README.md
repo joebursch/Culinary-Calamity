@@ -1,1 +1,9 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/25QNtE92)
+# Rordan Gamsay's Culinary Calamity
+
+<p>Created by:
+<li>Brennon Treadwell </li>
+<li>Andrew Lawson </li>
+<li>Joe Bursch </li>
+<li>Jacob Sisson</li>
+<li>Bradley Hays</li>
+</p>
