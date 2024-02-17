@@ -26,6 +26,8 @@
 .vs/
 .vsconfig/
 /CulinaryCalamity/.vsconfig/
+.vscode/
+/CulinaryCalamity/.vscode/
 
 # Gradle cache directory
 /CulinaryCalamity/.gradle/
