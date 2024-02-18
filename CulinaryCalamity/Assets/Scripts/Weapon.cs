@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Weapon : Item
 {
-    [SerializeField] private AnimationClip weaponAnim;
+    // allows us to assign and update animations
+    [SerializeField] private Animator weaponAnimator;
     private int weaponDmg;
 }
