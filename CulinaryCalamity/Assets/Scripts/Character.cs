@@ -33,6 +33,14 @@ public class Character : MonoBehaviour
         characterAnimations = animations;
     }
 
+    public Character(string name, Sprite sprite, float speed, List<Animation> animations) 
+    {
+        this.characterName = name;
+        this.mainSprite = sprite;
+        this.movementSpeed = speed;
+        this.characterAnimations = animations;
+    }
+
     public string getName() { return characterName; }
 }
 
