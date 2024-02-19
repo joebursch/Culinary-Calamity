@@ -5,13 +5,20 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     // Private instance variables
+
+    [SerializeField]
     private string characterName;
+    
     [SerializeField]
     private Sprite mainSprite;
-    private float movementSpeed;
-    private int characterHealth;
+    [SerializeField]
+    protected float movementSpeed;
+    [SerializeField]
+    protected int characterHealth;
     [SerializeField]
     private List<Animation> characterAnimations;
+    [SerializeField]
+    private Animator characterAnimator;
 
     public Character()
     {
