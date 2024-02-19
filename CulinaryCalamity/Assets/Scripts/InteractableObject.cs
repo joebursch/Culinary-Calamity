@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class InteractableObject : MonoBehaviour
+public interface InteractableObject
 {
-    // what key the object responds to (abstracted as InputAction)
-    [SerializeField] private InputAction interactionKey;
+    // public void Interact() => {}
 }

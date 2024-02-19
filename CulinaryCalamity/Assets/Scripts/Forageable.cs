@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Forageable : InteractableObject
+public class Forageable : MonoBehaviour, InteractableObject
 {
     // total wait time until forageable can be harvested again
     private int totalRespawnTime;
