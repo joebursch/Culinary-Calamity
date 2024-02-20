@@ -11,6 +11,7 @@ public class Player : Character
    private Questline questline;
    private Actions controlScheme = null;
    private Vector2 movementDir;
+   [SerializeField] private LayerMask solidObjectsLayer;
 
    void Awake() => controlScheme = new Actions();
 
@@ -20,11 +21,28 @@ public class Player : Character
 
    void movePlayer()
    {
-
+     // Get vector values for movement
      movementDir = controlScheme.Standard.Move.ReadValue<Vector2>();
+     // Limit movement to up/down/left/right (No diagonal movement)
      if(movementDir.x > 0 | movementDir.x < 0){movementDir.y = 0;}
-     transform.Translate(movementDir * movementSpeed * Time.deltaTime);
+     // Check if the target position is walkable
+     var targetPos = transform.position;
+     targetPos.x += movementDir.x;
+     targetPos.y += movementDir.y;
+     if(IsWalkable(targetPos))
+     {
+      transform.Translate(movementDir * movementSpeed * Time.deltaTime);
+     }
+   }
 
+   private bool IsWalkable(Vector3 targetPos)
+   {
+      if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+      {
+        return false;
+      }
+
+      return true;
    }
 
    // Player movement 
