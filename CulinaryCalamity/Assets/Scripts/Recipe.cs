@@ -6,6 +6,6 @@ public class Recipe : MonoBehaviour
 {
     private string recipeName;
     private List<Ingredient> ingredients;
-    private Sprite ingSprite;
+    private Sprite recipeSprite;
     private int rewardAmount;
 }
