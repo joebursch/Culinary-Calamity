@@ -5,8 +5,6 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     // Private instance variables
-
-    
     [SerializeField] protected string characterName;
     [SerializeField] protected float movementSpeed;
     [SerializeField] protected int characterHealth;
