@@ -9,7 +9,6 @@ public class Player : Character
    [SerializeField] private List<Item> playerInventory; // Update to Inventory reference
    [SerializeField] private int amountOfGold;
    private Questline questline;
-   private int currentHealth; 
    private Actions controlScheme = null;
    private Vector2 movementDir;
 

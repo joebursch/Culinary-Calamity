@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected float movementSpeed;
     [SerializeField] protected int characterHealth;
     [SerializeField] protected Animator characterAnimator;
+    protected int currentHealth;
 }
 
 
