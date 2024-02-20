@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Savefile : MonoBehaviour
 {
-    private int playerHealth; // The player's health
-    private List<Item> inventory; // The player's inventory
-    private UnityEngine.SceneManagement.Scene currentScene; // Current scene player is in
-    private List<Character> allCharacterStats; // Stats of every character
-    private List<Quest> questStats; // Quest stats
-    private List<Minigame> minigameStats; // Minigame stats
-    private List<Item> items; // Items not in any inventory
+    private Player player; // To save player's health, inventory, and other information
+    private List<Character> allCharacterStats; // Get the information from every character in the game to trace position/status
+    private List<Quest> questStats;
+    private List<Minigame> minigameStats;
+    private List<Item> items; // Items not in any inventory (on ground, etc.)
 }
