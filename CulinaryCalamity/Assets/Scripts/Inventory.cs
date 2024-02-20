@@ -1,5 +1,5 @@
 public class Inventory : MonoBehaviour
 {
-    private List<Items> inventoryContents;
+    private List<Item> inventoryContents;
     private int maxInvSize;
 }
