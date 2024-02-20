@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Questline : MonoBehaviour
 {
-    private Dictionary<int, object[]> quests; // <int questID, [*quest stats*]>; // Quests within the questline 
-    private Item[] rewards; // Rewards for completing the questline.
-    private bool completed; // Is the questline finished?
+    private List<Quest> quests; // Quests within the questline 
+    private List<Item> rewards; // Rewards for completing the questline.
+    private bool questlineCompleted; // Is the questline finished?
 }
