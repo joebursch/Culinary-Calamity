@@ -24,8 +24,8 @@
 # Visual Studio cache directory
 /CulinaryCalamity/.vs/
 .vs/
-.vsconfig/
-/CulinaryCalamity/.vsconfig/
+.vsconfig
+/CulinaryCalamity/.vsconfig
 .vscode/
 /CulinaryCalamity/.vscode/
 

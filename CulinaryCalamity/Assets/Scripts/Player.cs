@@ -1,34 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[System.Serializable]
 public class Player : Character
 {
-   // Private instance variables
-   private int currentHealth; 
-   private List<string> playerInventory; // List of Items in future?
+   [SerializeField] private List<Item> playerInventory; // Update to Inventory reference
+   [SerializeField] private int amountOfGold;
+   private Questline questline;
+   private Actions controlScheme = null;
+   private Vector2 movementDir;
+   [SerializeField] private LayerMask solidObjectsLayer;
 
-   private int amountOfGold;
+   void Awake() => controlScheme = new Actions();
 
-   // public instance variables
-   public Animation attackAnimation;
-   public Animation cookingAnimation;
+   void OnEnable() => controlScheme.Standard.Enable();
 
+   void OnDestroy() => controlScheme.Standard.Disable();
 
-
-   // Constructors
-   public Player(string name, float speed, int health, List<string> inventory, int gold) : base(name, speed, health)
+   void movePlayer()
    {
-        playerInventory = inventory;
-        amountOfGold = gold; 
+     // Get vector values for movement
+     movementDir = controlScheme.Standard.Move.ReadValue<Vector2>();
+     // Limit movement to up/down/left/right (No diagonal movement)
+     if(movementDir.x > 0 | movementDir.x < 0){movementDir.y = 0;}
+     // Check if the target position is walkable
+     var targetPos = transform.position;
+     targetPos.x += movementDir.x;
+     targetPos.y += movementDir.y;
+     if(IsWalkable(targetPos))
+     {
+      transform.Translate(movementDir * movementSpeed * Time.deltaTime);
+     }
    }
 
-   public Player(string name, Sprite sprite, float speed, int health, List<Animation> animations, List<string> inventory, int gold, Animation attack, Animation cook) 
-    : base(name, sprite, speed, health, animations)
+   private bool IsWalkable(Vector3 targetPos)
    {
-        playerInventory = inventory;
-        amountOfGold = gold; 
-        attackAnimation = attack;
-        cookingAnimation = cook;
+      if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+      {
+        return false;
+      }
+
+      return true;
+   }
+
+   // Player movement 
+   void Update() 
+   {
+     movePlayer();
    }
 }
