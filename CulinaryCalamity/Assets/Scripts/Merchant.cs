@@ -2,16 +2,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Merchant : Character
+public class Merchant : Character, InteractableObject
 {
     private List<string> saleInventory;
     private int amountGold;
+    private readonly Dictionary<string, string> dialogue;
 
-    public Merchant(string name, Sprite sprite, float speed, List<Animation> animations, List<string> inventory, int amountGold) 
-    : base(name, sprite, speed, animations)
-    { 
-        this.saleInventory = inventory;
-        this.amountGold = amountGold;
-    }
 
 }
