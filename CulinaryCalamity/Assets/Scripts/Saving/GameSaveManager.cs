@@ -23,6 +23,10 @@ namespace Saving
             }
         }
 
+        public void SetSaveState(GameSaveState saveState)
+        {
+            _currentSaveState = saveState;
+        }
         public void SaveGame()
         {
             OnSave(EventArgs.Empty);

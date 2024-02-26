@@ -1,12 +1,10 @@
 using System.Collections.Generic;
-using UnityEngine;
 using Newtonsoft.Json;
 
 namespace Saving
 {
     public class GameSaveState
     {
-        // TODO: represent this in a way that can be JSON serialized or make a customer JSON serializer/deserializer
         private Dictionary<string, string> _savedObjects;
         public int SaveId { get; set; }
 
@@ -32,7 +30,18 @@ namespace Saving
 
         public void AddSaveData(string objectIdentifier, string objectSaveData)
         {
-            _savedObjects[objectIdentifier] = objectSaveData;
+            if (_savedObjects != null)
+            {
+                _savedObjects[objectIdentifier] = objectSaveData;
+            }
+            else
+            {
+                _savedObjects = new()
+                {
+                    { objectIdentifier, objectSaveData }
+                };
+            }
+
         }
 
         public string SerializeSaveState()

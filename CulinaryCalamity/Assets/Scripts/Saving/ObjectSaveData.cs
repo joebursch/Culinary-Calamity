@@ -9,9 +9,16 @@ namespace Saving
 
         public void UpdateSaveData(Dictionary<string, string> newSaveData)
         {
-            foreach (string key in newSaveData.Keys)
+            if (SaveData != null)
             {
-                SaveData[key] = newSaveData[key];
+                foreach (string key in newSaveData.Keys)
+                {
+                    SaveData[key] = newSaveData[key];
+                }
+            }
+            else
+            {
+                SaveData = newSaveData;
             }
         }
 

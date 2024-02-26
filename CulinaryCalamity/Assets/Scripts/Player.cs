@@ -17,10 +17,14 @@ public class Player : Character
     void Awake()
     {
         controlScheme = new Actions();
+        playerSaveData = new();
+    }
+
+    void Start()
+    {
         GameSaveManager.GetGameSaveManager().Save += OnSave;
         GameSaveManager.GetGameSaveManager().Load += OnLoad;
     }
-
     void OnEnable() => controlScheme.Standard.Enable();
 
     void OnDestroy() => controlScheme.Standard.Disable();
@@ -34,12 +38,14 @@ public class Player : Character
 
         playerSaveData.UpdateSaveData(playerData);
         GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", playerSaveData);
+        Debug.Log("Player saved");
     }
 
     public void OnLoad(object sender, EventArgs e)
     {
         playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
         characterName = playerSaveData.SaveData["PlayerName"];
+        Debug.Log("Player loaded");
     }
 
     void MovePlayer()
