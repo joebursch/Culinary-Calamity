@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Saving
 {
@@ -17,12 +16,12 @@ namespace Saving
             writer.Write(saveJson, true);
         }
 
-        public static GameSaveState ReadSaveData(string saveId)
+        public static GameSaveState ReadSaveData(int saveId)
         {
             string filepath = string.Format(_savePathFormat, saveId);
             using StreamReader reader = new(filepath);
             string saveJson = reader.ReadToEnd();
-            return GameSaveState.DeserializeSaveState(saveJson);
+            return GameSaveState.DeserializeSaveState(saveId, saveJson);
         }
 
         public static List<string> ListSaves()
