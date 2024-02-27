@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Saving;
 
+/// <summary>
+/// Used for testing Saving
+/// </summary>
 public class SaveTestLoader : MonoBehaviour
 {
     int saveid;
