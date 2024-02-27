@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Saving;
 using UnityEngine;
 
-[System.Serializable]
 public class Player : Character
 {
     [SerializeField] private List<Item> playerInventory; // Update to Inventory reference
@@ -29,6 +28,11 @@ public class Player : Character
 
     void OnDestroy() => controlScheme.Standard.Disable();
 
+    /// <summary>
+    /// Listener for the Save event. Pushes current state of the player to the GameSaveManager
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     public void OnSave(object sender, EventArgs e)
     {
         Dictionary<string, string> playerData = new()
@@ -41,6 +45,11 @@ public class Player : Character
         Debug.Log("Player saved");
     }
 
+    /// <summary>
+    /// Listener for the load event. Pulls save data from GameSaveManager and performs appropriate updates
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     public void OnLoad(object sender, EventArgs e)
     {
         playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
