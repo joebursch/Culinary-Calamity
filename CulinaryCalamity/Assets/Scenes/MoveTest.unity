@@ -270,10 +270,9 @@ MonoBehaviour:
   characterName: 
   movementSpeed: 3
   characterHealth: 3
-  characterAnimator: {fileID: 0}
-  playerInventory: []
-  amountOfGold: 0
-  solidObjectsLayer:
+  _playerInventory: {fileID: 0}
+  _amountOfGold: 0
+  _solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 0
 --- !u!212 &656367961

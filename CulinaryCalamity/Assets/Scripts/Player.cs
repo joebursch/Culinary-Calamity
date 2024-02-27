@@ -6,48 +6,58 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class Player : Character
 {
-   [SerializeField] private List<Item> playerInventory; // Update to Inventory reference
-   [SerializeField] private int amountOfGold;
-   private Questline questline;
-   private Actions controlScheme = null;
-   private Vector2 movementDir;
-   [SerializeField] private LayerMask solidObjectsLayer;
+    [SerializeField] private Inventory _playerInventory; // Update to Inventory reference
+    [SerializeField] private int _amountOfGold;
+    private Questline _questline;
+    private Actions _controlScheme = null;
+    private Vector2 _movementDir;
+    [SerializeField] private LayerMask _solidObjectsLayer;
 
-   void Awake() => controlScheme = new Actions();
+    void Awake()
+    {
+        _controlScheme = new Actions();
+        characterAnimator = GetComponent<Animator>();
+    }
 
-   void OnEnable() => controlScheme.Standard.Enable();
+    void OnEnable() => _controlScheme.Standard.Enable();
 
-   void OnDestroy() => controlScheme.Standard.Disable();
+    void OnDestroy() => _controlScheme.Standard.Disable();
 
-   void movePlayer()
-   {
-     // Get vector values for movement
-     movementDir = controlScheme.Standard.Move.ReadValue<Vector2>();
-     // Limit movement to up/down/left/right (No diagonal movement)
-     if(movementDir.x > 0 | movementDir.x < 0){movementDir.y = 0;}
-     // Check if the target position is walkable
-     var targetPos = transform.position;
-     targetPos.x += movementDir.x;
-     targetPos.y += movementDir.y;
-     if(IsWalkable(targetPos))
-     {
-      transform.Translate(movementDir * movementSpeed * Time.deltaTime);
-     }
-   }
+    void movePlayer()
+    {
+        // Get vector values for movement
+        _movementDir = _controlScheme.Standard.Move.ReadValue<Vector2>();
+        // Limit movement to up/down/left/right (No diagonal movement)
+        if (_movementDir.x > 0 | _movementDir.x < 0) { _movementDir.y = 0; }
+        if (_movementDir != Vector2.zero)
+        {
+            characterAnimator.SetFloat("moveX", _movementDir.x);
+            characterAnimator.SetFloat("moveY", _movementDir.y);
+            characterAnimator.SetBool("isWalking", true);
+        }
+        else { characterAnimator.SetBool("isWalking", false); }
+        // Check if the target position is walkable
+        if (IsWalkable())
+        {
+            transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
+        }
+    }
 
-   private bool IsWalkable(Vector3 targetPos)
-   {
-      if(Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
-      {
-        return false;
-      }
+    private bool IsWalkable()
+    {
+        var targetPos = transform.position;
+        targetPos.x += _movementDir.x;
+        targetPos.y += _movementDir.y;
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer) != null)
+        {
+            return false;
+        }
+        return true;
+    }
 
-      return true;
-   }
-
-   // Player movement 
-   void Update() 
-   {
-     movePlayer();
-   }
+    // Player update loop
+    void Update()
+    {
+        movePlayer();
+    }
 }
