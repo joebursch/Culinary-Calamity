@@ -42,7 +42,6 @@ public class Player : Character
 
         playerSaveData.UpdateSaveData(playerData);
         GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", playerSaveData);
-        Debug.Log("Player saved");
     }
 
     /// <summary>
@@ -54,7 +53,6 @@ public class Player : Character
     {
         playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
         characterName = playerSaveData.SaveData["PlayerName"];
-        Debug.Log("Player loaded");
     }
 
     void MovePlayer()
