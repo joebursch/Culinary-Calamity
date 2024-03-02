@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField] private List<Item> playerInventory; // Update to Inventory reference
-    [SerializeField] private int amountOfGold;
-    private Questline questline;
-    private Actions controlScheme = null;
-    private Vector2 movementDir;
-    [SerializeField] private LayerMask solidObjectsLayer;
+    [SerializeField] private Inventory _playerInventory; // Update to Inventory reference
+    [SerializeField] private int _amountOfGold;
+    private Questline _questline;
+    private Actions _controlScheme = null;
+    private Vector2 _movementDir;
+    private bool _running;
+    [SerializeField] private LayerMask _solidObjectsLayer;
     private ObjectSaveData playerSaveData;
+
+    enum PLAYER_STATS : int
+    {
+        Walk = 5,
+        Run = 10,
+    }
 
     void Awake()
     {
-        controlScheme = new Actions();
+        movementSpeed = (int)PLAYER_STATS.Walk;
+        _controlScheme = new Actions();
+        characterAnimator = GetComponent<Animator>();
         playerSaveData = new();
     }
 
@@ -24,9 +33,10 @@ public class Player : Character
         GameSaveManager.GetGameSaveManager().Save += OnSave;
         GameSaveManager.GetGameSaveManager().Load += OnLoad;
     }
-    void OnEnable() => controlScheme.Standard.Enable();
 
-    void OnDestroy() => controlScheme.Standard.Disable();
+    void OnEnable() => _controlScheme.Standard.Enable();
+
+    void OnDestroy() => _controlScheme.Standard.Disable();
 
     /// <summary>
     /// Listener for the Save event. Pushes current state of the player to the GameSaveManager
@@ -57,31 +67,61 @@ public class Player : Character
 
     void MovePlayer()
     {
-        // Get vector values for movement
-        movementDir = controlScheme.Standard.Move.ReadValue<Vector2>();
-        // Limit movement to up/down/left/right (No diagonal movement)
-        if (movementDir.x > 0 | movementDir.x < 0) { movementDir.y = 0; }
-        // Check if the target position is walkable
-        var targetPos = transform.position;
-        targetPos.x += movementDir.x;
-        targetPos.y += movementDir.y;
-        if (IsWalkable(targetPos))
+        _movementDir = GetMovementDirection();
+        CheckRunning();
+        ConfigureAnimator();
+        if (IsWalkable())
         {
-            transform.Translate(movementDir * movementSpeed * Time.deltaTime);
+            transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
         }
     }
 
-    private bool IsWalkable(Vector3 targetPos)
+    private Vector2 GetMovementDirection()
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer) != null)
+        var tempDir = _controlScheme.Standard.Move.ReadValue<Vector2>();
+        if (tempDir.x > 0 | tempDir.x < 0) { tempDir.y = 0; }
+        return tempDir;
+    }
+
+    private void CheckRunning()
+    {
+        if (_controlScheme.Standard.Run.triggered)
+        {
+            _running = !_running;
+            switch (movementSpeed)
+            {
+                case (int)PLAYER_STATS.Walk:
+                    movementSpeed = (int)PLAYER_STATS.Run;
+                    break;
+                default:
+                    movementSpeed = (int)PLAYER_STATS.Walk;
+                    break;
+            }
+        }
+    }
+
+    private void ConfigureAnimator()
+    {
+        bool moving = _movementDir != Vector2.zero;
+        characterAnimator.SetFloat("moveX", _movementDir.x);
+        characterAnimator.SetFloat("moveY", _movementDir.y);
+        characterAnimator.SetBool("isRunning", _running && moving);
+        characterAnimator.SetBool("isWalking", moving);
+    }
+
+    private bool IsWalkable()
+    {
+        var targetPos = transform.position;
+        targetPos.x += _movementDir.x;
+        targetPos.y += _movementDir.y;
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer) != null)
         {
             return false;
         }
-
         return true;
     }
 
-    // Player movement 
+    // Player update loop
     void Update()
     {
         MovePlayer();
