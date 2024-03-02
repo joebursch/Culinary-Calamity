@@ -64,7 +64,9 @@ public class Player : Character
         playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
         characterName = playerSaveData.SaveData["PlayerName"];
     }
-
+    /// <summary>
+    /// Method for facilitating player movement. 
+    /// </summary>
     void MovePlayer()
     {
         _movementDir = GetMovementDirection();
@@ -75,14 +77,19 @@ public class Player : Character
             transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
         }
     }
-
+    /// <summary>
+    /// Method for receiving player input. Restricts diagonal movement. 
+    /// </summary>
+    /// <returns>Vector2 representing direction of player movement</returns>
     private Vector2 GetMovementDirection()
     {
         var tempDir = _controlScheme.Standard.Move.ReadValue<Vector2>();
         if (tempDir.x > 0 | tempDir.x < 0) { tempDir.y = 0; }
         return tempDir;
     }
-
+    /// <summary>
+    /// Checks to see if the player has toggled sprinting. Updates movement speed accordingly. 
+    /// </summary>
     private void CheckRunning()
     {
         if (_controlScheme.Standard.Run.triggered)
@@ -99,16 +106,25 @@ public class Player : Character
             }
         }
     }
-
+    /// <summary>
+    /// Method for triggering correct animations. 
+    /// </summary>
     private void ConfigureAnimator()
     {
         bool moving = _movementDir != Vector2.zero;
-        characterAnimator.SetFloat("moveX", _movementDir.x);
-        characterAnimator.SetFloat("moveY", _movementDir.y);
+        // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
+        if(moving)
+        {
+            characterAnimator.SetFloat("moveX", _movementDir.x);
+            characterAnimator.SetFloat("moveY", _movementDir.y);
+        }
         characterAnimator.SetBool("isRunning", _running && moving);
         characterAnimator.SetBool("isWalking", moving);
     }
-
+    /// <summary>
+    /// Determines if the area the player is moving towards is obstructed. 
+    /// </summary>
+    /// <returns>A boolean value that determines if the player can move</returns>
     private bool IsWalkable()
     {
         var targetPos = transform.position;
