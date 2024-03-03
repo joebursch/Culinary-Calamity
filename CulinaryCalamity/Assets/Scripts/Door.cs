@@ -43,6 +43,6 @@ public class Door : MonoBehaviour, InteractableObject
 
     void Open()
     {
-        GetComponent<Player>().transform.position = doorLocation;
+        GetComponent<Player>().transform.position = doorOthersideLocation;
     }
 }
