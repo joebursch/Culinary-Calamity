@@ -6,9 +6,9 @@ public class Character : MonoBehaviour
 {
     // Private instance variables
     [SerializeField] protected string characterName;
-    [SerializeField] protected float movementSpeed;
+    protected int movementSpeed;
     [SerializeField] protected int characterHealth;
-    [SerializeField] protected Animator characterAnimator;
+    protected Animator characterAnimator;
     protected int currentHealth;
 }
 
