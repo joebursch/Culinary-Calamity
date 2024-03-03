@@ -2,7 +2,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public interface InteractableObject
+public abstract class InteractableObject : MonoBehaviour
 {
-    // public void Interact() => {}
+    protected bool playerCanPickUp;
+    protected bool playerCanUse;
+    protected int objectHealth;
+
+    public abstract void PickUp();
+
+    public abstract void Use();
+
+    public abstract void Hurt();
 }
