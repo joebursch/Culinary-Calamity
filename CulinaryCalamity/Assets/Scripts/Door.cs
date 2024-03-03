@@ -2,41 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : InteractableObject
+public class Door : MonoBehaviour, InteractableObject
 {
-    private Vector3 currentLocation;
+    private Vector3 doorLocation;
+    private Vector3 doorOthersideLocation;
+    private bool unlocked = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentLocation = transform.position;
+        doorLocation = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentLocation = transform.position;
+        doorLocation = transform.position;
     }
 
-    public override void PickUp()
+    public void PickUp()
     {
         // TODO Doors cannot be picked up
     }
 
-    public override void Use()
+    public void Use()
     {
-        if (playerCanUse)
+        if (unlocked)
         {
-            // TODO Implement getting player location (construct player?)
-            // if (Vector3.Distance(Player.GetPlayer().transform.position, transform.position) <= 5)
-            // {
-            //     // Door open
-            // }
+            if (Vector3.Distance(GetComponent<Player>().transform.position, doorLocation) <= 5)
+            {
+                Open();
+            }
         }
     }
 
-    public override void Hurt()
+    public void Hurt()
     {
         // TODO Implement player damaging a door
+    }
+
+    void Open()
+    {
+        GetComponent<Player>().transform.position = doorLocation;
     }
 }
