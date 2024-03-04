@@ -113,7 +113,7 @@ public class Player : Character
     {
         bool moving = _movementDir != Vector2.zero;
         // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
-        if(moving)
+        if (moving)
         {
             characterAnimator.SetFloat("moveX", _movementDir.x);
             characterAnimator.SetFloat("moveY", _movementDir.y);
@@ -130,7 +130,7 @@ public class Player : Character
         var targetPos = transform.position;
         targetPos.x += _movementDir.x;
         targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.01f, _solidObjectsLayer) != null)
         {
             return false;
         }
