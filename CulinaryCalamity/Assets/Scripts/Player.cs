@@ -12,6 +12,7 @@ public class Player : Character
     private Vector2 _movementDir;
     private bool _running;
     [SerializeField] private LayerMask _solidObjectsLayer;
+    [SerializeField] private LayerMask _interactableObjectsLayer;
     private ObjectSaveData playerSaveData;
 
     enum PLAYER_STATS : int
@@ -113,7 +114,7 @@ public class Player : Character
     {
         bool moving = _movementDir != Vector2.zero;
         // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
-        if(moving)
+        if (moving)
         {
             characterAnimator.SetFloat("moveX", _movementDir.x);
             characterAnimator.SetFloat("moveY", _movementDir.y);
@@ -130,16 +131,31 @@ public class Player : Character
         var targetPos = transform.position;
         targetPos.x += _movementDir.x;
         targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer) != null)
+        if (CheckCollision(targetPos, _interactableObjectsLayer | _solidObjectsLayer) != null)
         {
             return false;
         }
         return true;
     }
 
+    private void Interact()
+    {
+        var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
+        var interactPosition = transform.position + facingDir;
+        var collider = CheckCollision(interactPosition, _interactableObjectsLayer);
+        if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
+    }
+
+    private Collider2D CheckCollision(Vector3 targetPos, LayerMask targetLayer)
+    {
+        //Debug.Log("Checking Collision!");
+        return Physics2D.OverlapCircle(targetPos, 0.2f, targetLayer);
+    }
+
     // Player update loop
     void Update()
     {
         MovePlayer();
+        if (_controlScheme.Standard.Interact.triggered) { Interact(); }
     }
 }

@@ -8,5 +8,9 @@ public class Merchant : Character, InteractableObject
     private int amountGold;
     private readonly Dictionary<string, string> dialogue;
 
+    public void Interact()
+    {
+        Debug.Log("Merchant --> Implement Later");
+    }
 
 }

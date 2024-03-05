@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8da638c17b633bb4abd96b089fed0ca2
+guid: c922c720b5e147240a1827dc6b23f863
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,337 +123,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mainCharacter_0
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 193
-        width: 51
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7e419845650bb94390e70cecc065f33
-      internalID: 711829378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCharacter_1
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 194
-        width: 49
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e010dba1b9a17554683d2680881e404c
-      internalID: 537497867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCharacter_2
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 194
-        width: 51
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9152eb4883bcaa47afd9f9fa2ffed2e
-      internalID: -501122115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCharacter_3
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 194
-        width: 50
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef93483514cd5d54282ade5de135afbb
-      internalID: -2054339909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mainCharacter_4
+      name: berrytree_0
       rect:
         serializedVersion: 2
         x: 2
-        y: 129
-        width: 56
-        height: 61
+        y: 194
+        width: 26
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ad1deb5059ae814085bd9f87876cd67
-      internalID: -1157833821
+      spriteID: 56b98ae9de8a3b44997563f38ece0648
+      internalID: 797820649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_5
+      name: berrytree_1
       rect:
         serializedVersion: 2
-        x: 67
-        y: 129
-        width: 57
-        height: 62
+        x: 34
+        y: 194
+        width: 26
+        height: 20
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe8086cc9b9bf384e8dc08461f2c6ecb
-      internalID: 12488157
+      spriteID: d1c24076c038ac349970790582281c37
+      internalID: -1139693472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_6
+      name: berrytree_2
       rect:
         serializedVersion: 2
-        x: 129
+        x: 68
+        y: 194
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038d5a5e5cb16f7498c0be35a3296aa3
+      internalID: 826417634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berrytree_3
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 194
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ed1517f8ddd1a41be652b1d7b3f275
+      internalID: 897788323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berrytree_4
+      rect:
+        serializedVersion: 2
+        x: 2
         y: 130
-        width: 56
-        height: 59
+        width: 28
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc6c67c1ceaece14693c9b739155decf
-      internalID: -1773957628
+      spriteID: e3c673ee98b9c214bbbd1aeafc32d2b5
+      internalID: -1084872649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_7
+      name: berrytree_5
       rect:
         serializedVersion: 2
-        x: 192
+        x: 34
+        y: 131
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8020ccbf3b4121b4d90b63762de00f7a
+      internalID: -280624440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berrytree_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 131
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c30a2d6c69098484e9ab9cd7b31bd590
+      internalID: -608112665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: berrytree_7
+      rect:
+        serializedVersion: 2
+        x: 99
         y: 129
-        width: 57
-        height: 61
+        width: 26
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0d901cf2cab05b4984acf04174cbc92
-      internalID: -878311739
+      spriteID: cc47669c83ff9d547a424d7d7f2a6372
+      internalID: -451054240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_8
+      name: berrytree_8
       rect:
         serializedVersion: 2
-        x: 9
-        y: 65
-        width: 45
-        height: 61
+        x: 1
+        y: 66
+        width: 31
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8b0bd069725cf49b387f21661dca37
-      internalID: -1462428167
+      spriteID: 68cf99541728b4d43ab389b5ae968ad0
+      internalID: 876008634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_9
+      name: berrytree_9
       rect:
         serializedVersion: 2
-        x: 73
-        y: 65
-        width: 44
-        height: 62
+        x: 33
+        y: 66
+        width: 30
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43b27371494e58b4ea0d75be7a742d85
-      internalID: 2077637345
+      spriteID: 0b5aaf618dbc50641a96ee3c5f82556f
+      internalID: 1678713824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_10
+      name: berrytree_10
       rect:
         serializedVersion: 2
-        x: 137
-        y: 65
-        width: 45
-        height: 62
+        x: 65
+        y: 66
+        width: 31
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42373c9180c960043a1eabc686a40302
-      internalID: -1888786005
+      spriteID: 02f57925305530f4a8969374d08c4bc7
+      internalID: -958533788
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_11
+      name: berrytree_11
       rect:
         serializedVersion: 2
-        x: 203
-        y: 65
-        width: 44
-        height: 62
+        x: 98
+        y: 67
+        width: 29
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79df11b9c1d58bb44b9d866d2cd18feb
-      internalID: -687294287
+      spriteID: 43ca756ce2a5c3449b9bdd4467f3c8d6
+      internalID: 1726018953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_12
+      name: berrytree_12
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 51
-        height: 63
+        x: 1
+        y: 3
+        width: 30
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 111e1c308c3ec3949a9fe419527bdef4
-      internalID: 221053053
+      spriteID: 112b57d6ad6758245ae5e5d664a9c04d
+      internalID: 203616416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_13
+      name: berrytree_13
       rect:
         serializedVersion: 2
-        x: 73
-        y: 0
-        width: 51
-        height: 63
+        x: 33
+        y: 3
+        width: 29
+        height: 37
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf423d758b57f2d4d90b53888e4b9075
-      internalID: -1805190938
+      spriteID: d927bd5652a68c2428c3f03dc89bb55e
+      internalID: 451441114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_14
+      name: berrytree_14
       rect:
         serializedVersion: 2
-        x: 137
-        y: 0
-        width: 51
-        height: 63
+        x: 66
+        y: 4
+        width: 29
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bb897947e2ba544c9d0e2451b46c71f
-      internalID: 815419793
+      spriteID: 93854f0be49fd7345a86c51a2ab2a5d0
+      internalID: -1036883680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainCharacter_15
+      name: berrytree_15
       rect:
         serializedVersion: 2
-        x: 201
-        y: 0
-        width: 51
-        height: 63
+        x: 97
+        y: 2
+        width: 29
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97376fe0f4d50804eb23fa641014be3e
-      internalID: -1683087187
+      spriteID: d415c9d9858ba6a49b777dd3e46fb2e2
+      internalID: -487461062
       vertices: []
       indices: 
       edges: []
@@ -469,22 +469,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mainCharacter_0: 711829378
-      mainCharacter_1: 537497867
-      mainCharacter_10: -1888786005
-      mainCharacter_11: -687294287
-      mainCharacter_12: 221053053
-      mainCharacter_13: -1805190938
-      mainCharacter_14: 815419793
-      mainCharacter_15: -1683087187
-      mainCharacter_2: -501122115
-      mainCharacter_3: -2054339909
-      mainCharacter_4: -1157833821
-      mainCharacter_5: 12488157
-      mainCharacter_6: -1773957628
-      mainCharacter_7: -878311739
-      mainCharacter_8: -1462428167
-      mainCharacter_9: 2077637345
+      berrytree_0: -361267541
+      berrytree_1: -1424140322
+      berrytree_10: -451054240
+      berrytree_11: 876008634
+      berrytree_12: 1678713824
+      berrytree_13: -958533788
+      berrytree_14: 1726018953
+      berrytree_15: 203616416
+      berrytree_2: 933983363
+      berrytree_3: 797820649
+      berrytree_4: -1139693472
+      berrytree_5: 826417634
+      berrytree_6: 897788323
+      berrytree_7: -1084872649
+      berrytree_8: -280624440
+      berrytree_9: -608112665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
