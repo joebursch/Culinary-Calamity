@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField] private Inventory _playerInventory; // Update to Inventory reference
+    private Inventory _playerInventory;
     [SerializeField] private int _amountOfGold;
     private Questline _questline;
     private Actions _controlScheme = null;
@@ -13,6 +13,7 @@ public class Player : Character
     private bool _running;
     [SerializeField] private LayerMask _solidObjectsLayer;
     [SerializeField] private LayerMask _interactableObjectsLayer;
+    [SerializeField] private LayerMask _itemsLayer;
     private ObjectSaveData playerSaveData;
 
     enum PLAYER_STATS : int
@@ -23,6 +24,7 @@ public class Player : Character
 
     void Awake()
     {
+        _playerInventory = new Inventory();
         movementSpeed = (int)PLAYER_STATS.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -159,11 +161,23 @@ public class Player : Character
         //Debug.Log("Checking Collision!");
         return Physics2D.OverlapCircle(targetPos, 0.2f, targetLayer);
     }
-
+    /// <summary>
+    /// If the player collides with an item, add it to the inventory. 
+    /// </summary>
+    private void PickUpNearbyItems()
+    {
+        var collider = CheckCollision(transform.position, _itemsLayer);
+        if (collider != null)
+        {
+            _playerInventory.AddItem(collider.GetComponent<Item>());
+            Destroy(collider.gameObject);
+        }
+    }
     // Player update loop
     void Update()
     {
         MovePlayer();
         if (_controlScheme.Standard.Interact.triggered) { Interact(); }
+        PickUpNearbyItems();
     }
 }

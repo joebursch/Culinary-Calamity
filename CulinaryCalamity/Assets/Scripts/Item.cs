@@ -9,4 +9,14 @@ public class Item : MonoBehaviour
     [SerializeField] private Sprite _itemSprite;
     [SerializeField] private int _sellPrice;
     [SerializeField] private int _buyPrice;
+    public string GetName() { return _itemName; }
+
+    [SerializeField] private LayerMask _interactableObjectsLayer;
+
+
+
+    void Update()
+    {
+
+    }
 }
