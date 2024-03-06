@@ -137,7 +137,9 @@ public class Player : Character
         }
         return true;
     }
-
+    /// <summary>
+    /// When the player presses 'E', check for an interactable object in the facing direction. 
+    /// </summary>
     private void Interact()
     {
         var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
@@ -146,6 +148,12 @@ public class Player : Character
         if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
     }
 
+    /// <summary>
+    /// Check to see if there is a collider in the target position within the targeted layer
+    /// </summary>
+    /// <param name="targetPos">Position of target object</param>
+    /// <param name="targetLayer">Layer Mask of target object</param>
+    /// <returns></returns>
     private Collider2D CheckCollision(Vector3 targetPos, LayerMask targetLayer)
     {
         //Debug.Log("Checking Collision!");
