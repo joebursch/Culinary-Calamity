@@ -103,6 +103,7 @@ MonoBehaviour:
   _totalRespawnTime: 30
   _itemToDrop: {fileID: 8780667433805075240, guid: 0cb89633e68853d49a137d5f129092bb, type: 3}
   _itemsDropped: []
+  _minSpawnDistance: {x: 2, y: 2, z: 2}
 --- !u!50 &8511750560469517248
 Rigidbody2D:
   serializedVersion: 4

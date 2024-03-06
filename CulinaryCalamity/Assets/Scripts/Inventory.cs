@@ -19,7 +19,6 @@ public class Inventory
     /// <param name="item">Item to be added</param>
     public void AddItem(Item item)
     {
-        Debug.Log("Adding item to inventory: " + item.GetName());
         _inventoryContents.Add(item);
     }
 

@@ -158,7 +158,6 @@ public class Player : Character
     /// <returns></returns>
     private Collider2D CheckCollision(Vector3 targetPos, LayerMask targetLayer)
     {
-        //Debug.Log("Checking Collision!");
         return Physics2D.OverlapCircle(targetPos, 0.2f, targetLayer);
     }
     /// <summary>
@@ -166,7 +165,7 @@ public class Player : Character
     /// </summary>
     private void PickUpNearbyItems()
     {
-        var collider = CheckCollision(transform.position, _itemsLayer);
+        var collider = Physics2D.OverlapCircle(transform.position, 1.0f, _itemsLayer);
         if (collider != null)
         {
             _playerInventory.AddItem(collider.GetComponent<Item>());

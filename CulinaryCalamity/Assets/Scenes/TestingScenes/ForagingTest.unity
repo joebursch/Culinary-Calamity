@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1995883910540762399, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: _itemsLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5337579492851626028, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -425,6 +429,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4415534990220331452, guid: acfa56e16025be547b9612226c44b9fc, type: 3}
+      propertyPath: _minSpawnDistance.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4524755498485135396, guid: acfa56e16025be547b9612226c44b9fc, type: 3}
       propertyPath: m_Name
       value: BerryBush (2)
@@ -546,6 +554,10 @@ PrefabInstance:
     - target: {fileID: 4415534990220331452, guid: acfa56e16025be547b9612226c44b9fc, type: 3}
       propertyPath: _totalRespawnTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415534990220331452, guid: acfa56e16025be547b9612226c44b9fc, type: 3}
+      propertyPath: _minSpawnDistance.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4524755498485135396, guid: acfa56e16025be547b9612226c44b9fc, type: 3}
       propertyPath: m_Name

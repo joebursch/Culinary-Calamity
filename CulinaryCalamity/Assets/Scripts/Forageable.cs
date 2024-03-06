@@ -7,8 +7,7 @@ public class Forageable : MonoBehaviour, InteractableObject
     // total wait time until forageable can be harvested again
     [SerializeField] private int _totalRespawnTime;
     [SerializeField] private GameObject _itemToDrop;
-    // 1 or more items dropped when the forageable is harvested
-    [SerializeField] private List<GameObject> _itemsDropped;
+    [SerializeField] private Vector3 _minSpawnDistance;
     // amount of time passed since item drops
     private float _respawnTimer;
     // true if you can harvest an item from the forageable
@@ -18,7 +17,6 @@ public class Forageable : MonoBehaviour, InteractableObject
 
     void Awake()
     {
-        LoadItemsToDrop();
         _randomSpawnPosition = Vector3.zero;
         _forageableAnimator = GetComponent<Animator>();
     }
@@ -27,30 +25,19 @@ public class Forageable : MonoBehaviour, InteractableObject
     /// </summary>
     public void Interact()
     {
-        if (_itemsDropped.Count > 0) { SpawnItems(); }
+        if (!_isSpawned) { SpawnItems(); }
         ConfigureInteractAnimation(_isSpawned);
-    }
-    /// <summary>
-    /// Sets a random amount of items to be dropped. 
-    /// </summary>
-    private void LoadItemsToDrop()
-    {
-        var numItemsToAdd = Random.Range(1, 4);
-        for (int i = 0; i < numItemsToAdd; i++)
-        {
-            _itemsDropped.Add(_itemToDrop);
-        }
     }
     /// <summary>
     /// Spawn all of the available items.
     /// </summary>
     private void SpawnItems()
     {
-        for (int i = 0; i < _itemsDropped.Count; i++)
+        var numItemsToDrop = Random.Range(1, 3);
+        for (int i = 0; i < numItemsToDrop; i++)
         {
             SetRandomSpawnPosition();
-            Instantiate(_itemToDrop, transform.position + _randomSpawnPosition, Quaternion.identity);
-            _itemsDropped.Remove(_itemToDrop);
+            Instantiate(_itemToDrop, transform.position + _randomSpawnPosition + _minSpawnDistance, Quaternion.identity);
         }
         _isSpawned = true;
     }
@@ -83,25 +70,19 @@ public class Forageable : MonoBehaviour, InteractableObject
     /// </summary>
     private void CheckRespawn()
     {
-        if (_isSpawned && (int)_respawnTimer > _totalRespawnTime)
+        if ((int)_respawnTimer > _totalRespawnTime)
         {
             _forageableAnimator.Play("Idle");
             _respawnTimer = 0.0f;
-            ResetItems();
+            _isSpawned = false;
         }
     }
-    /// <summary>
-    /// Resets the items to be spawned. 
-    /// </summary>
-    private void ResetItems()
-    {
-        LoadItemsToDrop();
-        _isSpawned = false;
-    }
-
     void Update()
     {
-        _respawnTimer += Time.deltaTime;
-        CheckRespawn();
+        if (_isSpawned)
+        {
+            _respawnTimer += Time.deltaTime;
+            CheckRespawn();
+        }
     }
 }
