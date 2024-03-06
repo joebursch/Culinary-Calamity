@@ -133,7 +133,7 @@ public class Player : Character
         var targetPos = transform.position;
         targetPos.x += _movementDir.x;
         targetPos.y += _movementDir.y;
-        if (CheckCollision(targetPos, _interactableObjectsLayer | _solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, _interactableObjectsLayer | _solidObjectsLayer) != null)
         {
             return false;
         }
@@ -146,19 +146,8 @@ public class Player : Character
     {
         var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
         var interactPosition = transform.position + facingDir;
-        var collider = CheckCollision(interactPosition, _interactableObjectsLayer);
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
         if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
-    }
-
-    /// <summary>
-    /// Check to see if there is a collider in the target position within the targeted layer
-    /// </summary>
-    /// <param name="targetPos">Position of target object</param>
-    /// <param name="targetLayer">Layer Mask of target object</param>
-    /// <returns></returns>
-    private Collider2D CheckCollision(Vector3 targetPos, LayerMask targetLayer)
-    {
-        return Physics2D.OverlapCircle(targetPos, 0.2f, targetLayer);
     }
     /// <summary>
     /// If the player collides with an item, add it to the inventory. 
