@@ -5,27 +5,37 @@ using UnityEngine;
 
 public class Player : Character
 {
-    private Inventory _playerInventory;
-    [SerializeField] private int _amountOfGold;
-    private Questline _questline;
-    private Actions _controlScheme = null;
-    private Vector2 _movementDir;
-    private bool _running;
-    [SerializeField] private LayerMask _solidObjectsLayer;
-    [SerializeField] private LayerMask _interactableObjectsLayer;
-    [SerializeField] private LayerMask _itemsLayer;
-    private ObjectSaveData playerSaveData;
-
-    enum PLAYER_STATS : int
+    enum PLAYER_SPD : int
     {
         Walk = 5,
         Run = 10,
     }
 
+    #region Attributes
+    // inventory
+    private Inventory _playerInventory;
+    [SerializeField] private GameObject _inventoryPrefab;
+    [SerializeField] private int _amountOfGold;
+    // quests
+    private Questline _questline;
+    // movement
+    private Vector2 _movementDir;
+    private bool _running;
+    // layers
+    [SerializeField] private LayerMask _solidObjectsLayer;
+    [SerializeField] private LayerMask _interactableObjectsLayer;
+    [SerializeField] private LayerMask _itemsLayer;
+    // input
+    private Actions _controlScheme = null;
+    // saving
+    private ObjectSaveData playerSaveData;
+    #endregion
+
+    #region UnityBuiltIn
     void Awake()
     {
         _playerInventory = new Inventory();
-        movementSpeed = (int)PLAYER_STATS.Walk;
+        movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
         playerSaveData = new();
@@ -33,14 +43,30 @@ public class Player : Character
 
     void Start()
     {
-        GameSaveManager.GetGameSaveManager().Save += OnSave;
-        GameSaveManager.GetGameSaveManager().Load += OnLoad;
+        try
+        {
+            GameSaveManager.GetGameSaveManager().Save += OnSave;
+            GameSaveManager.GetGameSaveManager().Load += OnLoad;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("No Game Save Manager Found");
+        }
     }
 
     void OnEnable() => _controlScheme.Standard.Enable();
 
     void OnDestroy() => _controlScheme.Standard.Disable();
 
+    void Update()
+    {
+        MovePlayer();
+        if (_controlScheme.Standard.Interact.triggered) { Interact(); }
+        if (_controlScheme.Standard.OpenInventory.triggered) { OpenInventory(); }
+    }
+    #endregion
+
+    #region Saving
     /// <summary>
     /// Listener for the Save event. Pushes current state of the player to the GameSaveManager
     /// </summary>
@@ -67,6 +93,9 @@ public class Player : Character
         playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
         characterName = playerSaveData.SaveData["PlayerName"];
     }
+    #endregion
+
+    #region Movement
     /// <summary>
     /// Method for facilitating player movement. 
     /// </summary>
@@ -80,6 +109,7 @@ public class Player : Character
             transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
         }
     }
+
     /// <summary>
     /// Method for receiving player input. Restricts diagonal movement. 
     /// </summary>
@@ -90,6 +120,7 @@ public class Player : Character
         if (tempDir.x > 0 | tempDir.x < 0) { tempDir.y = 0; }
         return tempDir;
     }
+
     /// <summary>
     /// Checks to see if the player has toggled sprinting. Updates movement speed accordingly. 
     /// </summary>
@@ -100,15 +131,16 @@ public class Player : Character
             _running = !_running;
             switch (movementSpeed)
             {
-                case (int)PLAYER_STATS.Walk:
-                    movementSpeed = (int)PLAYER_STATS.Run;
+                case (int)PLAYER_SPD.Walk:
+                    movementSpeed = (int)PLAYER_SPD.Run;
                     break;
                 default:
-                    movementSpeed = (int)PLAYER_STATS.Walk;
+                    movementSpeed = (int)PLAYER_SPD.Walk;
                     break;
             }
         }
     }
+
     /// <summary>
     /// Method for triggering correct animations. 
     /// </summary>
@@ -124,6 +156,7 @@ public class Player : Character
         characterAnimator.SetBool("isRunning", _running && moving);
         characterAnimator.SetBool("isWalking", moving);
     }
+
     /// <summary>
     /// Determines if the area the player is moving towards is obstructed. 
     /// </summary>
@@ -139,6 +172,9 @@ public class Player : Character
         }
         return true;
     }
+    #endregion
+
+    #region Interaction
     /// <summary>
     /// When the player presses 'E', check for an interactable object in the facing direction. 
     /// </summary>
@@ -149,6 +185,7 @@ public class Player : Character
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
         if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
     }
+
     /// <summary>
     /// Executes when the player collides with something
     /// </summary>
@@ -161,10 +198,12 @@ public class Player : Character
             Destroy(collision.gameObject);
         }
     }
-    // Player update loop
-    void Update()
+    #endregion
+
+    #region Inventory
+    private void OpenInventory()
     {
-        MovePlayer();
-        if (_controlScheme.Standard.Interact.triggered) { Interact(); }
+        Instantiate(_inventoryPrefab, gameObject.transform);
     }
+    #endregion
 }
