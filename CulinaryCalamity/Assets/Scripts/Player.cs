@@ -150,15 +150,15 @@ public class Player : Character
         if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
     }
     /// <summary>
-    /// If the player collides with an item, add it to the inventory. 
+    /// Executes when the player collides with something
     /// </summary>
-    private void PickUpNearbyItems()
+    /// <param name="collision"></param>
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        var collider = Physics2D.OverlapCircle(transform.position, 1.0f, _itemsLayer);
-        if (collider != null)
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Items"))
         {
-            _playerInventory.AddItem(collider.GetComponent<Item>());
-            Destroy(collider.gameObject);
+            _playerInventory.AddItem(collision.gameObject.GetComponent<Item>());
+            Destroy(collision.gameObject);
         }
     }
     // Player update loop
@@ -166,6 +166,5 @@ public class Player : Character
     {
         MovePlayer();
         if (_controlScheme.Standard.Interact.triggered) { Interact(); }
-        PickUpNearbyItems();
     }
 }
