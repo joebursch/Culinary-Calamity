@@ -8,10 +8,12 @@ public class Forageable : MonoBehaviour, InteractableObject
     [SerializeField] private int _totalRespawnTime;
     [SerializeField] private GameObject _itemToDrop;
     [SerializeField] private Vector3 _minSpawnDistance;
+    [SerializeField] private int _minNumberOfDrops;
+    [SerializeField] private int _maxNumberOfDrops;
     // amount of time passed since item drops
     private float _respawnTimer;
     // true if you can harvest an item from the forageable
-    private bool _isSpawned;
+    private bool _itemsSpawned;
     private Vector3 _randomSpawnPosition;
     private Animator _forageableAnimator;
 
@@ -25,21 +27,21 @@ public class Forageable : MonoBehaviour, InteractableObject
     /// </summary>
     public void Interact()
     {
-        if (!_isSpawned) { SpawnItems(); }
-        ConfigureInteractAnimation(_isSpawned);
+        if (!_itemsSpawned) { SpawnItems(); }
+        ConfigureInteractAnimation(_itemsSpawned);
     }
     /// <summary>
     /// Spawn all of the available items.
     /// </summary>
     private void SpawnItems()
     {
-        var numItemsToDrop = Random.Range(1, 3);
+        var numItemsToDrop = Random.Range(_minNumberOfDrops, _maxNumberOfDrops);
         for (int i = 0; i < numItemsToDrop; i++)
         {
             SetRandomSpawnPosition();
             Instantiate(_itemToDrop, transform.position + _randomSpawnPosition + _minSpawnDistance, Quaternion.identity);
         }
-        _isSpawned = true;
+        _itemsSpawned = true;
     }
     /// <summary>
     /// Set a random spawn location for the item drops
@@ -70,16 +72,16 @@ public class Forageable : MonoBehaviour, InteractableObject
     /// </summary>
     private void CheckRespawn()
     {
-        if ((int)_respawnTimer > _totalRespawnTime)
+        if (_respawnTimer > _totalRespawnTime)
         {
             _forageableAnimator.Play("Idle");
             _respawnTimer = 0.0f;
-            _isSpawned = false;
+            _itemsSpawned = false;
         }
     }
     void Update()
     {
-        if (_isSpawned)
+        if (_itemsSpawned)
         {
             _respawnTimer += Time.deltaTime;
             CheckRespawn();
