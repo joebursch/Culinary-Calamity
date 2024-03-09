@@ -12,7 +12,7 @@ public class Forageable : MonoBehaviour, InteractableObject
     [SerializeField] private int _maxNumberOfDrops;
     // amount of time passed since item drops
     private float _respawnTimer;
-    // true if you can harvest an item from the forageable
+    // true if the forageable has spawned items to be picked up
     private bool _itemsSpawned;
     private Vector3 _randomSpawnPosition;
     private Animator _forageableAnimator;
