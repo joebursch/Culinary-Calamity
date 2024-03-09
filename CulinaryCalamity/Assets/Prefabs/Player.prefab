@@ -104,7 +104,10 @@ MonoBehaviour:
   _amountOfGold: 0
   _solidObjectsLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  _interactableObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!95 &2959650416833559264
 Animator:
   serializedVersion: 5

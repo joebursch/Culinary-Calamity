@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField] private Inventory _playerInventory; // Update to Inventory reference
+    private Inventory _playerInventory;
     [SerializeField] private int _amountOfGold;
     private Questline _questline;
     private Actions _controlScheme = null;
     private Vector2 _movementDir;
     private bool _running;
     [SerializeField] private LayerMask _solidObjectsLayer;
+    [SerializeField] private LayerMask _interactableObjectsLayer;
+    [SerializeField] private LayerMask _itemsLayer;
     private ObjectSaveData playerSaveData;
 
     enum PLAYER_STATS : int
@@ -22,6 +24,7 @@ public class Player : Character
 
     void Awake()
     {
+        _playerInventory = new Inventory();
         movementSpeed = (int)PLAYER_STATS.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -130,16 +133,39 @@ public class Player : Character
         var targetPos = transform.position;
         targetPos.x += _movementDir.x;
         targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.01f, _solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, _interactableObjectsLayer | _solidObjectsLayer) != null)
         {
             return false;
         }
         return true;
     }
-
+    /// <summary>
+    /// When the player presses 'E', check for an interactable object in the facing direction. 
+    /// </summary>
+    private void Interact()
+    {
+        var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
+        var interactPosition = transform.position + facingDir;
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
+        if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
+    }
+    /// <summary>
+    /// If the player collides with an item, add it to the inventory. 
+    /// </summary>
+    private void PickUpNearbyItems()
+    {
+        var collider = Physics2D.OverlapCircle(transform.position, 1.0f, _itemsLayer);
+        if (collider != null)
+        {
+            _playerInventory.AddItem(collider.GetComponent<Item>());
+            Destroy(collider.gameObject);
+        }
+    }
     // Player update loop
     void Update()
     {
         MovePlayer();
+        if (_controlScheme.Standard.Interact.triggered) { Interact(); }
+        PickUpNearbyItems();
     }
 }

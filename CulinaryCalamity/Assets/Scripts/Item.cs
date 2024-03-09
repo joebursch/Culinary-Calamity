@@ -4,9 +4,10 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // functions like a primary key
-    private int itemId;
-    private string itemName;
-    [SerializeField] private Sprite itemSprite;
-    private int sellPrice;
-    private int buyPrice;
+    [SerializeField] private int _itemId;
+    [SerializeField] private string _itemName;
+    [SerializeField] private Sprite _itemSprite;
+    [SerializeField] private int _sellPrice;
+    [SerializeField] private int _buyPrice;
+    public string GetName() { return _itemName; }
 }
