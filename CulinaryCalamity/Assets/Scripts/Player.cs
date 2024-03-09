@@ -13,9 +13,12 @@ public class Player : Character
 
     #region Attributes
     // inventory
+    [SerializeField] private int _amountOfGold;
     private Inventory _playerInventory;
     [SerializeField] private GameObject _inventoryPrefab;
-    [SerializeField] private int _amountOfGold;
+    private GameObject _inventoryScreen;
+    private bool _isInventoryOpen;
+
     // quests
     private Questline _questline;
     // movement
@@ -35,6 +38,7 @@ public class Player : Character
     void Awake()
     {
         _playerInventory = new Inventory();
+        _isInventoryOpen = false;
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -62,7 +66,7 @@ public class Player : Character
     {
         MovePlayer();
         if (_controlScheme.Standard.Interact.triggered) { Interact(); }
-        if (_controlScheme.Standard.OpenInventory.triggered) { OpenInventory(); }
+        if (_controlScheme.Standard.OpenInventory.triggered) { ToggleInventory(); }
     }
     #endregion
 
@@ -201,9 +205,19 @@ public class Player : Character
     #endregion
 
     #region Inventory
-    private void OpenInventory()
+    private void ToggleInventory()
     {
-        Instantiate(_inventoryPrefab, gameObject.transform);
+        if (_isInventoryOpen)
+        {
+            Destroy(_inventoryScreen);
+            _inventoryScreen = null;
+        }
+        else
+        {
+            _inventoryScreen = Instantiate(_inventoryPrefab, gameObject.transform);
+        }
+        _isInventoryOpen = !_isInventoryOpen;
+
     }
     #endregion
 }
