@@ -8,4 +8,9 @@ public class Npc : Character, InteractableObject
 
     private readonly Dictionary<string, string> dialogue;
 
+    public void Interact()
+    {
+        Debug.Log("NPC --> Implement Later");
+    }
+
 }
