@@ -215,6 +215,7 @@ public class Player : Character
         else
         {
             _inventoryScreen = Instantiate(_inventoryPrefab, gameObject.transform);
+            _inventoryScreen.GetComponent<InventoryManager>().SetInventory(_playerInventory);
         }
         _isInventoryOpen = !_isInventoryOpen;
 
