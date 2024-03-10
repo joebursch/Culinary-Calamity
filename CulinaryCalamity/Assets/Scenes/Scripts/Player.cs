@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField] private Inventory _playerInventory; // Update to Inventory reference
+    private Inventory _playerInventory;
     [SerializeField] private int _amountOfGold;
     private Questline _questline;
     private Actions _controlScheme = null;
     private Vector2 _movementDir;
     private bool _running;
-    public LayerMask _solidObjectsLayer;
+    [SerializeField] private LayerMask _solidObjectsLayer;
+    [SerializeField] private LayerMask _interactableObjectsLayer;
+    [SerializeField] private LayerMask _itemsLayer;
     private ObjectSaveData playerSaveData;
 
     enum PLAYER_STATS : int
@@ -22,6 +24,7 @@ public class Player : Character
 
     void Awake()
     {
+        _playerInventory = new Inventory();
         movementSpeed = (int)PLAYER_STATS.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -113,7 +116,7 @@ public class Player : Character
     {
         bool moving = _movementDir != Vector2.zero;
         // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
-        if(moving)
+        if (moving)
         {
             characterAnimator.SetFloat("moveX", _movementDir.x);
             characterAnimator.SetFloat("moveY", _movementDir.y);
@@ -130,16 +133,38 @@ public class Player : Character
         var targetPos = transform.position;
         targetPos.x += _movementDir.x;
         targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, _interactableObjectsLayer | _solidObjectsLayer) != null)
         {
             return false;
         }
         return true;
     }
-
+    /// <summary>
+    /// When the player presses 'E', check for an interactable object in the facing direction. 
+    /// </summary>
+    private void Interact()
+    {
+        var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
+        var interactPosition = transform.position + facingDir;
+        var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
+        if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
+    }
+    /// <summary>
+    /// Executes when the player collides with something
+    /// </summary>
+    /// <param name="collision"></param>
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Items"))
+        {
+            _playerInventory.AddItem(collision.gameObject.GetComponent<Item>());
+            Destroy(collision.gameObject);
+        }
+    }
     // Player update loop
     void Update()
     {
         MovePlayer();
+        if (_controlScheme.Standard.Interact.triggered) { Interact(); }
     }
 }

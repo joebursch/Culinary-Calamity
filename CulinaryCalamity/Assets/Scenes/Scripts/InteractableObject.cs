@@ -4,5 +4,5 @@ using UnityEngine.InputSystem;
 
 public interface InteractableObject
 {
-    // public void Interact() => {}
+    public void Interact();
 }
