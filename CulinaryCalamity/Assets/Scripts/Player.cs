@@ -13,11 +13,10 @@ public class Player : Character
 
     #region Attributes
     // inventory
+    [SerializeField] private GameObject _inventoryPrefab;
     [SerializeField] private int _amountOfGold;
     private Inventory _playerInventory;
-    [SerializeField] private GameObject _inventoryPrefab;
-    private GameObject _inventoryScreen;
-    private bool _isInventoryOpen;
+    private InventoryManager _inventoryManager;
 
     // quests
     private Questline _questline;
@@ -38,7 +37,6 @@ public class Player : Character
     void Awake()
     {
         _playerInventory = new Inventory();
-        _isInventoryOpen = false;
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -205,19 +203,25 @@ public class Player : Character
     #endregion
 
     #region Inventory
+    private InventoryManager CreateInventoryDisplay()
+    {
+        GameObject display = Instantiate(_inventoryPrefab, gameObject.transform);
+        InventoryManager displayMngr = display.GetComponent<InventoryManager>();
+        displayMngr.SetName(characterName);
+        displayMngr.SetInventory(_playerInventory);
+        return displayMngr;
+    }
+
     private void ToggleInventory()
     {
-        if (_isInventoryOpen)
+        if (_inventoryManager == null)
         {
-            Destroy(_inventoryScreen);
-            _inventoryScreen = null;
+            _inventoryManager = CreateInventoryDisplay();
         }
         else
         {
-            _inventoryScreen = Instantiate(_inventoryPrefab, gameObject.transform);
-            _inventoryScreen.GetComponent<InventoryManager>().SetInventory(_playerInventory);
+            _inventoryManager.ToggleInventory();
         }
-        _isInventoryOpen = !_isInventoryOpen;
 
     }
     #endregion
