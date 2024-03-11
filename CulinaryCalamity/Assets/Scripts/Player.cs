@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Saving;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : Character
 {
@@ -217,12 +218,18 @@ public class Player : Character
         if (_inventoryManager == null)
         {
             _inventoryManager = CreateInventoryDisplay();
+            _inventoryManager.InventoryClose += OnInventoryClose;
         }
         else
         {
             _inventoryManager.ToggleInventory();
         }
 
+    }
+
+    public void OnInventoryClose(object sender, EventArgs e)
+    {
+        ToggleInventory();
     }
     #endregion
 }
