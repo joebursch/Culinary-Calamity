@@ -1,42 +1,109 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour, InteractableObject
 {
     private Vector3 doorLocation;
     private Vector3 doorOthersideLocation;
     private bool unlocked = true;
+    private bool playerInside = false;
+    private string entryScene = "";
 
     // Start is called before the first frame update
     void Start()
     {
         doorLocation = transform.position;
+        doorOthersideLocation = transform.position;
+        // doorOthersideLocation = Other end TBD
     }
 
     // Update is called once per frame
     void Update()
     {
-        doorLocation = transform.position;
+        if (entryScene.Equals(""))
+        {
+            if (PlayerAtDoor())
+            {
+                if (Unlocked())
+                {
+                    Open();
+                }
+                else
+                {
+                    // TODO Door is locked.
+                }
+            }
+        }
+        else
+        {
+            if (PlayerAtDoor())
+            {
+                if (Unlocked())
+                {
+                    if (PlayerInside())
+                    {
+                        SceneManager.UnloadSceneAsync("House");
+                        Open();
+                    }
+                    else
+                    {
+                        SceneManager.LoadSceneAsync("House");
+                        Open();
+                    }
+                }
+                else
+                {
+                    // TODO Door is locked.
+                }
+            }
+        }
+        if (PlayerAtDoor() & entryScene.Equals(""))
+        {
+            Open();
+            GetComponent<Player>().transform.position = doorOthersideLocation;
+            SceneManager.UnloadSceneAsync("House");
+        }
+        else if(PlayerAtDoor() & !playerInside)
+        {
+            GetComponent<Player>().transform.position = doorOthersideLocation;
+            SceneManager.LoadSceneAsync("House");
+        }
     }
 
-    public void PickUp()
+    void PickUp()
     {
         // TODO Doors cannot be picked up
     }
 
-    public void Use()
+    bool PlayerAtDoor()
     {
-        if (unlocked)
+        return Vector3.Distance(GetComponent<Player>().transform.position, doorLocation) <= 5;
+    }
+
+    bool PlayerInside()
+    {
+        return playerInside;
+    }
+
+    bool Unlocked()
+    {
+        return unlocked;
+    }
+
+    void Use()
+    {
+        if (Unlocked())
         {
-            if (Vector3.Distance(GetComponent<Player>().transform.position, doorLocation) <= 5)
+            if (PlayerAtDoor())
             {
                 Open();
             }
         }
     }
 
-    public void Hurt()
+    void Hurt()
     {
         // TODO Implement player damaging a door
     }
