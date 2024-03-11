@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Items;
 
 
 public class Npc : Character, InteractableObject

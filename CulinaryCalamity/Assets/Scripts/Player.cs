@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Saving;
 using UnityEngine;
-using UnityEngine.UIElements;
+using Saving;
+using Inventory;
+using Quests;
+using Items;
 
 public class Player : Character
 {
@@ -16,7 +18,7 @@ public class Player : Character
     // inventory
     [SerializeField] private GameObject _inventoryPrefab;
     [SerializeField] private int _amountOfGold;
-    private Inventory _playerInventory;
+    private PlayerInventory _playerInventory;
     private InventoryManager _inventoryManager;
 
     // quests
@@ -37,7 +39,7 @@ public class Player : Character
     #region UnityBuiltIn
     void Awake()
     {
-        _playerInventory = new Inventory();
+        _playerInventory = new PlayerInventory();
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -197,7 +199,9 @@ public class Player : Character
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Items"))
         {
-            _playerInventory.AddItem(collision.gameObject.GetComponent<Item>());
+            Item item = collision.gameObject.GetComponent<Item>();
+            Item invItem = new(item.GetName(), item.GetSprite());
+            _playerInventory.AddItem(invItem);
             Destroy(collision.gameObject);
         }
     }
