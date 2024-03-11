@@ -1,12 +1,11 @@
-
-using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
 public class Forageable : MonoBehaviour, InteractableObject
 {
     // total wait time until forageable can be harvested again
     [SerializeField] private int _totalRespawnTime;
-    [SerializeField] private GameObject _itemToDrop;
+    [SerializeField] private int _itemIdToDrop; // must be int to assign in editor, must be cast to ItemId enum when used
     [SerializeField] private Vector3 _minSpawnDistance;
     [SerializeField] private int _minNumberOfDrops;
     [SerializeField] private int _maxNumberOfDrops;
@@ -39,7 +38,7 @@ public class Forageable : MonoBehaviour, InteractableObject
         for (int i = 0; i < numItemsToDrop; i++)
         {
             SetRandomSpawnPosition();
-            Instantiate(_itemToDrop, transform.position + _randomSpawnPosition + _minSpawnDistance, Quaternion.identity);
+            ItemManager.GetItemManager().SpawnItem((ItemId)_itemIdToDrop, transform.position + _randomSpawnPosition + _minSpawnDistance, Quaternion.identity);
         }
         _itemsSpawned = true;
     }

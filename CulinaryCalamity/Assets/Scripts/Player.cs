@@ -200,8 +200,7 @@ public class Player : Character
         if (collision.gameObject.layer == LayerMask.NameToLayer("Items"))
         {
             Item item = collision.gameObject.GetComponent<Item>();
-            Item invItem = new(item.GetName(), item.GetSprite());
-            _playerInventory.AddItem(invItem);
+            _playerInventory.AddItem(item.GetItemId());
             Destroy(collision.gameObject);
         }
     }

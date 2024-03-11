@@ -79,20 +79,20 @@ namespace Inventory
 
         private void BuildItemTiles()
         {
-            foreach (Tuple<Item, int> item in _playerInventory.InventoryContents)
-            {
-                GameObject itemTile = Instantiate(_itemTilePrefab, _contentsPanel.transform);
-                itemTile.SetActive(false);
-                GameObject itemSprite = itemTile.transform.GetChild((int)ItemTileChildren.image).gameObject;
-                GameObject itemName = itemTile.transform.GetChild((int)ItemTileChildren.name).gameObject;
-                GameObject itemAmount = itemTile.transform.GetChild((int)ItemTileChildren.amount).gameObject;
+            // foreach (Tuple<ItemId, int> item in _playerInventory.InventoryContents)
+            // {
+            //     GameObject itemTile = Instantiate(_itemTilePrefab, _contentsPanel.transform);
+            //     itemTile.SetActive(false);
+            //     GameObject itemSprite = itemTile.transform.GetChild((int)ItemTileChildren.image).gameObject;
+            //     GameObject itemName = itemTile.transform.GetChild((int)ItemTileChildren.name).gameObject;
+            //     GameObject itemAmount = itemTile.transform.GetChild((int)ItemTileChildren.amount).gameObject;
 
-                itemSprite.GetComponent<Image>().sprite = item.Item1.GetSprite();
-                itemName.GetComponent<TextMeshProUGUI>().text = item.Item1.GetName();
-                itemAmount.GetComponent<TextMeshProUGUI>().text = "x" + item.Item2.ToString();
+            //     itemSprite.GetComponent<Image>().sprite = item.Item1.GetSprite();
+            //     itemName.GetComponent<TextMeshProUGUI>().text = item.Item1.GetName();
+            //     itemAmount.GetComponent<TextMeshProUGUI>().text = "x" + item.Item2.ToString();
 
-                _itemTiles.Add(itemTile);
-            }
+            //     _itemTiles.Add(itemTile);
+            // }
         }
 
         private void PlaceItemTiles()
