@@ -415,6 +415,8 @@ GameObject:
   - component: {fileID: 4754188633986188530}
   - component: {fileID: 2659000914266513277}
   - component: {fileID: 7404642485728825468}
+  - component: {fileID: 2473097250590138383}
+  - component: {fileID: 8357313938077293968}
   m_Layer: 5
   m_Name: InventoryScreen
   m_TagString: Untagged
@@ -529,6 +531,51 @@ MonoBehaviour:
   _sprite: {fileID: 8344763789647228051}
   _name: {fileID: 6175973740440389583}
   _gold: {fileID: 5000742868639766610}
+--- !u!114 &2473097250590138383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907470846725598127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &8357313938077293968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907470846725598127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_PointAction: {fileID: -6214240447590868016, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_MoveAction: {fileID: 8094661347657677629, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_SubmitAction: {fileID: -3648208948185868635, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_CancelAction: {fileID: -2531226793175614878, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_LeftClickAction: {fileID: 108787244193556675, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: -3229574401254454391, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_ScrollWheelAction: {fileID: -8311423795475760037, guid: 3017e39259c3585408a8e809996dd0df, type: 3}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &5442663467871646145
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,7 +848,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4516515428447501523}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7404642485728825468}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: SetName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: works
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8344763789647228051
 GameObject:
   m_ObjectHideFlags: 0
