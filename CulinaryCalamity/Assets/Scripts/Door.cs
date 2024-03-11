@@ -44,12 +44,12 @@ public class Door : MonoBehaviour, InteractableObject
                 {
                     if (PlayerInside())
                     {
-                        SceneManager.UnloadSceneAsync("House");
+                        SceneManager.UnloadSceneAsync("Home");
                         Open();
                     }
                     else
                     {
-                        SceneManager.LoadSceneAsync("House");
+                        SceneManager.LoadSceneAsync("Home");
                         Open();
                     }
                 }
@@ -63,12 +63,12 @@ public class Door : MonoBehaviour, InteractableObject
         {
             Open();
             GetComponent<Player>().transform.position = doorOthersideLocation;
-            SceneManager.UnloadSceneAsync("House");
+            SceneManager.UnloadSceneAsync("Home");
         }
         else if(PlayerAtDoor() & !playerInside)
         {
             GetComponent<Player>().transform.position = doorOthersideLocation;
-            SceneManager.LoadSceneAsync("House");
+            SceneManager.LoadSceneAsync("Home");
         }
     }
 
