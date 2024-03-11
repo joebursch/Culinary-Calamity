@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +19,11 @@ public class StartScreen : MonoBehaviour
     public void ExitGame()
     {
         // Terminates the application, effectively ending the game.
-        Application.Quit();
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+            Application.Quit();
+#endif
     }
 }
 
