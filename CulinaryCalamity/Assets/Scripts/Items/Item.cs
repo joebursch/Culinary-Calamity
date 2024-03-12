@@ -11,6 +11,7 @@ namespace Items
         [SerializeField] private int _sellPrice;
         [SerializeField] private int _buyPrice;
 
+        // standard accessors
         public ItemId GetItemId() { return (ItemId)_itemId; }
         public string GetName() { return _itemName; }
         public Sprite GetSprite() { return _itemSprite; }

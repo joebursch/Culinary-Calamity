@@ -210,8 +210,9 @@ public class Player : Character
     private InventoryManager CreateInventoryDisplay()
     {
         GameObject display = Instantiate(_inventoryPrefab, gameObject.transform);
+        display.SetActive(false);
         InventoryManager displayMngr = display.GetComponent<InventoryManager>();
-        displayMngr.SetName(characterName);
+        displayMngr.SetPlayerName(characterName);
         displayMngr.SetInventory(_playerInventory);
         return displayMngr;
     }
@@ -223,10 +224,9 @@ public class Player : Character
             _inventoryManager = CreateInventoryDisplay();
             _inventoryManager.InventoryClose += OnInventoryClose;
         }
-        else
-        {
-            _inventoryManager.ToggleInventory();
-        }
+
+        _inventoryManager.ToggleInventory();
+
 
     }
 
