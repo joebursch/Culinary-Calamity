@@ -93,7 +93,7 @@ namespace Items
         /// <returns></returns>
         public string GetItemName(ItemId itemId)
         {
-            return _itemList[(int)itemId].GetComponent<Item>().GetName();
+            return GetItemPrefab(itemId).GetComponent<Item>().GetName();
         }
 
         /// <summary>

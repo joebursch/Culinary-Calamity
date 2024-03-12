@@ -99,7 +99,7 @@ namespace Inventory
                 xPos += _tilePrefabWidth;
                 if (idx % tilesInRow == 0)
                 {
-                    yPos += _tilePrefabHeight;
+                    yPos -= _tilePrefabHeight;
                 }
             }
         }

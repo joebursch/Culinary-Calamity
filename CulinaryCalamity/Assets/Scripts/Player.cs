@@ -207,6 +207,10 @@ public class Player : Character
     #endregion
 
     #region Inventory
+    /// <summary>
+    /// Instantiates the inventory menu as a child of player and returns a reference to it
+    /// </summary>
+    /// <returns></returns>
     private InventoryManager CreateInventoryDisplay()
     {
         GameObject display = Instantiate(_inventoryPrefab, gameObject.transform);
@@ -217,6 +221,9 @@ public class Player : Character
         return displayMngr;
     }
 
+    /// <summary>
+    /// Activates/Deactivates the inventory screen to display/hide it
+    /// </summary>
     private void ToggleInventory()
     {
         if (_inventoryManager == null)
@@ -230,6 +237,11 @@ public class Player : Character
 
     }
 
+    /// <summary>
+    /// Handles the InventoryClose event - necessary to allow closing from inventory menu button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     public void OnInventoryClose(object sender, EventArgs e)
     {
         ToggleInventory();
