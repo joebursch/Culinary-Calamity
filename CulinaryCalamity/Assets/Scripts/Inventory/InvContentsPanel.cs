@@ -79,6 +79,9 @@ namespace Inventory
             }
         }
 
+        /// <summary>
+        /// Positions the tiles in the correct location on the inventory panel
+        /// </summary>
         private void PlaceItemTiles()
         {
             int tilesInRow = (int)(_panelWidth / _tilePrefabWidth);
@@ -101,6 +104,9 @@ namespace Inventory
             }
         }
 
+        /// <summary>
+        /// Deletes existing item tiles
+        /// </summary>
         private void ResetItemTiles()
         {
             if (_itemTiles == null)
@@ -114,11 +120,14 @@ namespace Inventory
             }
         }
 
+        /// <summary>
+        /// Updates display based on current inventory.
+        /// </summary>
         public void RefreshDisplay()
         {
-            ResetItemTiles();
-            BuildItemTiles();
-            PlaceItemTiles();
+            ResetItemTiles(); // delete old tiles
+            BuildItemTiles(); // create new tiles
+            PlaceItemTiles(); // place new tiles
         }
 
     }
