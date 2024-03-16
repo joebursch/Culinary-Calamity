@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using UnityEngine;
 using Items;
+using UnityEngine;
 
 public class Creature : Character
 {
