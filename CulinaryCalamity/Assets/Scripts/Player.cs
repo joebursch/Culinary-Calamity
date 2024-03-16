@@ -1,10 +1,11 @@
+using Inventory;
+using Items;
+using Quests;
+using Saving;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Saving;
-using Inventory;
-using Quests;
-using Items;
+using UnityEngine.SceneManagement;
 
 public class Player : Character
 {
@@ -202,6 +203,32 @@ public class Player : Character
             Item item = collision.gameObject.GetComponent<Item>();
             _playerInventory.AddItem(item.GetItemId());
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("InteractableObjects"))
+        {
+            if (collision.gameObject.GetComponent<Door>() != null)
+            {
+                Door tempDoor = collision.gameObject.GetComponent<Door>();
+
+                if (tempDoor.IsActive())
+                {
+                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                    {
+                        transform.position = tempDoor.GetDestinationLocation();
+                    }
+                    else
+                    {
+                        SceneManager.LoadSceneAsync(tempDoor.GetDestinationSceneName());
+                        SceneManager.SetActiveScene(SceneManager.GetSceneByName(tempDoor.GetDestinationSceneName()));
+                        transform.position = tempDoor.GetDestinationLocation();
+                        SceneManager.UnloadSceneAsync(tempDoor.GetEntranceSceneName());
+                    }
+                }
+                else
+                {
+                    // TODO Implement passive doors
+                }
+            }
         }
     }
     #endregion

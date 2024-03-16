@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class Door : MonoBehaviour, InteractableObject
 {
-    [SerializeField] private Vector3 doorOthersideLocation;
-    [SerializeField] private bool unlocked = true;
-    private bool playerInside = false;
-    private string entryScene = "";
+    [SerializeField] Vector3 destinationLocation;
+    [SerializeField] bool unlocked = true;
+    [SerializeField] bool active = true;
+    [SerializeField] string entranceSceneName = "";
+    [SerializeField] string destinationSceneName = "";
 
     // Start is called before the first frame update
     void Start()
@@ -20,75 +18,36 @@ public class Door : MonoBehaviour, InteractableObject
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
-    void PickUp()
+    public void Interact()
     {
-        // TODO Doors cannot be picked up
+        throw new System.NotImplementedException();
     }
 
-    void OnCollisionEnter(Collision collision)
+    public Vector3 GetDestinationLocation()
     {
-        if(collision.collider == GetComponent<Player>())
-        {
-            Use();
-        }
+        return destinationLocation;
     }
 
-    bool PlayerInside()
-    {
-        return playerInside;
-    }
-
-    bool Unlocked()
+    public bool IsUnlocked()
     {
         return unlocked;
     }
 
-    void Use()
-    {
-        if (entryScene.Equals(""))
-        { 
-           if (Unlocked())
-                {
-                    Open();
-                    playerInside = true;
-                }
-                else
-                {
-                    // TODO Door is locked.
-                }
-        }
-        else
-        {
-            if (Unlocked())
-            {
-                if (PlayerInside())
-                {
-                    SceneManager.UnloadSceneAsync("Home");
-                    Open();
-                }
-                else
-                {
-                    SceneManager.LoadSceneAsync("Home");
-                    Open();
-                }
-            }
-            else
-            {
-                // TODO Door is locked.
-            }
-        }
+    public string GetEntranceSceneName()
+    { 
+        return entranceSceneName; 
     }
 
-    void Hurt()
-    {
-        // TODO Implement player damaging a door
+    public string GetDestinationSceneName()
+    { 
+        return destinationSceneName;
     }
 
-    void Open()
+    public bool IsActive()
     {
-        GetComponent<Player>().transform.position = doorOthersideLocation;
+        return active;
     }
 }
