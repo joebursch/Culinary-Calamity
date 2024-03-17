@@ -47,11 +47,7 @@ public class NPC : Character, InteractableObject
 
         if (wanderAroundSpawnpoint)
         {
-            if (Time.time <= _lastMoveTime + 3)
-            {
-                // waht
-            }
-            else if (Time.time > _lastMoveTime + 3 & Time.time <= _lastMoveTime + 10)
+            if (Time.time > _lastMoveTime + 3 & Time.time <= _lastMoveTime + 10)
             {
                 _movementDir = Vector2.zero;
             }
