@@ -206,11 +206,11 @@ public class Player : Character
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("InteractableObjects"))
         {
-            if (collision.gameObject.GetComponent<Door>() != null)
+            if (collision.gameObject.CompareTag("Door"))
             {
                 Door tempDoor = collision.gameObject.GetComponent<Door>();
 
-                if (tempDoor.IsActive())
+                if (!tempDoor.IsActive())
                 {
                     if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                     {
@@ -218,15 +218,9 @@ public class Player : Character
                     }
                     else
                     {
-                        SceneManager.LoadSceneAsync(tempDoor.GetDestinationSceneName());
-                        SceneManager.SetActiveScene(SceneManager.GetSceneByName(tempDoor.GetDestinationSceneName()));
+                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                         transform.position = tempDoor.GetDestinationLocation();
-                        SceneManager.UnloadSceneAsync(tempDoor.GetEntranceSceneName());
                     }
-                }
-                else
-                {
-                    // TODO Implement passive doors
                 }
             }
         }
