@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class NPC : Character, InteractableObject
 {
-    enum NPC_SPD : int
-    {
-        Walk = 5,
-    }
 
     // movement
     private Vector2 _movementDir = Vector2.zero;
@@ -17,12 +13,11 @@ public class NPC : Character, InteractableObject
     [SerializeField] private bool wanderAroundSpawnpoint;
     // layers
     [SerializeField] private LayerMask _solidObjectsLayer;
-    [SerializeField] private LayerMask _interactableObjectsLayer;
     [SerializeField] private LayerMask _itemsLayer;
 
     void Awake()
     {
-        movementSpeed = (int)NPC_SPD.Walk;
+        movementSpeed = 5;
         characterAnimator = GetComponent<Animator>();
     }
 
@@ -34,6 +29,17 @@ public class NPC : Character, InteractableObject
     void Update()
     {
         MoveNPC();
+    }
+
+    void MoveNPC(Vector2 moveTo)
+    {
+        _movementDir = moveTo;
+
+        ConfigureAnimator();
+        if (IsWalkable())
+        {
+            transform.Translate(movementSpeed * Time.deltaTime * _movementDir);
+        }
     }
 
     void MoveNPC()
