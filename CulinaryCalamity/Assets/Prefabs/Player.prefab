@@ -103,8 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterHealth: 3
-  _inventoryPrefab: {fileID: 2907470846725598127, guid: 1202ad8cd84555a4c8a353cd5cfa263f, type: 3}
   _amountOfGold: 0
+  _inventoryPrefab: {fileID: 2907470846725598127, guid: 1202ad8cd84555a4c8a353cd5cfa263f, type: 3}
   _solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 128
