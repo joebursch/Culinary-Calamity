@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPC : Character, InteractableObject
@@ -6,13 +7,14 @@ public class NPC : Character, InteractableObject
     enum NPC_SPD : int
     {
         Walk = 5,
-        Run = 10,
     }
 
     // movement
-    private Vector2 _movementDir;
-    private float _lastMoveTime;
-    private bool _running;
+    private Vector2 _movementDir = Vector2.zero;
+    private Vector2 _nextMoveDir;
+    private float _lastMoveTime = Time.time;
+    private bool _walkingBackNext = false;
+    [SerializeField] private bool wanderAroundSpawnpoint;
     // layers
     [SerializeField] private LayerMask _solidObjectsLayer;
     [SerializeField] private LayerMask _interactableObjectsLayer;
@@ -36,50 +38,61 @@ public class NPC : Character, InteractableObject
 
     void MoveNPC()
     {
-        _movementDir = Vector2.zero;
-
-        if (Time.time > _lastMoveTime + 8)
-        {
-            switch (UnityEngine.Random.Range(1, 5))
-            {
-                case 1:
-                    _movementDir = Vector2.up;
-                    break;
-                case 2:
-                    _movementDir = Vector2.down;
-                    break;
-                case 3:
-                    _movementDir = Vector2.right;
-                    break;
-                case 4:
-                    _movementDir = Vector2.up;
-                    break;
-            }
-            _lastMoveTime = Time.time;
-        }
-
-        CheckRunning();
         ConfigureAnimator();
         if (IsWalkable())
         {
-            transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
+            transform.Translate(movementSpeed * Time.deltaTime * _movementDir);
+        }
+
+
+        if (wanderAroundSpawnpoint)
+        {
+            if (Time.time <= _lastMoveTime + 3)
+            {
+                // waht
+            }
+            else if (Time.time > _lastMoveTime + 3 & Time.time <= _lastMoveTime + 10)
+            {
+                _movementDir = Vector2.zero;
+            }
+            else if (Time.time > _lastMoveTime + 10)
+            {
+                if (_walkingBackNext == false)
+                {
+                    PickWalkDirection(true);
+                    _lastMoveTime = Time.time;
+                    _walkingBackNext = true;
+                }
+                else
+                {
+                    _movementDir = _nextMoveDir;
+                    _lastMoveTime = Time.time;
+                    _walkingBackNext = false;
+                }
+            }
         }
     }
 
-    private void CheckRunning()
+    private void PickWalkDirection(bool setNextMove=false)
     {
-        if (movementSpeed == (int)NPC_SPD.Run)
+        switch (UnityEngine.Random.Range(1, 5))
         {
-            _running = !_running;
-            switch (movementSpeed)
-            {
-                case (int)NPC_SPD.Walk:
-                    movementSpeed = (int)NPC_SPD.Run;
-                    break;
-                default:
-                    movementSpeed = (int)NPC_SPD.Walk;
-                    break;
-            }
+            case 1:
+                _movementDir = Vector2.up;
+                if (setNextMove) { _nextMoveDir = Vector2.down; }
+                break;
+            case 2:
+                _movementDir = Vector2.down;
+                if (setNextMove) { _nextMoveDir = Vector2.up; }
+                break;
+            case 3:
+                _movementDir = Vector2.left;
+                if (setNextMove) { _nextMoveDir = Vector2.right; }
+                break;
+            case 4:
+                _movementDir = Vector2.right;
+                if (setNextMove) { _nextMoveDir = Vector2.left; }
+                break;
         }
     }
 
@@ -92,7 +105,6 @@ public class NPC : Character, InteractableObject
             characterAnimator.SetFloat("moveX", _movementDir.x);
             characterAnimator.SetFloat("moveY", _movementDir.y);
         }
-        characterAnimator.SetBool("isRunning", _running && moving);
         characterAnimator.SetBool("isWalking", moving);
     }
 
