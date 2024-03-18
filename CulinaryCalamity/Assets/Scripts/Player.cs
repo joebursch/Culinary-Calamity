@@ -28,8 +28,6 @@ public class Player : Character
     private Vector2 _movementDir;
     private bool _running;
     // layers
-    [SerializeField] private LayerMask _solidObjectsLayer;
-    [SerializeField] private LayerMask _interactableObjectsLayer;
     [SerializeField] private LayerMask _itemsLayer;
     // input
     private Actions _controlScheme = null;
@@ -109,8 +107,8 @@ public class Player : Character
     {
         _movementDir = GetMovementDirection();
         CheckRunning();
-        ConfigureAnimator();
-        if (IsWalkable())
+        ConfigureAnimator(_movementDir, _running);
+        if (IsWalkable(_movementDir))
         {
             transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
         }
@@ -145,38 +143,6 @@ public class Player : Character
                     break;
             }
         }
-    }
-
-    /// <summary>
-    /// Method for triggering correct animations. 
-    /// </summary>
-    private void ConfigureAnimator()
-    {
-        bool moving = _movementDir != Vector2.zero;
-        // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
-        if (moving)
-        {
-            characterAnimator.SetFloat("moveX", _movementDir.x);
-            characterAnimator.SetFloat("moveY", _movementDir.y);
-        }
-        characterAnimator.SetBool("isRunning", _running && moving);
-        characterAnimator.SetBool("isWalking", moving);
-    }
-
-    /// <summary>
-    /// Determines if the area the player is moving towards is obstructed. 
-    /// </summary>
-    /// <returns>A boolean value that determines if the player can move</returns>
-    private bool IsWalkable()
-    {
-        var targetPos = transform.position;
-        targetPos.x += _movementDir.x;
-        targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _interactableObjectsLayer | _solidObjectsLayer) != null)
-        {
-            return false;
-        }
-        return true;
     }
     #endregion
 
