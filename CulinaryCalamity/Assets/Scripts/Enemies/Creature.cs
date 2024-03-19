@@ -7,9 +7,10 @@ namespace Enemies
     public class Creature : Character
     {
 
+        // Represents possible states of a creature
         enum CREATURE_STATE : int
         {
-            Roaming = 0,
+            Wandering = 0,
             Hunting = 1,
             Retreating = 2,
         }
@@ -42,17 +43,23 @@ namespace Enemies
             _currentCreatureState = (int)CREATURE_STATE.Retreating;
         }
 
-
         #endregion
 
         #region Protected Management Functions
+
+        /// <summary>
+        /// Function that sets up the creature and it's states
+        /// </summary>
         protected void InitializeCreature()
         {
-            _currentCreatureState = (int)CREATURE_STATE.Roaming;
+            _currentCreatureState = (int)CREATURE_STATE.Wandering;
             characterAnimator = GetComponent<Animator>();
             _spawnPosition = transform.position;
             SetMovementDirection(); // Need to set wander direction off start so the creature moves
         }
+        /// <summary>
+        /// Manages creature behavior based on the creature's state
+        /// </summary>
         protected void ManageCreatureState()
         {
             _currentRoamTime += Time.deltaTime;
@@ -64,7 +71,7 @@ namespace Enemies
                 case (int)CREATURE_STATE.Retreating:
                     Retreat();
                     break;
-                default:
+                case (int)CREATURE_STATE.Wandering:
                     CheckDistanceFromSpawner();
                     Wander();
                     break;
@@ -73,6 +80,10 @@ namespace Enemies
         #endregion
 
         #region Private Helper Functions
+        /// <summary>
+        /// Checks to see if the creature is too far from the spawner.
+        /// Creature should return to the spawner if they have gone too far away. 
+        /// </summary>
         private void CheckDistanceFromSpawner()
         {
             var distanceOnXAxis = Mathf.Abs(transform.position.x - _spawnPosition.x);
@@ -82,12 +93,14 @@ namespace Enemies
                 _currentCreatureState = (int)CREATURE_STATE.Retreating;
             }
         }
-
+        /// <summary>
+        /// Sets movement vector based on creature state. 
+        /// </summary>
         private void SetMovementDirection()
         {
             switch (_currentCreatureState)
             {
-                case (int)CREATURE_STATE.Roaming:
+                case (int)CREATURE_STATE.Wandering:
                     _movementDir = GetWanderDirection();
                     break;
                 case (int)CREATURE_STATE.Hunting:
@@ -103,7 +116,10 @@ namespace Enemies
             }
 
         }
-
+        /// <summary>
+        /// Gets a random direction for wandering when the creature is in the wandering state. 
+        /// </summary>
+        /// <returns>Vector2</returns>
         private Vector2 GetWanderDirection()
         {
             Vector2 wanderVector = new Vector2();
@@ -128,6 +144,9 @@ namespace Enemies
         #endregion
 
         #region Creature States
+        /// <summary>
+        /// Method for behaviour when a creature is wandering. 
+        /// </summary>
         private void Wander()
         {
             if (_currentRoamTime > _creatureMaxRoamTimer)
@@ -142,14 +161,18 @@ namespace Enemies
             }
             else { SetMovementDirection(); }
         }
-
+        /// <summary>
+        /// Method for behaviour when a creature is hunting the player. 
+        /// </summary>
         private void Hunt()
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
             transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
         }
-
+        /// <summary>
+        /// Method for behaviour when a creature is returning to its spawn point. 
+        /// </summary>
         private void Retreat()
         {
             if (Vector3.Distance(transform.position, _spawnPosition) < 0.2f) { _currentCreatureState = (int)CREATURE_STATE.Roaming; return; }

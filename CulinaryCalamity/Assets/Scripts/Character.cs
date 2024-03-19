@@ -14,6 +14,11 @@ public class Character : MonoBehaviour
     [SerializeField] private LayerMask _solidObjectsLayer;
     [SerializeField] protected LayerMask _interactableObjectsLayer;
 
+    /// <summary>
+    /// Configures the animation state for all characters with an animator.
+    /// </summary>
+    /// <param name="movementDir">Direction of character movement</param>
+    /// <param name="running">Boolean for if the character is running</param>
     protected void ConfigureAnimator(Vector2 movementDir, bool running)
     {
         bool moving = movementDir != Vector2.zero;
@@ -26,6 +31,11 @@ public class Character : MonoBehaviour
         characterAnimator.SetBool("isWalking", moving);
     }
 
+    /// <summary>
+    /// Checks to see if the characters desired movement location is walkable
+    /// </summary>
+    /// <param name="movementDir"></param>
+    /// <returns></returns>
     protected bool IsWalkable(Vector2 movementDir)
     {
         var targetPos = transform.position;
