@@ -26,18 +26,6 @@ public class Character : MonoBehaviour
         characterAnimator.SetBool("isWalking", moving);
     }
 
-    protected void ConfigureAnimator(float moveX, float moveY, bool running)
-    {
-        bool moving = true;//movementDir != Vector2.zero;
-        if (moving)
-        {
-            characterAnimator.SetFloat("moveX", moveX);
-            characterAnimator.SetFloat("moveY", moveY);
-        }
-        characterAnimator.SetBool("isRunning", running && moving);
-        characterAnimator.SetBool("isWalking", moving);
-    }
-
     protected bool IsWalkable(Vector2 movementDir)
     {
         var targetPos = transform.position;

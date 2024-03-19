@@ -14,36 +14,46 @@ namespace Enemies
             Retreating = 2,
         }
 
-
+        #region Attributes
         [SerializeField] private int _creatureWalkSpeed;
         [SerializeField] private int _creatureRunSpeed;
-
         [SerializeField] private int _creatureMaxRoamTimer;
-
         [SerializeField] private int damage;
         [SerializeField] private Item dropItem;
-
         [SerializeField] private int _maxDistanceFromSpawn;
 
         private int _currentCreatureState;
-
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
         private GameObject _huntingTarget;
-
         private float _currentRoamTime;
+        #endregion
 
         #region UnityBuiltIn
-        void Awake()
+
+        void OnTriggerEnter2D(Collider2D collider2D)
+        {
+            _currentCreatureState = (int)CREATURE_STATE.Hunting;
+            _huntingTarget = collider2D.gameObject;
+        }
+        void OnTriggerExit2D(Collider2D collider2D)
+        {
+            _huntingTarget = null;
+            _currentCreatureState = (int)CREATURE_STATE.Retreating;
+        }
+
+
+        #endregion
+
+        #region Protected Management Functions
+        protected void InitializeCreature()
         {
             _currentCreatureState = (int)CREATURE_STATE.Roaming;
             characterAnimator = GetComponent<Animator>();
             _spawnPosition = transform.position;
-            SetWanderDirection(); // Need to set wander direction off start so the creature moves
+            SetMovementDirection(); // Need to set wander direction off start so the creature moves
         }
-
-
-        void Update()
+        protected void ManageCreatureState()
         {
             _currentRoamTime += Time.deltaTime;
             switch (_currentCreatureState)
@@ -60,21 +70,9 @@ namespace Enemies
                     break;
             }
         }
-
-        void OnTriggerEnter2D(Collider2D collider2D)
-        {
-            _currentCreatureState = (int)CREATURE_STATE.Hunting;
-            _huntingTarget = collider2D.gameObject;
-        }
-        void OnTriggerExit2D(Collider2D collider2D)
-        {
-            _huntingTarget = null;
-            _currentCreatureState = (int)CREATURE_STATE.Retreating;
-        }
-
-
         #endregion
 
+        #region Private Helper Functions
         private void CheckDistanceFromSpawner()
         {
             var distanceOnXAxis = Mathf.Abs(transform.position.x - _spawnPosition.x);
@@ -85,19 +83,56 @@ namespace Enemies
             }
         }
 
-        private void SetMovementDirection(Vector3 target)
+        private void SetMovementDirection()
         {
-            _movementDir.x = target.x - transform.position.x;
-            _movementDir.y = target.y - transform.position.y;
-            _movementDir.Normalize();
+            switch (_currentCreatureState)
+            {
+                case (int)CREATURE_STATE.Roaming:
+                    _movementDir = GetWanderDirection();
+                    break;
+                case (int)CREATURE_STATE.Hunting:
+                    _movementDir.x = _huntingTarget.transform.position.x - transform.position.x;
+                    _movementDir.y = _huntingTarget.transform.position.y - transform.position.y;
+                    _movementDir.Normalize();
+                    break;
+                case (int)CREATURE_STATE.Retreating:
+                    _movementDir.x = _spawnPosition.x - transform.position.x;
+                    _movementDir.y = _spawnPosition.y - transform.position.y;
+                    _movementDir.Normalize();
+                    break;
+            }
+
         }
 
-        #region Roaming
+        private Vector2 GetWanderDirection()
+        {
+            Vector2 wanderVector = new Vector2();
+            var wanderDirection = Random.Range(0, 4);
+            switch (wanderDirection)
+            {
+                case 0:
+                    wanderVector = Vector2.up;
+                    break;
+                case 1:
+                    wanderVector = Vector2.down;
+                    break;
+                case 2:
+                    wanderVector = Vector2.left;
+                    break;
+                case 3:
+                    wanderVector = Vector2.right;
+                    break;
+            }
+            return wanderVector;
+        }
+        #endregion
+
+        #region Creature States
         private void Wander()
         {
             if (_currentRoamTime > _creatureMaxRoamTimer)
             {
-                SetWanderDirection();
+                SetMovementDirection();
                 _currentRoamTime = 0;
             }
             ConfigureAnimator(_movementDir, false);
@@ -105,44 +140,20 @@ namespace Enemies
             {
                 transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
             }
-            else { SetWanderDirection(); }
+            else { SetMovementDirection(); }
         }
 
-        private void SetWanderDirection()
-        {
-            var wanderDirection = Random.Range(0, 4);
-            switch (wanderDirection)
-            {
-                case 0:
-                    _movementDir = Vector2.up;
-                    break;
-                case 1:
-                    _movementDir = Vector2.down;
-                    break;
-                case 2:
-                    _movementDir = Vector2.left;
-                    break;
-                case 3:
-                    _movementDir = Vector2.right;
-                    break;
-            }
-        }
-        #endregion
-
-        #region Hunting
         private void Hunt()
         {
-            SetMovementDirection(_huntingTarget.transform.position);
+            SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
             transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
         }
-        #endregion
 
-        #region Retreating
         private void Retreat()
         {
             if (Vector3.Distance(transform.position, _spawnPosition) < 0.2f) { _currentCreatureState = (int)CREATURE_STATE.Roaming; return; }
-            SetMovementDirection(_spawnPosition);
+            SetMovementDirection();
             ConfigureAnimator(_movementDir, false);
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
         }
