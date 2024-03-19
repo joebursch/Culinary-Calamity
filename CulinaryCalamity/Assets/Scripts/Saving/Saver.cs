@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace Saving
@@ -43,10 +45,10 @@ namespace Saving
         /// <returns>List of saves in no particular order</returns>
         public static List<string> ListSaves()
         {
-            List<string> saveList = (List<string>)Directory.EnumerateFiles(Application.persistentDataPath + '/', "*_save.json");
+            List<string> saveList = Directory.EnumerateFiles(Application.persistentDataPath + '/', "*_save.json").ToList<string>();
             for (int i = 0; i < saveList.Count; i++)
             {
-                saveList[i] = saveList[i].Split("_")[0];
+                saveList[i] = saveList[i].Split(Application.persistentDataPath + "/")[1].Split("_")[0];
             }
             return saveList;
         }
