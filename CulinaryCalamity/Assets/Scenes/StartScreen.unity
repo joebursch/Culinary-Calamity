@@ -1425,6 +1425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startMenu: {fileID: 1432347060}
+  _saveTilePrefab: {fileID: 0}
+  startScene: Home
 --- !u!1 &1778306533
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Saving
@@ -99,6 +100,14 @@ namespace Saving
             return saveData;
         }
 
+        /// <summary>
+        /// Get save file information for displaying in save selection menu
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetSaveFiles()
+        {
+            return Saver.ListSaves();
+        }
         /// <summary>
         /// Static getter matching singleton pattern.
         /// </summary>
