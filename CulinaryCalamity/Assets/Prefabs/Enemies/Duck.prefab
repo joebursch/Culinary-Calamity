@@ -123,17 +123,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterHealth: 0
-  _creatureWalkSpeed: 2
-  _creatureRunSpeed: 0
-  _creatureMaxRoamTimer: 5
-  damage: 0
-  dropItem: {fileID: 0}
   _solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 128
   _interactableObjectsLayer:
     serializedVersion: 2
     m_Bits: 256
+  _creatureWalkSpeed: 2
+  _creatureRunSpeed: 4
+  _creatureMaxRoamTimer: 5
+  damage: 0
+  dropItem: {fileID: 0}
+  _maxDistanceFromSpawn: 4
 --- !u!50 &4419304023263467740
 Rigidbody2D:
   serializedVersion: 4

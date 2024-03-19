@@ -21,9 +21,15 @@ public class Creature : Character
     [SerializeField] private int damage;
     [SerializeField] private Item dropItem;
 
+    [SerializeField] private int _maxDistanceFromSpawn;
+
+
+
     private int _currentCreatureState;
 
     private Vector2 _movementDir = Vector2.zero;
+    private Vector3 _spawnPosition;
+    private GameObject _huntingTarget;
 
     private float _currentRoamTime;
 
@@ -32,6 +38,7 @@ public class Creature : Character
     {
         _currentCreatureState = (int)CREATURE_STATE.Roaming;
         characterAnimator = GetComponent<Animator>();
+        _spawnPosition = transform.position;
         SetWanderDirection(); // Need to set wander direction off start so the creature moves
     }
 
@@ -42,21 +49,44 @@ public class Creature : Character
         switch (_currentCreatureState)
         {
             case (int)CREATURE_STATE.Hunting:
-                Debug.Log("Creature Hunting");
+                Hunt();
                 break;
             case (int)CREATURE_STATE.Retreating:
-                Debug.Log("Creature Retreating");
+                Retreat();
                 break;
             default:
+                CheckDistanceFromSpawner();
                 Wander();
                 break;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        _currentCreatureState = (int)CREATURE_STATE.Hunting;
+        _huntingTarget = collider2D.gameObject;
+    }
+    void OnTriggerExit2D(Collider2D collider2D)
+    {
+        _huntingTarget = null;
+        _currentCreatureState = (int)CREATURE_STATE.Retreating;
+    }
+
+
     #endregion
 
+    private void CheckDistanceFromSpawner()
+    {
+        var distanceOnXAxis = Mathf.Abs(transform.position.x - _spawnPosition.x);
+        var distanceOnYAxis = Mathf.Abs(transform.position.y - _spawnPosition.y);
+        if (distanceOnXAxis > _maxDistanceFromSpawn | distanceOnYAxis > _maxDistanceFromSpawn)
+        {
+            _currentCreatureState = (int)CREATURE_STATE.Retreating;
+        }
+    }
 
-    #region Movement
-    void Wander()
+    #region Roaming
+    private void Wander()
     {
         if (_currentRoamTime > _creatureMaxRoamTimer)
         {
@@ -71,7 +101,7 @@ public class Creature : Character
         else { SetWanderDirection(); }
     }
 
-    void SetWanderDirection()
+    private void SetWanderDirection()
     {
         var wanderDirection = Random.Range(0, 4);
         switch (wanderDirection)
@@ -80,18 +110,59 @@ public class Creature : Character
                 _movementDir = Vector2.up;
                 break;
             case 1:
-                //down
                 _movementDir = Vector2.down;
                 break;
             case 2:
-                //left
                 _movementDir = Vector2.left;
                 break;
             case 3:
-                //right
                 _movementDir = Vector2.right;
                 break;
         }
     }
     #endregion
+
+    #region Hunting
+    private void Hunt()
+    {
+        SetFacingDirection(_huntingTarget.transform.position);
+        ConfigureAnimator(_movementDir, true);
+        var step = _creatureRunSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _huntingTarget.transform.position, step);
+    }
+    #endregion
+
+    #region Retreating
+    private void Retreat()
+    {
+        if ((transform.position - _spawnPosition) == Vector3.zero) { _currentCreatureState = (int)CREATURE_STATE.Roaming; }
+        SetFacingDirection(_spawnPosition);
+        ConfigureAnimator(_movementDir, false);
+        var step = _creatureWalkSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, _spawnPosition, step);
+    }
+    #endregion
+
+    private void SetFacingDirection(Vector3 targetPosition)
+    {
+        var diffX = transform.position.x - targetPosition.x;
+        var diffY = transform.position.y - targetPosition.y;
+        if (Mathf.Abs(diffX) < 0.05f)
+        {
+            if (diffY < 0)
+            {
+                _movementDir = Vector2.up;
+            }
+            else { _movementDir = Vector2.down; }
+        }
+        else
+        {
+            if (diffX < 0)
+            {
+                _movementDir = Vector2.right;
+            }
+            else { _movementDir = Vector2.left; }
+        }
+
+    }
 }
