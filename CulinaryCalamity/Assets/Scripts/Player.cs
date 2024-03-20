@@ -23,7 +23,9 @@ public class Player : Character
     private InventoryManager _inventoryManager;
 
     // quests
+#pragma warning disable IDE0044, IDE0051
     private Questline _questline;
+#pragma warning restore IDE0051, IDE0051
     // movement
     private Vector2 _movementDir;
     private bool _running;
@@ -110,7 +112,7 @@ public class Player : Character
         ConfigureAnimator(_movementDir, _running);
         if (IsWalkable(_movementDir))
         {
-            transform.Translate(_movementDir * movementSpeed * Time.deltaTime);
+            transform.Translate(movementSpeed * Time.deltaTime * _movementDir);
         }
     }
 
@@ -133,6 +135,7 @@ public class Player : Character
         if (_controlScheme.Standard.Run.triggered)
         {
             _running = !_running;
+#pragma warning disable IDE0066
             switch (movementSpeed)
             {
                 case (int)PLAYER_SPD.Walk:
@@ -142,6 +145,7 @@ public class Player : Character
                     movementSpeed = (int)PLAYER_SPD.Walk;
                     break;
             }
+#pragma warning restore IDE0066
         }
     }
     #endregion
