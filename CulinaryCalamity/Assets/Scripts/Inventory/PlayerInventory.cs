@@ -16,6 +16,10 @@ namespace Inventory
         public int maxInvSize;
         private ObjectSaveData _inventorySaveData;
 
+
+        /// <summary>
+        /// Constructor. Initializes empty contents and ObjectSaveData.
+        /// </summary>
         public PlayerInventory()
         {
             InventoryContents = new();

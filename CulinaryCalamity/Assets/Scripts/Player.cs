@@ -73,6 +73,11 @@ public class Player : Character
     #endregion
 
     #region Saving
+    /// <summary>
+    /// Used in starting a new save. Just sets a players name.
+    /// </summary>
+    /// <param name="playerName"></param>
+    /// <returns></returns>
     public static ObjectSaveData CreateInitialPlayerSaveData(string playerName)
     {
         ObjectSaveData playerSaveData = new();
