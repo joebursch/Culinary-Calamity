@@ -517,6 +517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8447500419350099436, guid: 4fdb21e8961dffa448c88d5c7610a290, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -24,13 +24,14 @@ namespace Enemies
         [SerializeField] private int damage;
         [SerializeField] private Item dropItem;
         [SerializeField] private int _maxDistanceFromSpawn;
+        [SerializeField] protected float _creatureAttackSpeed;
 
         private int _currentCreatureState;
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
-        private GameObject _huntingTarget;
+        protected GameObject _huntingTarget;
         private float _currentWanderTime;
-
+        private float _timeSinceLastAttack;
         private AttackStrategy _attackStrategy;
         #endregion
 
@@ -155,7 +156,7 @@ namespace Enemies
         }
         private bool InAttackRange()
         {
-            if (Vector3.Distance(transform.position, _huntingTarget.transform.position) > _creatureAttackRange)
+            if (Mathf.Abs(Vector3.Distance(transform.position, _huntingTarget.transform.position)) > _creatureAttackRange)
             {
                 return false;
             }
@@ -188,7 +189,12 @@ namespace Enemies
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
-            if (InAttackRange()) { _attackStrategy.Attack(); }
+            if (InAttackRange() && _attackStrategy.CanAttack(_timeSinceLastAttack))
+            {
+                _timeSinceLastAttack = 0;
+                _attackStrategy.Attack();
+            }
+            else { _timeSinceLastAttack += Time.deltaTime; /*Not great -> probably change*/}
             if (IsWalkable(_movementDir))
             {
                 transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);

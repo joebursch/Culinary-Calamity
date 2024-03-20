@@ -7,6 +7,7 @@ namespace Attacks
     public interface AttackStrategy
     {
         public void Attack();
+        public bool CanAttack(float currentTime);
     }
 }
 

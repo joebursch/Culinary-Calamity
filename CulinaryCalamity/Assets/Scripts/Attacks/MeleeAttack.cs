@@ -10,6 +10,12 @@ namespace Attacks
         {
             Debug.Log("Melee Attack triggered!");
         }
+
+        public bool CanAttack(float currentTime)
+        {
+            // Implement Later
+            return false;
+        }
     }
 }
 

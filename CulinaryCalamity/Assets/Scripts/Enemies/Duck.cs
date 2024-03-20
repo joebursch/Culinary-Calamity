@@ -7,10 +7,13 @@ namespace Enemies
 {
     public class Duck : Creature
     {
+        [SerializeField] private GameObject _duckProjectile;
+        private AttackStrategy _attackStrategy;
         void Awake()
         {
-            AttackStrategy attackStrategy = new RangedAttack();
-            InitializeCreature(attackStrategy);
+
+            _attackStrategy = new RangedAttack(_duckProjectile, transform, _creatureAttackSpeed);
+            InitializeCreature(_attackStrategy);
         }
 
         void Update()

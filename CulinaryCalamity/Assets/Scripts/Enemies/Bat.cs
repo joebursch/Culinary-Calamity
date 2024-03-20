@@ -7,9 +7,10 @@ namespace Enemies
 {
     public class Bat : Creature
     {
+        [SerializeField] private GameObject _batProjectile;
         void Awake()
         {
-            AttackStrategy attackStrategy = new RangedAttack();
+            AttackStrategy attackStrategy = new RangedAttack(_batProjectile, transform, _creatureAttackSpeed);
             InitializeCreature(attackStrategy);
         }
 
