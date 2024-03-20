@@ -204,6 +204,7 @@ MonoBehaviour:
   _creatureWalkSpeed: 2
   _creatureRunSpeed: 3
   _creatureMaxWanderTime: 5
+  _creatureAttackRange: 5
   damage: 0
   dropItem: {fileID: 0}
   _maxDistanceFromSpawn: 5

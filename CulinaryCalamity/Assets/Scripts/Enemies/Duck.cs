@@ -1,12 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Attacks;
+
 namespace Enemies
 {
     public class Duck : Creature
     {
-        void Awake() => InitializeCreature();
+        void Awake()
+        {
+            AttackStrategy attackStrategy = new RangedAttack();
+            InitializeCreature(attackStrategy);
+        }
 
-        void Update() => ManageCreatureState();
+        void Update()
+        {
+            ManageCreatureState();
+        }
     }
 }

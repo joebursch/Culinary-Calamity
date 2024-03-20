@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using Attacks;
 
 namespace Enemies
 {
@@ -19,6 +20,7 @@ namespace Enemies
         [SerializeField] private int _creatureWalkSpeed;
         [SerializeField] private int _creatureRunSpeed;
         [SerializeField] private int _creatureMaxWanderTime;
+        [SerializeField] private float _creatureAttackRange;
         [SerializeField] private int damage;
         [SerializeField] private Item dropItem;
         [SerializeField] private int _maxDistanceFromSpawn;
@@ -28,6 +30,8 @@ namespace Enemies
         private Vector3 _spawnPosition;
         private GameObject _huntingTarget;
         private float _currentWanderTime;
+
+        private AttackStrategy _attackStrategy;
         #endregion
 
         #region UnityBuiltIn
@@ -57,8 +61,9 @@ namespace Enemies
         /// <summary>
         /// Function that sets up the creature and it's states
         /// </summary>
-        protected void InitializeCreature()
+        protected void InitializeCreature(AttackStrategy attackStrategy)
         {
+            _attackStrategy = attackStrategy;
             _currentCreatureState = (int)CREATURE_STATE.Wandering;
             characterAnimator = GetComponent<Animator>();
             _spawnPosition = transform.position;
@@ -148,6 +153,14 @@ namespace Enemies
             }
             return wanderVector;
         }
+        private bool InAttackRange()
+        {
+            if (Vector3.Distance(transform.position, _huntingTarget.transform.position) > _creatureAttackRange)
+            {
+                return false;
+            }
+            return true;
+        }
         #endregion
 
         #region Creature States
@@ -175,6 +188,7 @@ namespace Enemies
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
+            if (InAttackRange()) { _attackStrategy.Attack(); }
             if (IsWalkable(_movementDir))
             {
                 transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
