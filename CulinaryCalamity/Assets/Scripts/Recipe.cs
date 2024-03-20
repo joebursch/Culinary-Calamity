@@ -1,6 +1,6 @@
+using Items;
 using System.Collections.Generic;
 using UnityEngine;
-using Items;
 
 
 public class Recipe : MonoBehaviour

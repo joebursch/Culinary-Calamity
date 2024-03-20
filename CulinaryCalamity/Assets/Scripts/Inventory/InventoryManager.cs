@@ -1,6 +1,6 @@
-using UnityEngine;
-using System;
 using Items;
+using System;
+using UnityEngine;
 
 namespace Inventory
 {
