@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Newtonsoft.Json;
+using Unity.Loading;
 
 namespace Saving
 {
@@ -12,6 +14,7 @@ namespace Saving
     public static class Saver
     {
         private static readonly string _savePathFormat = Application.persistentDataPath + "/{0}_save.json";
+        private static string _saveIndexFilepath = Application.persistentDataPath + "/saveIndex.json";
 
         /// <summary>
         /// Write a save file.
@@ -43,14 +46,42 @@ namespace Saving
         /// Used to list available saves on the device without reading each save.
         /// </summary>
         /// <returns>List of saves in no particular order</returns>
-        public static List<string> ListSaves()
+        public static Dictionary<string, string> ListSaves()
         {
-            List<string> saveList = Directory.EnumerateFiles(Application.persistentDataPath + '/', "*_save.json").ToList<string>();
-            for (int i = 0; i < saveList.Count; i++)
+            string contents;
+            try
             {
-                saveList[i] = saveList[i].Split(Application.persistentDataPath + "/")[1].Split("_")[0];
+                using StreamReader reader = new(_saveIndexFilepath);
+                contents = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<Dictionary<string, string>>(contents);
             }
-            return saveList;
+            catch (FileNotFoundException)
+            {
+                return new();
+            }
+        }
+
+        /// <summary>
+        /// Adds a new save to the index
+        /// </summary>
+        /// <param name="saveId">id of save to add</param>
+        /// <param name="playerName">name of player in the save</param>
+        public static void UpdateSaveIndex(int saveId, string playerName)
+        {
+            Dictionary<string, string> saveIndexJson;
+            try
+            {
+                using StreamReader reader = new(_saveIndexFilepath);
+                string contents = reader.ReadToEnd();
+                saveIndexJson = JsonConvert.DeserializeObject<Dictionary<string, string>>(contents);
+            }
+            catch (FileNotFoundException)
+            {
+                saveIndexJson = new();
+            }
+            saveIndexJson[saveId.ToString()] = playerName;
+            using StreamWriter writer = new(_saveIndexFilepath);
+            writer.Write(JsonConvert.SerializeObject(saveIndexJson));
         }
     }
 }

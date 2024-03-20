@@ -148,7 +148,8 @@ namespace Saving
         public ObjectSaveData GetObjectSaveData(string objectIdentifier)
         {
             ObjectSaveData saveData = new();
-            saveData.Deserialize(_currentSaveState.GetSaveData(objectIdentifier));
+            string jsonString = _currentSaveState.GetSaveData(objectIdentifier);
+            if (jsonString != null) { saveData.Deserialize(jsonString); }
             return saveData;
         }
 
@@ -156,7 +157,7 @@ namespace Saving
         /// Get save file information for displaying in save selection menu
         /// </summary>
         /// <returns></returns>
-        public List<string> GetSaveFiles()
+        public Dictionary<string, string> GetSaveFiles()
         {
             return Saver.ListSaves();
         }

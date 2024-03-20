@@ -50,8 +50,8 @@ public class SaveSelectionMenu : MonoBehaviour
     /// </summary>
     public void OnEnable()
     {
-        List<string> saveFileIds = GameSaveManager.GetGameSaveManager().GetSaveFiles();
-        _saveTiles = CreateSaveTiles(saveFileIds);
+        Dictionary<string, string> saveFileInfo = GameSaveManager.GetGameSaveManager().GetSaveFiles();
+        _saveTiles = CreateSaveTiles(saveFileInfo);
     }
 
     /// <summary>
@@ -78,18 +78,20 @@ public class SaveSelectionMenu : MonoBehaviour
     /// </summary>
     /// <param name="saveFileIds"></param>
     /// <returns></returns>
-    private List<GameObject> CreateSaveTiles(List<string> saveFileIds)
+    private List<GameObject> CreateSaveTiles(Dictionary<string, string> saveFileInfo)
     {
         float offset = (_saveListContainer.GetComponent<RectTransform>().rect.height / 2) - (_saveTilePrefab.GetComponent<RectTransform>().rect.height / 2);
         List<GameObject> saveTiles = new();
         GameObject tile;
+        List<string> saveFileIds = saveFileInfo.Keys.ToList();
         for (int idx = 0; idx < saveFileIds.Count; idx++)
         {
+            string _saveFileId = saveFileIds[idx];
             tile = Instantiate(_saveTilePrefab, _saveListContainer.transform);
             tile.GetComponent<RectTransform>().localPosition += new Vector3(0, -(85 * idx) + offset, 0);
-            tile.GetComponentInChildren<TextMeshProUGUI>().text = saveFileIds[idx];
+            tile.GetComponentInChildren<TextMeshProUGUI>().text = saveFileInfo[_saveFileId];
             int _idx = idx;
-            tile.GetComponent<Button>().onClick.AddListener(() => SelectSave(saveFileIds[_idx]));
+            tile.GetComponent<Button>().onClick.AddListener(() => SelectSave(_saveFileId));
             saveTiles.Append(tile);
 
         }
