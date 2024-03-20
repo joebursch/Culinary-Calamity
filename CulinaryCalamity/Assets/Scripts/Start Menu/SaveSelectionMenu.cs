@@ -36,6 +36,16 @@ public class SaveSelectionMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Method called when a user clicks on a save tile to load that save
+    /// </summary>
+    /// <param name="saveId"></param>
+    public void SelectSave(string saveId)
+    {
+        GameSaveManager.GetGameSaveManager().LoadGame(int.Parse(saveId));
+        SceneManager.LoadScene(StartScene);
+    }
+
+    /// <summary>
     /// Called when the SaveMenu is activated. Loads saves and creates the save tiles
     /// </summary>
     public void OnEnable()
@@ -86,13 +96,5 @@ public class SaveSelectionMenu : MonoBehaviour
         return saveTiles;
     }
 
-    /// <summary>
-    /// Method called when a user clicks on a save tile to load that save
-    /// </summary>
-    /// <param name="saveId"></param>
-    public void SelectSave(string saveId)
-    {
-        GameSaveManager.GetGameSaveManager().LoadGame(int.Parse(saveId));
-        SceneManager.LoadScene(StartScene);
-    }
+
 }

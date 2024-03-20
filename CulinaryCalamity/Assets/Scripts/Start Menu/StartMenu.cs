@@ -4,6 +4,7 @@ using UnityEngine;
 public class StartMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _saveSelectMenu;
+
     /// <summary>
     /// Method called when the "Start" button is clicked.
     /// </summary>

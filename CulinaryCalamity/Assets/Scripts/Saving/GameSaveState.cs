@@ -20,6 +20,25 @@ namespace Saving
         }
 
         /// <summary>
+        /// Should only be used for completely new playthroughs
+        /// </summary>
+        /// <param name="playerName"></param>
+        public GameSaveState(string playerName)
+        {
+            SaveId = (int)System.DateTimeOffset.Now.ToUnixTimeSeconds(); //unique saveId
+
+            // set player name
+            // TODO: make a default playerSveData thing and just use that
+            ObjectSaveData playerSaveData = new ObjectSaveData();
+            Dictionary<string, string> playerData = new()
+            {
+                { "PlayerName", playerName }
+            };
+            playerSaveData.UpdateSaveData(playerData);
+            AddSaveData("PlayerObject", playerSaveData.Serialize());
+        }
+
+        /// <summary>
         /// Should only be used for existing playthroughs. Intentionally private.
         /// Accessed through the static DeserializeSaveState method
         /// </summary>
