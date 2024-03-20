@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2943541993237447116}
   - component: {fileID: 8604912147315826665}
   - component: {fileID: 4393239964828354891}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TestDuckProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _projectileSpeed: 4
   _projectileDamage: 0
+  _projectileLifetime: 2
 --- !u!61 &8604912147315826665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +109,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7836695322194927708}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

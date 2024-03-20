@@ -8,12 +8,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _projectileSpeed;
 
     [SerializeField] private int _projectileDamage;
+    [SerializeField] private float _projectileLifetime;
 
     #region UnityBuiltIn
 
     void Awake()
     {
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, _projectileLifetime);
     }
     void Update()
     {
@@ -23,7 +24,7 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
 
