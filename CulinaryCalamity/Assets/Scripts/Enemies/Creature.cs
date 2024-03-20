@@ -18,7 +18,7 @@ namespace Enemies
         #region Attributes
         [SerializeField] private int _creatureWalkSpeed;
         [SerializeField] private int _creatureRunSpeed;
-        [SerializeField] private int _creatureMaxRoamTimer;
+        [SerializeField] private int _creatureMaxWanderTime;
         [SerializeField] private int damage;
         [SerializeField] private Item dropItem;
         [SerializeField] private int _maxDistanceFromSpawn;
@@ -27,20 +27,27 @@ namespace Enemies
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
         private GameObject _huntingTarget;
-        private float _currentRoamTime;
+        private float _currentWanderTime;
         #endregion
 
         #region UnityBuiltIn
 
         void OnTriggerEnter2D(Collider2D collider2D)
         {
-            _currentCreatureState = (int)CREATURE_STATE.Hunting;
-            _huntingTarget = collider2D.gameObject;
+            if (collider2D.gameObject.name == "Player")
+            {
+                _currentCreatureState = (int)CREATURE_STATE.Hunting;
+                _huntingTarget = collider2D.gameObject;
+            }
+
         }
         void OnTriggerExit2D(Collider2D collider2D)
         {
-            _huntingTarget = null;
-            _currentCreatureState = (int)CREATURE_STATE.Retreating;
+            if (collider2D.gameObject.name == "Player")
+            {
+                _huntingTarget = null;
+                _currentCreatureState = (int)CREATURE_STATE.Retreating;
+            }
         }
 
         #endregion
@@ -62,7 +69,7 @@ namespace Enemies
         /// </summary>
         protected void ManageCreatureState()
         {
-            _currentRoamTime += Time.deltaTime;
+            _currentWanderTime += Time.deltaTime;
             switch (_currentCreatureState)
             {
                 case (int)CREATURE_STATE.Hunting:
@@ -149,10 +156,10 @@ namespace Enemies
         /// </summary>
         private void Wander()
         {
-            if (_currentRoamTime > _creatureMaxRoamTimer)
+            if (_currentWanderTime > _creatureMaxWanderTime)
             {
                 SetMovementDirection();
-                _currentRoamTime = 0;
+                _currentWanderTime = 0;
             }
             ConfigureAnimator(_movementDir, false);
             if (IsWalkable(_movementDir))
@@ -168,14 +175,17 @@ namespace Enemies
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
-            transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
+            if (IsWalkable(_movementDir))
+            {
+                transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
+            }
         }
         /// <summary>
         /// Method for behaviour when a creature is returning to its spawn point. 
         /// </summary>
         private void Retreat()
         {
-            if (Vector3.Distance(transform.position, _spawnPosition) < 0.2f) { _currentCreatureState = (int)CREATURE_STATE.Roaming; return; }
+            if (Vector3.Distance(transform.position, _spawnPosition) < 0.2f) { _currentCreatureState = (int)CREATURE_STATE.Wandering; return; }
             SetMovementDirection();
             ConfigureAnimator(_movementDir, false);
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
