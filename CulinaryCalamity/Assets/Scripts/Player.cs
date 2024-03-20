@@ -18,7 +18,7 @@ public class Player : Character
     #region Attributes
     // inventory
     [SerializeField] private GameObject _inventoryPrefab;
-    [SerializeField] private int _amountOfGold;
+    [SerializeField] private int _amountOfGold = 0;
     private PlayerInventory _playerInventory;
     private InventoryManager _inventoryManager;
 
@@ -34,7 +34,7 @@ public class Player : Character
     // input
     private Actions _controlScheme = null;
     // saving
-    private ObjectSaveData playerSaveData;
+    private ObjectSaveData _playerSaveData;
     #endregion
 
     #region UnityBuiltIn
@@ -44,7 +44,7 @@ public class Player : Character
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
-        playerSaveData = new();
+        _playerSaveData = new();
     }
 
     void Start()
@@ -73,6 +73,17 @@ public class Player : Character
     #endregion
 
     #region Saving
+    public static ObjectSaveData CreateInitialPlayerSaveData(string playerName)
+    {
+        ObjectSaveData playerSaveData = new();
+        Dictionary<string, string> playerData = new()
+        {
+            { "PlayerName", playerName }
+        };
+        playerSaveData.UpdateSaveData(playerData);
+        return playerSaveData;
+    }
+
     /// <summary>
     /// Listener for the Save event. Pushes current state of the player to the GameSaveManager
     /// </summary>
@@ -82,11 +93,12 @@ public class Player : Character
     {
         Dictionary<string, string> playerData = new()
         {
-            { "PlayerName", characterName }
+            { "PlayerName", characterName },
+            { "PlayerGold", _amountOfGold.ToString()}
         };
 
-        playerSaveData.UpdateSaveData(playerData);
-        GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", playerSaveData);
+        _playerSaveData.UpdateSaveData(playerData);
+        GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", _playerSaveData);
     }
 
     /// <summary>
@@ -96,8 +108,10 @@ public class Player : Character
     /// <param name="e"></param>
     public void OnLoad(object sender, EventArgs e)
     {
-        playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
-        characterName = playerSaveData.SaveData["PlayerName"];
+        _playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
+        characterName = _playerSaveData.SaveData["PlayerName"];
+        _playerSaveData.SaveData.TryGetValue("PlayerGold", out string gold);
+        if (gold != null) { _amountOfGold = int.Parse(gold); }
     }
     #endregion
 

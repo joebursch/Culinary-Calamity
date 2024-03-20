@@ -8,7 +8,7 @@ public class SaveCreationMenu : MonoBehaviour
     [SerializeField] private GameObject _startMenu;
     [SerializeField] private GameObject _invalidNameWarning;
     [SerializeField] private string StartScene { get; set; } = "Home";
-    private string _playerName;
+    private string _playerName = "";
 
 
     /// <summary>
@@ -31,8 +31,11 @@ public class SaveCreationMenu : MonoBehaviour
             return;
         }
 
-        GameSaveState newSaveState = new(_playerName);
-        GameSaveManager.GetGameSaveManager().SetSaveState(newSaveState);
+        GameSaveState newSaveState = new();
+        GameSaveManager gsm = GameSaveManager.GetGameSaveManager();
+
+        gsm.SetSaveState(newSaveState);
+        gsm.UpdateObjectSaveData("PlayerObject", Player.CreateInitialPlayerSaveData(_playerName));
         GameSaveManager.GetGameSaveManager().SaveGame();
         SceneManager.LoadScene(StartScene);
     }
@@ -64,6 +67,6 @@ public class SaveCreationMenu : MonoBehaviour
     /// <returns></returns>
     private bool CheckPlayerName()
     {
-        return _playerName.All(char.IsLetter);
+        return _playerName.Length > 0 && _playerName.All(char.IsLetter);
     }
 }
