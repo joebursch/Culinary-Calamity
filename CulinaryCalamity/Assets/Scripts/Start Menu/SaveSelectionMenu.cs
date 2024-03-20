@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class SaveSelectionMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _startMenu;
+    [SerializeField] private GameObject _newSaveMenu;
     [SerializeField] private GameObject _saveTilePrefab;
     private List<GameObject> _saveTiles;
     [SerializeField] private string StartScene { get; set; } = "Home";
@@ -26,6 +27,15 @@ public class SaveSelectionMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Method called when 'NewSave' button is pressed to send the user to the new save creation menu
+    /// </summary>
+    public void NewSaveButton()
+    {
+        _newSaveMenu.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    /// <summary>
     /// Called when the SaveMenu is activated. Loads saves and creates the save tiles
     /// </summary>
     public void OnEnable()
@@ -33,7 +43,6 @@ public class SaveSelectionMenu : MonoBehaviour
         List<string> saveFileIds = GameSaveManager.GetGameSaveManager().GetSaveFiles();
         _saveTiles = CreateSaveTiles(saveFileIds);
     }
-
 
     /// <summary>
     /// Called when the SaveMenu is deactivated (ie: when going back to initial start menu) to destory unneeded objects
@@ -55,27 +64,10 @@ public class SaveSelectionMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// activates saveTile objects so they are visible 
+    /// Creates a list of tiles for each save and populates them in the save list menu
     /// </summary>
-    private void ShowSaveTiles(List<GameObject> saveTiles)
-    {
-        foreach (GameObject saveTile in saveTiles)
-        {
-            saveTile.SetActive(true);
-        }
-    }
-
-    /// <summary>
-    /// deactivates saveTile objects so they are not visible
-    /// </summary>
-    private void HideSaveTiles(List<GameObject> saveTiles)
-    {
-        foreach (GameObject saveTile in saveTiles)
-        {
-            saveTile.SetActive(false);
-        }
-    }
-
+    /// <param name="saveFileIds"></param>
+    /// <returns></returns>
     private List<GameObject> CreateSaveTiles(List<string> saveFileIds)
     {
         float offset = (_saveListContainer.GetComponent<RectTransform>().rect.height / 2) - (_saveTilePrefab.GetComponent<RectTransform>().rect.height / 2);
@@ -94,6 +86,10 @@ public class SaveSelectionMenu : MonoBehaviour
         return saveTiles;
     }
 
+    /// <summary>
+    /// Method called when a user clicks on a save tile to load that save
+    /// </summary>
+    /// <param name="saveId"></param>
     public void SelectSave(string saveId)
     {
         GameSaveManager.GetGameSaveManager().LoadGame(int.Parse(saveId));
