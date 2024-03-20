@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Saving
 {
@@ -16,6 +18,9 @@ namespace Saving
         private static GameSaveManager _gameSaveManager;
         private GameSaveState _currentSaveState;
 
+        private bool _needsToLoad;
+        private bool _needsToSave;
+
         /// <summary>
         /// Unity awake method. Enforces Singleton pattern.
         /// </summary>
@@ -24,6 +29,8 @@ namespace Saving
             if (_gameSaveManager == null)
             {
                 _gameSaveManager = this;
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                SceneManager.sceneUnloaded += OnSceneUnloaded;
             }
             else
             {
@@ -31,6 +38,40 @@ namespace Saving
             }
         }
 
+        void Update()
+        {
+            if (_needsToLoad && _currentSaveState != null)
+            {
+                LoadGame(_currentSaveState.SaveId);
+                _needsToLoad = false;
+            }
+        }
+        /// <summary>
+        /// Loads game when a new scene is loaded
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="mode"></param>
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            if (_currentSaveState != null)
+            {
+                _needsToLoad = true;
+            }
+        }
+
+
+        /// <summary>
+        /// Saves game when a scene is unloaded
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="mode"></param>
+        void OnSceneUnloaded(Scene scene)
+        {
+            if (scene.name != "StartScreen")
+            {
+                SaveGame();
+            }
+        }
         /// <summary>
         /// Used to manually set the saveState for new playthroughs that cannot be loaded.
         /// </summary>
