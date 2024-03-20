@@ -201,6 +201,7 @@ MonoBehaviour:
   _interactableObjectsLayer:
     serializedVersion: 2
     m_Bits: 256
-  _itemsLayer:
+  _defaultLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1
+  wanderAroundSpawnpoint: 0

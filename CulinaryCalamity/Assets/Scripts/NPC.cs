@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -14,10 +12,6 @@ public class NPC : Character, InteractableObject
     private float _lastMoveTime;
     private bool _walkingBackNext = false;
     [SerializeField] private bool wanderAroundSpawnpoint;
-    // layers
-    [SerializeField] private LayerMask _solidObjectsLayer;
-    [SerializeField] private LayerMask _itemsLayer;
-    [SerializeField] private LayerMask _defaultLayer;
 
     /// <summary>
     /// Called on script load.
@@ -47,14 +41,14 @@ public class NPC : Character, InteractableObject
     /// <summary>
     /// Method to set the NPC's direction if MoveNPC is sent a Vector2.
     /// </summary>
-    #pragma warning disable IDE0051
+#pragma warning disable IDE0051
     void MoveNPC(Vector2 moveTo)
-    #pragma warning restore IDE0051
+#pragma warning restore IDE0051
     {
         _movementDir = moveTo;
 
-        ConfigureAnimator();
-        if (IsWalkable())
+        ConfigureAnimator(_movementDir);
+        if (IsWalkable(_movementDir))
         {
             transform.Translate(movementSpeed * Time.deltaTime * _movementDir);
         }
@@ -65,12 +59,12 @@ public class NPC : Character, InteractableObject
     /// </summary>
     void MoveNPC()
     {
-        ConfigureAnimator();
-        if (IsWalkable())
+        ConfigureAnimator(_movementDir);
+
+        if (IsWalkable(_movementDir))
         {
             transform.Translate(movementSpeed * Time.deltaTime * _movementDir);
         }
-
 
         if (wanderAroundSpawnpoint)
         {
@@ -83,7 +77,7 @@ public class NPC : Character, InteractableObject
     /// </summary>
     private void Wander()
     {
-        if (Time.time > _lastMoveTime + 3 & Time.time <= _lastMoveTime + 10)
+        if (Time.time > _lastMoveTime + 3 && Time.time <= _lastMoveTime + 10)
         {
             _movementDir = Vector2.zero;
         }
@@ -107,7 +101,7 @@ public class NPC : Character, InteractableObject
     /// <summary>
     /// Method to randomly pick the next walk direction for Wander().
     /// </summary>
-    private void PickWalkDirection(bool setNextMove=false)
+    private void PickWalkDirection(bool setNextMove = false)
     {
         switch (UnityEngine.Random.Range(1, 5))
         {
@@ -131,39 +125,9 @@ public class NPC : Character, InteractableObject
     }
 
     /// <summary>
-    /// Handle the animator.
-    /// </summary>
-    private void ConfigureAnimator()
-    {
-        bool moving = _movementDir != Vector2.zero;
-        // Only update floats when there is movement input. Otherwise, sprite snaps back to facing camera. 
-        if (moving)
-        {
-            characterAnimator.SetFloat("moveX", _movementDir.x);
-            characterAnimator.SetFloat("moveY", _movementDir.y);
-        }
-        characterAnimator.SetBool("isWalking", moving);
-    }
-
-    /// <summary>
-    /// Check if NPC can move to a location.
-    /// </summary>
-    private bool IsWalkable()
-    {
-        var targetPos = transform.position;
-        targetPos.x += _movementDir.x;
-        targetPos.y += _movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer | _defaultLayer) != null)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    /// <summary>
     /// Did the NPC interact with something?
     /// </summary>
-    void InteractableObject.Interact()
+    public void Interact()
     {
         Debug.Log("Touched!");
     }

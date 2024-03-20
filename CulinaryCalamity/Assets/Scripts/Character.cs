@@ -9,8 +9,9 @@ public class Character : MonoBehaviour
     protected Animator characterAnimator;
     protected int currentHealth;
 
-    [SerializeField] private LayerMask _solidObjectsLayer;
+    [SerializeField] protected LayerMask _solidObjectsLayer;
     [SerializeField] protected LayerMask _interactableObjectsLayer;
+    [SerializeField] protected LayerMask _defaultLayer;
 
     /// <summary>
     /// Configures the animation state for all characters with an animator.
@@ -30,23 +31,40 @@ public class Character : MonoBehaviour
     }
 
     /// <summary>
+    /// Configures the animation state for all characters with an animator.
+    /// </summary>
+    /// <param name="movementDir">Direction of character movement</param>
+    /// <param name="running">Boolean for if the character is running</param>
+    protected void ConfigureAnimator(Vector2 movementDir)
+    {
+        bool moving = movementDir != Vector2.zero;
+        if (moving)
+        {
+            characterAnimator.SetFloat("moveX", movementDir.x);
+            characterAnimator.SetFloat("moveY", movementDir.y);
+        }
+        characterAnimator.SetBool("isWalking", moving);
+    }
+
+    /// <summary>
     /// Checks to see if the characters desired movement location is walkable
     /// </summary>
     /// <param name="movementDir"></param>
     /// <returns></returns>
     protected bool IsWalkable(Vector2 movementDir)
     {
-        var targetPos = transform.position;
-        targetPos.x += movementDir.x;
-        targetPos.y += movementDir.y;
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, _solidObjectsLayer | _interactableObjectsLayer) != null)
+        Vector2 currentPosition = transform.position;
+        Vector2 targetPos = currentPosition + movementSpeed * Time.deltaTime * movementDir;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPos, 0.2f, _solidObjectsLayer | _interactableObjectsLayer | _defaultLayer);
+
+        foreach (Collider2D collider in colliders)
         {
-            return false;
+            if (collider.gameObject != gameObject)
+            {
+                return false;
+            }
         }
+
         return true;
     }
-
 }
-
-
-
