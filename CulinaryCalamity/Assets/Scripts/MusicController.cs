@@ -1,18 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
+/// <summary>
+/// Controls the background music based on the current scene.
+/// </summary>
 public class MusicController : MonoBehaviour
 {
     private static MusicController instance;
-
     private AudioSource audioSource;
+    private AudioClip currentMusicClip;
+    private float fadeDuration = 1.5f;
+    private float targetVolume = 1.0f;
 
-    public AudioClip sharedMusicClip;
+    // Dictionary to map scene names to music clips
+    private Dictionary<string, AudioClip> sceneMusicMap = new Dictionary<string, AudioClip>();
+
+    // Music clips for different scenes
+    public AudioClip startScreenMusic;
+    public AudioClip homeMusic ;
+    public AudioClip restaurantMusic;
+    public AudioClip kitchenMusic;
+    public AudioClip dungeonMusic;
+    public AudioClip forestMusic;
+    public AudioClip townMusic;
 
     /// <summary>
-    /// Awake is called when the script instance is being loaded.
+    /// Initializes the MusicController as a singleton instance and subscribes it to scene loading events.
     /// </summary>
     void Awake()
     {
@@ -24,6 +39,7 @@ public class MusicController : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
         audioSource = GetComponent<AudioSource>();
@@ -33,19 +49,69 @@ public class MusicController : MonoBehaviour
         }
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        // Populate the sceneMusicMap
+        sceneMusicMap.Add("StartScreen", startScreenMusic);
+        sceneMusicMap.Add("Home", homeMusic);
+        sceneMusicMap.Add("Restaurant", restaurantMusic);
+        sceneMusicMap.Add("Kitchen", kitchenMusic);
+        sceneMusicMap.Add("Dungeon1", dungeonMusic);
+        sceneMusicMap.Add("Forest", forestMusic);
+        sceneMusicMap.Add("Town", townMusic);
     }
 
     /// <summary>
-    /// Method to handle scene changes.
+    /// Handles scene loading event and updates the music accordingly.
     /// </summary>
-    /// <param name="scene">The loaded scene.</param>
-    /// <param name="mode">The mode in which the scene was loaded.</param>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Restaurant" || scene.name == "Kitchen")
+        AudioClip nextClip = null;
+
+        // Check if the scene name exists in the dictionary
+        if (sceneMusicMap.ContainsKey(scene.name))
         {
-            audioSource.clip = sharedMusicClip;
-            audioSource.Play();
+            nextClip = sceneMusicMap[scene.name];
         }
+
+        // If a different music clip is found, fade out the current one and play the new one
+        if (nextClip != null && nextClip != currentMusicClip)
+        {
+            StartCoroutine(FadeOutMusicAndPlayNew(nextClip));
+        }
+    }
+
+    /// <summary>
+    /// Fades out the current music clip and starts playing the new one.
+    /// </summary>
+    /// <param name="nextClip"></param>
+    IEnumerator FadeOutMusicAndPlayNew(AudioClip nextClip)
+    {
+        float startVolume = audioSource.volume;
+        float startTime = Time.time;
+
+        // Fade out the current music
+        while (Time.time < startTime + fadeDuration)
+        {
+            audioSource.volume = Mathf.Lerp(startVolume, 0, (Time.time - startTime) / fadeDuration);
+            yield return null;
+        }
+
+        audioSource.Stop();
+
+        // Start playing the new music
+        currentMusicClip = nextClip;
+        audioSource.clip = nextClip;
+        audioSource.Play();
+
+        // Fade in the new music
+        startTime = Time.time;
+        while (Time.time < startTime + fadeDuration)
+        {
+            audioSource.volume = Mathf.Lerp(0, targetVolume, (Time.time - startTime) / fadeDuration);
+            yield return null;
+        }
+        audioSource.volume = targetVolume;
     }
 }
