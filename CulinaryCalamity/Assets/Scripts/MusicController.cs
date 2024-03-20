@@ -78,7 +78,7 @@ public class MusicController : MonoBehaviour
         // If a different music clip is found, fade out the current one and play the new one
         if (nextClip != null && nextClip != currentMusicClip)
         {
-            StartCoroutine(FadeOutMusicAndPlayNew(nextClip));
+            StartCoroutine(FadeOutMusic(nextClip));
         }
     }
 
@@ -86,7 +86,8 @@ public class MusicController : MonoBehaviour
     /// Fades out the current music clip and starts playing the new one.
     /// </summary>
     /// <param name="nextClip"></param>
-    IEnumerator FadeOutMusicAndPlayNew(AudioClip nextClip)
+    /// <returns>An IEnumerator for coroutine handling.</returns>
+    IEnumerator FadeOutMusic(AudioClip nextClip)
     {
         float startVolume = audioSource.volume;
         float startTime = Time.time;
@@ -99,14 +100,24 @@ public class MusicController : MonoBehaviour
         }
 
         audioSource.Stop();
+        yield return StartCoroutine(FadeInNewMusic(nextClip));
+    }
 
+    /// <summary>
+    /// Fades in the new music clip.
+    /// </summary>
+    /// <param name="nextClip">The AudioClip to fade in.</param>
+    /// <returns>An IEnumerator for coroutine handling.</returns>
+    IEnumerator FadeInNewMusic(AudioClip nextClip)
+    {
         // Start playing the new music
         currentMusicClip = nextClip;
         audioSource.clip = nextClip;
         audioSource.Play();
 
+        float startTime = Time.time;
+
         // Fade in the new music
-        startTime = Time.time;
         while (Time.time < startTime + fadeDuration)
         {
             audioSource.volume = Mathf.Lerp(0, targetVolume, (Time.time - startTime) / fadeDuration);
@@ -114,4 +125,6 @@ public class MusicController : MonoBehaviour
         }
         audioSource.volume = targetVolume;
     }
+
+
 }
