@@ -6,7 +6,7 @@ namespace Attacks
 {
     public class MeleeAttack : AttackStrategy
     {
-        public void Attack()
+        public void Attack(Vector3 targetPosition)
         {
             Debug.Log("Melee Attack triggered!");
         }

@@ -26,8 +26,6 @@ public class Projectile : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
     #endregion
 
     private Vector2 GetMovementDirection()

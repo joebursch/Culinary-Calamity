@@ -18,18 +18,15 @@ namespace Attacks
             _shooterAttackSpeed = attackSpeed;
         }
 
-        public void Attack()
+        public void Attack(Vector3 targetPosition)
         {
-            //Debug.Log("Ranged Attack Triggered!");
-            ShootProjectile();
+            ShootProjectile().GetComponent<Projectile>().SetTargetPosition(targetPosition);
         }
 
         // IDK if I should do this
-        private void ShootProjectile()
+        private GameObject ShootProjectile()
         {
-            //Debug.Log("Shooting a projectile!");
-            //_projectileToShoot.GetComponent<Projectile>().SetTargetPosition(_projectileShooter._huntingTarget.transform.position);
-            UnityEngine.Object.Instantiate(_projectileToShoot, _projectileShooter.position, Quaternion.identity);
+            return UnityEngine.Object.Instantiate(_projectileToShoot, _projectileShooter.position, Quaternion.identity);
         }
 
         public bool CanAttack(float currentTime)

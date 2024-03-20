@@ -29,7 +29,7 @@ namespace Enemies
         private int _currentCreatureState;
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
-        protected GameObject _huntingTarget;
+        private GameObject _huntingTarget;
         private float _currentWanderTime;
         private float _timeSinceLastAttack;
         private AttackStrategy _attackStrategy;
@@ -192,7 +192,7 @@ namespace Enemies
             if (InAttackRange() && _attackStrategy.CanAttack(_timeSinceLastAttack))
             {
                 _timeSinceLastAttack = 0;
-                _attackStrategy.Attack();
+                _attackStrategy.Attack(_huntingTarget.transform.position);
             }
             else { _timeSinceLastAttack += Time.deltaTime; /*Not great -> probably change*/}
             if (IsWalkable(_movementDir))
