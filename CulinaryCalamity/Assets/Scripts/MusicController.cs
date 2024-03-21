@@ -19,7 +19,7 @@ public class MusicController : MonoBehaviour
 
     // Music clips for different scenes
     public AudioClip startScreenMusic;
-    public AudioClip homeMusic ;
+    public AudioClip homeMusic;
     public AudioClip restaurantMusic;
     public AudioClip kitchenMusic;
     public AudioClip dungeonMusic;
@@ -34,7 +34,6 @@ public class MusicController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
