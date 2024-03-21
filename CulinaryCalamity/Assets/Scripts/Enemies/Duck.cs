@@ -11,7 +11,7 @@ namespace Enemies
         private AttackStrategy _attackStrategy;
         void Awake()
         {
-            _attackStrategy = new RangedAttack(_duckProjectile, transform, _creatureAttackSpeed);
+            _attackStrategy = new RangedAttack(_duckProjectile, transform, _timeBetweenAttacks);
             InitializeCreature(_attackStrategy);
         }
 

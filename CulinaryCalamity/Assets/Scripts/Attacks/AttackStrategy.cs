@@ -7,7 +7,7 @@ namespace Attacks
     public interface AttackStrategy
     {
         public void Attack(Vector3 targetPosition);
-        public bool CanAttack(float currentTime);
+        public bool CanAttack(float timeSinceLastAttack);
     }
 }
 

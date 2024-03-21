@@ -24,7 +24,7 @@ namespace Enemies
         [SerializeField] private int damage;
         [SerializeField] private Item dropItem;
         [SerializeField] private int _maxDistanceFromSpawn;
-        [SerializeField] protected float _creatureAttackSpeed;
+        [SerializeField] protected float _timeBetweenAttacks;
 
         private int _currentCreatureState;
         private Vector2 _movementDir = Vector2.zero;
@@ -189,12 +189,15 @@ namespace Enemies
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
-            if (InAttackRange() && _attackStrategy.CanAttack(_timeSinceLastAttack))
+            if (InAttackRange())
             {
-                _timeSinceLastAttack = 0;
-                _attackStrategy.Attack(_huntingTarget.transform.position);
+                if (_attackStrategy.CanAttack(_timeSinceLastAttack))
+                {
+                    _attackStrategy.Attack(_huntingTarget.transform.position);
+                    _timeSinceLastAttack = 0;
+                }
+                else { _timeSinceLastAttack += Time.deltaTime; }
             }
-            else { _timeSinceLastAttack += Time.deltaTime; /*Not great -> probably change*/}
             if (IsWalkable(_movementDir))
             {
                 transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);

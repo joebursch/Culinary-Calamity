@@ -9,13 +9,13 @@ namespace Attacks
         private GameObject _projectileToShoot;
         private Transform _projectileShooter;
 
-        private float _shooterAttackSpeed;
+        private float _shooterAttackTime;
 
-        public RangedAttack(GameObject projectile, Transform shooter, float attackSpeed)
+        public RangedAttack(GameObject projectile, Transform shooter, float timeBetweenAttacks)
         {
             _projectileToShoot = projectile;
             _projectileShooter = shooter;
-            _shooterAttackSpeed = attackSpeed;
+            _shooterAttackTime = timeBetweenAttacks;
         }
 
         public void Attack(Vector3 targetPosition)
@@ -29,9 +29,9 @@ namespace Attacks
             return UnityEngine.Object.Instantiate(_projectileToShoot, _projectileShooter.position, Quaternion.identity);
         }
 
-        public bool CanAttack(float currentTime)
+        public bool CanAttack(float timeSinceLastAttack)
         {
-            if (currentTime < _shooterAttackSpeed)
+            if (timeSinceLastAttack < _shooterAttackTime)
             {
                 return false;
             }

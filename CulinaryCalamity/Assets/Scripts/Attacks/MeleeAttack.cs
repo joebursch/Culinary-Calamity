@@ -11,7 +11,7 @@ namespace Attacks
             Debug.Log("Melee Attack triggered!");
         }
 
-        public bool CanAttack(float currentTime)
+        public bool CanAttack(float timeSinceLastAttack)
         {
             // Implement Later
             return false;

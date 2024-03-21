@@ -208,5 +208,5 @@ MonoBehaviour:
   damage: 0
   dropItem: {fileID: 0}
   _maxDistanceFromSpawn: 5
-  _creatureAttackSpeed: 1
+  _timeBetweenAttacks: 0.5
   _duckProjectile: {fileID: 7836695322194927708, guid: 44b32d57f223b3b47afb1764439173a1, type: 3}

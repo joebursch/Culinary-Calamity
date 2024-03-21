@@ -20,7 +20,6 @@ public class Projectile : MonoBehaviour
     }
     void Update()
     {
-        // var _movementDirection = GetMovementDirection();
         transform.Translate(_movementDirection * _projectileSpeed * Time.deltaTime);
     }
 
@@ -41,7 +40,6 @@ public class Projectile : MonoBehaviour
 
     public void SetTargetPosition(Vector3 targetPosition)
     {
-        Debug.Log("Set Target Position " + targetPosition);
         _targetPosition = targetPosition;
         _movementDirection = GetMovementDirection();
     }

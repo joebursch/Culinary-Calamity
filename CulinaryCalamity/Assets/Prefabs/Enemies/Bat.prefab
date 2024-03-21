@@ -208,3 +208,5 @@ MonoBehaviour:
   damage: 0
   dropItem: {fileID: 0}
   _maxDistanceFromSpawn: 15
+  _timeBetweenAttacks: 2
+  _batProjectile: {fileID: 0}
