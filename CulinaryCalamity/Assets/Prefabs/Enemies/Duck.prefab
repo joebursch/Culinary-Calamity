@@ -194,16 +194,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: 
-  characterHealth: 0
+  characterHealth: 2
   _solidObjectsLayer:
     serializedVersion: 2
     m_Bits: 128
   _interactableObjectsLayer:
     serializedVersion: 2
     m_Bits: 256
+  _defaultLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   _creatureWalkSpeed: 2
   _creatureRunSpeed: 3
   _creatureMaxWanderTime: 5
+  _creatureAttackRange: 100
   damage: 0
   dropItem: {fileID: 0}
   _maxDistanceFromSpawn: 5
+  _timeBetweenAttacks: 2
+  _duckProjectile: {fileID: 7836695322194927708, guid: 44b32d57f223b3b47afb1764439173a1, type: 3}

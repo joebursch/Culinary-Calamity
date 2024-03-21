@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Items;
+using Attacks;
 
 namespace Enemies
 {
@@ -19,15 +20,18 @@ namespace Enemies
         [SerializeField] private int _creatureWalkSpeed;
         [SerializeField] private int _creatureRunSpeed;
         [SerializeField] private int _creatureMaxWanderTime;
+        [SerializeField] private float _creatureAttackRange;
         [SerializeField] private int damage;
-        [SerializeField] private Item dropItem;
+        [SerializeField] private int _itemIdToDrop;
         [SerializeField] private int _maxDistanceFromSpawn;
-
+        [SerializeField] protected float _timeBetweenAttacks;
         private int _currentCreatureState;
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
         private GameObject _huntingTarget;
         private float _currentWanderTime;
+        private float _timeSinceLastAttack;
+        private AttackStrategy _attackStrategy;
         #endregion
 
         #region UnityBuiltIn
@@ -57,8 +61,10 @@ namespace Enemies
         /// <summary>
         /// Function that sets up the creature and it's states
         /// </summary>
-        protected void InitializeCreature()
+        protected void InitializeCreature(AttackStrategy attackStrategy)
         {
+            currentHealth = characterHealth;
+            _attackStrategy = attackStrategy;
             _currentCreatureState = (int)CREATURE_STATE.Wandering;
             characterAnimator = GetComponent<Animator>();
             _spawnPosition = transform.position;
@@ -148,6 +154,18 @@ namespace Enemies
             }
             return wanderVector;
         }
+        /// <summary>
+        /// Check if the creature is within its specified attack range. 
+        /// </summary>
+        /// <returns>Boolean</returns>
+        private bool InAttackRange()
+        {
+            if (Mathf.Abs(Vector3.Distance(transform.position, _huntingTarget.transform.position)) > _creatureAttackRange)
+            {
+                return false;
+            }
+            return true;
+        }
         #endregion
 
         #region Creature States
@@ -175,6 +193,15 @@ namespace Enemies
         {
             SetMovementDirection();
             ConfigureAnimator(_movementDir, true);
+            if (InAttackRange())
+            {
+                if (_attackStrategy.CanAttack(_timeSinceLastAttack))
+                {
+                    _attackStrategy.Attack(_huntingTarget.transform.position);
+                    _timeSinceLastAttack = 0;
+                }
+                else { _timeSinceLastAttack += Time.deltaTime; }
+            }
             if (IsWalkable(_movementDir))
             {
                 transform.Translate(_movementDir * _creatureRunSpeed * Time.deltaTime);
@@ -189,6 +216,31 @@ namespace Enemies
             SetMovementDirection();
             ConfigureAnimator(_movementDir, false);
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
+        }
+
+        /// <summary>
+        /// Method for dealing damage to a creature.
+        /// </summary>
+        /// <param name="damage">Amount of damage dealt.</param>
+        public void TakeDamage(float damage)
+        {
+            SetCurrentHealth(-damage);
+            // Knockback effect
+            transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
+            if (currentHealth <= 0) { Death(); }
+        }
+        /// <summary>
+        /// Method for a creatures death...
+        /// </summary>
+        void Death()
+        {
+            // 25% chance to drop an item
+            int randomNum = Random.Range(0, 4);
+            if (randomNum == 2)
+            {
+                ItemManager.GetItemManager().SpawnItem((ItemId)_itemIdToDrop, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
         #endregion
     }

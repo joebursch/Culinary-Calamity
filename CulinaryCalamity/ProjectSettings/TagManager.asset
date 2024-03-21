@@ -17,8 +17,8 @@ TagManager:
   - InteractableObjects
   - Items
   - Enemies
-  - 
-  - 
+  - Player
+  - Projectiles
   - 
   - 
   - 
