@@ -78,7 +78,7 @@ namespace Inventory
             Dictionary<string, string> inventoryData = new() { };
             foreach (ItemId key in InventoryContents.Keys)
             {
-                inventoryData.Add(key.ToString(), InventoryContents[key].ToString());
+                inventoryData.Add(((int)key).ToString(), InventoryContents[key].ToString());
             };
 
             _inventorySaveData.UpdateSaveData(inventoryData);
