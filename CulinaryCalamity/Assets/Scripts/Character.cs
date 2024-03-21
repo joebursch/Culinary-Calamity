@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected LayerMask _solidObjectsLayer;
     [SerializeField] protected LayerMask _interactableObjectsLayer;
     [SerializeField] protected LayerMask _defaultLayer;
+    [SerializeField] protected LayerMask _playerLayer;
 
     /// <summary>
     /// Configures the animation state for all characters with an animator.
@@ -55,11 +57,12 @@ public class Character : MonoBehaviour
     {
         Vector2 currentPosition = transform.position;
         Vector2 targetPos = currentPosition + movementSpeed * Time.deltaTime * movementDir;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPos, 0.2f, _solidObjectsLayer | _interactableObjectsLayer | _defaultLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(targetPos, 0.2f, _solidObjectsLayer | _interactableObjectsLayer | _defaultLayer | _playerLayer);
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject != gameObject)
+            Debug.DrawLine(transform.position, collider.gameObject.transform.position, Color.cyan);
+            if (collider.gameObject != gameObject && !collider.isTrigger)
             {
                 return false;
             }
