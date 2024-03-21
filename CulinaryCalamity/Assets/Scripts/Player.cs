@@ -240,8 +240,6 @@ public class Player : Character
         }
 
         _inventoryManager.ToggleInventory();
-
-
     }
 
     /// <summary>
@@ -257,11 +255,18 @@ public class Player : Character
 
     #region Combat
 
+    /// <summary>
+    /// Finds the location directly in front of the player. This will be where the player targets. 
+    /// </summary>
+    /// <returns>Vector3 of target location</returns>
     private Vector3 FindTarget()
     {
         var targetPosition = new Vector3(transform.position.x + characterAnimator.GetFloat("moveX"), transform.position.y + characterAnimator.GetFloat("moveY"));
         return targetPosition;
     }
+    /// <summary>
+    /// Method for dying...
+    /// </summary>
     void Death()
     {
         // What do we need to do when we die?
