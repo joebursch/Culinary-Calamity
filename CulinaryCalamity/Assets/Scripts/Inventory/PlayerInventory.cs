@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Items;
+using System.Collections.Generic;
 
 namespace Inventory
 {
