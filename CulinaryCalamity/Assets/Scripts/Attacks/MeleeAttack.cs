@@ -55,7 +55,7 @@ namespace Attacks
             Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(targetPosition.x, targetPosition.y), 1f, _layerToAttack);
             foreach (Collider2D collider2D in colliders)
             {
-                collider2D.gameObject.GetComponent<Creature>().TakeDamage(_damageToDeal);
+                collider2D.gameObject.GetComponent<Character>().TakeDamage(_damageToDeal);
             }
         }
     }

@@ -7,7 +7,6 @@ public class NPC : Character, InteractableObject
 {
 
     // movement
-    private Vector2 _movementDir = Vector2.zero;
     private Vector2 _nextMoveDir;
     private float _lastMoveTime;
     private bool _walkingBackNext = false;
