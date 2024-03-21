@@ -15,9 +15,7 @@ namespace Enemies
             InitializeCreature(_attackStrategy);
         }
 
-        void Update()
-        {
-            ManageCreatureState();
-        }
+        void Update() => ManageCreatureState();
+
     }
 }

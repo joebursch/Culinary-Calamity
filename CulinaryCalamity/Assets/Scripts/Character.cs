@@ -46,7 +46,6 @@ public class Character : MonoBehaviour
         }
         characterAnimator.SetBool("isWalking", moving);
     }
-
     /// <summary>
     /// Checks to see if the characters desired movement location is walkable
     /// </summary>
@@ -69,12 +68,18 @@ public class Character : MonoBehaviour
 
         return true;
     }
-
+    /// <summary>
+    /// Adjust the current health of a character by a specified value.
+    /// </summary>
+    /// <param name="adjustmentValue">Amount by which to adjust character health.</param>
     protected void SetCurrentHealth(float adjustmentValue)
     {
         currentHealth += adjustmentValue;
     }
-
+    /// <summary>
+    /// Receive the current health of a character.
+    /// </summary>
+    /// <returns>float representation of health</returns>
     protected float GetCurrentHealth()
     {
         return currentHealth;

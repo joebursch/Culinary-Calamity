@@ -154,6 +154,10 @@ namespace Enemies
             }
             return wanderVector;
         }
+        /// <summary>
+        /// Check if the creature is within its specified attack range. 
+        /// </summary>
+        /// <returns>Boolean</returns>
         private bool InAttackRange()
         {
             if (Mathf.Abs(Vector3.Distance(transform.position, _huntingTarget.transform.position)) > _creatureAttackRange)
@@ -214,6 +218,10 @@ namespace Enemies
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
         }
 
+        /// <summary>
+        /// Method for dealing damage to a creature.
+        /// </summary>
+        /// <param name="damage">Amount of damage dealt.</param>
         public void TakeDamage(float damage)
         {
             SetCurrentHealth(-damage);
@@ -221,6 +229,9 @@ namespace Enemies
             transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
             if (currentHealth <= 0) { Death(); }
         }
+        /// <summary>
+        /// Method for a creatures death...
+        /// </summary>
         void Death()
         {
             // 25% chance to drop an item

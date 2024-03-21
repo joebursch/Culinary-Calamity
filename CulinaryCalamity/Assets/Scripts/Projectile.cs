@@ -9,7 +9,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float _projectileDamage;
     [SerializeField] private float _projectileLifetime;
-
     private Vector2 _movementDirection;
 
     #region UnityBuiltIn
@@ -30,20 +29,29 @@ public class Projectile : MonoBehaviour
     #endregion
 
 
-
+    /// <summary>
+    /// Gets the direction for the projectile to move in.
+    /// </summary>
+    /// <returns>Vector2</returns>
     private Vector2 GetMovementDirection()
     {
         var moveDir = new Vector2((_targetPosition.x - transform.position.x), (_targetPosition.y - transform.position.y));
         moveDir.Normalize();
         return moveDir;
     }
-
+    /// <summary>
+    /// Sets the targeting position of the projectile.
+    /// </summary>
+    /// <param name="targetPosition">position of target character</param>
     public void SetTargetPosition(Vector3 targetPosition)
     {
         _targetPosition = targetPosition;
         _movementDirection = GetMovementDirection();
     }
-
+    /// <summary>
+    /// Get the damage dealt by a projectile
+    /// </summary>
+    /// <returns>float representation of damage</returns>
     public float GetProjectileDamage()
     {
         return _projectileDamage;
