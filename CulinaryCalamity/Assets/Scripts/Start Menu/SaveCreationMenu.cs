@@ -37,6 +37,7 @@ public class SaveCreationMenu : MonoBehaviour
         gsm.SetSaveState(newSaveState);
         gsm.UpdateObjectSaveData("PlayerObject", Player.CreateInitialPlayerSaveData(_playerName));
         GameSaveManager.GetGameSaveManager().SaveGame();
+        Saver.UpdateSaveIndex(newSaveState.SaveId, _playerName);
         SceneManager.LoadScene(StartScene);
     }
 
