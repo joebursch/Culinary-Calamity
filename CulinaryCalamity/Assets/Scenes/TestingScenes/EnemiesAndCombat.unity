@@ -475,11 +475,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5384381380917943850, guid: 4fdb21e8961dffa448c88d5c7610a290, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -54.13
+      value: -45.91
       objectReference: {fileID: 0}
     - target: {fileID: 5384381380917943850, guid: 4fdb21e8961dffa448c88d5c7610a290, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.05
+      value: 7.79
       objectReference: {fileID: 0}
     - target: {fileID: 5384381380917943850, guid: 4fdb21e8961dffa448c88d5c7610a290, type: 3}
       propertyPath: m_LocalPosition.z
@@ -536,7 +536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2261785669702567183, guid: 25891b909928ca54ba7504acf4feda82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.65
+      value: 49.39
       objectReference: {fileID: 0}
     - target: {fileID: 2261785669702567183, guid: 25891b909928ca54ba7504acf4feda82, type: 3}
       propertyPath: m_LocalPosition.y
@@ -577,6 +577,10 @@ PrefabInstance:
     - target: {fileID: 7550963191730831564, guid: 25891b909928ca54ba7504acf4feda82, type: 3}
       propertyPath: m_Name
       value: DuckSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550963191730831564, guid: 25891b909928ca54ba7504acf4feda82, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

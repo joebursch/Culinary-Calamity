@@ -36,7 +36,6 @@ public class Character : MonoBehaviour
     /// Configures the animation state for all characters with an animator.
     /// </summary>
     /// <param name="movementDir">Direction of character movement</param>
-    /// <param name="running">Boolean for if the character is running</param>
     protected void ConfigureAnimator(Vector2 movementDir)
     {
         bool moving = movementDir != Vector2.zero;
@@ -69,5 +68,15 @@ public class Character : MonoBehaviour
         }
 
         return true;
+    }
+
+    protected void SetCurrentHealth(float adjustmentValue)
+    {
+        currentHealth += adjustmentValue;
+    }
+
+    protected float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 }

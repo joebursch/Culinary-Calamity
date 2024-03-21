@@ -22,10 +22,9 @@ namespace Enemies
         [SerializeField] private int _creatureMaxWanderTime;
         [SerializeField] private float _creatureAttackRange;
         [SerializeField] private int damage;
-        [SerializeField] private Item dropItem;
+        [SerializeField] private int _itemIdToDrop;
         [SerializeField] private int _maxDistanceFromSpawn;
         [SerializeField] protected float _timeBetweenAttacks;
-
         private int _currentCreatureState;
         private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
@@ -64,6 +63,7 @@ namespace Enemies
         /// </summary>
         protected void InitializeCreature(AttackStrategy attackStrategy)
         {
+            currentHealth = characterHealth;
             _attackStrategy = attackStrategy;
             _currentCreatureState = (int)CREATURE_STATE.Wandering;
             characterAnimator = GetComponent<Animator>();
@@ -212,6 +212,24 @@ namespace Enemies
             SetMovementDirection();
             ConfigureAnimator(_movementDir, false);
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
+        }
+
+        public void TakeDamage(float damage)
+        {
+            SetCurrentHealth(-damage);
+            // Knockback effect
+            transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
+            if (currentHealth <= 0) { Death(); }
+        }
+        void Death()
+        {
+            // 25% chance to drop an item
+            int randomNum = Random.Range(0, 4);
+            if (randomNum == 2)
+            {
+                ItemManager.GetItemManager().SpawnItem((ItemId)_itemIdToDrop, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
         }
         #endregion
     }

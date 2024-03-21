@@ -10,6 +10,7 @@ namespace Enemies
         [SerializeField] private GameObject _batProjectile;
         void Awake()
         {
+            Debug.Log(currentHealth);
             AttackStrategy attackStrategy = new RangedAttack(_batProjectile, transform, _timeBetweenAttacks);
             InitializeCreature(attackStrategy);
         }
