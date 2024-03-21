@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private int _projectileDamage;
     [SerializeField] private float _projectileLifetime;
 
+    private Vector2 _movementDirection;
+
     #region UnityBuiltIn
 
     void Awake()
@@ -18,7 +20,7 @@ public class Projectile : MonoBehaviour
     }
     void Update()
     {
-        var _movementDirection = GetMovementDirection();
+        // var _movementDirection = GetMovementDirection();
         transform.Translate(_movementDirection * _projectileSpeed * Time.deltaTime);
     }
 
@@ -27,6 +29,8 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
     #endregion
+
+
 
     private Vector2 GetMovementDirection()
     {
@@ -39,6 +43,7 @@ public class Projectile : MonoBehaviour
     {
         Debug.Log("Set Target Position " + targetPosition);
         _targetPosition = targetPosition;
+        _movementDirection = GetMovementDirection();
     }
 
 }
