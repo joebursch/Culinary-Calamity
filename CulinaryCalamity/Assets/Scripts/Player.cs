@@ -44,6 +44,7 @@ public class Player : Character
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
+        currentHealth = characterHealth;
         playerSaveData = new();
     }
 
@@ -194,6 +195,11 @@ public class Player : Character
                 }
             }
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
+        {
+            currentHealth -= collision.gameObject.GetComponent<Projectile>().GetProjectileDamage();
+            if (currentHealth <= 0) { Death(); }
+        }
     }
     #endregion
 
@@ -238,4 +244,10 @@ public class Player : Character
         ToggleInventory();
     }
     #endregion
+
+    void Death()
+    {
+        // What do we need to do when we die?
+        Debug.Log("I have died!");
+    }
 }

@@ -6,9 +6,9 @@ public class Character : MonoBehaviour
     // Private instance variables
     [SerializeField] protected string characterName;
     protected int movementSpeed;
-    [SerializeField] protected int characterHealth;
+    [SerializeField] protected float characterHealth;
     protected Animator characterAnimator;
-    protected int currentHealth;
+    protected float currentHealth;
 
     [SerializeField] protected LayerMask _solidObjectsLayer;
     [SerializeField] protected LayerMask _interactableObjectsLayer;

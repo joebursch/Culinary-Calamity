@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     private Vector3 _targetPosition;
     [SerializeField] private float _projectileSpeed;
 
-    [SerializeField] private int _projectileDamage;
+    [SerializeField] private float _projectileDamage;
     [SerializeField] private float _projectileLifetime;
 
     private Vector2 _movementDirection;
@@ -42,6 +42,11 @@ public class Projectile : MonoBehaviour
     {
         _targetPosition = targetPosition;
         _movementDirection = GetMovementDirection();
+    }
+
+    public float GetProjectileDamage()
+    {
+        return _projectileDamage;
     }
 
 }

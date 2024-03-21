@@ -215,4 +215,4 @@ MonoBehaviour:
   dropItem: {fileID: 0}
   _maxDistanceFromSpawn: 15
   _timeBetweenAttacks: 2
-  _batProjectile: {fileID: 0}
+  _batProjectile: {fileID: 7852630266360825676, guid: 2053ef039e69a4e40bea41072f2ab687, type: 3}
