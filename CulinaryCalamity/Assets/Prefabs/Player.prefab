@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7433290173052551272}
   - component: {fileID: 3059423416542127795}
   - component: {fileID: 3364728739925737039}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,10 @@ MonoBehaviour:
     m_Bits: 256
   _defaultLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   _inventoryPrefab: {fileID: 2907470846725598127, guid: 1202ad8cd84555a4c8a353cd5cfa263f, type: 3}
   _amountOfGold: 0
   _itemsLayer:
@@ -210,7 +213,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 8}
+  m_Size: {x: 25, y: 15}
   m_EdgeRadius: 0
 --- !u!61 &3059423416542127795
 BoxCollider2D:
@@ -338,7 +341,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

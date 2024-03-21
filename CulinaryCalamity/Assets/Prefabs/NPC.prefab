@@ -204,4 +204,7 @@ MonoBehaviour:
   _defaultLayer:
     serializedVersion: 2
     m_Bits: 1
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   wanderAroundSpawnpoint: 0

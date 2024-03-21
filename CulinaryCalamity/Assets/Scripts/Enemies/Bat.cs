@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Attacks;
 
 namespace Enemies
 {
     public class Bat : Creature
     {
-        void Awake() => InitializeCreature();
+        [SerializeField] private GameObject _batProjectile;
+        void Awake()
+        {
+            AttackStrategy attackStrategy = new RangedAttack(_batProjectile, transform, _timeBetweenAttacks);
+            InitializeCreature(attackStrategy);
+        }
 
         void Update() => ManageCreatureState();
     }

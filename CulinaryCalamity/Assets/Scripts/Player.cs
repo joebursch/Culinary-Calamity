@@ -1,3 +1,4 @@
+using Attacks;
 using Inventory;
 using Items;
 using Quests;
@@ -35,6 +36,8 @@ public class Player : Character
     private Actions _controlScheme = null;
     // saving
     private ObjectSaveData _playerSaveData;
+    // combat 
+    private AttackStrategy _attackStrategy;
     #endregion
 
     #region UnityBuiltIn
@@ -45,6 +48,8 @@ public class Player : Character
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
         _playerSaveData = new();
+        currentHealth = characterHealth;
+        _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
     }
 
     void Start()
@@ -69,6 +74,11 @@ public class Player : Character
         MovePlayer();
         if (_controlScheme.Standard.Interact.triggered) { Interact(); }
         if (_controlScheme.Standard.OpenInventory.triggered) { ToggleInventory(); }
+        if (_controlScheme.Standard.Attack.triggered)
+        {
+            _attackStrategy.Attack(FindTarget());
+            characterAnimator.Play("Attack");
+        }
     }
     #endregion
 
@@ -213,6 +223,12 @@ public class Player : Character
                 }
             }
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
+        {
+            // Character method for taking damage.
+            SetCurrentHealth(-collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
+            if (currentHealth <= 0) { Death(); }
+        }
     }
     #endregion
 
@@ -243,8 +259,6 @@ public class Player : Character
         }
 
         _inventoryManager.ToggleInventory();
-
-
     }
 
     /// <summary>
@@ -256,5 +270,27 @@ public class Player : Character
     {
         ToggleInventory();
     }
+    #endregion
+
+    #region Combat
+
+    /// <summary>
+    /// Finds the location directly in front of the player. This will be where the player targets. 
+    /// </summary>
+    /// <returns>Vector3 of target location</returns>
+    private Vector3 FindTarget()
+    {
+        var targetPosition = new Vector3(transform.position.x + characterAnimator.GetFloat("moveX"), transform.position.y + characterAnimator.GetFloat("moveY"));
+        return targetPosition;
+    }
+    /// <summary>
+    /// Method for dying...
+    /// </summary>
+    void Death()
+    {
+        // What do we need to do when we die?
+        Debug.Log("I have died!");
+    }
+
     #endregion
 }
