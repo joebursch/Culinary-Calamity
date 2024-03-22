@@ -130,4 +130,19 @@ public class NPC : Character, InteractableObject
     {
         Debug.Log("Touched!");
     }
+    /// <summary>
+    /// Method for NPC taking damage... spoiler -> they dont. 
+    /// </summary>
+    /// <param name="damage">Damage to not deal</param>
+    public override void TakeDamage(float damage)
+    {
+        // Do nothing -> NPCS are tanks
+    }
+    /// <summary>
+    /// Method for NPC death -> they are immortal tbh
+    /// </summary>
+    protected override void Death()
+    {
+        // Do nothing -> NPCs can't die
+    }
 }
