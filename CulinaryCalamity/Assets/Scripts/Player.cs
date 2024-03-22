@@ -5,6 +5,7 @@ using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -279,6 +280,10 @@ public class Player : Character
     {
         var targetPosition = new Vector3(transform.position.x + characterAnimator.GetFloat("moveX"), transform.position.y + characterAnimator.GetFloat("moveY"));
         return targetPosition;
+    }
+    protected override void KnockbackEffect()
+    {
+        // For now, do nothing... Do we want the player to be knocked back?
     }
     /// <summary>
     /// Method for dying...

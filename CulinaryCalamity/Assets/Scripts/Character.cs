@@ -94,7 +94,15 @@ public class Character : MonoBehaviour
     public virtual void TakeDamage(float damageDealt)
     {
         SetCurrentHealth(-damageDealt);
-        if (currentHealth == 0) { Death(); }
+        KnockbackEffect();
+        if (currentHealth <= 0) { Death(); }
+    }
+    /// <summary>
+    /// When a character is hit, knock them backwards
+    /// </summary>
+    protected virtual void KnockbackEffect()
+    {
+        transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
     }
 
     /// <summary>
