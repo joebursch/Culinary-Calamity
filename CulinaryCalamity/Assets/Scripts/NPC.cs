@@ -7,7 +7,6 @@ public class NPC : Character, InteractableObject
 {
 
     // movement
-    private Vector2 _movementDir = Vector2.zero;
     private Vector2 _nextMoveDir;
     private float _lastMoveTime;
     private bool _walkingBackNext = false;
@@ -130,5 +129,20 @@ public class NPC : Character, InteractableObject
     public void Interact()
     {
         Debug.Log("Touched!");
+    }
+    /// <summary>
+    /// Method for NPC taking damage... spoiler -> they dont. 
+    /// </summary>
+    /// <param name="damage">Damage to not deal</param>
+    public override void TakeDamage(float damage)
+    {
+        // Do nothing -> NPCS are tanks
+    }
+    /// <summary>
+    /// Method for NPC death -> they are immortal tbh
+    /// </summary>
+    protected override void Death()
+    {
+        // Do nothing -> NPCs can't die
     }
 }

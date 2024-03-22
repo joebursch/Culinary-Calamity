@@ -10,6 +10,8 @@ public class Character : MonoBehaviour
     protected Animator characterAnimator;
     protected float currentHealth;
 
+    protected Vector2 _movementDir;
+
     [SerializeField] protected LayerMask _solidObjectsLayer;
     [SerializeField] protected LayerMask _interactableObjectsLayer;
     [SerializeField] protected LayerMask _defaultLayer;
@@ -83,5 +85,31 @@ public class Character : MonoBehaviour
     protected float GetCurrentHealth()
     {
         return currentHealth;
+    }
+
+    /// <summary>
+    /// Method for dealing damage to a Character
+    /// </summary>
+    /// <param name="damageDealt">Amount of damage to be dealt</param>
+    public virtual void TakeDamage(float damageDealt)
+    {
+        SetCurrentHealth(-damageDealt);
+        KnockbackEffect();
+        if (currentHealth <= 0) { Death(); }
+    }
+    /// <summary>
+    /// When a character is hit, knock them backwards
+    /// </summary>
+    protected virtual void KnockbackEffect()
+    {
+        transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
+    }
+
+    /// <summary>
+    /// Method for a character's death.
+    /// </summary>
+    protected virtual void Death()
+    {
+        Destroy(gameObject);
     }
 }

@@ -9,7 +9,9 @@ namespace Attacks
     {
 
         private float _damageToDeal;
+        private float _attackerAttackTime;
         private LayerMask _layerToAttack;
+
 
         /// <summary>
         /// Constructor for a Melee Attack
@@ -20,6 +22,18 @@ namespace Attacks
         {
             _damageToDeal = damage;
             _layerToAttack = attackLayer;
+        }
+        /// <summary>
+        /// Contstructor for timed Melee attacks
+        /// </summary>
+        /// <param name="damage">Amount of damage per attack</param>
+        /// <param name="attackLayer">Layer to register attacks on</param>
+        /// <param name="timeBetweenAttacks">Delay between attacks</param>
+        public MeleeAttack(float damage, LayerMask attackLayer, float timeBetweenAttacks)
+        {
+            _damageToDeal = damage;
+            _layerToAttack = attackLayer;
+            _attackerAttackTime = timeBetweenAttacks;
         }
 
         /// <summary>
@@ -38,12 +52,11 @@ namespace Attacks
         /// <returns></returns>
         public bool CanAttack(float timeSinceLastAttack)
         {
-            // Implement Later
-            /*
-                Player -> Maybe we want them to attack as often as they want (ie. as fast as they can click)
-                Creature -> Maybe we want a limit on creature attacks so we don't die instantly
-            */
-            return false;
+            if (timeSinceLastAttack < _attackerAttackTime)
+            {
+                return false;
+            }
+            return true;
         }
 
         /// <summary>
@@ -55,7 +68,10 @@ namespace Attacks
             Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(targetPosition.x, targetPosition.y), 1f, _layerToAttack);
             foreach (Collider2D collider2D in colliders)
             {
-                collider2D.gameObject.GetComponent<Creature>().TakeDamage(_damageToDeal);
+                if (!collider2D.isTrigger)
+                {
+                    collider2D.gameObject.GetComponent<Character>().TakeDamage(_damageToDeal);
+                }
             }
         }
     }

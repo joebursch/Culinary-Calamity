@@ -5,6 +5,7 @@ using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,7 +29,6 @@ public class Player : Character
     private Questline _questline;
 #pragma warning restore IDE0051, IDE0051
     // movement
-    private Vector2 _movementDir;
     private bool _running;
     // layers
     [SerializeField] private LayerMask _itemsLayer;
@@ -225,9 +225,7 @@ public class Player : Character
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
         {
-            // Character method for taking damage.
-            SetCurrentHealth(-collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
-            if (currentHealth <= 0) { Death(); }
+            TakeDamage(collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
         }
     }
     #endregion
@@ -283,10 +281,14 @@ public class Player : Character
         var targetPosition = new Vector3(transform.position.x + characterAnimator.GetFloat("moveX"), transform.position.y + characterAnimator.GetFloat("moveY"));
         return targetPosition;
     }
+    protected override void KnockbackEffect()
+    {
+        // For now, do nothing... Do we want the player to be knocked back?
+    }
     /// <summary>
     /// Method for dying...
     /// </summary>
-    void Death()
+    protected override void Death()
     {
         // What do we need to do when we die?
         Debug.Log("I have died!");

@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 716331077
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1394906438, guid: 72b571e16e8c6324c93017de6430a98a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -212,7 +212,7 @@ MonoBehaviour:
   _creatureMaxWanderTime: 5
   _creatureAttackRange: 100
   damage: 0
-  dropItem: {fileID: 0}
+  _itemIdToDrop: 0
   _maxDistanceFromSpawn: 5
   _timeBetweenAttacks: 2
   _duckProjectile: {fileID: 7836695322194927708, guid: 44b32d57f223b3b47afb1764439173a1, type: 3}

@@ -21,12 +21,11 @@ namespace Enemies
         [SerializeField] private int _creatureRunSpeed;
         [SerializeField] private int _creatureMaxWanderTime;
         [SerializeField] private float _creatureAttackRange;
-        [SerializeField] private int damage;
+        [SerializeField] protected float _damage;
         [SerializeField] private int _itemIdToDrop;
         [SerializeField] private int _maxDistanceFromSpawn;
         [SerializeField] protected float _timeBetweenAttacks;
         private int _currentCreatureState;
-        private Vector2 _movementDir = Vector2.zero;
         private Vector3 _spawnPosition;
         private GameObject _huntingTarget;
         private float _currentWanderTime;
@@ -217,23 +216,12 @@ namespace Enemies
             ConfigureAnimator(_movementDir, false);
             transform.Translate(_movementDir * _creatureWalkSpeed * Time.deltaTime);
         }
-
-        /// <summary>
-        /// Method for dealing damage to a creature.
-        /// </summary>
-        /// <param name="damage">Amount of damage dealt.</param>
-        public void TakeDamage(float damage)
-        {
-            SetCurrentHealth(-damage);
-            // Knockback effect
-            transform.position = new Vector3(transform.position.x - (_movementDir.x * 2), transform.position.y - (_movementDir.y * 2), transform.position.z);
-            if (currentHealth <= 0) { Death(); }
-        }
         /// <summary>
         /// Method for a creatures death...
         /// </summary>
-        void Death()
+        protected override void Death()
         {
+            Debug.Log("A creature has died");
             // 25% chance to drop an item
             int randomNum = Random.Range(0, 4);
             if (randomNum == 2)
