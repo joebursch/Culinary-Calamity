@@ -188,7 +188,18 @@ public class Player : Character
         var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
         var interactPosition = transform.position + facingDir;
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
-        if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
+        if (collider != null)
+        {
+            if (collider.TryGetComponent<QuestTarget>(out QuestTarget qt))
+            {
+                qt.Interact();
+            }
+            else
+            {
+                collider.GetComponent<InteractableObject>()?.Interact();
+            }
+
+        }
     }
 
     /// <summary>
