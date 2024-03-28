@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Saving
 {
@@ -14,6 +16,7 @@ namespace Saving
 
         private static GameSaveManager _gameSaveManager;
         private GameSaveState _currentSaveState;
+        private bool _needsToLoad;
 
         /// <summary>
         /// Unity awake method. Enforces Singleton pattern.
@@ -23,6 +26,9 @@ namespace Saving
             if (_gameSaveManager == null)
             {
                 _gameSaveManager = this;
+                // Enables saving/loading between scenes
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                SceneManager.sceneUnloaded += OnSceneUnloaded;
             }
             else
             {
@@ -31,21 +37,31 @@ namespace Saving
         }
 
         /// <summary>
-        /// Used to manually set the saveState for new playthroughs that cannot be loaded.
+        /// Built-in Update method. Used to load game between scenes
         /// </summary>
-        /// <param name="saveState">GameSaveState corresponding to current playthrough.</param>
-        public void SetSaveState(GameSaveState saveState)
+        void Update()
         {
-            _currentSaveState = saveState;
+            // Load needs to be done in update to allow subscribers time to subscribe in awake/start
+            // This will occur during the first frame
+            if (_needsToLoad && _currentSaveState != null)
+            {
+                LoadGame(_currentSaveState.SaveId);
+                _needsToLoad = false;
+            }
         }
 
+        #region Loading
         /// <summary>
-        /// Used to save the state of the game and write to a file
+        /// When a new scene is loaded, this sets needsToLoad so that we publish a load event once the scene has finished loading
         /// </summary>
-        public void SaveGame()
+        /// <param name="scene"></param>
+        /// <param name="mode"></param>
+        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            OnSave(EventArgs.Empty); // EventArgs.Empty is a required parameter for EventHandler delegates
-            Saver.WriteSaveData(_currentSaveState); // save after emitting save event and letting subscribers react
+            if (_currentSaveState != null)
+            {
+                _needsToLoad = true;
+            }
         }
 
         /// <summary>
@@ -59,6 +75,39 @@ namespace Saving
         }
 
         /// <summary>
+        /// Emits Load event - prompts subscribers to load their save data
+        /// </summary>
+        /// <param name="e">EventArgs.Empty</param>
+        protected virtual void OnLoad(EventArgs e)
+        {
+            Load?.Invoke(this, e);
+        }
+        #endregion
+
+        #region Saving
+        /// <summary>
+        /// Saves game when a scene is unloaded
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="mode"></param>
+        void OnSceneUnloaded(Scene scene)
+        {
+            if (scene.name != "StartScreen")
+            {
+                SaveGame();
+            }
+        }
+
+        /// <summary>
+        /// Used to save the state of the game and write to a file
+        /// </summary>
+        public void SaveGame()
+        {
+            OnSave(EventArgs.Empty); // EventArgs.Empty is a required parameter for EventHandler delegates
+            Saver.WriteSaveData(_currentSaveState); // save after emitting save event and letting subscribers react
+        }
+
+        /// <summary>
         /// Emits Save event - prompts subscribers to update their save data
         /// </summary>
         /// <param name="e">EventArgs.Empty</param>
@@ -67,13 +116,16 @@ namespace Saving
             Save?.Invoke(this, e);
         }
 
+
+        #endregion
+
         /// <summary>
-        /// Emits Load event - prompts subscribers to load their save data
+        /// Used to manually set the saveState for new playthroughs that cannot be loaded.
         /// </summary>
-        /// <param name="e">EventArgs.Empty</param>
-        protected virtual void OnLoad(EventArgs e)
+        /// <param name="saveState">GameSaveState corresponding to current playthrough.</param>
+        public void SetSaveState(GameSaveState saveState)
         {
-            Load?.Invoke(this, e);
+            _currentSaveState = saveState;
         }
 
         /// <summary>
@@ -95,8 +147,18 @@ namespace Saving
         public ObjectSaveData GetObjectSaveData(string objectIdentifier)
         {
             ObjectSaveData saveData = new();
-            saveData.Deserialize(_currentSaveState.GetSaveData(objectIdentifier));
+            string jsonString = _currentSaveState.GetSaveData(objectIdentifier);
+            if (jsonString != null) { saveData.Deserialize(jsonString); }
             return saveData;
+        }
+
+        /// <summary>
+        /// Get save file information for displaying in save selection menu
+        /// </summary>
+        /// <returns></returns>
+        public Dictionary<string, string> GetSaveFiles()
+        {
+            return Saver.ListSaves();
         }
 
         /// <summary>

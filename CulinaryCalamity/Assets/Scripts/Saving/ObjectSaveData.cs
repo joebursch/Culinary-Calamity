@@ -13,6 +13,14 @@ namespace Saving
         public Dictionary<string, string> SaveData { get; set; } // property/attribute/etc. -> value
 
         /// <summary>
+        /// Default constructor
+        /// </summary>
+        public ObjectSaveData()
+        {
+            SaveData = new();
+        }
+
+        /// <summary>
         /// Add new key/value pair(s) to the SaveData for this object
         /// </summary>
         /// <param name="newSaveData"></param>

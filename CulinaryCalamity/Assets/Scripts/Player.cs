@@ -1,9 +1,11 @@
+using Attacks;
 using Inventory;
 using Items;
 using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,7 +20,7 @@ public class Player : Character
     #region Attributes
     // inventory
     [SerializeField] private GameObject _inventoryPrefab;
-    [SerializeField] private int _amountOfGold;
+    [SerializeField] private int _amountOfGold = 0;
     private PlayerInventory _playerInventory;
     private InventoryManager _inventoryManager;
 
@@ -27,14 +29,15 @@ public class Player : Character
     private Questline _questline;
 #pragma warning restore IDE0051, IDE0051
     // movement
-    private Vector2 _movementDir;
     private bool _running;
     // layers
     [SerializeField] private LayerMask _itemsLayer;
     // input
     private Actions _controlScheme = null;
     // saving
-    private ObjectSaveData playerSaveData;
+    private ObjectSaveData _playerSaveData;
+    // combat 
+    private AttackStrategy _attackStrategy;
     #endregion
 
     #region UnityBuiltIn
@@ -44,7 +47,9 @@ public class Player : Character
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
-        playerSaveData = new();
+        _playerSaveData = new();
+        currentHealth = characterHealth;
+        _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
     }
 
     void Start()
@@ -69,10 +74,31 @@ public class Player : Character
         MovePlayer();
         if (_controlScheme.Standard.Interact.triggered) { Interact(); }
         if (_controlScheme.Standard.OpenInventory.triggered) { ToggleInventory(); }
+        if (_controlScheme.Standard.Attack.triggered)
+        {
+            _attackStrategy.Attack(FindTarget());
+            characterAnimator.Play("Attack");
+        }
     }
     #endregion
 
     #region Saving
+    /// <summary>
+    /// Used in starting a new save. Just sets a players name.
+    /// </summary>
+    /// <param name="playerName"></param>
+    /// <returns></returns>
+    public static ObjectSaveData CreateInitialPlayerSaveData(string playerName)
+    {
+        ObjectSaveData playerSaveData = new();
+        Dictionary<string, string> playerData = new()
+        {
+            { "PlayerName", playerName }
+        };
+        playerSaveData.UpdateSaveData(playerData);
+        return playerSaveData;
+    }
+
     /// <summary>
     /// Listener for the Save event. Pushes current state of the player to the GameSaveManager
     /// </summary>
@@ -82,11 +108,12 @@ public class Player : Character
     {
         Dictionary<string, string> playerData = new()
         {
-            { "PlayerName", characterName }
+            { "PlayerName", characterName },
+            { "PlayerGold", _amountOfGold.ToString()}
         };
 
-        playerSaveData.UpdateSaveData(playerData);
-        GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", playerSaveData);
+        _playerSaveData.UpdateSaveData(playerData);
+        GameSaveManager.GetGameSaveManager().UpdateObjectSaveData("PlayerObject", _playerSaveData);
     }
 
     /// <summary>
@@ -96,8 +123,10 @@ public class Player : Character
     /// <param name="e"></param>
     public void OnLoad(object sender, EventArgs e)
     {
-        playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
-        characterName = playerSaveData.SaveData["PlayerName"];
+        _playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
+        characterName = _playerSaveData.SaveData["PlayerName"];
+        _playerSaveData.SaveData.TryGetValue("PlayerGold", out string gold);
+        if (gold != null) { _amountOfGold = int.Parse(gold); }
     }
     #endregion
 
@@ -194,6 +223,10 @@ public class Player : Character
                 }
             }
         }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
+        {
+            TakeDamage(collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
+        }
     }
     #endregion
 
@@ -224,8 +257,6 @@ public class Player : Character
         }
 
         _inventoryManager.ToggleInventory();
-
-
     }
 
     /// <summary>
@@ -237,5 +268,31 @@ public class Player : Character
     {
         ToggleInventory();
     }
+    #endregion
+
+    #region Combat
+
+    /// <summary>
+    /// Finds the location directly in front of the player. This will be where the player targets. 
+    /// </summary>
+    /// <returns>Vector3 of target location</returns>
+    private Vector3 FindTarget()
+    {
+        var targetPosition = new Vector3(transform.position.x + characterAnimator.GetFloat("moveX"), transform.position.y + characterAnimator.GetFloat("moveY"));
+        return targetPosition;
+    }
+    protected override void KnockbackEffect()
+    {
+        // For now, do nothing... Do we want the player to be knocked back?
+    }
+    /// <summary>
+    /// Method for dying...
+    /// </summary>
+    protected override void Death()
+    {
+        // What do we need to do when we die?
+        Debug.Log("I have died!");
+    }
+
     #endregion
 }
