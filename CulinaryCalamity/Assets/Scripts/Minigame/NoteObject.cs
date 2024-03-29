@@ -6,6 +6,8 @@ public class NoteObject : MonoBehaviour
 {
     public bool canBePressed;
 
+    public bool obtained = false;
+
     public KeyCode keyToPress;
 
     // Start is called before the first frame update
@@ -21,6 +23,8 @@ public class NoteObject : MonoBehaviour
         {
             if (canBePressed)
             {
+                MiniGameManager.instance.NoteHit();
+                obtained = true;
                 gameObject.SetActive(false);
             }
         }
@@ -28,17 +32,21 @@ public class NoteObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Activator")
+        if(other.CompareTag("Activator"))
         {
-        canBePressed = true;
+            canBePressed = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Activator")
+        if (other.CompareTag("Activator"))
         {
             canBePressed = false;
+            if(!obtained)
+            {
+                MiniGameManager.instance.NoteMissed();
+            }
         }
     }
 }
