@@ -10,13 +10,19 @@ public class NoteObject : MonoBehaviour
 
     public KeyCode keyToPress;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update. 
+    /// It is used for initialization purposes and does not contain any specific functionality in this context.
+    /// </summary>
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame. Handles input for pressing the note and checks if it can be pressed.
+    /// If the note can be pressed and the corresponding key is pressed, triggers the NoteHit function, sets the note as obtained, and deactivates the game object.
+    /// </summary>
     void Update()
     {
         if (Input.GetKeyDown(keyToPress))
@@ -30,6 +36,10 @@ public class NoteObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when another collider enters the trigger collider attached to this GameObject.
+    /// </summary>
+    /// <param name="other">The other collider.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Activator"))
@@ -38,6 +48,10 @@ public class NoteObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called when another collider exits the trigger collider attached to this GameObject.
+    /// </summary>
+    /// <param name="other">The other collider.</param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Activator"))

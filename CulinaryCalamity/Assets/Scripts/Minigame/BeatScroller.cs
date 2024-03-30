@@ -8,13 +8,17 @@ public class BeatScroller : MonoBehaviour
 
     public bool hasStarted;
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Initializes the beat tempo by converting it to seconds per beat.
+    /// </summary>
     void Start()
     {
         beatTempo = beatTempo / 60f;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Updates the beat scrolling each frame.
+    /// </summary>
     void Update()
     {
         if(!hasStarted)
