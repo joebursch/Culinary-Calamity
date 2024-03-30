@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 /// <summary>
@@ -11,6 +13,8 @@ public class NPC : Character, InteractableObject
     private float _lastMoveTime;
     private bool _walkingBackNext = false;
     [SerializeField] private bool wanderAroundSpawnpoint;
+    [SerializeField] private TextAsset _dialogue;
+    private DialogueManager _dialogueManager;
 
     /// <summary>
     /// Called on script load.
@@ -19,6 +23,8 @@ public class NPC : Character, InteractableObject
     {
         movementSpeed = 5;
         characterAnimator = GetComponent<Animator>();
+        _dialogueManager = new();
+        _dialogueManager.InitializeDialogue(_dialogue);
     }
 
     /// <summary>
@@ -128,6 +134,10 @@ public class NPC : Character, InteractableObject
     /// </summary>
     public void Interact()
     {
+        if (_dialogueManager.StillSpeaking())
+        {
+            _dialogueManager.PlayLine();
+        }
         Debug.Log("Touched!");
     }
     /// <summary>

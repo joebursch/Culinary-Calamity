@@ -208,3 +208,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   wanderAroundSpawnpoint: 0
+  _dialogue: {fileID: 4900000, guid: 7d10e73e94736714da9dd94a3b317abb, type: 3}
