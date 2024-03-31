@@ -1,53 +1,55 @@
 using UnityEngine;
 using System.Collections.Generic;
-
-public class DialogueManager
+using System;
+namespace Dialogue
 {
-    private bool canSpeak = true;
-    private Queue<string> _dialogueLines;
-    public void InitializeDialogue(TextAsset dialogue)
+    public class DialogueManager
     {
-        _dialogueLines = new();
-        string[] tempLines = dialogue.ToString().Split("\n");
-        foreach (string line in tempLines)
+        private bool canSpeak = true;
+        private Queue<string> _dialogueLines;
+        public event EventHandler<DialogueEvent> UpdateDisplay;
+        public DialogueManager()
         {
-            _dialogueLines.Enqueue(line);
+            UpdateDisplay += DialogueCanvasManager.GetDialogueCanvasManager().UpdateDisplay;
         }
-    }
-
-    public void PlayLine()
-    {
-        // TURN ON CANVAS
-        DisplayLine(GetNextLine());
-    }
-
-    private string GetNextLine()
-    {
-        canSpeak = _dialogueLines.TryDequeue(out string nextLine);
-        if (!canSpeak)
+        public void InitializeDialogue(TextAsset dialogue)
         {
-            /* TURN OFF CANVAS? */
+            _dialogueLines = new();
+            string[] tempLines = dialogue.ToString().Split("\n");
+            foreach (string line in tempLines)
+            {
+                _dialogueLines.Enqueue(line);
+            }
         }
-        return nextLine;
-    }
 
-    private void DisplayLine(string dialogueLine)
-    {
-        Debug.Log(dialogueLine);
-    }
+        public void PlayLine()
+        {
+            DisplayLine(GetNextLine());
+        }
 
-    public bool StillSpeaking()
-    {
-        return canSpeak;
-    }
+        private string GetNextLine()
+        {
+            canSpeak = _dialogueLines.TryDequeue(out string nextLine);
+            if (!canSpeak)
+            {
+                /* TURN OFF CANVAS? */
+            }
+            return nextLine;
+        }
 
-    private void TurnOnDisplay()
-    {
+        private void DisplayLine(string dialogueLine)
+        {
+            // Debug.Log(dialogueLine);
+            OnDisplayLine(new DialogueEvent(dialogueLine));
+        }
+        protected virtual void OnDisplayLine(DialogueEvent e)
+        {
+            UpdateDisplay?.Invoke(this, e);
+        }
 
-    }
-
-    private void TurnOffDisplay()
-    {
-
+        public bool StillSpeaking()
+        {
+            return canSpeak;
+        }
     }
 }

@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEngine;
+using Dialogue;
 
 /// <summary>
 /// NPC class.
 /// </summary>
 public class NPC : Character, InteractableObject
 {
-
     // movement
     private Vector2 _nextMoveDir;
     private float _lastMoveTime;
