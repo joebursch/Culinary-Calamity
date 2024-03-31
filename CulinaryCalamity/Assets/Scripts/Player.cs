@@ -190,9 +190,9 @@ public class Player : Character
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
         if (collider != null)
         {
-            if (collider.TryGetComponent<QuestTarget>(out QuestTarget qt))
+            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh))
             {
-                qt.Interact();
+                qh.Interact();
             }
             else
             {
