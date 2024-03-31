@@ -180,6 +180,10 @@ public class Player : Character
     #endregion
 
     #region Interaction
+
+    // Track the last door the player interacted with
+    private Door lastInteractedDoor;
+
     /// <summary>
     /// When the player presses 'E', check for an interactable object in the facing direction. 
     /// </summary>
@@ -211,14 +215,21 @@ public class Player : Character
 
                 if (!tempDoor.IsActive())
                 {
-                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                    // Check if player has moved away from the last interacted door
+                    if (lastInteractedDoor == null || Vector2.Distance(transform.position, lastInteractedDoor.GetDestinationLocation()) > 1.0f)
                     {
-                        transform.position = tempDoor.GetDestinationLocation();
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-                        transform.position = tempDoor.GetDestinationLocation();
+                        if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                        {
+                            transform.position = tempDoor.GetDestinationLocation();
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
+                            transform.position = tempDoor.GetDestinationLocation();
+                        }
+
+                        // Update the last interacted door
+                        lastInteractedDoor = tempDoor;
                     }
                 }
             }
@@ -228,6 +239,7 @@ public class Player : Character
             TakeDamage(collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
         }
     }
+
     #endregion
 
     #region Inventory
