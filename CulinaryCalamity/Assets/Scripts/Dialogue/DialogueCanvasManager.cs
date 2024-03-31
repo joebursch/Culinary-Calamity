@@ -26,9 +26,19 @@ namespace Dialogue
             return _dialogueCanvasManager;
         }
 
-        public void UpdateDisplay(object sender, DialogueEvent e)
+        public void UpdateDisplay(string dialogue)
         {
-            Debug.Log("Updating Display! " + e.Dialogue);
+            Debug.Log("Updating Display! " + dialogue);
+        }
+
+        public void ActivateDisplay()
+        {
+            Debug.Log("Turning on Display");
+        }
+
+        public void DeactivateDisplay()
+        {
+            Debug.Log("Turning off Display");
         }
     }
 }

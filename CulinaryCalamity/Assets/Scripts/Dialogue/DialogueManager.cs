@@ -6,12 +6,9 @@ namespace Dialogue
     public class DialogueManager
     {
         private bool canSpeak = true;
+        private bool newConversation = true;
         private Queue<string> _dialogueLines;
-        public event EventHandler<DialogueEvent> UpdateDisplay;
-        public DialogueManager()
-        {
-            UpdateDisplay += DialogueCanvasManager.GetDialogueCanvasManager().UpdateDisplay;
-        }
+
         public void InitializeDialogue(TextAsset dialogue)
         {
             _dialogueLines = new();
@@ -24,7 +21,17 @@ namespace Dialogue
 
         public void PlayLine()
         {
+            if (newConversation)
+            {
+                DialogueCanvasManager.GetDialogueCanvasManager().ActivateDisplay();
+                newConversation = false;
+            }
             DisplayLine(GetNextLine());
+        }
+
+        public void DisplayLine(string dialogue)
+        {
+            DialogueCanvasManager.GetDialogueCanvasManager().UpdateDisplay(dialogue);
         }
 
         private string GetNextLine()
@@ -32,21 +39,10 @@ namespace Dialogue
             canSpeak = _dialogueLines.TryDequeue(out string nextLine);
             if (!canSpeak)
             {
-                /* TURN OFF CANVAS? */
+                DialogueCanvasManager.GetDialogueCanvasManager().DeactivateDisplay();
             }
             return nextLine;
         }
-
-        private void DisplayLine(string dialogueLine)
-        {
-            // Debug.Log(dialogueLine);
-            OnDisplayLine(new DialogueEvent(dialogueLine));
-        }
-        protected virtual void OnDisplayLine(DialogueEvent e)
-        {
-            UpdateDisplay?.Invoke(this, e);
-        }
-
         public bool StillSpeaking()
         {
             return canSpeak;
