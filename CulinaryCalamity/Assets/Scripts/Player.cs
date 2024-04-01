@@ -51,8 +51,8 @@ public class Player : Character
         _playerSaveData = new();
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += DeactivateControlsForDialogue;
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
     }
 
     void Start()
@@ -81,6 +81,10 @@ public class Player : Character
         {
             _attackStrategy.Attack(FindTarget());
             characterAnimator.Play("Attack");
+        }
+        if (_controlScheme.Dialogue.AdvanceDialogue.triggered)
+        {
+            DialogueManager.GetDialogueManager().AdvanceDialogue();
         }
     }
     #endregion
@@ -305,8 +309,9 @@ public class Player : Character
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public void ActivateControls(object sender, EventArgs e)
+    public void ActivateStandardControls(object sender, EventArgs e)
     {
+        _controlScheme.Dialogue.Disable();
         _controlScheme.Standard.Enable();
     }
     /// <summary>
@@ -314,10 +319,10 @@ public class Player : Character
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public void DeactivateControlsForDialogue(object sender, EventArgs e)
+    public void ActivateDialogueControls(object sender, EventArgs e)
     {
         _controlScheme.Standard.Disable();
-        _controlScheme.Standard.Interact.Enable();
+        _controlScheme.Dialogue.Enable();
     }
     #endregion
 }

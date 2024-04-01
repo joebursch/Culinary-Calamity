@@ -14,7 +14,6 @@ public class NPC : Character, InteractableObject
     private bool _walkingBackNext = false;
     [SerializeField] private bool wanderAroundSpawnpoint;
     [SerializeField] private TextAsset _dialogue = null;
-    private DialogueManager _dialogueManager = null;
 
     /// <summary>
     /// Called on script load.
@@ -23,11 +22,6 @@ public class NPC : Character, InteractableObject
     {
         movementSpeed = 5;
         characterAnimator = GetComponent<Animator>();
-        if (_dialogue != null)
-        {
-            _dialogueManager = new();
-            _dialogueManager.InitializeDialogue(_dialogue);
-        }
     }
 
     /// <summary>
@@ -138,10 +132,7 @@ public class NPC : Character, InteractableObject
     public void Interact()
     {
         SetInteractionFacingDirection();
-        if (_dialogueManager != null && _dialogueManager.StillSpeaking())
-        {
-            _dialogueManager.PlayLine();
-        }
+        if (_dialogue != null) { DialogueManager.GetDialogueManager().InitializeDialogue(_dialogue); }
         Debug.Log("Touched!");
     }
     /// <summary>

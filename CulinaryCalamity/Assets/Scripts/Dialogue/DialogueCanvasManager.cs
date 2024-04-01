@@ -10,7 +10,7 @@ namespace Dialogue
         private static DialogueCanvasManager _dialogueCanvasManager;
         [SerializeField] private GameObject _dialogueDisplayCanvas;
         [SerializeField] private TMP_Text _dialogueDisplayText;
-
+        private bool _displayActive = false;
         public event EventHandler DisplayActivated;
         public event EventHandler DisplayDeactivated;
 
@@ -39,12 +39,22 @@ namespace Dialogue
         /// <param name="dialogue">Line of dialogue to display</param>
         public void UpdateDisplay(string dialogue)
         {
+            if (!DialogueManager.GetDialogueManager().IsDialogueInProgress())
+            {
+                DeactivateDisplay();
+                _displayActive = false;
+            }
+            else if (!_displayActive)
+            {
+                ActivateDisplay();
+                _displayActive = true;
+            }
             _dialogueDisplayText.text = dialogue;
         }
         /// <summary>
         /// Turn on Dialogue Display
         /// </summary>
-        public void ActivateDisplay()
+        private void ActivateDisplay()
         {
             _dialogueDisplayCanvas.SetActive(true);
             OnDisplayActivated(EventArgs.Empty);
@@ -52,7 +62,7 @@ namespace Dialogue
         /// <summary>
         /// Turn off Dialogue Display
         /// </summary>
-        public void DeactivateDisplay()
+        private void DeactivateDisplay()
         {
             _dialogueDisplayCanvas.SetActive(false);
             OnDisplayDeactivated(EventArgs.Empty);

@@ -1,3 +1,4 @@
+using Dialogue;
 using UnityEngine;
 
 /// <summary>
@@ -10,13 +11,18 @@ public class Door : MonoBehaviour, InteractableObject
     [SerializeField] bool active = true;
     [SerializeField] string entranceSceneName = "";
     [SerializeField] string destinationSceneName = "";
+    [SerializeField] private TextAsset _doorDialouge = null;
 
     /// <summary>
     /// When the door interacts with something.
     /// </summary>
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        if (_doorDialouge != null && !unlocked) { DialogueManager.GetDialogueManager().InitializeDialogue(_doorDialouge); }
+        else
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     /// <summary>
