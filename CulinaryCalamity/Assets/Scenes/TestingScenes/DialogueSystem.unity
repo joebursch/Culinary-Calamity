@@ -180,6 +180,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7772504093531850989, guid: 6ba9c1ff85bd8394c92deb97af7d2175, type: 3}
+      propertyPath: _doorDialogue
+      value: 
+      objectReference: {fileID: 4900000, guid: 54262d1691fcb7a4998ba72eeed0a72a, type: 3}
+    - target: {fileID: 7772504093531850989, guid: 6ba9c1ff85bd8394c92deb97af7d2175, type: 3}
       propertyPath: _doorDialouge
       value: 
       objectReference: {fileID: 4900000, guid: 54262d1691fcb7a4998ba72eeed0a72a, type: 3}
