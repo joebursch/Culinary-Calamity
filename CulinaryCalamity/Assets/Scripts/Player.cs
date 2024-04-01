@@ -279,6 +279,11 @@ public class Player : Character
     {
         ToggleInventory();
     }
+
+    public bool QueryInventory(ItemId itemId, int qty = 1)
+    {
+        return true;
+    }
     #endregion
 
     #region Combat

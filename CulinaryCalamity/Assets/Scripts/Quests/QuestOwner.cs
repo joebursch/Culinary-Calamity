@@ -1,3 +1,5 @@
+using Items;
+
 namespace Quests
 {
     public interface IQuestOwner

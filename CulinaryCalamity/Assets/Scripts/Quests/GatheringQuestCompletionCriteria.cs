@@ -1,4 +1,4 @@
-using Items
+using Items;
 
 namespace Quests
 {
@@ -13,9 +13,9 @@ namespace Quests
         /// </summary>
         /// <param name="questOwner"></param>
         /// <returns></returns>
-        public bool IsSatisfied(QuestOwner questOwner)
+        public override bool IsSatisfied(IQuestOwner questOwner)
         {
-            return ((Player)questOwner).CheckInventory(_itemToGather, _quantityToGather);
+            return ((Player)questOwner).QueryInventory(_itemToGather, _quantityToGather);
         }
     }
 }

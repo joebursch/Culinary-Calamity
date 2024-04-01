@@ -14,7 +14,7 @@ namespace Quests
         {
             foreach (QuestCompletionCriterion criterion in _completionCriteria)
             {
-                if (!criterion.IsSatisfied())
+                if (!criterion.IsSatisfied(null))
                 {
                     return false;
                 }
