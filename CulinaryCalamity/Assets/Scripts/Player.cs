@@ -1,4 +1,5 @@
 using Attacks;
+using Dialogue;
 using Inventory;
 using Items;
 using Quests;
@@ -50,6 +51,8 @@ public class Player : Character
         _playerSaveData = new();
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += DeactivateControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateControls;
     }
 
     void Start()
@@ -294,5 +297,17 @@ public class Player : Character
         Debug.Log("I have died!");
     }
 
+    #endregion
+
+    #region Controls
+    public void ActivateControls(object sender, EventArgs e)
+    {
+        _controlScheme.Standard.Move.Enable();
+    }
+
+    public void DeactivateControls(object sender, EventArgs e)
+    {
+        _controlScheme.Standard.Move.Disable();
+    }
     #endregion
 }

@@ -13,8 +13,8 @@ public class NPC : Character, InteractableObject
     private float _lastMoveTime;
     private bool _walkingBackNext = false;
     [SerializeField] private bool wanderAroundSpawnpoint;
-    [SerializeField] private TextAsset _dialogue;
-    private DialogueManager _dialogueManager;
+    [SerializeField] private TextAsset _dialogue = null;
+    private DialogueManager _dialogueManager = null;
 
     /// <summary>
     /// Called on script load.
@@ -23,8 +23,11 @@ public class NPC : Character, InteractableObject
     {
         movementSpeed = 5;
         characterAnimator = GetComponent<Animator>();
-        _dialogueManager = new();
-        _dialogueManager.InitializeDialogue(_dialogue);
+        if (_dialogue != null)
+        {
+            _dialogueManager = new();
+            _dialogueManager.InitializeDialogue(_dialogue);
+        }
     }
 
     /// <summary>
@@ -134,7 +137,8 @@ public class NPC : Character, InteractableObject
     /// </summary>
     public void Interact()
     {
-        if (_dialogueManager.StillSpeaking())
+
+        if (_dialogueManager != null && _dialogueManager.StillSpeaking())
         {
             _dialogueManager.PlayLine();
         }
