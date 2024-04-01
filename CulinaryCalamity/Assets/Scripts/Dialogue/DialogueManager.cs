@@ -9,7 +9,7 @@ namespace Dialogue
     public class DialogueManager : MonoBehaviour
     {
         private static DialogueManager _dialogueManager;
-        private bool _dialougeRemaining;
+        private bool _dialogueRemaining;
         private Queue<string> _dialogueLines = new();
         void Awake()
         {
@@ -36,7 +36,7 @@ namespace Dialogue
         /// <param name="dialogue">TextAsset to use for dialogue</param>
         public void InitializeDialogue(TextAsset dialogue)
         {
-            _dialougeRemaining = true;
+            _dialogueRemaining = true;
             string[] tempLines = dialogue.ToString().Split("\n");
             foreach (string line in tempLines)
             {
@@ -57,7 +57,7 @@ namespace Dialogue
         /// <returns>line of dialogue</returns>
         private string GetNextLine()
         {
-            _dialougeRemaining = _dialogueLines.TryDequeue(out string nextLine);
+            _dialogueRemaining = _dialogueLines.TryDequeue(out string nextLine);
             return nextLine;
         }
         /// <summary>
@@ -66,7 +66,7 @@ namespace Dialogue
         /// <returns>Boolean</returns>
         public bool IsDialogueInProgress()
         {
-            return _dialougeRemaining;
+            return _dialogueRemaining;
         }
     }
 }

@@ -11,14 +11,14 @@ public class Door : MonoBehaviour, InteractableObject
     [SerializeField] bool active = true;
     [SerializeField] string entranceSceneName = "";
     [SerializeField] string destinationSceneName = "";
-    [SerializeField] private TextAsset _doorDialouge = null;
+    [SerializeField] private TextAsset _doorDialogue = null;
 
     /// <summary>
     /// When the door interacts with something.
     /// </summary>
     public void Interact()
     {
-        if (_doorDialouge != null && !unlocked) { DialogueManager.GetDialogueManager().InitializeDialogue(_doorDialouge); }
+        if (_doorDialogue != null && !unlocked) { DialogueManager.GetDialogueManager().InitializeDialogue(_doorDialogue); }
         else
         {
             throw new System.NotImplementedException();

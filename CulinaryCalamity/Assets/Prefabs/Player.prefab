@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 3071385534887090737}
   - component: {fileID: 4433433889256339304}
   - component: {fileID: 7447397249549752184}
-  - component: {fileID: 8564127082356156726}
   m_Layer: 11
   m_Name: DialogueSystem
   m_TagString: Untagged
@@ -125,18 +124,6 @@ MonoBehaviour:
   _dialogueDisplayCanvas: {fileID: 6756078205299162395}
   _dialogueDisplayText: {fileID: 1821123296446042411}
 --- !u!114 &7447397249549752184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954195415341487692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fae4fe331031eba48be9e3a7a49207a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8564127082356156726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
