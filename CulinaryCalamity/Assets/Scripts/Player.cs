@@ -33,9 +33,10 @@ public class Player : Character, IQuestOwner
     private ObjectSaveData _playerSaveData;
     // combat 
     private AttackStrategy _attackStrategy;
-
     // quests
     public List<Quest> OwnedQuests { get; set; }
+    private QuestMenuManager _questMenuManager;
+    [SerializeField] private GameObject _questMenuPrefab;
     #endregion
 
     #region UnityBuiltIn
@@ -77,6 +78,7 @@ public class Player : Character, IQuestOwner
             _attackStrategy.Attack(FindTarget());
             characterAnimator.Play("Attack");
         }
+        if (_controlScheme.Standard.OpenQuestMenu.triggered) { ToggleQuestMenu(); }
     }
     #endregion
 
@@ -310,5 +312,43 @@ public class Player : Character, IQuestOwner
         Debug.Log("I have died!");
     }
 
+    #endregion
+
+    #region Quests
+    /// <summary>
+    /// Instantiates the quest menu as a child of player and returns a reference to the manager script
+    /// </summary>
+    /// <returns>QuestMenuManager</returns>
+    private QuestMenuManager CreateQuestMenu()
+    {
+        GameObject display = Instantiate(_questMenuPrefab, gameObject.transform);
+        display.SetActive(false);
+        QuestMenuManager qMenuMngr = display.GetComponent<QuestMenuManager>();
+        return qMenuMngr;
+    }
+
+    /// <summary>
+    /// Activates/Deactivates the quest menu screen to display/hide it
+    /// </summary>
+    private void ToggleQuestMenu()
+    {
+        if (_questMenuManager == null)
+        {
+            _questMenuManager = CreateQuestMenu();
+            _questMenuManager.QuestMenuClose += OnQuestMenuClose;
+        }
+
+        _questMenuManager.ToggleQuestMenu();
+    }
+
+    /// <summary>
+    /// Handles the QuestMenuClose event - necessary to allow closing from quest menu X button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public void OnQuestMenuClose(object sender, EventArgs e)
+    {
+        ToggleQuestMenu();
+    }
     #endregion
 }

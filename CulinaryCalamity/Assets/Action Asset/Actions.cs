@@ -71,6 +71,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""OpenQuestMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""173e573d-b361-449e-841f-0e6bbd1cb8e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3f5a4fa-1b10-4f2b-88e0-d07c95c4c3f6"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenQuestMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -619,6 +639,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Standard_Interact = m_Standard.FindAction("Interact", throwIfNotFound: true);
         m_Standard_OpenInventory = m_Standard.FindAction("OpenInventory", throwIfNotFound: true);
         m_Standard_Attack = m_Standard.FindAction("Attack", throwIfNotFound: true);
+        m_Standard_OpenQuestMenu = m_Standard.FindAction("OpenQuestMenu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
@@ -694,6 +715,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_Interact;
     private readonly InputAction m_Standard_OpenInventory;
     private readonly InputAction m_Standard_Attack;
+    private readonly InputAction m_Standard_OpenQuestMenu;
     public struct StandardActions
     {
         private @Actions m_Wrapper;
@@ -703,6 +725,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Standard_Interact;
         public InputAction @OpenInventory => m_Wrapper.m_Standard_OpenInventory;
         public InputAction @Attack => m_Wrapper.m_Standard_Attack;
+        public InputAction @OpenQuestMenu => m_Wrapper.m_Standard_OpenQuestMenu;
         public InputActionMap Get() { return m_Wrapper.m_Standard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -727,6 +750,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
+            @OpenQuestMenu.started += instance.OnOpenQuestMenu;
+            @OpenQuestMenu.performed += instance.OnOpenQuestMenu;
+            @OpenQuestMenu.canceled += instance.OnOpenQuestMenu;
         }
 
         private void UnregisterCallbacks(IStandardActions instance)
@@ -746,6 +772,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
+            @OpenQuestMenu.started -= instance.OnOpenQuestMenu;
+            @OpenQuestMenu.performed -= instance.OnOpenQuestMenu;
+            @OpenQuestMenu.canceled -= instance.OnOpenQuestMenu;
         }
 
         public void RemoveCallbacks(IStandardActions instance)
@@ -864,6 +893,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnOpenQuestMenu(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
