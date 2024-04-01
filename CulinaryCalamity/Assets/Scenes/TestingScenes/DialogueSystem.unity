@@ -302,11 +302,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379039ef22c52fa429e7b9b914385135, type: 3}
---- !u!1 &1115240013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6756078205299162395, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
-  m_PrefabInstance: {fileID: 1943687555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1943687555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315,14 +310,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4433433889256339304, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
-      propertyPath: _dialogueDisplayText
-      value: 
-      objectReference: {fileID: 2074755126}
-    - target: {fileID: 4433433889256339304, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
-      propertyPath: _dialogueDisplayCanvas
-      value: 
-      objectReference: {fileID: 1115240013}
     - target: {fileID: 5337579492851626028, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
       propertyPath: m_Name
       value: Player
@@ -372,17 +359,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
---- !u!114 &2074755126 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1821123296446042411, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
-  m_PrefabInstance: {fileID: 1943687555}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

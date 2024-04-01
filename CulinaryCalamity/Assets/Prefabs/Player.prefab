@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eb71c114e2c4a4186832ea715ac60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueDisplayCanvas: {fileID: 6756078205299162395}
+  _dialogueDisplayText: {fileID: 1821123296446042411}
 --- !u!1 &5337579492851626028
 GameObject:
   m_ObjectHideFlags: 0

@@ -137,12 +137,22 @@ public class NPC : Character, InteractableObject
     /// </summary>
     public void Interact()
     {
-
+        SetInteractionFacingDirection();
         if (_dialogueManager != null && _dialogueManager.StillSpeaking())
         {
             _dialogueManager.PlayLine();
         }
         Debug.Log("Touched!");
+    }
+    /// <summary>
+    /// Makes NPC face the direction of interaction...
+    /// </summary>
+    private void SetInteractionFacingDirection()
+    {
+        var playerCollider = Physics2D.OverlapCircle(transform.position, 0.2f, _playerLayer);
+        var faceX = playerCollider.gameObject.transform.position.x - transform.position.x;
+        var faceY = playerCollider.gameObject.transform.position.y - transform.position.y;
+        ConfigureAnimator(new Vector2(faceX, faceY));
     }
     /// <summary>
     /// Method for NPC taking damage... spoiler -> they dont. 
