@@ -11,6 +11,7 @@ namespace Quests
     public class Quest
     {
         private int _questID;
+        private string _title;
         private TextAsset _dialogue;
         private List<QuestCompletionCriterion> _completionCriteria;
         private List<QuestCompletionAction> _questCompletionActions;
@@ -20,9 +21,10 @@ namespace Quests
         /// </summary>
         /// <param name="questId">int, should be unique</param>
         /// <param name="dialogue">TextAsset, stores dialogue to queue upon quest completion</param>
-        public Quest(int questId, TextAsset dialogue, List<QuestCompletionCriterion> criteria, List<QuestCompletionAction> actions)
+        public Quest(int questId, string title, TextAsset dialogue, List<QuestCompletionCriterion> criteria, List<QuestCompletionAction> actions)
         {
             _questID = questId;
+            _title = title;
             _dialogue = dialogue;
             _completionCriteria = criteria;
             _questCompletionActions = actions;
