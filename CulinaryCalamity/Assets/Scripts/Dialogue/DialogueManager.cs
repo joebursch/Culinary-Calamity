@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System;
 namespace Dialogue
 {
+    /// <summary>
+    /// Singleton that manages all dialogue in the scene. 
+    /// </summary>
     public class DialogueManager : MonoBehaviour
     {
         private static DialogueManager _dialogueManager;

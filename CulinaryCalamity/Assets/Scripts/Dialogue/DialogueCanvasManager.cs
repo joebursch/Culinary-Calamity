@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
 namespace Dialogue
 {
+    /// <summary>
+    /// Singleton that handles displaying and updating dialogue canvas. 
+    /// </summary>
     public class DialogueCanvasManager : MonoBehaviour
     {
         private static DialogueCanvasManager _dialogueCanvasManager;
