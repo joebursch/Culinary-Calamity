@@ -5,11 +5,10 @@ using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : Character
+public class Player : Character, IQuestOwner
 {
     enum PLAYER_SPD : int
     {
@@ -24,10 +23,6 @@ public class Player : Character
     private PlayerInventory _playerInventory;
     private InventoryManager _inventoryManager;
 
-    // quests
-#pragma warning disable IDE0044, IDE0051
-    private Questline _questline;
-#pragma warning restore IDE0051, IDE0051
     // movement
     private bool _running;
     // layers
@@ -38,6 +33,9 @@ public class Player : Character
     private ObjectSaveData _playerSaveData;
     // combat 
     private AttackStrategy _attackStrategy;
+
+    // quests
+    public List<Quest> OwnedQuests { get; set; }
     #endregion
 
     #region UnityBuiltIn
@@ -190,14 +188,16 @@ public class Player : Character
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
         if (collider != null)
         {
-            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh))
+            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh) && ((IQuestOwner)this).GetQuest(qh.HandledQuestId) != null)
             {
-                qh.Interact();
+                if (((IQuestOwner)this).IsQuestCompleteable(qh.HandledQuestId))
+                {
+                    QuestFramework.GetQuestFramework().CompleteQuest(qh.HandledQuestId, qh, (IQuestOwner)this);
+                }
             }
-            else
-            {
-                collider.GetComponent<InteractableObject>()?.Interact();
-            }
+
+            collider.GetComponent<InteractableObject>()?.Interact();
+
 
         }
     }

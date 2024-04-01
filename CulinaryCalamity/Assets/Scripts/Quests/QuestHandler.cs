@@ -2,24 +2,21 @@ using UnityEngine;
 
 namespace Quests
 {
-    public class QuestHandler : MonoBehaviour, InteractableObject
+    /// <summary>
+    /// Object that a quest owner reports to to complete a quest. 
+    /// ie: Rordan Gamsay is a QuestHandler for main story quests
+    /// </summary>
+    public class QuestHandler : MonoBehaviour
     {
-        public int HandledQuestId { get; set; } = 0;
+        public int HandledQuestId { get; set; } = 0; // id of quest being handled
 
-        public void Interact()
+        /// <summary>
+        /// Plays dialogue upon quest completion
+        /// </summary>
+        /// <param name="dialogue"></param>
+        public void StartQuestCompletionDialogue(TextAsset dialogue)
         {
-            QuestFramework qf = QuestFramework.GetQuestFramework();
-            if (qf.IsQuestCompleteable(HandledQuestId))
-            {
-                qf.CompleteQuest(HandledQuestId);
-                string completionDialogue = qf.GetQuestCompletionDialogue(HandledQuestId);
-                Debug.Log(completionDialogue);
-                // Destroy(this);
-            }
-            else
-            {
-                gameObject.GetComponent<NPC>().Interact();
-            }
+            // TODO: Pending Dialogue stuff
         }
     }
 }
