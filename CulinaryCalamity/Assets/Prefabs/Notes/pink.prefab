@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6612119116786185979}
   - component: {fileID: 4056004184645043218}
   - component: {fileID: 3850855757790195539}
-  - component: {fileID: 4789491181694896146}
+  - component: {fileID: 5344014893300602529}
+  - component: {fileID: 1944552619407545597}
   m_Layer: 11
   m_Name: pink
   m_TagString: Untagged
@@ -93,7 +94,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4639584808847195590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -120,8 +121,25 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &4789491181694896146
+  m_Radius: 0.3
+--- !u!114 &5344014893300602529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639584808847195590}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBePressed: 0
+  obtained: 0
+  createMode: 0
+  note: {fileID: 0}
+  keyToPress: 120
+--- !u!114 &1944552619407545597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +148,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4639584808847195590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
+  m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  obtained: 0
-  createMode: 1
-  note: {fileID: 4639584808847195590}
-  keyToPress: 120
+  beatTempo: 140
+  hasStarted: 1

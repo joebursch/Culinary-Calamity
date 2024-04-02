@@ -9,22 +9,23 @@ public class NoteObject : MonoBehaviour
     public bool createMode;
     public GameObject note;
     public KeyCode keyToPress;
-    private GameObject activator; 
-    private Color originalColor; 
-    private Vector3 originalCameraPosition; 
-    private Transform cameraTransform; 
-    private float shakeDuration = 0.2f; 
-    private float shakeMagnitude = 0.1f; 
+    private GameObject activator;
+    private Color originalColor;
+    private Vector3 originalCameraPosition;
+    private Transform cameraTransform;
+    private float shakeDuration = 0.2f;
+    private float shakeMagnitude = 0.1f;
+
 
     /// <summary>
     /// Initializes the note object by finding the activator object, storing its original color, and camera transform.
     /// </summary>
     void Start()
     {
-        activator = GameObject.FindGameObjectWithTag("Activator"); 
-        originalColor = activator.GetComponent<SpriteRenderer>().color; 
-        cameraTransform = Camera.main.transform; 
-        originalCameraPosition = cameraTransform.position; 
+        activator = GameObject.FindGameObjectWithTag("Activator");
+        originalColor = activator.GetComponent<SpriteRenderer>().color;
+        cameraTransform = Camera.main.transform;
+        originalCameraPosition = cameraTransform.position;
     }
 
     /// <summary>
@@ -34,11 +35,12 @@ public class NoteObject : MonoBehaviour
     {
         if (createMode)
         {
-            if(Input.GetKeyDown(keyToPress))
+            if (Input.GetKeyDown(keyToPress))
             {
                 Instantiate(note, transform.position, Quaternion.identity);
             }
-        } else
+        }
+        else
         {
             if (Input.GetKeyDown(keyToPress))
             {
@@ -46,9 +48,9 @@ public class NoteObject : MonoBehaviour
                 {
                     MiniGameManager.instance.NoteHit();
                     obtained = true;
-                    ChangeActivatorColor(Color.yellow); 
-                    Invoke("RevertActivatorColor", 0.1f); 
-                    gameObject.SetActive(false); 
+                    ChangeActivatorColor(Color.yellow);
+                    Invoke("RevertActivatorColor", 0.1f);
+                    gameObject.SetActive(false);
                 }
             }
         }
@@ -58,7 +60,7 @@ public class NoteObject : MonoBehaviour
         float rightEdge = transform.position.x + GetComponent<SpriteRenderer>().bounds.extents.x;
 
         // Check if the note is obtained, and both its left and right edges are to the left of the camera's view
-        if (!obtained && leftEdge < Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x 
+        if (!obtained && leftEdge < Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x
             && !createMode && rightEdge < Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x)
         {
             Destroy(gameObject); // Destroy the note if it's obtained and completely out of the camera's view on the left side
@@ -91,14 +93,14 @@ public class NoteObject : MonoBehaviour
             canBePressed = false;
             if (!obtained)
             {
-                MiniGameManager.instance.NoteMissed();
+                MiniGameManager.instance?.NoteMissed();
                 ChangeActivatorColor(Color.red);
                 Invoke("RevertActivatorColor", 0.1f);
                 if (gameObject.activeSelf)
                 {
                     StartCoroutine(ShakeScene());
                 }
-                    
+
             }
         }
     }
@@ -109,7 +111,11 @@ public class NoteObject : MonoBehaviour
     /// <param name="color"></param>
     void ChangeActivatorColor(Color color)
     {
-        activator.GetComponent<SpriteRenderer>().color = color; 
+        if (!createMode)
+        {
+            activator.GetComponent<SpriteRenderer>().color = color;
+        }
+        
     }
 
     /// <summary>
@@ -117,7 +123,11 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     void RevertActivatorColor()
     {
-        activator.GetComponent<SpriteRenderer>().color = originalColor; 
+        if(!createMode)
+        {
+            activator.GetComponent<SpriteRenderer>().color = originalColor;
+        }
+       
     }
 
     /// <summary>

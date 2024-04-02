@@ -26,7 +26,7 @@ public class MiniGameManager : MonoBehaviour
 
 
     /// <summary>
-    /// Initializes the singleton instance.
+    /// Initializes the singleton instance. Starts the beat scroller
     /// </summary>
     void Start()
     {
@@ -35,34 +35,25 @@ public class MiniGameManager : MonoBehaviour
         scoreText.text = "Score: 0 ";
         multiText.text = "Multiplier x1 ";
         currentMultiplier = 1;
-    }
 
-
-    /// <summary>
-    /// Update is called once per frame. Starts the mini-game when any key is pressed.
-    /// </summary>
-    void Update()
-    {
-        if (!startPlaying)
-        {
-            if (Input.anyKeyDown)
-            {
-                startPlaying = true;
-                theBS.hasStarted = true;
-
-                audioSource.Play();
-            }
-        }
+        theBS.hasStarted = true;
     }
 
     /// <summary>
-    /// Called when a note is hit.
+    /// Handles the event when a note is successfully hit.
+    /// Increases the score based on the current multiplier and score per note,
+    /// updates the multiplier if necessary, and updates the score text UI.
     /// </summary>
     public void NoteHit()
     {
         Debug.Log("Hit On Time");
 
-        if(currentMultiplier - 1 < multiplierThresholds.Length)
+        if (!startPlaying)
+        {
+            StartGame();
+        }
+
+        if (currentMultiplier - 1 < multiplierThresholds.Length)
         {
             multiplierTracker++;
 
@@ -77,19 +68,35 @@ public class MiniGameManager : MonoBehaviour
             currentScore += scorePerNote * currentMultiplier;
             scoreText.text = "Score: " + currentScore;
         }
-        
+
     }
 
     /// <summary>
-    /// Called when a note is missed.
+    /// Handles the event when a note is missed.
+    /// Resets the current multiplier and multiplier tracker,
+    /// updates the multiplier text UI, and prepares for the next note.
     /// </summary>
     public void NoteMissed()
     {
         Debug.Log("Missed note");
 
+        if (!startPlaying)
+        {
+            StartGame();
+        }
+
         currentMultiplier = 1;
         multiplierTracker = 0;
 
         multiText.text = "Multiplier: x" + currentMultiplier;
+    }
+
+    /// <summary>
+    /// Starts the game by playing the song.
+    /// </summary>
+    void StartGame()
+    {
+        startPlaying = true;
+        audioSource.Play();
     }
 }

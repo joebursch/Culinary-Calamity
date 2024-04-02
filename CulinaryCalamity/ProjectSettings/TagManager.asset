@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door
   - Activator
+  - spawn
   layers:
   - Default
   - TransparentFX

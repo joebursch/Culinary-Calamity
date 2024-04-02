@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4619821968006374345}
   - component: {fileID: 4735622936160303352}
   - component: {fileID: 8287157494819114711}
-  - component: {fileID: 1669872484797542152}
+  - component: {fileID: -8905675392946346920}
+  - component: {fileID: -2697215460464507660}
   m_Layer: 11
   m_Name: orange
   m_TagString: Untagged
@@ -93,7 +94,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064531259214662691}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -120,8 +121,25 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
---- !u!114 &1669872484797542152
+  m_Radius: 0.3
+--- !u!114 &-8905675392946346920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064531259214662691}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBePressed: 0
+  obtained: 0
+  createMode: 0
+  note: {fileID: 1064531259214662691}
+  keyToPress: 122
+--- !u!114 &-2697215460464507660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,11 +148,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1064531259214662691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
+  m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBePressed: 0
-  obtained: 0
-  createMode: 1
-  note: {fileID: 1064531259214662691}
-  keyToPress: 122
+  beatTempo: 140
+  hasStarted: 1
