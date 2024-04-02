@@ -300,6 +300,11 @@ public class Player : Character, IQuestOwner
     {
         _amountOfGold += amtToAdd;
     }
+
+    public PlayerInventory GetInventory()
+    {
+        return _playerInventory;
+    }
     #endregion
 
     #region Combat

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Quests
 {
     /// <summary>
@@ -11,23 +13,23 @@ namespace Quests
         private IQuestOwner _nextQuestOwner;
 
         /// <summary>
-        /// Constructor
-        /// </summary>
-        /// <param name="nextQuest">Quest, quest to be assigned</param>
-        /// <param name="owner">IQuestOwner, object to assign quest to</param>
-        public StartNextQuestAction(int nextQuestId, IQuestOwner owner)
-        {
-            _nextQuestId = nextQuestId;
-            _nextQuestOwner = owner;
-        }
-
-        /// <summary>
         /// Implementation of abstract method - represents taking the action
         /// Assigns the next quest to the specified owner
         /// </summary>
         public override void Take()
         {
             QuestFramework.GetQuestFramework().AssignQuest(_nextQuestId, _nextQuestOwner);
+        }
+
+        /// <summary>
+        /// Assigns values based on parameters based. Assumes parameter dictionary is well-formed with all required parameters
+        /// </summary>
+        /// <param name="parameters">Dictionary(string,string)</param>
+        public override void CopyFromDescription(Dictionary<string, string> parameters)
+        {
+            _nextQuestId = int.Parse(parameters["nextQuestId"]);
+            string nextOwnerTag = parameters["nextQuestOwner"];
+            _nextQuestOwner = QuestFramework.GetQuestFramework().GetQuestOwner(nextOwnerTag);
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Quests
 {
     /// <summary>
@@ -10,23 +12,23 @@ namespace Quests
         private Player _playerReceivingGold;
 
         /// <summary>
-        /// constructor
-        /// </summary>
-        /// <param name="goldToAdd">int</param>
-        /// <param name="playerReceivingGold">Player</param>
-        public AddGoldAction(int goldToAdd, Player playerReceivingGold)
-        {
-            _goldToAdd = goldToAdd;
-            _playerReceivingGold = playerReceivingGold;
-        }
-
-        /// <summary>
         /// Concrete implementation of abstract Take method
         /// Adds gold to player object
         /// </summary>
         public override void Take()
         {
             _playerReceivingGold.AddGold(_goldToAdd);
+        }
+
+        /// <summary>
+        /// Assigns values based on parameters based. Assumes parameter dictionary is well-formed with all required parameters
+        /// </summary>
+        /// <param name="parameters">Dictionary(string,string)</param>
+        public override void CopyFromDescription(Dictionary<string, string> parameters)
+        {
+            _goldToAdd = int.Parse(parameters["goldToAdd"]);
+            string nextOwnerTag = parameters["playerReceivingGold"];
+            _playerReceivingGold = (Player)QuestFramework.GetQuestFramework().GetQuestOwner(nextOwnerTag);
         }
     }
 }

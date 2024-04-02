@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Quests
 {
     /// <summary>
@@ -10,5 +12,12 @@ namespace Quests
         /// </summary>
         /// <returns>bool</returns>
         public abstract bool IsSatisfied(IQuestOwner questOwner);
+
+        /// <summary>
+        /// Populates an existing Quest Completion Criterion with values from a dictionary
+        /// </summary>
+        /// <param name="actionDescription">Dictionary(string, string) containing quest criterion parameters </param>
+        public abstract void CopyFromDescription(Dictionary<string, string> parameters);
+
     }
 }

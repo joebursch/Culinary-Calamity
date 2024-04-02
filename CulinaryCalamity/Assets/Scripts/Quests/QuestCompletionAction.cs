@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
 namespace Quests
 {
     /// <summary>
@@ -10,5 +13,11 @@ namespace Quests
         /// Abstract method representing 'taking' the action.
         /// </summary>
         public abstract void Take();
+
+        /// <summary>
+        /// Populates an existing Quest Completion Action with values from a dictionary
+        /// </summary>
+        /// <param name="actionDescription">Dictionary(string, string) containing quest action parameters </param>
+        public abstract void CopyFromDescription(Dictionary<string, string> parameters);
     }
 }

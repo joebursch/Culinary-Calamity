@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Items;
 
 namespace Quests
@@ -20,6 +21,16 @@ namespace Quests
         public override bool IsSatisfied(IQuestOwner questOwner)
         {
             return ((Player)questOwner).QueryInventory(_itemToGather, _quantityToGather);
+        }
+
+        // <summary>
+        /// Assigns values based on parameters based. Assumes parameter dictionary is well-formed with all required parameters
+        /// </summary>
+        /// <param name="parameters">Dictionary(string,string)</param>
+        public override void CopyFromDescription(Dictionary<string, string> parameters)
+        {
+            _itemToGather = (ItemId)int.Parse(parameters["itemToGather"]);
+            _quantityToGather = int.Parse(parameters["quantityToGather"]);
         }
     }
 }

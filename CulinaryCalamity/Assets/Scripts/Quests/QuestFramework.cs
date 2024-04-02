@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Saving;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Quests
 {
@@ -76,7 +77,9 @@ namespace Quests
 
         public Quest CreateQuest(int questId)
         {
-            return null;
+            TextAsset questFile = Resources.Load<TextAsset>("QuestDescriptions/quest" + questId);
+            Dictionary<string, object> questAttributes = JsonConvert.DeserializeObject<Dictionary<string, object>>(questFile.text);
+            return new Quest(questId, questAttributes);
         }
 
         public void AssignQuest(int questId, IQuestOwner owner)
@@ -85,6 +88,14 @@ namespace Quests
             owner.StartQuest(CreateQuest(questId));
         }
 
+        public IQuestOwner GetQuestOwner(string questOwnerTag)
+        {
+            if (questOwnerTag == "MainCharacter")
+            {
+                return GameObject.Find("Player").GetComponent<Player>();
+            }
+            else { return null; }
+        }
         /// <summary>
         /// For singleton pattern.
         /// </summary>

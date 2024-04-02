@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Items;
 using UnityEngine;
 
 namespace Quests
@@ -12,7 +14,7 @@ namespace Quests
     {
         private int _questID;
         private string _title;
-        private TextAsset _dialogue;
+        private TextAsset _endingDialogue;
         private List<QuestCompletionCriterion> _completionCriteria;
         private List<QuestCompletionAction> _questCompletionActions;
 
@@ -25,9 +27,48 @@ namespace Quests
         {
             _questID = questId;
             _title = title;
-            _dialogue = dialogue;
+            _endingDialogue = dialogue;
             _completionCriteria = criteria;
             _questCompletionActions = actions;
+        }
+
+        /// <summary>
+        /// Quest constructor from quest description json
+        /// </summary>
+        /// <param name="parameters">Dictionary(string, object), JSON of quest attributes. See Resources/QuestDescriptions folder for examples of format.</param>
+        public Quest(int questId, Dictionary<string, object> parameters)
+        {
+            _questID = questId;
+            _title = (string)parameters["QuestTitle"];
+
+            string endDialoguePath = (string)parameters["QuestCompletionCriteria"];
+            _endingDialogue = Resources.Load<TextAsset>(endDialoguePath);
+
+            _completionCriteria = new();
+            foreach (Dictionary<string, object> criterion in (Dictionary<string, object>[])parameters["QuestCompletionCriteria"])
+            {
+                QuestCompletionCriterion temp = (string)criterion["Type"] switch
+                {
+                    "GatheringQuestCompletionAction" => new GatheringQuestCompletionCriterion(),
+                    _ => null,
+                };
+                temp.CopyFromDescription((Dictionary<string, string>)parameters["Parameters"]);
+                _completionCriteria.Add(temp);
+            }
+
+            _questCompletionActions = new();
+            foreach (Dictionary<string, object> action in (Dictionary<string, object>[])parameters["QuestCompletionActions"])
+            {
+                QuestCompletionAction temp = (string)action["Type"] switch
+                {
+                    "StartNextQuestAction" => new StartNextQuestAction(),
+                    "AddGoldAction" => new AddGoldAction(),
+                    "AddItemAction" => new AddItemAction(),
+                    _ => null,
+                };
+                temp.CopyFromDescription((Dictionary<string, string>)parameters["Parameters"]);
+                _questCompletionActions.Add(temp);
+            }
         }
 
         /// <summary>
@@ -45,7 +86,7 @@ namespace Quests
         /// <returns>TextAsset</returns>
         public TextAsset GetCompletionDialogue()
         {
-            return _dialogue;
+            return _endingDialogue;
         }
 
         /// <summary>
@@ -74,6 +115,15 @@ namespace Quests
             {
                 action.Take();
             }
+        }
+
+        /// <summary>
+        /// Getter for title attribute
+        /// </summary>
+        /// <returns>string</returns>
+        public string GetTitle()
+        {
+            return _title;
         }
     }
 }
