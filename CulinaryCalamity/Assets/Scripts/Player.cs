@@ -1,4 +1,5 @@
 using Attacks;
+using Dialogue;
 using Inventory;
 using Items;
 using Quests;
@@ -47,8 +48,11 @@ public class Player : Character, IQuestOwner
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
         _playerSaveData = new();
+
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
     }
 
     void Start()
@@ -79,6 +83,10 @@ public class Player : Character, IQuestOwner
             characterAnimator.Play("Attack");
         }
         if (_controlScheme.Standard.OpenQuestMenu.triggered) { ToggleQuestMenu(); }
+        if (_controlScheme.Dialogue.AdvanceDialogue.triggered)
+        {
+            DialogueManager.GetDialogueManager().AdvanceDialogue();
+        }
     }
     #endregion
 
@@ -340,6 +348,7 @@ public class Player : Character, IQuestOwner
 
         _questMenuManager.ToggleQuestMenu();
     }
+    #endregion
 
     /// <summary>
     /// Handles the QuestMenuClose event - necessary to allow closing from quest menu X button
@@ -349,6 +358,28 @@ public class Player : Character, IQuestOwner
     public void OnQuestMenuClose(object sender, EventArgs e)
     {
         ToggleQuestMenu();
+    }
+
+    #region Controls
+    /// <summary>
+    /// Turns on all controls
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public void ActivateStandardControls(object sender, EventArgs e)
+    {
+        _controlScheme.Dialogue.Disable();
+        _controlScheme.Standard.Enable();
+    }
+    /// <summary>
+    /// Turns off controls not necessary for dialogue
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public void ActivateDialogueControls(object sender, EventArgs e)
+    {
+        _controlScheme.Standard.Disable();
+        _controlScheme.Dialogue.Enable();
     }
     #endregion
 }

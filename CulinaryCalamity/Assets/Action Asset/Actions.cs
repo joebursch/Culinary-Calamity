@@ -628,6 +628,45 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""cbdca17f-a5aa-4079-825f-06e77694afd3"",
+            ""actions"": [
+                {
+                    ""name"": ""AdvanceDialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""71ee8dac-8b02-4284-b2d8-1b4008e37474"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a379c157-a3bb-41f9-b854-d99960735bfb"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1e3ea96-ace4-4da1-9877-586ddd65b4b1"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -649,6 +688,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Menu_Click = m_Menu.FindAction("Click", throwIfNotFound: true);
         m_Menu_ScrollWheel = m_Menu.FindAction("ScrollWheel", throwIfNotFound: true);
         m_Menu_RightClick = m_Menu.FindAction("RightClick", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_AdvanceDialogue = m_Dialogue.FindAction("AdvanceDialogue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -886,6 +928,52 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         }
     }
     public MenuActions @Menu => new MenuActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
+    private readonly InputAction m_Dialogue_AdvanceDialogue;
+    public struct DialogueActions
+    {
+        private @Actions m_Wrapper;
+        public DialogueActions(@Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AdvanceDialogue => m_Wrapper.m_Dialogue_AdvanceDialogue;
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        public void AddCallbacks(IDialogueActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
+            @AdvanceDialogue.started += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
+        }
+
+        private void UnregisterCallbacks(IDialogueActions instance)
+        {
+            @AdvanceDialogue.started -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.performed -= instance.OnAdvanceDialogue;
+            @AdvanceDialogue.canceled -= instance.OnAdvanceDialogue;
+        }
+
+        public void RemoveCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogueActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DialogueActions @Dialogue => new DialogueActions(this);
     public interface IStandardActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -904,5 +992,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnRightClick(InputAction.CallbackContext context);
+    }
+    public interface IDialogueActions
+    {
+        void OnAdvanceDialogue(InputAction.CallbackContext context);
     }
 }
