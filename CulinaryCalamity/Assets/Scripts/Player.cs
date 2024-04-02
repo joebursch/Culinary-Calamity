@@ -262,6 +262,7 @@ public class Player : Character, IQuestOwner
         display.SetActive(false);
         InventoryManager displayMngr = display.GetComponent<InventoryManager>();
         displayMngr.SetPlayerName(characterName);
+        displayMngr.SetGold(_amountOfGold);
         displayMngr.SetInventory(_playerInventory);
         return displayMngr;
     }
@@ -299,6 +300,7 @@ public class Player : Character, IQuestOwner
     public void AddGold(int amtToAdd)
     {
         _amountOfGold += amtToAdd;
+        _inventoryManager.SetGold(_amountOfGold);
     }
 
     public PlayerInventory GetInventory()
