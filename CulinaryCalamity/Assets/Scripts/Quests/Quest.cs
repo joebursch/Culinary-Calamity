@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Items;
+using Newtonsoft.Json.Linq;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Quests
 {
@@ -41,23 +43,24 @@ namespace Quests
             _questID = questId;
             _title = (string)parameters["QuestTitle"];
 
-            string endDialoguePath = (string)parameters["QuestCompletionCriteria"];
+            string endDialoguePath = (string)parameters["QuestEndDialoguePath"];
             _endingDialogue = Resources.Load<TextAsset>(endDialoguePath);
 
             _completionCriteria = new();
-            foreach (Dictionary<string, object> criterion in (Dictionary<string, object>[])parameters["QuestCompletionCriteria"])
+
+            foreach (Dictionary<string, object> criterion in ((JArray)parameters["QuestCompletionCriteria"]).ToObject<Dictionary<string, object>[]>())
             {
                 QuestCompletionCriterion temp = (string)criterion["Type"] switch
                 {
-                    "GatheringQuestCompletionAction" => new GatheringQuestCompletionCriterion(),
+                    "GatheringQuestCompletionCriterion" => new GatheringQuestCompletionCriterion(),
                     _ => null,
                 };
-                temp.CopyFromDescription((Dictionary<string, string>)parameters["Parameters"]);
+                temp.CopyFromDescription(((JObject)criterion["Parameters"]).ToObject<Dictionary<string, string>>());
                 _completionCriteria.Add(temp);
             }
 
             _questCompletionActions = new();
-            foreach (Dictionary<string, object> action in (Dictionary<string, object>[])parameters["QuestCompletionActions"])
+            foreach (Dictionary<string, object> action in ((JArray)parameters["QuestCompletionActions"]).ToObject<Dictionary<string, object>[]>())
             {
                 QuestCompletionAction temp = (string)action["Type"] switch
                 {
@@ -66,7 +69,7 @@ namespace Quests
                     "AddItemAction" => new AddItemAction(),
                     _ => null,
                 };
-                temp.CopyFromDescription((Dictionary<string, string>)parameters["Parameters"]);
+                temp.CopyFromDescription(((JObject)action["Parameters"]).ToObject<Dictionary<string, string>>());
                 _questCompletionActions.Add(temp);
             }
         }

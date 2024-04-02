@@ -53,6 +53,8 @@ public class Player : Character, IQuestOwner
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
         DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
         DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
+
+        OwnedQuests = new();
     }
 
     void Start()
