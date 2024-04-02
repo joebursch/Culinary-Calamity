@@ -7,7 +7,7 @@ namespace Quests
     /// </summary>
     public class StartNextQuestAction : QuestCompletionAction
     {
-        private Quest _nextQuest;
+        private int _nextQuestId;
         private IQuestOwner _nextQuestOwner;
 
         /// <summary>
@@ -15,9 +15,9 @@ namespace Quests
         /// </summary>
         /// <param name="nextQuest">Quest, quest to be assigned</param>
         /// <param name="owner">IQuestOwner, object to assign quest to</param>
-        public StartNextQuestAction(Quest nextQuest, IQuestOwner owner)
+        public StartNextQuestAction(int nextQuestId, IQuestOwner owner)
         {
-            _nextQuest = nextQuest;
+            _nextQuestId = nextQuestId;
             _nextQuestOwner = owner;
         }
 
@@ -27,7 +27,7 @@ namespace Quests
         /// </summary>
         public override void Take()
         {
-            QuestFramework.GetQuestFramework().AssignQuest(_nextQuest, _nextQuestOwner);
+            QuestFramework.GetQuestFramework().AssignQuest(_nextQuestId, _nextQuestOwner);
         }
     }
 }

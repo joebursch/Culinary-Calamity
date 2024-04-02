@@ -1,0 +1,11 @@
+{
+    "QuestId": 1,
+    "QuestTitle": "Gather 5 Berries from the forest",
+    "QuestEndDialoguePath": "QuestDialogue/StorylineQuest_1EndDialogue",
+    "QuestCompletionCriteria": [
+        {"Type": "GatheringQuestCompletionCriterion", "Parameters": [{"Type": "ItemId", "Value": "0"}, {"Type": "int", "Value": "5"}]}
+    ],
+    "QuestCompletionActions": [
+        {"Type": "AddGoldAction", "Parameters": [{"Type": "int", "Value": "100"}, {"Type": "Player", "Value": "MainCharacter"}]}
+    ]
+}

@@ -74,15 +74,15 @@ namespace Quests
             _questList.Remove(questId);
         }
 
-        public Quest CreateQuest()
+        public Quest CreateQuest(int questId)
         {
             return null;
         }
 
-        public void AssignQuest(Quest quest, IQuestOwner owner)
+        public void AssignQuest(int questId, IQuestOwner owner)
         {
-            _questList.Add(quest.GetQuestId(), owner);
-            owner.StartQuest(quest);
+            _questList.Add(questId, owner);
+            owner.StartQuest(CreateQuest(questId));
         }
 
         /// <summary>

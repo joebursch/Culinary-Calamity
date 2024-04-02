@@ -292,7 +292,8 @@ public class Player : Character, IQuestOwner
 
     public bool QueryInventory(ItemId itemId, int qty = 1)
     {
-        return true;
+        bool isItemPresent = _playerInventory.InventoryContents.TryGetValue(itemId, out int amtInInventory);
+        return isItemPresent && qty == amtInInventory;
     }
 
     public void AddGold(int amtToAdd)

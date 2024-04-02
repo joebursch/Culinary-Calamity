@@ -1,0 +1,10 @@
+{
+    "QuestId": 0,
+    "QuestTitle": "Talk to Rordan Gamsay in the Restaurant",
+    "QuestEndDialoguePath": "QuestDialogue/StartingQuestEndDialogue",
+    "QuestCompletionCriteria": [],
+    "QuestCompletionActions": [
+        {"Type": "StartNextQuestAction", "Parameters": [{"Type": "int", "Value": "1"}, {"Type": "IQuestOwner", "Value": "MainCharacter"}]},
+        {"Type": "AddGoldAction", "Parameters": [{"Type": "int", "Value": "100"}, {"Type": "Player", "Value": "MainCharacter"}]}
+    ]
+}
