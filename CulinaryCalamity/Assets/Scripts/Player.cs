@@ -294,6 +294,11 @@ public class Player : Character, IQuestOwner
     {
         return true;
     }
+
+    public void AddGold(int amtToAdd)
+    {
+        _amountOfGold += amtToAdd;
+    }
     #endregion
 
     #region Combat
@@ -348,7 +353,6 @@ public class Player : Character, IQuestOwner
 
         _questMenuManager.ToggleQuestMenu();
     }
-    #endregion
 
     /// <summary>
     /// Handles the QuestMenuClose event - necessary to allow closing from quest menu X button
@@ -359,6 +363,7 @@ public class Player : Character, IQuestOwner
     {
         ToggleQuestMenu();
     }
+    #endregion
 
     #region Controls
     /// <summary>

@@ -79,9 +79,10 @@ namespace Quests
             return null;
         }
 
-        public void AssignQuest()
+        public void AssignQuest(Quest quest, IQuestOwner owner)
         {
-
+            _questList.Add(quest.GetQuestId(), owner);
+            owner.StartQuest(quest);
         }
 
         /// <summary>
