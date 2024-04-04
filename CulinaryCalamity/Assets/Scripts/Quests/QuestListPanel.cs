@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Quests
 {
+    /// <summary>
+    /// Manages UI panel on Quest menu contaiing the list of quests
+    /// </summary>
     public class QuestListPanel : MonoBehaviour
     {
         private List<Quest> _questList;
@@ -22,11 +25,18 @@ namespace Quests
             _tilePrefabHeight = _questTilePrefab.GetComponent<RectTransform>().rect.height;
         }
 
+        /// <summary>
+        /// Sets quest list to track
+        /// </summary>
+        /// <param name="questList">List(Quest)</param>
         public void SetQuestList(List<Quest> questList)
         {
             _questList = questList;
         }
 
+        /// <summary>
+        /// Updates display of quest list
+        /// </summary>
         public void RefreshDisplay()
         {
             ResetQuestTiles();

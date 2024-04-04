@@ -75,6 +75,12 @@ namespace Quests
             _questList.Remove(questId);
         }
 
+        /// <summary>
+        /// Creates a quest object based on id
+        /// Assumes that a quest description is stored in Resources/QuestDescription/quest+questId
+        /// </summary>
+        /// <param name="questId">int, id of quest to create</param>
+        /// <returns></returns>
         public Quest CreateQuest(int questId)
         {
             TextAsset questFile = Resources.Load<TextAsset>("QuestDescriptions/quest" + questId);
@@ -82,12 +88,25 @@ namespace Quests
             return new Quest(questId, questAttributes);
         }
 
+        /// <summary>
+        /// Assigns a quest to a quest owner
+        /// Assumes that a quest description is stored in Resources/QuestDescription/quest+questId
+        /// </summary>
+        /// <param name="questId">int, id of quest to assign</param>
+        /// <param name="owner">IQuestOwner</param>
         public void AssignQuest(int questId, IQuestOwner owner)
         {
             _questList.Add(questId, owner);
             owner.StartQuest(CreateQuest(questId));
         }
 
+        /// <summary>
+        /// Returns the quest owner corresponding to a certain tag
+        /// Currently only accepts "MainCharacter" tag and returns the Player IQuestOwner
+        /// Else returns null
+        /// </summary>
+        /// <param name="questOwnerTag">string, tag of questOwner to get</param>
+        /// <returns>IQuestOwner</returns>
         public IQuestOwner GetQuestOwner(string questOwnerTag)
         {
             if (questOwnerTag == "MainCharacter")

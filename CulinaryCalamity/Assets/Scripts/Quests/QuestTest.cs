@@ -2,6 +2,9 @@
 using Quests;
 using UnityEngine;
 
+/// <summary>
+/// Used in testing scene - not used in production
+/// </summary>
 public class QuestTest : MonoBehaviour
 {
     [SerializeField] GameObject player;
