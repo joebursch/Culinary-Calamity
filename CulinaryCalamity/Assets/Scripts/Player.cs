@@ -257,10 +257,6 @@ public class Player : Character
             _playerInventory.AddItem(item.GetItemId());
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("InteractableObjects"))
-        {
-            
-        }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
         {
             TakeDamage(collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
