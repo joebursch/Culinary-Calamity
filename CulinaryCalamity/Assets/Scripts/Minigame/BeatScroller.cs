@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BeatScroller : MonoBehaviour
@@ -21,15 +19,10 @@ public class BeatScroller : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(!hasStarted)
-        {
-            /*if (Input.anyKeyDown)
-            {
-                hasStarted = true;
-            } */
-        }else
+        if(hasStarted)
         {
             transform.position -= new Vector3(beatTempo * Time.deltaTime, 0f, 0f);
         }
+        
     }
 }

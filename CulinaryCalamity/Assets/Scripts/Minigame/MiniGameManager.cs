@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,7 +11,6 @@ public class MiniGameManager : MonoBehaviour
     public static MiniGameManager instance;
 
     public int currentScore;
-
     public int scorePerNote = 100;
 
     public int currentMultiplier;
@@ -20,14 +18,17 @@ public class MiniGameManager : MonoBehaviour
     public int[] multiplierThresholds;
 
     public TextMeshProUGUI scoreText;
-
     public TextMeshProUGUI multiText;
 
 
+    private Transform cameraTransform;
+    private Vector3 originalCameraPosition;
+    private float shakeDuration = 0.2f;
+    private float shakeMagnitude = 0.1f;
 
-    /// <summary>
-    /// Initializes the singleton instance. Starts the beat scroller
-    /// </summary>
+    
+    public bool createMode;
+
     void Start()
     {
         instance = this;
@@ -36,67 +37,92 @@ public class MiniGameManager : MonoBehaviour
         multiText.text = "Multiplier x1 ";
         currentMultiplier = 1;
 
-        theBS.hasStarted = true;
+        // Assign camera transform and original position
+        cameraTransform = Camera.main.transform;
+        originalCameraPosition = cameraTransform.position;
     }
 
-    /// <summary>
-    /// Handles the event when a note is successfully hit.
-    /// Increases the score based on the current multiplier and score per note,
-    /// updates the multiplier if necessary, and updates the score text UI.
-    /// </summary>
+    void Update()
+    {
+        if (!startPlaying)
+        {
+            if (Input.anyKeyDown)
+            {
+                startPlaying = true;
+                theBS.hasStarted = true;
+
+                audioSource.Play();
+            }
+        }
+    }
+
     public void NoteHit()
     {
         Debug.Log("Hit On Time");
 
-        if (!startPlaying)
+        if (!createMode)  // Only process score and multiplier logic if not in create mode
         {
-            StartGame();
-        }
-
-        if (currentMultiplier - 1 < multiplierThresholds.Length)
-        {
-            multiplierTracker++;
-
-            if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
+            if (currentMultiplier - 1 < multiplierThresholds.Length)
             {
-                multiplierTracker = 0;
-                currentMultiplier++;
+                multiplierTracker++;
+
+                if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
+                {
+                    multiplierTracker = 0;
+                    currentMultiplier++;
+                }
+
+                multiText.text = "Multiplier: x" + currentMultiplier;
+
+                currentScore += scorePerNote * currentMultiplier;
+                scoreText.text = "Score: " + currentScore;
             }
-
-            multiText.text = "Multiplier: x" + currentMultiplier;
-
-            currentScore += scorePerNote * currentMultiplier;
-            scoreText.text = "Score: " + currentScore;
         }
-
     }
 
-    /// <summary>
-    /// Handles the event when a note is missed.
-    /// Resets the current multiplier and multiplier tracker,
-    /// updates the multiplier text UI, and prepares for the next note.
-    /// </summary>
     public void NoteMissed()
     {
         Debug.Log("Missed note");
 
-        if (!startPlaying)
+
+        if (!createMode)  // Only reset multiplier if not in create mode
         {
-            StartGame();
+            currentMultiplier = 1;
+            multiplierTracker = 0;
+
+            multiText.text = "Multiplier: x" + currentMultiplier;
         }
-
-        currentMultiplier = 1;
-        multiplierTracker = 0;
-
-        multiText.text = "Multiplier: x" + currentMultiplier;
     }
 
-    /// <summary>
-    /// Starts the game by playing the song.
-    /// </summary>
-    void StartGame()
+    // New function for camera shake
+    public IEnumerator ShakeScene()
     {
-        startPlaying = true;
-        audioSource.Play();
+        if (cameraTransform == null)
+        {
+            yield break; // Exit the coroutine if cameraTransform is null
+        }
+
+        float elapsed = 0.0f;
+
+        while (elapsed < shakeDuration)
+        {
+            if (cameraTransform == null)
+            {
+                yield break; // Exit the coroutine if cameraTransform is null
+            }
+            float x = originalCameraPosition.x + Random.Range(-shakeMagnitude, shakeMagnitude);
+            float y = originalCameraPosition.y + Random.Range(-shakeMagnitude, shakeMagnitude);
+
+            cameraTransform.position = new Vector3(x, y, originalCameraPosition.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        if (cameraTransform != null)
+        {
+            cameraTransform.position = originalCameraPosition;
+        }
     }
 }
