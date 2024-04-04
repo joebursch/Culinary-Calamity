@@ -200,6 +200,7 @@ public class Player : Character
         if (collision.gameObject.CompareTag("Door"))
         {
             Door tempDoor = collision.gameObject.GetComponent<Door>();
+            // Active doors require interaction whereas passive doors do not.
             if (!tempDoor.IsActive())
             {
                 if (lastInteractedDoor == null && justTraveled == false)
