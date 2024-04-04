@@ -135,7 +135,6 @@ public class NPC : Character, InteractableObject
     {
         SetInteractionFacingDirection();
         if (_dialogue != null) { DialogueManager.GetDialogueManager().InitializeDialogue(_dialogue); }
-        Debug.Log("Touched!");
     }
     /// <summary>
     /// Makes NPC face the direction of interaction...
