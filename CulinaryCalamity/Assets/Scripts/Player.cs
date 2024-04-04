@@ -188,8 +188,51 @@ public class Player : Character
 
     #region Interaction
 
-    // Track the last door the player interacted with
     private Door lastInteractedDoor;
+    private bool justTraveled = false;
+
+    /// <summary>
+    /// Runs when player enters a trigger.
+    /// <param name="collision"></param>
+    /// </summary>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            Door tempDoor = collision.gameObject.GetComponent<Door>();
+            if (!tempDoor.IsActive())
+            {
+                if (lastInteractedDoor == null && justTraveled == false)
+                {
+                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                    {
+                        transform.position = tempDoor.GetDestinationLocation();
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
+                        transform.position = tempDoor.GetDestinationLocation();
+                    }
+
+                    lastInteractedDoor = tempDoor;
+                    justTraveled = true;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Runs when player exits a trigger.
+    /// <param name="collision"></param>
+    /// </summary>
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject != collision.gameObject)
+        {
+            justTraveled = false;
+            lastInteractedDoor = null;
+        }
+    }
 
     /// <summary>
     /// When the player presses 'E', check for an interactable object in the facing direction. 
@@ -216,30 +259,7 @@ public class Player : Character
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("InteractableObjects"))
         {
-            if (collision.gameObject.CompareTag("Door"))
-            {
-                Door tempDoor = collision.gameObject.GetComponent<Door>();
-
-                if (!tempDoor.IsActive())
-                {
-                    // Check if player has moved away from the last interacted door
-                    if (lastInteractedDoor == null || Vector2.Distance(transform.position, lastInteractedDoor.GetDestinationLocation()) > 1.0f)
-                    {
-                        if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
-                        {
-                            transform.position = tempDoor.GetDestinationLocation();
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-                            transform.position = tempDoor.GetDestinationLocation();
-                        }
-
-                        // Update the last interacted door
-                        lastInteractedDoor = tempDoor;
-                    }
-                }
-            }
+            
         }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
         {
