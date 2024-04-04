@@ -1,3 +1,4 @@
+using Dialogue;
 using UnityEngine;
 
 namespace Quests
@@ -16,7 +17,7 @@ namespace Quests
         /// <param name="dialogue"></param>
         public void StartQuestCompletionDialogue(TextAsset dialogue)
         {
-            // TODO: Pending Dialogue stuff
+            DialogueManager.GetDialogueManager().InitializeDialogue(dialogue);
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Quests
@@ -6,12 +7,14 @@ namespace Quests
     public class QuestMenuManager : MonoBehaviour
     {
         public event EventHandler QuestMenuClose;
+        private List<Quest> _questList;
+        [SerializeField] private QuestListPanel _questListPanel;
 
         public void ToggleQuestMenu()
         {
             if (!gameObject.activeSelf)
             {
-                // refresh quest list
+                _questListPanel.RefreshDisplay();
             }
             gameObject.SetActive(!gameObject.activeSelf);
         }
@@ -24,6 +27,11 @@ namespace Quests
         public void CloseQuestMenu()
         {
             OnQuestMenuClose(EventArgs.Empty);
+        }
+
+        public void SetQuestList(List<Quest> questList)
+        {
+            _questListPanel.SetQuestList(questList);
         }
     }
 }

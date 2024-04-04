@@ -290,6 +290,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1995883910540762399, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: _questMenuPrefab
+      value: 
+      objectReference: {fileID: 6559050872861233011, guid: 781aff15e0ea45a4bbe87f1a0271be24, type: 3}
     - target: {fileID: 5337579492851626028, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
       propertyPath: m_Name
       value: Player

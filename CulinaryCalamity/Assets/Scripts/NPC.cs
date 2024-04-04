@@ -22,8 +22,6 @@ public class NPC : Character, InteractableObject
     {
         movementSpeed = 5;
         characterAnimator = GetComponent<Animator>();
-        characterAnimator.SetFloat("moveY", -1);
-        characterAnimator.SetFloat("moveX", 0);
     }
 
     /// <summary>
@@ -39,10 +37,9 @@ public class NPC : Character, InteractableObject
     /// </summary>
     void Update()
     {
-        if (wanderAroundSpawnpoint)
-        {
-            MoveNPC();
-        }
+
+        MoveNPC();
+
     }
 
     /// <summary>

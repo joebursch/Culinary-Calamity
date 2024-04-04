@@ -6,6 +6,7 @@ using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -43,7 +44,7 @@ public class Player : Character, IQuestOwner
     #region UnityBuiltIn
     void Awake()
     {
-        _playerInventory = new PlayerInventory();
+
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -59,6 +60,7 @@ public class Player : Character, IQuestOwner
 
     void Start()
     {
+        _playerInventory = new PlayerInventory();
         try
         {
             GameSaveManager.GetGameSaveManager().Save += OnSave;
@@ -279,7 +281,6 @@ public class Player : Character, IQuestOwner
             _inventoryManager = CreateInventoryDisplay();
             _inventoryManager.InventoryClose += OnInventoryClose;
         }
-
         _inventoryManager.ToggleInventory();
     }
 
@@ -302,7 +303,10 @@ public class Player : Character, IQuestOwner
     public void AddGold(int amtToAdd)
     {
         _amountOfGold += amtToAdd;
-        _inventoryManager.SetGold(_amountOfGold);
+        if (_inventoryManager != null)
+        {
+            _inventoryManager.SetGold(_amountOfGold);
+        }
     }
 
     public PlayerInventory GetInventory()
@@ -347,6 +351,7 @@ public class Player : Character, IQuestOwner
         GameObject display = Instantiate(_questMenuPrefab, gameObject.transform);
         display.SetActive(false);
         QuestMenuManager qMenuMngr = display.GetComponent<QuestMenuManager>();
+        qMenuMngr.SetQuestList(OwnedQuests);
         return qMenuMngr;
     }
 
