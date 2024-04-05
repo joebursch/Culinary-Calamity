@@ -208,14 +208,29 @@ public class Player : Character
                     if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                     {
                         transform.position = tempDoor.GetDestinationLocation();
+                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                        foreach (Door door in doorObjects) {
+                            if (door.transform.position == transform.position) {
+                                lastInteractedDoor = door;
+                                break;
+                            }
+                        }
                     }
                     else
                     {
                         SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                         transform.position = tempDoor.GetDestinationLocation();
+                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                        foreach (Door door in doorObjects)
+                        {
+                            if (door.transform.position == transform.position)
+                            {
+                                lastInteractedDoor = door;
+                                break;
+                            }
+                        }
                     }
 
-                    lastInteractedDoor = tempDoor;
                     justTraveled = true;
                 }
             }
@@ -228,7 +243,7 @@ public class Player : Character
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject != collision.gameObject)
+        if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject != collision.gameObject))
         {
             justTraveled = false;
             lastInteractedDoor = null;
