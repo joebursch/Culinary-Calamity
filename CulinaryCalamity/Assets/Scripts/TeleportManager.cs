@@ -41,25 +41,35 @@ public class TransportManager : MonoBehaviour
         Player playerComponent = player.GetComponent<Player>();
         
         _isTeleporting = true;
+        Debug.Log("TeleportManager setting isTeleporting to true");
         playerComponent.StartTeleportation();
 
         fadeEffect.FadeToBlack(fadeDuration);
+        Debug.Log("TeleportManager fading to black");
         yield return new WaitForSeconds(_teleportDelay);
+        Debug.Log("TeleportManager waiting for teleport delay");
 
         player.position = destination.position;
         _currentExit = destination;
 
         fadeEffect.FadeFromBlack(fadeDuration);
+        Debug.Log("TeleportManager fading from black");
         yield return new WaitForSeconds(_teleportDelay);
+        Debug.Log("TeleportManager waiting for teleport delay");
+        playerComponent.EndTeleportation();
+        _isTeleporting = false;
 
+        Debug.Log("TeleportManager waiting for player to leave exit radius");
         // Now wait until the player has left the exit radius
         while (Vector3.Distance(player.position, _currentExit.position) < _exitRadius)
         {
             yield return null; // Wait until next frame and check again
         }
 
-        playerComponent.EndTeleportation();
-        _isTeleporting = false;
+
+
+        
+        
         _currentExit = null; // Clear the exit point
     }
 
