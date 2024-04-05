@@ -8,7 +8,7 @@ public class Transporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             TransportManager.Instance.RequestTeleport(collision.transform, _destination);
         }
