@@ -209,8 +209,10 @@ public class Player : Character
                     {
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
-                        foreach (Door door in doorObjects) {
-                            if (door.transform.position == transform.position) {
+                        foreach (Door door in doorObjects)
+                        {
+                            if (door.transform.position == transform.position)
+                            {
                                 lastInteractedDoor = door;
                                 break;
                             }
