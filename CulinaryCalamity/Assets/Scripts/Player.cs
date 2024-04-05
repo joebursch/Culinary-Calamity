@@ -192,6 +192,71 @@ public class Player : Character, IQuestOwner
     #endregion
 
     #region Interaction
+
+    private Door lastInteractedDoor;
+    private bool justTraveled = false;
+
+    /// <summary>
+    /// Runs when player enters a trigger.
+    /// <param name="collision"></param>
+    /// </summary>
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            Door tempDoor = collision.gameObject.GetComponent<Door>();
+            // Active doors require interaction whereas passive doors do not.
+            if (!tempDoor.IsActive())
+            {
+                if (lastInteractedDoor == null && justTraveled == false)
+                {
+                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                    {
+                        transform.position = tempDoor.GetDestinationLocation();
+                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                        foreach (Door door in doorObjects)
+                        {
+                            if (door.transform.position == transform.position)
+                            {
+                                lastInteractedDoor = door;
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
+                        transform.position = tempDoor.GetDestinationLocation();
+                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                        foreach (Door door in doorObjects)
+                        {
+                            if (door.transform.position == transform.position)
+                            {
+                                lastInteractedDoor = door;
+                                break;
+                            }
+                        }
+                    }
+
+                    justTraveled = true;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Runs when player exits a trigger.
+    /// <param name="collision"></param>
+    /// </summary>
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject == collision.gameObject))
+        {
+            justTraveled = false;
+            lastInteractedDoor = null;
+        }
+    }
+
     /// <summary>
     /// When the player presses 'E', check for an interactable object in the facing direction. 
     /// </summary>
@@ -228,31 +293,12 @@ public class Player : Character, IQuestOwner
             _playerInventory.AddItem(item.GetItemId());
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.layer == LayerMask.NameToLayer("InteractableObjects"))
-        {
-            if (collision.gameObject.CompareTag("Door"))
-            {
-                Door tempDoor = collision.gameObject.GetComponent<Door>();
-
-                if (!tempDoor.IsActive())
-                {
-                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
-                    {
-                        transform.position = tempDoor.GetDestinationLocation();
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-                        transform.position = tempDoor.GetDestinationLocation();
-                    }
-                }
-            }
-        }
         else if (collision.gameObject.layer == LayerMask.NameToLayer("Projectiles"))
         {
             TakeDamage(collision.gameObject.GetComponent<Projectile>().GetProjectileDamage());
         }
     }
+
     #endregion
 
     #region Inventory
