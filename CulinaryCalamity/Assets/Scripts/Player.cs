@@ -245,7 +245,7 @@ public class Player : Character
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject != collision.gameObject))
+        if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject == collision.gameObject))
         {
             justTraveled = false;
             lastInteractedDoor = null;
