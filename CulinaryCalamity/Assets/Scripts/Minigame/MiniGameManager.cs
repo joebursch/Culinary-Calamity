@@ -49,7 +49,7 @@ public class MiniGameManager : MonoBehaviour
         _startText.gameObject.SetActive(true);
         _scoreText.text = "Score: 0 ";
         _multiText.text = "Multiplier x1 ";
-        _noteStreak = 0; 
+        _noteStreak = 0;
         _currentNoteStreak = 0;
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
@@ -70,12 +70,13 @@ public class MiniGameManager : MonoBehaviour
                 StartGame();
             }
 
-        } else
+        }
+        else
         {
-           if(IsGameOver())
-           {
+            if (IsGameOver())
+            {
                 GameOver();
-           }
+            }
         }
     }
 
@@ -85,7 +86,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     public void NoteHit()
     {
-        if (!createMode)  
+        if (!createMode)
         {
             _notesHit++;
             _currentNoteStreak++;
@@ -100,13 +101,13 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     public void NoteMissed()
     {
-        if (!createMode) 
+        if (!createMode)
         {
             _notesMissed++;
             _currentNoteStreak = 0;
             _currentMultiplier = 1;
             _multiplierTracker = 0;
-            UpdateMultiplier(); 
+            UpdateMultiplier();
         }
     }
 
@@ -118,7 +119,7 @@ public class MiniGameManager : MonoBehaviour
     {
         if (_cameraTransform == null)
         {
-            yield break; 
+            yield break;
         }
 
         float elapsed = 0.0f;
@@ -127,7 +128,7 @@ public class MiniGameManager : MonoBehaviour
         {
             if (_cameraTransform == null)
             {
-                yield break; 
+                yield break;
             }
             float x = _originalCameraPosition.x + Random.Range(-_shakeMagnitude, _shakeMagnitude);
             float y = _originalCameraPosition.y + Random.Range(-_shakeMagnitude, _shakeMagnitude);
@@ -157,7 +158,7 @@ public class MiniGameManager : MonoBehaviour
         _startText.gameObject.SetActive(false);
         _currentNoteStreak = 0;
     }
-   
+
     bool IsGameOver()
     {
         GameObject[] noteObjects = GameObject.FindGameObjectsWithTag("Note");
@@ -172,7 +173,7 @@ public class MiniGameManager : MonoBehaviour
     {
         _audioSource.Stop();
         _theBS.hasStarted = false;
-        _percentHit = CalculatePercentHit(); 
+        _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
         /* add gold earned to the player
          * 

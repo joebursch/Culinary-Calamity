@@ -21,7 +21,7 @@ public class BeatScroller : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(hasStarted)
+        if (hasStarted)
         {
             transform.position -= new Vector3(_beatTempo * Time.deltaTime, 0f, 0f);
         }

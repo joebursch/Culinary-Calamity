@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -37,7 +37,7 @@ public class ResultPanel : MonoBehaviour
     public void ShowResults(int _notesHit, int _notesMissed, int _noteStreak, float _percentHit, int _currentScore, int _goldEarned)
     {
         _resultPanel.SetActive(true);
-        
+
         _notesHitText.text = "Notes Hit: " + _notesHit;
         _notesMissedText.text = "Notes Missed: " + _notesMissed;
         _noteStreakText.text = "Note Streak: " + _noteStreak;
