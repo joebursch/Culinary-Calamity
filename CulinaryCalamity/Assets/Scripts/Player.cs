@@ -31,7 +31,6 @@ public class Player : Character
 #pragma warning restore IDE0051, IDE0051
     // movement
     private bool _running;
-    private bool _isTeleporting;
     // layers
     [SerializeField] private LayerMask _itemsLayer;
     // input
@@ -144,7 +143,7 @@ public class Player : Character
     /// </summary>
     void MovePlayer()
     {
-        if (_isTeleporting) return;
+        ///if (_isTeleporting) return;
 
         _movementDir = GetMovementDirection();
         CheckRunning();
@@ -378,19 +377,12 @@ public class Player : Character
     #region TeleportationControls
     public void StartTeleportation()
     {
-        _isTeleporting = true;
-        characterAnimator.SetBool("isTeleporting", true);
-        characterAnimator.SetBool("isWalking", false);
-        characterAnimator.SetBool("isRunning", false);
+        _controlScheme.Standard.Disable();
     }
 
     public void EndTeleportation()
     {
-        _isTeleporting = false;
-        characterAnimator.SetBool("isTeleporting", false);
-        characterAnimator.SetBool("isRunning", false);
-        characterAnimator.SetBool("isWalking", true);
-       
+        _controlScheme.Standard.Enable();
     }
     #endregion
 }
