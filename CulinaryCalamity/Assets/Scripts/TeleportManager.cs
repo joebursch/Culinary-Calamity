@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages the teleportation of a player between different locations in the game.
+/// </summary>
 public class TransportManager : MonoBehaviour
 {
     public static TransportManager Instance { get; private set; }
@@ -15,6 +18,10 @@ public class TransportManager : MonoBehaviour
     [SerializeField] private float _teleportDelay = 2f; // Time to wait before actual teleport
     [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
+
+    /// <summary>
+    /// Initializes the singleton instance of the TransportManager.
+    /// </summary>
     private void Awake()
     {
         if (Instance == null)
@@ -28,6 +35,11 @@ public class TransportManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Requests a teleport for the player to a specified destination.
+    /// </summary>
+    /// <param name="player">The transform of the player to teleport.</param>
+    /// <param name="destination">The destination transform to teleport the player to.</param>
     public void RequestTeleport(Transform player, Transform destination)
     {
         if (!_isTeleporting)
@@ -36,26 +48,27 @@ public class TransportManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Coroutine that handles the teleportation process, including fading and waiting for the player to move away from the exit point.
+    /// </summary>
+    /// <param name="player">The transform of the player to teleport.</param>
+    /// <param name="destination">The destination transform to teleport the player to.</param>
+    /// <returns>IEnumerator for coroutine.</returns>
     private IEnumerator TeleportPlayer(Transform player, Transform destination)
     {
         Player playerComponent = player.GetComponent<Player>();
-        
+
         _isTeleporting = true;
-        Debug.Log("TeleportManager setting isTeleporting to true");
         playerComponent.StartTeleportation();
 
         fadeEffect.FadeToBlack(fadeDuration);
-        Debug.Log("TeleportManager fading to black");
         yield return new WaitForSeconds(_teleportDelay);
-        Debug.Log("TeleportManager waiting for teleport delay");
 
         player.position = destination.position;
         _currentExit = destination;
 
         fadeEffect.FadeFromBlack(fadeDuration);
-        Debug.Log("TeleportManager fading from black");
         yield return new WaitForSeconds(_teleportDelay);
-        Debug.Log("TeleportManager waiting for teleport delay");
         playerComponent.EndTeleportation();
         _isTeleporting = false;
 
@@ -66,10 +79,6 @@ public class TransportManager : MonoBehaviour
             yield return null; // Wait until next frame and check again
         }
 
-
-
-        
-        
         _currentExit = null; // Clear the exit point
     }
 
