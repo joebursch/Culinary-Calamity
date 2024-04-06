@@ -24,6 +24,26 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if (_note == null)
+        {
+            if (gameObject.name.Contains("orange"))
+            {
+                _keyToPress = KeyCode.Q;
+            }
+            else if (gameObject.name.Contains("Pink"))
+            {
+                _keyToPress = KeyCode.W;
+            }
+            else if (gameObject.name.Contains("Green"))
+            {
+                _keyToPress = KeyCode.E;
+            }
+            else if (gameObject.name.Contains("Blue"))
+            {
+                _keyToPress = KeyCode.R;
+            }
+        }
+
         if (MiniGameManager.instance.createMode)
         {
             if (Input.GetKeyDown(_keyToPress))
