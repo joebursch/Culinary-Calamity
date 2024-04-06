@@ -488,6 +488,14 @@ PrefabInstance:
       propertyPath: destinationSceneName
       value: Town
       objectReference: {fileID: 0}
+    - target: {fileID: 7772504093531850989, guid: 6ba9c1ff85bd8394c92deb97af7d2175, type: 3}
+      propertyPath: destinationLocation.x
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7772504093531850989, guid: 6ba9c1ff85bd8394c92deb97af7d2175, type: 3}
+      propertyPath: destinationLocation.y
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7799027876349747794, guid: 6ba9c1ff85bd8394c92deb97af7d2175, type: 3}
       propertyPath: m_Name
       value: Door
