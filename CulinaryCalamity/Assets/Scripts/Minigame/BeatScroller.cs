@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class BeatScroller : MonoBehaviour
 {
-    [SerializeField] private float beatTempo;
+    [SerializeField] private float _beatTempo;
     public bool hasStarted;
 
     /// <summary>
@@ -13,7 +13,7 @@ public class BeatScroller : MonoBehaviour
     /// </summary>
     void Start()
     {
-        beatTempo = beatTempo / 60f;
+        _beatTempo = _beatTempo / 60f;
     }
 
     /// <summary>
@@ -23,7 +23,7 @@ public class BeatScroller : MonoBehaviour
     {
         if(hasStarted)
         {
-            transform.position -= new Vector3(beatTempo * Time.deltaTime, 0f, 0f);
+            transform.position -= new Vector3(_beatTempo * Time.deltaTime, 0f, 0f);
         }
     }
 }

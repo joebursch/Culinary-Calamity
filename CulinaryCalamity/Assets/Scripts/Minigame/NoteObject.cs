@@ -5,18 +5,18 @@ using UnityEngine;
 /// </summary>
 public class NoteObject : MonoBehaviour
 {
-    private bool canBePressed;
-    private bool obtained = false;
-    private Activator activator;
-    [SerializeField] private KeyCode keyToPress;
-    [SerializeField] private GameObject note;
+    private bool _canBePressed;
+    private bool _obtained = false;
+    private Activator _activator;
+    [SerializeField] private KeyCode _keyToPress;
+    [SerializeField] private GameObject _note;
 
     /// <summary>
     /// Finds the Activator GameObject and stores its reference.
     /// </summary>
     void Start()
     {
-        activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
+        _activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
     }
 
     /// <summary>
@@ -26,20 +26,20 @@ public class NoteObject : MonoBehaviour
     {
         if (MiniGameManager.instance.createMode)
         {
-            if (Input.GetKeyDown(keyToPress))
+            if (Input.GetKeyDown(_keyToPress))
             {
-                Instantiate(note, transform.position, Quaternion.identity);
+                Instantiate(_note, transform.position, Quaternion.identity);
             }
         }
         else
         {
-            if (Input.GetKeyDown(keyToPress))
+            if (Input.GetKeyDown(_keyToPress))
             {
-                if (canBePressed)
+                if (_canBePressed)
                 {
                     MiniGameManager.instance.NoteHit();
-                    obtained = true;
-                    activator.ChangeColorWithDelay(Color.yellow, 0.1f);
+                    _obtained = true;
+                    _activator.ChangeColorWithDelay(Color.yellow, 0.1f);
                     gameObject.SetActive(false);
                 }
             }
@@ -57,7 +57,7 @@ public class NoteObject : MonoBehaviour
         float rightEdgeViewport = Camera.main.WorldToViewportPoint
             (new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
 
-        if (!obtained && rightEdgeViewport < 0)
+        if (!_obtained && rightEdgeViewport < 0)
         {
             Destroy(gameObject);
         }
@@ -69,9 +69,9 @@ public class NoteObject : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!MiniGameManager.instance.createMode && other.gameObject == activator.gameObject)
+        if (!MiniGameManager.instance.createMode && other.gameObject == _activator.gameObject)
         {
-            canBePressed = true;
+            _canBePressed = true;
         }
     }
 
@@ -81,13 +81,13 @@ public class NoteObject : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!MiniGameManager.instance.createMode && other.gameObject == activator.gameObject)
+        if (!MiniGameManager.instance.createMode && other.gameObject == _activator.gameObject)
         {
-            canBePressed = false;
-            if (!obtained)
+            _canBePressed = false;
+            if (!_obtained)
             {
                 MiniGameManager.instance.NoteMissed();
-                activator.ChangeColorWithDelay(Color.red, 0.1f);
+                _activator.ChangeColorWithDelay(Color.red, 0.1f);
                 if (MiniGameManager.instance.gameObject.activeSelf) // Check if MiniGameManager GameObject is active
                 {
                     StartCoroutine(MiniGameManager.instance.ShakeScene());

@@ -8,34 +8,34 @@ using UnityEngine;
 /// Also responsible screen shaking effect to enhance player feedback.
 public class MiniGameManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private bool startPlaying;
-    [SerializeField] private BeatScroller theBS;
-    [SerializeField] private int scorePerNote = 100;
-    [SerializeField] private int[] multiplierThresholds;
-    [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private TextMeshProUGUI multiText;
-    [SerializeField] private TextMeshProUGUI startText;
-    [SerializeField] private GameObject resultPanel;
-    [SerializeField] private GameObject playerObject;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private bool _startPlaying;
+    [SerializeField] private BeatScroller _theBS;
+    [SerializeField] private int _scorePerNote = 100;
+    [SerializeField] private int[] _multiplierThresholds;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _multiText;
+    [SerializeField] private TextMeshProUGUI _startText;
+    [SerializeField] private GameObject _resultPanel;
 
     public static MiniGameManager instance;
     public bool createMode;
 
-    private ResultPanel Resultpanel;
-    private Transform cameraTransform;
-    private Vector3 originalCameraPosition;
-    private float shakeDuration = 0.2f;
-    private float shakeMagnitude = 0.1f;
-    private int currentScore;
-    private int currentMultiplier;
-    private int multiplierTracker;
-    private int notesHit;
-    private int notesMissed;
-    private int noteStreak;
-    private int goldEarned;
-    private int currentNoteStreak;
-    private float percentHit;
+    private GameObject _playerObject;
+    private ResultPanel _Resultpanel;
+    private Transform _cameraTransform;
+    private Vector3 _originalCameraPosition;
+    private float _shakeDuration = 0.2f;
+    private float _shakeMagnitude = 0.1f;
+    private int _currentScore;
+    private int _currentMultiplier;
+    private int _multiplierTracker;
+    private int _notesHit;
+    private int _notesMissed;
+    private int _noteStreak;
+    private int _goldEarned;
+    private int _currentNoteStreak;
+    private float _percentHit;
 
 
     /// <summary>
@@ -44,20 +44,18 @@ public class MiniGameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        _playerObject = FindObjectOfType<Player>()?.gameObject;
         DisablePlayerObject();
-
-        startText.gameObject.SetActive(true);
-        scoreText.text = "Score: 0 ";
-        multiText.text = "Multiplier x1 ";
-        noteStreak = 0; 
-        currentNoteStreak = 0;
-        currentMultiplier = 1;
-        Resultpanel = resultPanel.GetComponent<ResultPanel>();
-        resultPanel.SetActive(false);
-
-
-        cameraTransform = Camera.main.transform;
-        originalCameraPosition = cameraTransform.position;
+        _startText.gameObject.SetActive(true);
+        _scoreText.text = "Score: 0 ";
+        _multiText.text = "Multiplier x1 ";
+        _noteStreak = 0; 
+        _currentNoteStreak = 0;
+        _currentMultiplier = 1;
+        _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
+        _resultPanel.SetActive(false);
+        _cameraTransform = Camera.main.transform;
+        _originalCameraPosition = _cameraTransform.position;
     }
 
     /// <summary>
@@ -65,7 +63,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (!startPlaying)
+        if (!_startPlaying)
         {
             if (Input.anyKeyDown)
             {
@@ -75,25 +73,9 @@ public class MiniGameManager : MonoBehaviour
         } else
         {
            if(IsGameOver())
-            {
-                audioSource.Stop();
-                theBS.hasStarted = false;
-                percentHit = CalculatePercentHit();
-                Resultpanel.ShowResults(notesHit, notesMissed, noteStreak, percentHit, currentScore, goldEarned);
-
-                /* add gold earned to the player
-                 * 
-                 * player = FindObjectOfType<Player>();
-                if (player != null)
-                {
-                    player.AddGold(goldEarned);
-                }
-                else
-                {
-                    Debug.LogWarning("Player object not found!");
-                }
-                */
-            }
+           {
+                GameOver();
+           }
         }
     }
 
@@ -105,9 +87,8 @@ public class MiniGameManager : MonoBehaviour
     {
         if (!createMode)  
         {
-            notesHit++;
-            currentNoteStreak++;
-
+            _notesHit++;
+            _currentNoteStreak++;
             UpdateNoteStreak();
             UpdateMultiplier();
             UpdateScore();
@@ -121,13 +102,11 @@ public class MiniGameManager : MonoBehaviour
     {
         if (!createMode) 
         {
-            notesMissed++;
-            currentNoteStreak = 0;
-            currentMultiplier = 1;
-            multiplierTracker = 0;
-
-            UpdateMultiplier(); ;
-
+            _notesMissed++;
+            _currentNoteStreak = 0;
+            _currentMultiplier = 1;
+            _multiplierTracker = 0;
+            UpdateMultiplier(); 
         }
     }
 
@@ -137,32 +116,32 @@ public class MiniGameManager : MonoBehaviour
     /// <returns>An IEnumerator for Unity coroutine.</returns>
     public IEnumerator ShakeScene()
     {
-        if (cameraTransform == null)
+        if (_cameraTransform == null)
         {
             yield break; 
         }
 
         float elapsed = 0.0f;
 
-        while (elapsed < shakeDuration)
+        while (elapsed < _shakeDuration)
         {
-            if (cameraTransform == null)
+            if (_cameraTransform == null)
             {
                 yield break; 
             }
-            float x = originalCameraPosition.x + Random.Range(-shakeMagnitude, shakeMagnitude);
-            float y = originalCameraPosition.y + Random.Range(-shakeMagnitude, shakeMagnitude);
+            float x = _originalCameraPosition.x + Random.Range(-_shakeMagnitude, _shakeMagnitude);
+            float y = _originalCameraPosition.y + Random.Range(-_shakeMagnitude, _shakeMagnitude);
 
-            cameraTransform.position = new Vector3(x, y, originalCameraPosition.z);
+            _cameraTransform.position = new Vector3(x, y, _originalCameraPosition.z);
 
             elapsed += Time.deltaTime;
 
             yield return null;
         }
 
-        if (cameraTransform != null)
+        if (_cameraTransform != null)
         {
-            cameraTransform.position = originalCameraPosition;
+            _cameraTransform.position = _originalCameraPosition;
         }
     }
 
@@ -172,23 +151,41 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     void StartGame()
     {
-        startPlaying = true;
-        theBS.hasStarted = true;
-        audioSource.Play();
-        startText.gameObject.SetActive(false);
-
-        currentNoteStreak = 0;
+        _startPlaying = true;
+        _theBS.hasStarted = true;
+        _audioSource.Play();
+        _startText.gameObject.SetActive(false);
+        _currentNoteStreak = 0;
     }
    
-    /// <summary>
-    /// Checks if the game is over by determining if there are any remaining notes.
-    /// </summary>
-    /// <returns>True if the game is over, false otherwise.</returns>
     bool IsGameOver()
     {
         GameObject[] noteObjects = GameObject.FindGameObjectsWithTag("Note");
-        
         return noteObjects.Length == 0;
+    }
+
+    /// <summary>
+    /// Handles the end of the game by stopping the audio and beat scroller, calculating percent of notes hit, 
+    /// displaying the result panel, and awarding gold.
+    /// </summary>
+    void GameOver()
+    {
+        _audioSource.Stop();
+        _theBS.hasStarted = false;
+        _percentHit = CalculatePercentHit(); 
+        _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
+        /* add gold earned to the player
+         * 
+         * player = FindObjectOfType<Player>();
+        if (player != null)
+        {
+            player.AddGold(goldEarned);
+        }
+        else
+        {
+            Debug.LogWarning("Player object not found!");
+        }
+        */
     }
 
     /// <summary>
@@ -196,29 +193,26 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     private float CalculatePercentHit()
     {
-        int totalNotes = notesHit + notesMissed;
-        float percentHit = totalNotes > 0 ? (float)notesHit / totalNotes * 100 : 0f;
+        int totalNotes = _notesHit + _notesMissed;
+        float percentHit = totalNotes > 0 ? (float)_notesHit / totalNotes * 100 : 0f;
         percentHit = (float)System.Math.Round(percentHit, 2);
-        Debug.Log("Percentage Hit: " + percentHit);
-
         return percentHit;
     }
 
     /// <summary>
     /// Updates the multiplier based on the current note streak and multiplier thresholds.
     /// </summary>
-
     private void UpdateMultiplier()
     {
-        if (currentMultiplier - 1 < multiplierThresholds.Length)
+        if (_currentMultiplier - 1 < _multiplierThresholds.Length)
         {
-            multiplierTracker++;
-            if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
+            _multiplierTracker++;
+            if (_multiplierThresholds[_currentMultiplier - 1] <= _multiplierTracker)
             {
-                multiplierTracker = 0;
-                currentMultiplier++;
+                _multiplierTracker = 0;
+                _currentMultiplier++;
             }
-            multiText.text = "Multiplier: x" + currentMultiplier;
+            _multiText.text = "Multiplier: x" + _currentMultiplier;
         }
     }
 
@@ -228,9 +222,9 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     private void UpdateScore()
     {
-        currentScore += scorePerNote * currentMultiplier;
-        scoreText.text = "Score: " + currentScore;
-        goldEarned = currentScore / 200;
+        _currentScore += _scorePerNote * _currentMultiplier;
+        _scoreText.text = "Score: " + _currentScore;
+        _goldEarned = _currentScore / 200;
     }
 
     /// <summary>
@@ -238,25 +232,31 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     private void UpdateNoteStreak()
     {
-        if (currentNoteStreak > noteStreak)
+        if (_currentNoteStreak > _noteStreak)
         {
-            noteStreak = currentNoteStreak;
+            _noteStreak = _currentNoteStreak;
         }
     }
 
     /// <summary>
     /// Disables the player object at the start of the mini-game scene.
-    /// If the player object reference is null, it logs a warning message.
     /// </summary>
     private void DisablePlayerObject()
     {
-        if (playerObject != null)
+        if (_playerObject != null)
         {
-            playerObject.SetActive(false);
+            _playerObject.SetActive(false);
         }
-        else
+    }
+
+    /// <summary>
+    /// Reactivates the player object before leaving the mini-game scene.
+    /// </summary>
+    public void ReactivatePlayerObject()
+    {
+        if (_playerObject != null)
         {
-            Debug.LogWarning("Player object reference is null. Assign player object in the inspector.");
+            _playerObject.SetActive(true);
         }
     }
 }

@@ -7,33 +7,43 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class ResultPanel : MonoBehaviour
 {
-    [SerializeField] private GameObject resultPanel;
-    [SerializeField] private TextMeshProUGUI notesHitText;
-    [SerializeField] private TextMeshProUGUI notesMissedText;
-    [SerializeField] private TextMeshProUGUI noteStreakText;
-    [SerializeField] private TextMeshProUGUI finalScoreText;
-    [SerializeField] private TextMeshProUGUI goldEarnedText;
-    [SerializeField] private TextMeshProUGUI percentHitText;
+    [SerializeField] private GameObject _resultPanel;
+    [SerializeField] private TextMeshProUGUI _notesHitText;
+    [SerializeField] private TextMeshProUGUI _notesMissedText;
+    [SerializeField] private TextMeshProUGUI _noteStreakText;
+    [SerializeField] private TextMeshProUGUI _finalScoreText;
+    [SerializeField] private TextMeshProUGUI _goldEarnedText;
+    [SerializeField] private TextMeshProUGUI _percentHitText;
+
+    private MiniGameManager _miniGameManager;
+
+    /// <summary>
+    /// Initializes the ResultPanel instance by assigning a reference to the MiniGameManager object in the scene.
+    /// </summary>
+    void Start()
+    {
+        _miniGameManager = FindObjectOfType<MiniGameManager>();
+    }
 
     /// <summary>
     /// Displays the result panel with provided performance data.
     /// </summary>
-    /// <param name="notesHit"></param>
-    /// <param name="notesMissed"></param>
-    /// <param name="noteStreak"></param>
-    /// <param name="percentHit"></param>
-    /// <param name="currentScore"></param>
-    /// <param name="goldEarned"></param>
-    public void ShowResults(int notesHit, int notesMissed, int noteStreak, float percentHit, int currentScore, int goldEarned)
+    /// <param name="_notesHit"></param>
+    /// <param name="_notesMissed"></param>
+    /// <param name="_noteStreak"></param>
+    /// <param name="_percentHit"></param>
+    /// <param name="_currentScore"></param>
+    /// <param name="_goldEarned"></param>
+    public void ShowResults(int _notesHit, int _notesMissed, int _noteStreak, float _percentHit, int _currentScore, int _goldEarned)
     {
-        resultPanel.SetActive(true);
+        _resultPanel.SetActive(true);
         
-        notesHitText.text = "Notes Hit: " + notesHit;
-        notesMissedText.text = "Notes Missed: " + notesMissed;
-        noteStreakText.text = "Note Streak: " + noteStreak;
-        percentHitText.text = "Percent hit: " + percentHit + "%";
-        goldEarnedText.text = "Gold Earned: " + goldEarned;
-        finalScoreText.text = "Final Score: " + currentScore;
+        _notesHitText.text = "Notes Hit: " + _notesHit;
+        _notesMissedText.text = "Notes Missed: " + _notesMissed;
+        _noteStreakText.text = "Note Streak: " + _noteStreak;
+        _percentHitText.text = "Percent hit: " + _percentHit + "%";
+        _goldEarnedText.text = "Gold Earned: " + _goldEarned;
+        _finalScoreText.text = "Final Score: " + _currentScore;
     }
 
     /// <summary>
@@ -41,6 +51,7 @@ public class ResultPanel : MonoBehaviour
     /// </summary>
     public void OnExitButtonClick()
     {
-        SceneManager.LoadScene("Restaurant"); // Load the desired scene
+        _miniGameManager.ReactivatePlayerObject();
+        SceneManager.LoadScene("Restaurant");
     }
 }

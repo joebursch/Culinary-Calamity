@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &62764
 MonoBehaviour:
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &62765
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &9079564
 MonoBehaviour:
@@ -319,8 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &9079565
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &17205141
 MonoBehaviour:
@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &17205142
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &18160341
 MonoBehaviour:
@@ -619,8 +619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &18160342
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &23686577
 MonoBehaviour:
@@ -769,8 +769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &23686578
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -905,7 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &25075530
 MonoBehaviour:
@@ -919,8 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &25075531
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &27800976
 MonoBehaviour:
@@ -1069,8 +1069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &27800977
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &48216643
 MonoBehaviour:
@@ -1219,8 +1219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &48216644
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &53379479
 MonoBehaviour:
@@ -1369,8 +1369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &53379480
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &62458934
 MonoBehaviour:
@@ -1519,8 +1519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &62458935
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &64723510
 MonoBehaviour:
@@ -1669,8 +1669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &64723511
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &78458847
 MonoBehaviour:
@@ -1819,8 +1819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &78458848
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &81777417
 MonoBehaviour:
@@ -1969,8 +1969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &81777418
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2105,7 +2105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &87885051
 MonoBehaviour:
@@ -2119,8 +2119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &87885052
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &112022557
 MonoBehaviour:
@@ -2269,8 +2269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &112022558
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &112148368
 MonoBehaviour:
@@ -2419,8 +2419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &112148369
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2555,7 +2555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &136191217
 MonoBehaviour:
@@ -2569,8 +2569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &136191218
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2705,7 +2705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &159458500
 MonoBehaviour:
@@ -2719,8 +2719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &159458501
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &161982521
 MonoBehaviour:
@@ -2869,8 +2869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &161982522
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3005,7 +3005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &163269233
 MonoBehaviour:
@@ -3019,8 +3019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &163269234
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3155,7 +3155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &165897122
 MonoBehaviour:
@@ -3169,8 +3169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &165897123
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3305,7 +3305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &172989467
 MonoBehaviour:
@@ -3319,8 +3319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &172989468
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3455,7 +3455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &202369483
 MonoBehaviour:
@@ -3469,8 +3469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &202369484
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3605,7 +3605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &210261247
 MonoBehaviour:
@@ -3619,8 +3619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &210261248
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &219889688
 MonoBehaviour:
@@ -3769,8 +3769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &219889689
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3905,7 +3905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &228826499
 MonoBehaviour:
@@ -3919,8 +3919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &228826500
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4055,7 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &230525543
 MonoBehaviour:
@@ -4069,8 +4069,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &230525544
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4205,7 +4205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &236604378
 MonoBehaviour:
@@ -4219,8 +4219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &236604379
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4368,16 +4368,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38fc605c133b8fe4c8c25993fbfd6fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 581498723}
-  startPlaying: 0
-  theBS: {fileID: 310637279}
-  scorePerNote: 100
-  multiplierThresholds: 03000000040000000800000010000000
-  scoreText: {fileID: 1647906859}
-  multiText: {fileID: 306154167}
-  startText: {fileID: 635320136}
-  resultPanel: {fileID: 1896315021}
-  playerObject: {fileID: 0}
+  _audioSource: {fileID: 581498723}
+  _startPlaying: 0
+  _theBS: {fileID: 310637279}
+  _scorePerNote: 100
+  _multiplierThresholds: 
+  _scoreText: {fileID: 1647906859}
+  _multiText: {fileID: 306154167}
+  _startText: {fileID: 635320136}
+  _resultPanel: {fileID: 1896315021}
   createMode: 0
 --- !u!1 &248668604
 GameObject:
@@ -4411,7 +4410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &248668606
 MonoBehaviour:
@@ -4425,8 +4424,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &248668607
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4561,7 +4560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &264731000
 MonoBehaviour:
@@ -4575,8 +4574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &264731001
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4711,7 +4710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &266429424
 MonoBehaviour:
@@ -4725,8 +4724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &266429425
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4861,7 +4860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &279356024
 MonoBehaviour:
@@ -4875,8 +4874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &279356025
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5011,7 +5010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &295492845
 MonoBehaviour:
@@ -5025,8 +5024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &295492846
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5141,7 +5140,7 @@ GameObject:
   - component: {fileID: 306154168}
   - component: {fileID: 306154167}
   m_Layer: 5
-  m_Name: MultiplierText
+  m_Name: _MultiplierText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5561,7 +5560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 140
+  _beatTempo: 140
   hasStarted: 0
 --- !u!1 &317171010
 GameObject:
@@ -5595,7 +5594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &317171012
 MonoBehaviour:
@@ -5609,8 +5608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &317171013
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5745,7 +5744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &324060083
 MonoBehaviour:
@@ -5759,8 +5758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &324060084
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5895,7 +5894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &327087014
 MonoBehaviour:
@@ -5909,8 +5908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &327087015
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6045,7 +6044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &330206866
 MonoBehaviour:
@@ -6059,8 +6058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &330206867
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6195,7 +6194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &336120654
 MonoBehaviour:
@@ -6209,8 +6208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &336120655
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6345,7 +6344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &342938694
 MonoBehaviour:
@@ -6359,8 +6358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &342938695
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6495,7 +6494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &348921651
 MonoBehaviour:
@@ -6509,8 +6508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &348921652
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6645,7 +6644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &351623486
 MonoBehaviour:
@@ -6659,8 +6658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &351623487
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6795,7 +6794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &355006140
 MonoBehaviour:
@@ -6809,8 +6808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &355006141
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6945,7 +6944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &360861589
 MonoBehaviour:
@@ -6959,8 +6958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &360861590
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7095,7 +7094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &383282546
 MonoBehaviour:
@@ -7109,8 +7108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &383282547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7245,7 +7244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &403833602
 MonoBehaviour:
@@ -7259,8 +7258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &403833603
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7395,7 +7394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &409579713
 MonoBehaviour:
@@ -7409,8 +7408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &409579714
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7545,7 +7544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &429535248
 MonoBehaviour:
@@ -7559,8 +7558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &429535249
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7695,7 +7694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &440236621
 MonoBehaviour:
@@ -7709,8 +7708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &440236622
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7845,7 +7844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &441835305
 MonoBehaviour:
@@ -7859,8 +7858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &441835306
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7995,7 +7994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &442227601
 MonoBehaviour:
@@ -8009,8 +8008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &442227602
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8145,7 +8144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &454931170
 MonoBehaviour:
@@ -8159,8 +8158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &454931171
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8295,7 +8294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &456585761
 MonoBehaviour:
@@ -8309,8 +8308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &456585762
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8445,7 +8444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &457574898
 MonoBehaviour:
@@ -8459,8 +8458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &457574899
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8595,7 +8594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &459428828
 MonoBehaviour:
@@ -8609,8 +8608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &459428829
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8745,7 +8744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &463972544
 MonoBehaviour:
@@ -8759,8 +8758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &463972545
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8895,7 +8894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &468767029
 MonoBehaviour:
@@ -8909,8 +8908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &468767030
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9045,7 +9044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &476583449
 MonoBehaviour:
@@ -9059,8 +9058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &476583450
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9329,7 +9328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &505114351
 MonoBehaviour:
@@ -9343,8 +9342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &505114352
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9479,7 +9478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &505401966
 MonoBehaviour:
@@ -9493,8 +9492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &505401967
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9629,7 +9628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &510132206
 MonoBehaviour:
@@ -9643,8 +9642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &510132207
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9779,7 +9778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &520289249
 MonoBehaviour:
@@ -9793,8 +9792,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &520289250
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9929,7 +9928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &520329474
 MonoBehaviour:
@@ -9943,8 +9942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &520329475
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10079,7 +10078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &525709893
 MonoBehaviour:
@@ -10093,8 +10092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &525709894
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10229,7 +10228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &529608546
 MonoBehaviour:
@@ -10243,8 +10242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &529608547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10414,7 +10413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &573675595
 MonoBehaviour:
@@ -10428,8 +10427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &573675596
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10692,7 +10691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &594125619
 MonoBehaviour:
@@ -10706,8 +10705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &594125620
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10842,7 +10841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &600283579
 MonoBehaviour:
@@ -10856,8 +10855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &600283580
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10992,7 +10991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &600681515
 MonoBehaviour:
@@ -11006,8 +11005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &600681516
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11142,7 +11141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &602870659
 MonoBehaviour:
@@ -11156,8 +11155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &602870660
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11292,7 +11291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &604630324
 MonoBehaviour:
@@ -11306,8 +11305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &604630325
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11548,7 +11547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &627102453
 MonoBehaviour:
@@ -11562,8 +11561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &627102454
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11698,7 +11697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &627962180
 MonoBehaviour:
@@ -11712,8 +11711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &627962181
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11828,7 +11827,7 @@ GameObject:
   - component: {fileID: 635320137}
   - component: {fileID: 635320136}
   m_Layer: 5
-  m_Name: startText
+  m_Name: _startText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11986,7 +11985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &649638422
 MonoBehaviour:
@@ -12000,8 +11999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &649638423
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12136,7 +12135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &649928141
 MonoBehaviour:
@@ -12150,8 +12149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &649928142
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12286,7 +12285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &676223207
 MonoBehaviour:
@@ -12300,8 +12299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &676223208
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12436,7 +12435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &677673937
 MonoBehaviour:
@@ -12450,8 +12449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &677673938
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12566,7 +12565,7 @@ GameObject:
   - component: {fileID: 682523584}
   - component: {fileID: 682523583}
   m_Layer: 5
-  m_Name: noteStreakText
+  m_Name: _noteStreakText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12720,7 +12719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &690832243
 MonoBehaviour:
@@ -12734,8 +12733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &690832244
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -12870,7 +12869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &705982184
 MonoBehaviour:
@@ -12884,8 +12883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &705982185
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13020,7 +13019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &707963480
 MonoBehaviour:
@@ -13034,8 +13033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &707963481
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13170,7 +13169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &718261737
 MonoBehaviour:
@@ -13184,8 +13183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &718261738
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13320,7 +13319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &739589884
 MonoBehaviour:
@@ -13334,8 +13333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &739589885
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13470,7 +13469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &749801393
 MonoBehaviour:
@@ -13484,8 +13483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &749801394
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13620,7 +13619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &770941547
 MonoBehaviour:
@@ -13634,8 +13633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &770941548
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13770,7 +13769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &775030521
 MonoBehaviour:
@@ -13784,8 +13783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &775030522
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13920,7 +13919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &775235038
 MonoBehaviour:
@@ -13934,8 +13933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &775235039
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14070,7 +14069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &775728285
 MonoBehaviour:
@@ -14084,8 +14083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &775728286
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14220,7 +14219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &795170408
 MonoBehaviour:
@@ -14234,8 +14233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &795170409
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14370,7 +14369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &802113446
 MonoBehaviour:
@@ -14384,8 +14383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &802113447
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14520,7 +14519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &803039574
 MonoBehaviour:
@@ -14534,8 +14533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &803039575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14670,7 +14669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &830636215
 MonoBehaviour:
@@ -14684,8 +14683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &830636216
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14820,7 +14819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &831386400
 MonoBehaviour:
@@ -14834,8 +14833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &831386401
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14970,7 +14969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &832143407
 MonoBehaviour:
@@ -14984,8 +14983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &832143408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15120,7 +15119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &834562995
 MonoBehaviour:
@@ -15134,8 +15133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &834562996
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15270,7 +15269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &852481183
 MonoBehaviour:
@@ -15284,8 +15283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &852481184
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15420,7 +15419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &853814251
 MonoBehaviour:
@@ -15434,8 +15433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &853814252
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15550,7 +15549,7 @@ GameObject:
   - component: {fileID: 857265978}
   - component: {fileID: 857265977}
   m_Layer: 5
-  m_Name: percentHitText
+  m_Name: _percentHitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15704,7 +15703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &859511969
 MonoBehaviour:
@@ -15718,8 +15717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &859511970
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15854,7 +15853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &869292306
 MonoBehaviour:
@@ -15868,8 +15867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &869292307
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16004,7 +16003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &869844163
 MonoBehaviour:
@@ -16018,8 +16017,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &869844164
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16154,7 +16153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &870912204
 MonoBehaviour:
@@ -16168,8 +16167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &870912205
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16304,7 +16303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &879256282
 MonoBehaviour:
@@ -16318,8 +16317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &879256283
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16454,7 +16453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &879376995
 MonoBehaviour:
@@ -16468,8 +16467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &879376996
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16604,7 +16603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &891734255
 MonoBehaviour:
@@ -16618,8 +16617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &891734256
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16734,7 +16733,7 @@ GameObject:
   - component: {fileID: 904357538}
   - component: {fileID: 904357537}
   m_Layer: 5
-  m_Name: notesHitText
+  m_Name: _notesHitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16888,7 +16887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &906876309
 MonoBehaviour:
@@ -16902,8 +16901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &906876310
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17038,7 +17037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &917999667
 MonoBehaviour:
@@ -17052,8 +17051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &917999668
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17188,7 +17187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &929663735
 MonoBehaviour:
@@ -17202,8 +17201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &929663736
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17338,7 +17337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &939594698
 MonoBehaviour:
@@ -17352,8 +17351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &939594699
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17488,7 +17487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &952756108
 MonoBehaviour:
@@ -17502,8 +17501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &952756109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17638,7 +17637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &964348538
 MonoBehaviour:
@@ -17652,8 +17651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &964348539
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17788,7 +17787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &984821579
 MonoBehaviour:
@@ -17802,8 +17801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &984821580
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -17938,7 +17937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1002248819
 MonoBehaviour:
@@ -17952,8 +17951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1002248820
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18088,7 +18087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1012806641
 MonoBehaviour:
@@ -18102,8 +18101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1012806642
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18238,7 +18237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1019001493
 MonoBehaviour:
@@ -18252,8 +18251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1019001494
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18388,7 +18387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1023368152
 MonoBehaviour:
@@ -18402,8 +18401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1023368153
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18538,7 +18537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1023641714
 MonoBehaviour:
@@ -18552,8 +18551,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1023641715
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18688,7 +18687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1037393612
 MonoBehaviour:
@@ -18702,8 +18701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1037393613
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18838,7 +18837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1048774256
 MonoBehaviour:
@@ -18852,8 +18851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1048774257
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -18988,7 +18987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1059576330
 MonoBehaviour:
@@ -19002,8 +19001,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1059576331
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19138,7 +19137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1079596532
 MonoBehaviour:
@@ -19152,8 +19151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1079596533
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19288,7 +19287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1079872954
 MonoBehaviour:
@@ -19302,8 +19301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1079872955
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19438,7 +19437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1084477063
 MonoBehaviour:
@@ -19452,8 +19451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1084477064
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19588,7 +19587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1087620023
 MonoBehaviour:
@@ -19602,8 +19601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1087620024
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19738,7 +19737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1088176602
 MonoBehaviour:
@@ -19752,8 +19751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1088176603
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19963,7 +19962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1112542296
 MonoBehaviour:
@@ -19977,8 +19976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1112542297
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20113,7 +20112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1137302186
 MonoBehaviour:
@@ -20127,8 +20126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1137302187
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20263,7 +20262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1143850770
 MonoBehaviour:
@@ -20277,8 +20276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1143850771
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20413,7 +20412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1149186582
 MonoBehaviour:
@@ -20427,8 +20426,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1149186583
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20563,7 +20562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1152646422
 MonoBehaviour:
@@ -20577,8 +20576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1152646423
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20713,7 +20712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1153172451
 MonoBehaviour:
@@ -20727,8 +20726,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1153172452
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20931,7 +20930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1153667918
 MonoBehaviour:
@@ -20945,8 +20944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1153667919
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21081,7 +21080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1157215289
 MonoBehaviour:
@@ -21095,8 +21094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1157215290
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21231,7 +21230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1171417957
 MonoBehaviour:
@@ -21245,8 +21244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1171417958
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21381,7 +21380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1173340574
 MonoBehaviour:
@@ -21395,8 +21394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1173340575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21531,7 +21530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1174273215
 MonoBehaviour:
@@ -21545,8 +21544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1174273216
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21815,7 +21814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1183350108
 MonoBehaviour:
@@ -21829,8 +21828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1183350109
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -21965,7 +21964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1194454579
 MonoBehaviour:
@@ -21979,8 +21978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1194454580
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22095,7 +22094,7 @@ GameObject:
   - component: {fileID: 1199801102}
   - component: {fileID: 1199801101}
   m_Layer: 5
-  m_Name: finalScoreText
+  m_Name: _finalScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22249,7 +22248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1201964235
 MonoBehaviour:
@@ -22263,8 +22262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1201964236
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22399,7 +22398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1203790746
 MonoBehaviour:
@@ -22413,8 +22412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1203790747
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22549,7 +22548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1215456458
 MonoBehaviour:
@@ -22563,8 +22562,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1215456459
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22699,7 +22698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1217362850
 MonoBehaviour:
@@ -22713,8 +22712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1217362851
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22849,7 +22848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1223593220
 MonoBehaviour:
@@ -22863,8 +22862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1223593221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -22999,7 +22998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1224630037
 MonoBehaviour:
@@ -23013,8 +23012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1224630038
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23149,7 +23148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1224685349
 MonoBehaviour:
@@ -23163,8 +23162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1224685350
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23299,7 +23298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1225232586
 MonoBehaviour:
@@ -23313,8 +23312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1225232587
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23449,7 +23448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1233287639
 MonoBehaviour:
@@ -23463,8 +23462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1233287640
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23599,7 +23598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1239670978
 MonoBehaviour:
@@ -23613,8 +23612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1239670979
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23749,7 +23748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1239973073
 MonoBehaviour:
@@ -23763,8 +23762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1239973074
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23899,7 +23898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1245942316
 MonoBehaviour:
@@ -23913,8 +23912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1245942317
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24049,7 +24048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1254754272
 MonoBehaviour:
@@ -24063,8 +24062,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1254754273
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24199,7 +24198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1256462466
 MonoBehaviour:
@@ -24213,8 +24212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1256462467
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24349,7 +24348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1276082664
 MonoBehaviour:
@@ -24363,8 +24362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1276082665
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24499,7 +24498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1286096830
 MonoBehaviour:
@@ -24513,8 +24512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1286096831
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24649,7 +24648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1292860304
 MonoBehaviour:
@@ -24663,8 +24662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1292860305
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -24779,7 +24778,7 @@ GameObject:
   - component: {fileID: 1293280676}
   - component: {fileID: 1293280675}
   m_Layer: 5
-  m_Name: goldEarnedText
+  m_Name: _goldEarnedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24933,7 +24932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1303297655
 MonoBehaviour:
@@ -24947,8 +24946,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1303297656
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25051,6 +25050,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 310637278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1308011428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5337579492851626028, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1228917
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7509577
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9075672103104650747, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60b48d05a4c78dd47ba4ca6b74d5953b, type: 3}
 --- !u!1 &1333229186
 GameObject:
   m_ObjectHideFlags: 0
@@ -25083,7 +25139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1333229188
 MonoBehaviour:
@@ -25097,8 +25153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1333229189
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25233,7 +25289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1335587495
 MonoBehaviour:
@@ -25247,8 +25303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1335587496
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25517,7 +25573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1357963138
 MonoBehaviour:
@@ -25531,8 +25587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1357963139
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25667,7 +25723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1361399572
 MonoBehaviour:
@@ -25681,8 +25737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1361399573
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25817,7 +25873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1363599546
 MonoBehaviour:
@@ -25831,8 +25887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1363599547
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -25967,7 +26023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1369177729
 MonoBehaviour:
@@ -25981,8 +26037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1369177730
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26117,7 +26173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1373770717
 MonoBehaviour:
@@ -26131,8 +26187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1373770718
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26267,7 +26323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1376990148
 MonoBehaviour:
@@ -26281,8 +26337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1376990149
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26417,7 +26473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1377001240
 MonoBehaviour:
@@ -26431,8 +26487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1377001241
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26567,7 +26623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1381473919
 MonoBehaviour:
@@ -26581,8 +26637,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1381473920
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26717,7 +26773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1382091394
 MonoBehaviour:
@@ -26731,8 +26787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1382091395
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -26867,7 +26923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1389008220
 MonoBehaviour:
@@ -26881,8 +26937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1389008221
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27017,7 +27073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1394079628
 MonoBehaviour:
@@ -27031,8 +27087,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1394079629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27167,7 +27223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1395886721
 MonoBehaviour:
@@ -27181,8 +27237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1395886722
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27317,7 +27373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1409286002
 MonoBehaviour:
@@ -27331,8 +27387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1409286003
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27467,7 +27523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1409864223
 MonoBehaviour:
@@ -27481,8 +27537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1409864224
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27617,7 +27673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1441626001
 MonoBehaviour:
@@ -27631,8 +27687,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1441626002
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27767,7 +27823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1442211130
 MonoBehaviour:
@@ -27781,8 +27837,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1442211131
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27917,7 +27973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1446427394
 MonoBehaviour:
@@ -27931,8 +27987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1446427395
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28067,7 +28123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1450188835
 MonoBehaviour:
@@ -28081,8 +28137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1450188836
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28217,7 +28273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1461768081
 MonoBehaviour:
@@ -28231,8 +28287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1461768082
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28481,7 +28537,7 @@ GameObject:
   - component: {fileID: 1474782243}
   - component: {fileID: 1474782242}
   m_Layer: 5
-  m_Name: notesMissedText
+  m_Name: _notesMissedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28635,7 +28691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1474935427
 MonoBehaviour:
@@ -28649,8 +28705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1474935428
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28785,7 +28841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1480147319
 MonoBehaviour:
@@ -28799,8 +28855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1480147320
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -28935,7 +28991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1503921860
 MonoBehaviour:
@@ -28949,8 +29005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1503921861
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29085,7 +29141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1512377166
 MonoBehaviour:
@@ -29099,8 +29155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1512377167
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29235,7 +29291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1517261131
 MonoBehaviour:
@@ -29249,8 +29305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1517261132
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29385,7 +29441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1519471705
 MonoBehaviour:
@@ -29399,8 +29455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1519471706
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29535,7 +29591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1523115976
 MonoBehaviour:
@@ -29549,8 +29605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1523115977
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29685,7 +29741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1532641372
 MonoBehaviour:
@@ -29699,8 +29755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1532641373
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29835,7 +29891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1537167984
 MonoBehaviour:
@@ -29849,8 +29905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1537167985
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -29985,7 +30041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1548334607
 MonoBehaviour:
@@ -29999,8 +30055,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1548334608
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30135,7 +30191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1549218997
 MonoBehaviour:
@@ -30149,8 +30205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1549218998
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30285,7 +30341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1553366042
 MonoBehaviour:
@@ -30299,8 +30355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1553366043
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30435,7 +30491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1568537316
 MonoBehaviour:
@@ -30449,8 +30505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1568537317
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30585,7 +30641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1578733975
 MonoBehaviour:
@@ -30599,8 +30655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1578733976
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30735,7 +30791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1601094284
 MonoBehaviour:
@@ -30749,8 +30805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1601094285
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -30885,7 +30941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1614043642
 MonoBehaviour:
@@ -30899,8 +30955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1614043643
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31035,7 +31091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1621243594
 MonoBehaviour:
@@ -31049,8 +31105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1621243595
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31185,7 +31241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1623231082
 MonoBehaviour:
@@ -31199,8 +31255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1623231083
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31335,7 +31391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1623679792
 MonoBehaviour:
@@ -31349,8 +31405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1623679793
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31485,7 +31541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1634998427
 MonoBehaviour:
@@ -31499,8 +31555,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1634998428
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31635,7 +31691,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1636095312
 MonoBehaviour:
@@ -31649,8 +31705,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1636095313
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31785,7 +31841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1639593003
 MonoBehaviour:
@@ -31799,8 +31855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1639593004
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -31935,7 +31991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1643870186
 MonoBehaviour:
@@ -31949,8 +32005,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1643870187
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32085,7 +32141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1646500088
 MonoBehaviour:
@@ -32099,8 +32155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1646500089
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32215,7 +32271,7 @@ GameObject:
   - component: {fileID: 1647906860}
   - component: {fileID: 1647906859}
   m_Layer: 5
-  m_Name: scoreText
+  m_Name: _scoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32369,7 +32425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1651102915
 MonoBehaviour:
@@ -32383,8 +32439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1651102916
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32519,7 +32575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1659196314
 MonoBehaviour:
@@ -32533,8 +32589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1659196315
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32669,7 +32725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1666077031
 MonoBehaviour:
@@ -32683,8 +32739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1666077032
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32819,7 +32875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1679083379
 MonoBehaviour:
@@ -32833,8 +32889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1679083380
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -32969,7 +33025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1679954998
 MonoBehaviour:
@@ -32983,8 +33039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1679954999
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33119,7 +33175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1688712660
 MonoBehaviour:
@@ -33133,8 +33189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1688712661
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33269,7 +33325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1691380004
 MonoBehaviour:
@@ -33283,8 +33339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1691380005
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33419,7 +33475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1699060378
 MonoBehaviour:
@@ -33433,8 +33489,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1699060379
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33569,7 +33625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1705817520
 MonoBehaviour:
@@ -33583,8 +33639,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1705817521
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33719,7 +33775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1707485665
 MonoBehaviour:
@@ -33733,8 +33789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1707485666
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33869,7 +33925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1709090757
 MonoBehaviour:
@@ -33883,8 +33939,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1709090758
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34019,7 +34075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1711935775
 MonoBehaviour:
@@ -34033,8 +34089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1711935776
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34169,7 +34225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1718092887
 MonoBehaviour:
@@ -34183,8 +34239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1718092888
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34319,7 +34375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1732051755
 MonoBehaviour:
@@ -34333,8 +34389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1732051756
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34469,7 +34525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1762608780
 MonoBehaviour:
@@ -34483,8 +34539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1762608781
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34619,7 +34675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1774453132
 MonoBehaviour:
@@ -34633,8 +34689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1774453133
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34769,7 +34825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1778706237
 MonoBehaviour:
@@ -34783,8 +34839,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1778706238
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -34919,7 +34975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1781930947
 MonoBehaviour:
@@ -34933,8 +34989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1781930948
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35069,7 +35125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1787248858
 MonoBehaviour:
@@ -35083,8 +35139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1787248859
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35219,7 +35275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1793152312
 MonoBehaviour:
@@ -35233,8 +35289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1793152313
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35369,7 +35425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1797555327
 MonoBehaviour:
@@ -35383,8 +35439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1797555328
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35519,7 +35575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1799114240
 MonoBehaviour:
@@ -35533,8 +35589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1799114241
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35669,7 +35725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1807626967
 MonoBehaviour:
@@ -35683,8 +35739,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1807626968
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35819,7 +35875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1817158603
 MonoBehaviour:
@@ -35833,8 +35889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1817158604
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -35969,7 +36025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1825846963
 MonoBehaviour:
@@ -35983,8 +36039,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1825846964
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36119,7 +36175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1828431162
 MonoBehaviour:
@@ -36133,8 +36189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1828431163
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36577,7 +36633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1838007581
 MonoBehaviour:
@@ -36591,8 +36647,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1838007582
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36727,7 +36783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1841233033
 MonoBehaviour:
@@ -36741,8 +36797,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1841233034
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -36877,7 +36933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1856304711
 MonoBehaviour:
@@ -36891,8 +36947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1856304712
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37027,7 +37083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1869342953
 MonoBehaviour:
@@ -37041,8 +37097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1869342954
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37177,7 +37233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1884572609
 MonoBehaviour:
@@ -37191,8 +37247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1884572610
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37327,7 +37383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1885181615
 MonoBehaviour:
@@ -37341,8 +37397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1885181616
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37477,7 +37533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1886895818
 MonoBehaviour:
@@ -37491,8 +37547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1886895819
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37627,7 +37683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1889170005
 MonoBehaviour:
@@ -37641,8 +37697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1889170006
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -37758,7 +37814,7 @@ GameObject:
   - component: {fileID: 1896315023}
   - component: {fileID: 1896315025}
   m_Layer: 5
-  m_Name: resultsPanel
+  m_Name: _resultPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37841,13 +37897,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be84cd5ccb229e84a863a964c29f833b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultPanel: {fileID: 1896315021}
-  notesHitText: {fileID: 904357537}
-  notesMissedText: {fileID: 1474782242}
-  noteStreakText: {fileID: 682523583}
-  finalScoreText: {fileID: 1199801101}
-  goldEarnedText: {fileID: 1293280675}
-  percentHitText: {fileID: 857265977}
+  _resultPanel: {fileID: 1896315021}
+  _notesHitText: {fileID: 904357537}
+  _notesMissedText: {fileID: 1474782242}
+  _noteStreakText: {fileID: 682523583}
+  _finalScoreText: {fileID: 1199801101}
+  _goldEarnedText: {fileID: 1293280675}
+  _percentHitText: {fileID: 857265977}
 --- !u!1 &1910426707
 GameObject:
   m_ObjectHideFlags: 0
@@ -37880,7 +37936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1910426709
 MonoBehaviour:
@@ -37894,8 +37950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1910426710
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38030,7 +38086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1920773498
 MonoBehaviour:
@@ -38044,8 +38100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1920773499
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38180,7 +38236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1932875728
 MonoBehaviour:
@@ -38194,8 +38250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1932875729
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38330,7 +38386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1941377189
 MonoBehaviour:
@@ -38344,8 +38400,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1941377190
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38480,7 +38536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1949612406
 MonoBehaviour:
@@ -38494,8 +38550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1949612407
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38763,7 +38819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1967622035
 MonoBehaviour:
@@ -38777,8 +38833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1967622036
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -38913,7 +38969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1970388671
 MonoBehaviour:
@@ -38927,8 +38983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1970388672
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39063,7 +39119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1994924585
 MonoBehaviour:
@@ -39077,8 +39133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1994924586
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39213,7 +39269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &1998573912
 MonoBehaviour:
@@ -39227,8 +39283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &1998573913
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39363,7 +39419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2000581030
 MonoBehaviour:
@@ -39377,8 +39433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2000581031
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39513,7 +39569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2005092738
 MonoBehaviour:
@@ -39527,8 +39583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2005092739
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39663,7 +39719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2013780903
 MonoBehaviour:
@@ -39677,8 +39733,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2013780904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39813,7 +39869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2017945954
 MonoBehaviour:
@@ -39827,8 +39883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2017945955
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -39963,7 +40019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2023004181
 MonoBehaviour:
@@ -39977,8 +40033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2023004182
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -40247,7 +40303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2037914559
 MonoBehaviour:
@@ -40261,8 +40317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2037914560
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -40397,7 +40453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2046577944
 MonoBehaviour:
@@ -40411,8 +40467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2046577945
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -40547,7 +40603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2050585655
 MonoBehaviour:
@@ -40561,8 +40617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2050585656
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -40831,7 +40887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2120664635
 MonoBehaviour:
@@ -40845,8 +40901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2120664636
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -40981,7 +41037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2125374162
 MonoBehaviour:
@@ -40995,8 +41051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2125374163
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -41131,7 +41187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2138022976
 MonoBehaviour:
@@ -41145,8 +41201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2138022977
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -41281,7 +41337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2139498423
 MonoBehaviour:
@@ -41295,8 +41351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2139498424
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -41431,7 +41487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6deab073f97ab94ea5645ddd8582d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beatTempo: 2.3333333
+  _beatTempo: 0
   hasStarted: 1
 --- !u!114 &2139588451
 MonoBehaviour:
@@ -41445,8 +41501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 0}
+  _keyToPress: 0
+  _note: {fileID: 0}
 --- !u!58 &2139588452
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -41749,8 +41805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 101
-  note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
+  _keyToPress: 101
+  _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!4 &7049356612955672858
 Transform:
   m_ObjectHideFlags: 0
@@ -41845,8 +41901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 113
-  note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
+  _keyToPress: 113
+  _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!212 &8715258530096458070
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41911,8 +41967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 114
-  note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
+  _keyToPress: 114
+  _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!1 &8824155845646916135
 GameObject:
   m_ObjectHideFlags: 0
@@ -41943,8 +41999,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyToPress: 119
-  note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
+  _keyToPress: 119
+  _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -41956,3 +42012,4 @@ SceneRoots:
   - {fileID: 310637278}
   - {fileID: 614614558}
   - {fileID: 1153416358}
+  - {fileID: 1308011428}

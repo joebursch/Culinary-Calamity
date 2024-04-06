@@ -5,16 +5,16 @@ using UnityEngine;
 /// </summary>
 public class Activator : MonoBehaviour
 {
-    private Color originalColor;
-    private SpriteRenderer spriteRenderer;
+    private Color _originalColor;
+    private SpriteRenderer _spriteRenderer;
 
     /// <summary>
     /// Initializes the sprite renderer and stores the original color.
     /// </summary>
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        originalColor = spriteRenderer.color;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _originalColor = _spriteRenderer.color;
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public class Activator : MonoBehaviour
     /// <param name="delay"></param>
     public void ChangeColorWithDelay(Color color, float delay)
     {
-        spriteRenderer.color = color;
+        _spriteRenderer.color = color;
         Invoke("RevertColor", delay);
     }
 
@@ -33,6 +33,6 @@ public class Activator : MonoBehaviour
     /// </summary>
     private void RevertColor()
     {
-        spriteRenderer.color = originalColor;
+        _spriteRenderer.color = _originalColor;
     }
 }
