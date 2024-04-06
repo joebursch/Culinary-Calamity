@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Manages the scrolling of notes in the mini-game.
+/// </summary>
 public class BeatScroller : MonoBehaviour
 {
     [SerializeField] private float beatTempo;

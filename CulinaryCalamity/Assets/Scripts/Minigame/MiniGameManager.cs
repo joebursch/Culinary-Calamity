@@ -2,6 +2,10 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Manages the gameplay mechanics of the mini-game, including score calculation,
+/// multiplier tracking, note streak management, and game state updates. 
+/// Also responsible screen shaking effect to enhance player feedback.
 public class MiniGameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
@@ -13,12 +17,12 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI multiText;
     [SerializeField] private TextMeshProUGUI startText;
     [SerializeField] private GameObject resultPanel;
+    [SerializeField] private GameObject playerObject;
 
     public static MiniGameManager instance;
     public bool createMode;
 
     private ResultPanel Resultpanel;
-    private Player player;
     private Transform cameraTransform;
     private Vector3 originalCameraPosition;
     private float shakeDuration = 0.2f;
@@ -40,6 +44,7 @@ public class MiniGameManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        DisablePlayerObject();
 
         startText.gameObject.SetActive(true);
         scoreText.text = "Score: 0 ";
@@ -103,28 +108,9 @@ public class MiniGameManager : MonoBehaviour
             notesHit++;
             currentNoteStreak++;
 
-            if (currentNoteStreak > noteStreak)
-            {
-                noteStreak = currentNoteStreak;
-            }
-
-            if (currentMultiplier - 1 < multiplierThresholds.Length)
-            {
-                multiplierTracker++;
-
-                if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
-                {
-                    multiplierTracker = 0;
-                    currentMultiplier++;
-                }
-
-                multiText.text = "Multiplier: x" + currentMultiplier;
-
-                currentScore += scorePerNote * currentMultiplier;
-                scoreText.text = "Score: " + currentScore;
-
-                goldEarned = currentScore / 200;
-            }
+            UpdateNoteStreak();
+            UpdateMultiplier();
+            UpdateScore();
         }
     }
 
@@ -136,12 +122,12 @@ public class MiniGameManager : MonoBehaviour
         if (!createMode) 
         {
             notesMissed++;
+            currentNoteStreak = 0;
             currentMultiplier = 1;
             multiplierTracker = 0;
 
-            multiText.text = "Multiplier: x" + currentMultiplier;
+            UpdateMultiplier(); ;
 
-            currentNoteStreak = 0;
         }
     }
 
@@ -218,4 +204,59 @@ public class MiniGameManager : MonoBehaviour
         return percentHit;
     }
 
+    /// <summary>
+    /// Updates the multiplier based on the current note streak and multiplier thresholds.
+    /// </summary>
+
+    private void UpdateMultiplier()
+    {
+        if (currentMultiplier - 1 < multiplierThresholds.Length)
+        {
+            multiplierTracker++;
+            if (multiplierThresholds[currentMultiplier - 1] <= multiplierTracker)
+            {
+                multiplierTracker = 0;
+                currentMultiplier++;
+            }
+            multiText.text = "Multiplier: x" + currentMultiplier;
+        }
+    }
+
+    /// <summary>
+    /// Updates the player's score and updates the score text UI.
+    /// Calculates gold earned based on score.
+    /// </summary>
+    private void UpdateScore()
+    {
+        currentScore += scorePerNote * currentMultiplier;
+        scoreText.text = "Score: " + currentScore;
+        goldEarned = currentScore / 200;
+    }
+
+    /// <summary>
+    /// Updates the current note streak by comparing it with the previous maximum streak.
+    /// </summary>
+    private void UpdateNoteStreak()
+    {
+        if (currentNoteStreak > noteStreak)
+        {
+            noteStreak = currentNoteStreak;
+        }
+    }
+
+    /// <summary>
+    /// Disables the player object at the start of the mini-game scene.
+    /// If the player object reference is null, it logs a warning message.
+    /// </summary>
+    private void DisablePlayerObject()
+    {
+        if (playerObject != null)
+        {
+            playerObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Player object reference is null. Assign player object in the inspector.");
+        }
+    }
 }

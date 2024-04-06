@@ -2,6 +2,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Manages the result panel UI and displays performance data.
+/// </summary>
 public class ResultPanel : MonoBehaviour
 {
     [SerializeField] private GameObject resultPanel;

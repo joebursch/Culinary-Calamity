@@ -1,11 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents a note object in the mini-game.
+/// </summary>
 public class NoteObject : MonoBehaviour
 {
     private bool canBePressed;
     private bool obtained = false;
-    [SerializeField] private KeyCode keyToPress;
     private Activator activator;
+    [SerializeField] private KeyCode keyToPress;
     [SerializeField] private GameObject note;
 
     /// <summary>

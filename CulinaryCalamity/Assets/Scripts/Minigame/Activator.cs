@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents the activator object that changes color temporarily upon interaction with a note.
+/// </summary>
 public class Activator : MonoBehaviour
 {
     private Color originalColor;
