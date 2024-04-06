@@ -6,11 +6,11 @@ using Quests;
 using Saving;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : Character
+public class Player : Character, IQuestOwner
 {
     enum PLAYER_SPD : int
     {
@@ -25,10 +25,6 @@ public class Player : Character
     private PlayerInventory _playerInventory;
     private InventoryManager _inventoryManager;
 
-    // quests
-#pragma warning disable IDE0044, IDE0051
-    private Questline _questline;
-#pragma warning restore IDE0051, IDE0051
     // movement
     private bool _running;
     // layers
@@ -39,24 +35,32 @@ public class Player : Character
     private ObjectSaveData _playerSaveData;
     // combat 
     private AttackStrategy _attackStrategy;
+    // quests
+    public List<Quest> OwnedQuests { get; set; }
+    private QuestMenuManager _questMenuManager;
+    [SerializeField] private GameObject _questMenuPrefab;
     #endregion
 
     #region UnityBuiltIn
     void Awake()
     {
-        _playerInventory = new PlayerInventory();
+
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
         _playerSaveData = new();
+
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
         DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
         DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
+
+        OwnedQuests = new();
     }
 
     void Start()
     {
+        _playerInventory = new PlayerInventory();
         try
         {
             GameSaveManager.GetGameSaveManager().Save += OnSave;
@@ -82,6 +86,7 @@ public class Player : Character
             _attackStrategy.Attack(FindTarget());
             characterAnimator.Play("Attack");
         }
+        if (_controlScheme.Standard.OpenQuestMenu.triggered) { ToggleQuestMenu(); }
         if (_controlScheme.Dialogue.AdvanceDialogue.triggered)
         {
             DialogueManager.GetDialogueManager().AdvanceDialogue();
@@ -260,7 +265,27 @@ public class Player : Character
         var facingDir = new Vector3(characterAnimator.GetFloat("moveX"), characterAnimator.GetFloat("moveY"));
         var interactPosition = transform.position + facingDir;
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
-        if (collider != null) { collider.GetComponent<InteractableObject>()?.Interact(); }
+        if (collider != null)
+        {
+            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh))
+            {
+                int handledQuestId = ((IQuestOwner)this).GetHandledQuestId(qh);
+                if (handledQuestId != -1 && ((IQuestOwner)this).IsQuestCompleteable(handledQuestId))
+                {
+                    QuestFramework.GetQuestFramework().CompleteQuest(handledQuestId, qh, (IQuestOwner)this);
+                }
+
+                else
+                {
+                    collider.GetComponent<InteractableObject>()?.Interact();
+                }
+            }
+            else
+            {
+                collider.GetComponent<InteractableObject>()?.Interact();
+            }
+
+        }
     }
 
     /// <summary>
@@ -294,6 +319,7 @@ public class Player : Character
         display.SetActive(false);
         InventoryManager displayMngr = display.GetComponent<InventoryManager>();
         displayMngr.SetPlayerName(characterName);
+        displayMngr.SetGold(_amountOfGold);
         displayMngr.SetInventory(_playerInventory);
         return displayMngr;
     }
@@ -308,7 +334,6 @@ public class Player : Character
             _inventoryManager = CreateInventoryDisplay();
             _inventoryManager.InventoryClose += OnInventoryClose;
         }
-
         _inventoryManager.ToggleInventory();
     }
 
@@ -320,6 +345,26 @@ public class Player : Character
     public void OnInventoryClose(object sender, EventArgs e)
     {
         ToggleInventory();
+    }
+
+    public bool QueryInventory(ItemId itemId, int qty = 1)
+    {
+        bool isItemPresent = _playerInventory.InventoryContents.TryGetValue(itemId, out int amtInInventory);
+        return isItemPresent && qty == amtInInventory;
+    }
+
+    public void AddGold(int amtToAdd)
+    {
+        _amountOfGold += amtToAdd;
+        if (_inventoryManager != null)
+        {
+            _inventoryManager.SetGold(_amountOfGold);
+        }
+    }
+
+    public PlayerInventory GetInventory()
+    {
+        return _playerInventory;
     }
     #endregion
 
@@ -347,6 +392,45 @@ public class Player : Character
         Debug.Log("I have died!");
     }
 
+    #endregion
+
+    #region Quests
+    /// <summary>
+    /// Instantiates the quest menu as a child of player and returns a reference to the manager script
+    /// </summary>
+    /// <returns>QuestMenuManager</returns>
+    private QuestMenuManager CreateQuestMenu()
+    {
+        GameObject display = Instantiate(_questMenuPrefab, gameObject.transform);
+        display.SetActive(false);
+        QuestMenuManager qMenuMngr = display.GetComponent<QuestMenuManager>();
+        qMenuMngr.SetQuestList(OwnedQuests);
+        return qMenuMngr;
+    }
+
+    /// <summary>
+    /// Activates/Deactivates the quest menu screen to display/hide it
+    /// </summary>
+    private void ToggleQuestMenu()
+    {
+        if (_questMenuManager == null)
+        {
+            _questMenuManager = CreateQuestMenu();
+            _questMenuManager.QuestMenuClose += OnQuestMenuClose;
+        }
+
+        _questMenuManager.ToggleQuestMenu();
+    }
+
+    /// <summary>
+    /// Handles the QuestMenuClose event - necessary to allow closing from quest menu X button
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    public void OnQuestMenuClose(object sender, EventArgs e)
+    {
+        ToggleQuestMenu();
+    }
     #endregion
 
     #region Controls
