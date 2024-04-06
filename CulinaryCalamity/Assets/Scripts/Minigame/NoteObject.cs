@@ -2,18 +2,23 @@ using UnityEngine;
 
 public class NoteObject : MonoBehaviour
 {
-    public bool canBePressed;
-    public bool obtained = false;
-    public KeyCode keyToPress;
+    private bool canBePressed;
+    private bool obtained = false;
+    [SerializeField] private KeyCode keyToPress;
     private Activator activator;
-    public GameObject note;
+    [SerializeField] private GameObject note;
 
+    /// <summary>
+    /// Finds the Activator GameObject and stores its reference.
+    /// </summary>
     void Start()
     {
-        // Find the Activator GameObject and store its reference
         activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
     }
 
+    /// <summary>
+    /// Updates the note's behavior based on game mode.
+    /// </summary>
     void Update()
     {
         if (MiniGameManager.instance.createMode)
@@ -36,8 +41,29 @@ public class NoteObject : MonoBehaviour
                 }
             }
         }
+
+        DestroyIfOutOfView();
     }
 
+    /// <summary>
+    /// Destroys the game object if it is out of the camera view.
+    /// </summary>
+    private void DestroyIfOutOfView()
+    {
+        float rightEdge = transform.position.x + GetComponent<SpriteRenderer>().bounds.extents.x;
+        float rightEdgeViewport = Camera.main.WorldToViewportPoint
+            (new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
+
+        if (!obtained && rightEdgeViewport < 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    /// <summary>
+    /// Triggered when collider enters activator zone.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!MiniGameManager.instance.createMode && other.gameObject == activator.gameObject)
@@ -46,6 +72,10 @@ public class NoteObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Triggered when collider exits activator zone.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!MiniGameManager.instance.createMode && other.gameObject == activator.gameObject)

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8806997083604663492}
   m_Layer: 11
   m_Name: blue
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.2
 --- !u!114 &5970401679202815989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBePressed: 0
   obtained: 0
-  keyToPress: 118
+  keyToPress: 114
   note: {fileID: 0}
 --- !u!114 &8806997083604663492
 MonoBehaviour:

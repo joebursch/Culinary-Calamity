@@ -7,6 +7,7 @@ TagManager:
   - Door
   - Activator
   - spawn
+  - Note
   layers:
   - Default
   - TransparentFX
