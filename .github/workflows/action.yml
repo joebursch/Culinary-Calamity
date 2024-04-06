@@ -30,4 +30,5 @@ jobs:
         uses: super-linter/super-linter@v6.3.1
         env:
           VALIDATE_ALL_CODEBASE: false
+          FILTER_REGEX_EXCLUDE: '.*/doc/*.*'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
