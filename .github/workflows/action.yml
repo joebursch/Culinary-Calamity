@@ -2,11 +2,11 @@ name: Lint
 
 on:  # yamllint disable-line rule:truthy
   push:
-    branches:
-      - '**'
   pull_request:
-    branches:
-      - '**'
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 permissions: read-all
 
