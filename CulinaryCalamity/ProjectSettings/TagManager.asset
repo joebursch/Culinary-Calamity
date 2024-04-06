@@ -8,6 +8,7 @@ TagManager:
   - Activator
   - spawn
   - Note
+  - RordanGamsay
   layers:
   - Default
   - TransparentFX
