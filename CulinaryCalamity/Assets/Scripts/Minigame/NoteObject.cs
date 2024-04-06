@@ -30,15 +30,15 @@ public class NoteObject : MonoBehaviour
             {
                 _keyToPress = KeyCode.Q;
             }
-            else if (gameObject.name.Contains("Pink"))
+            else if (gameObject.name.Contains("pink"))
             {
                 _keyToPress = KeyCode.W;
             }
-            else if (gameObject.name.Contains("Green"))
+            else if (gameObject.name.Contains("green"))
             {
                 _keyToPress = KeyCode.E;
             }
-            else if (gameObject.name.Contains("Blue"))
+            else if (gameObject.name.Contains("blue"))
             {
                 _keyToPress = KeyCode.R;
             }
