@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - Activator
+  - spawn
+  - Note
   - RordanGamsay
   layers:
   - Default

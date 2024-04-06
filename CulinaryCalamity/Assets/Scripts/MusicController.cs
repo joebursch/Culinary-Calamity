@@ -25,6 +25,7 @@ public class MusicController : MonoBehaviour
     public AudioClip dungeonMusic;
     public AudioClip forestMusic;
     public AudioClip townMusic;
+    public AudioClip MiniGameMusic;
 
     /// <summary>
     /// Initializes the MusicController as a singleton instance and subscribes it to scene loading events.
@@ -57,6 +58,7 @@ public class MusicController : MonoBehaviour
         sceneMusicMap.Add("Dungeon1", dungeonMusic);
         sceneMusicMap.Add("Forest", forestMusic);
         sceneMusicMap.Add("Town", townMusic);
+        sceneMusicMap.Add("MiniGame", MiniGameMusic);
     }
 
     /// <summary>
