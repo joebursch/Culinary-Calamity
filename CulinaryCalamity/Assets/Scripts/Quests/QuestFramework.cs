@@ -1,9 +1,10 @@
-
 using UnityEngine;
 using System;
 using Saving;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 namespace Quests
 {
@@ -28,6 +29,7 @@ namespace Quests
             }
             _questSaveData = new();
             _questList = new();
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         private void Start()
@@ -62,6 +64,22 @@ namespace Quests
 
         }
 
+        public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
+        {
+            QuestHandler[] questHandlers = FindObjectsByType<QuestHandler>(FindObjectsSortMode.None);
+            foreach (QuestHandler qh in questHandlers)
+            {
+                if (qh.gameObject.CompareTag("RordanGamsay"))
+                {
+                    foreach (int questId in _questList.Keys)
+                    {
+                        qh.AssignQuestToHandle(questId);
+                    }
+                }
+            }
+        }
+
+
         /// <summary>
         /// Completes the specified questId belonging to the specified handler and owner
         /// </summary>
@@ -70,7 +88,7 @@ namespace Quests
         /// <param name="owner">IQuestOwner, owner of the quest. Assumed that owner has a Quest with a matching quest id</param>
         public void CompleteQuest(int questId, QuestHandler handler, IQuestOwner owner)
         {
-            handler.StartQuestCompletionDialogue(owner.GetQuest(questId).GetCompletionDialogue());
+            handler.CompleteQuest(questId, owner.GetQuest(questId).GetCompletionDialogue());
             owner.CompleteQuest(questId);
             _questList.Remove(questId);
         }
@@ -98,6 +116,15 @@ namespace Quests
         {
             _questList.Add(questId, owner);
             owner.StartQuest(CreateQuest(questId));
+            QuestHandler[] questHandlers = FindObjectsByType<QuestHandler>(FindObjectsSortMode.None);
+            foreach (QuestHandler qh in questHandlers)
+            {
+                if (qh.gameObject.CompareTag("RordanGamsay"))
+                {
+                    Debug.Log(qh);
+                    qh?.AssignQuestToHandle(questId);
+                }
+            }
         }
 
         /// <summary>
@@ -115,6 +142,24 @@ namespace Quests
             }
             else { return null; }
         }
+
+        /// <summary>
+        /// Returns quest owner corresponding to questId
+        /// </summary>
+        /// <param name="questId">int</param>
+        /// <returns>IQuestOwner, null if quest not tracked</returns>
+        public IQuestOwner GetQuestOwner(int questId)
+        {
+            if (_questList.Keys.Contains(questId))
+            {
+                return _questList[questId];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// For singleton pattern.
         /// </summary>

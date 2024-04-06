@@ -63,5 +63,22 @@ namespace Quests
             Quest q = GetQuest(questId);
             return q != null && q.IsCompleteable();
         }
+
+        /// <summary>
+        /// Returns the id of a quest owned by this IQuestOwner and handled by the provider QuestHandler
+        /// </summary>
+        /// <param name="qh">QuestHandler</param>
+        /// <returns>int, -1 if no matching id - quest id if mathcing</returns>
+        public int GetHandledQuestId(QuestHandler qh)
+        {
+            foreach (Quest q in OwnedQuests)
+            {
+                if (qh.IsQuestHandled(q.GetQuestId()))
+                {
+                    return q.GetQuestId();
+                }
+            }
+            return -1;
+        }
     }
 }

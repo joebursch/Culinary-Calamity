@@ -100,7 +100,7 @@ namespace Quests
         {
             foreach (QuestCompletionCriterion criterion in _completionCriteria)
             {
-                if (!criterion.IsSatisfied(null))
+                if (!criterion.IsSatisfied(QuestFramework.GetQuestFramework().GetQuestOwner(_questID)))
                 {
                     return false;
                 }
@@ -116,7 +116,7 @@ namespace Quests
         {
             foreach (QuestCompletionAction action in _questCompletionActions)
             {
-                action.Take();
+                action.TakeAction();
             }
         }
 

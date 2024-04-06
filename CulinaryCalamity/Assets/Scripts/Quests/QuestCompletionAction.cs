@@ -12,7 +12,7 @@ namespace Quests
         /// <summary>
         /// Abstract method representing 'taking' the action.
         /// </summary>
-        public abstract void Take();
+        public abstract void TakeAction();
 
         /// <summary>
         /// Populates an existing Quest Completion Action with values from a dictionary

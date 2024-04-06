@@ -16,7 +16,7 @@ namespace Quests
         /// Implementation of abstract method - represents taking the action
         /// Assigns the next quest to the specified owner
         /// </summary>
-        public override void Take()
+        public override void TakeAction()
         {
             QuestFramework.GetQuestFramework().AssignQuest(_nextQuestId, _nextQuestOwner);
         }

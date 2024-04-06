@@ -267,16 +267,23 @@ public class Player : Character, IQuestOwner
         var collider = Physics2D.OverlapCircle(interactPosition, 0.2f, _interactableObjectsLayer);
         if (collider != null)
         {
-            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh) && ((IQuestOwner)this).GetQuest(qh.HandledQuestId) != null)
+            if (collider.TryGetComponent<QuestHandler>(out QuestHandler qh))
             {
-                if (((IQuestOwner)this).IsQuestCompleteable(qh.HandledQuestId))
+                int handledQuestId = ((IQuestOwner)this).GetHandledQuestId(qh);
+                if (handledQuestId != -1 && ((IQuestOwner)this).IsQuestCompleteable(handledQuestId))
                 {
-                    QuestFramework.GetQuestFramework().CompleteQuest(qh.HandledQuestId, qh, (IQuestOwner)this);
+                    QuestFramework.GetQuestFramework().CompleteQuest(handledQuestId, qh, (IQuestOwner)this);
+                }
+
+                else
+                {
+                    collider.GetComponent<InteractableObject>()?.Interact();
                 }
             }
-
-            collider.GetComponent<InteractableObject>()?.Interact();
-
+            else
+            {
+                collider.GetComponent<InteractableObject>()?.Interact();
+            }
 
         }
     }

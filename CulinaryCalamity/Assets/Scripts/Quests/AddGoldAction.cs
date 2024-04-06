@@ -15,7 +15,7 @@ namespace Quests
         /// Concrete implementation of abstract Take method
         /// Adds gold to player object
         /// </summary>
-        public override void Take()
+        public override void TakeAction()
         {
             _playerReceivingGold.AddGold(_goldToAdd);
         }
@@ -27,8 +27,8 @@ namespace Quests
         public override void CopyFromDescription(Dictionary<string, string> parameters)
         {
             _goldToAdd = int.Parse(parameters["goldToAdd"]);
-            string nextOwnerTag = parameters["playerReceivingGold"];
-            _playerReceivingGold = (Player)QuestFramework.GetQuestFramework().GetQuestOwner(nextOwnerTag);
+            string playerTag = parameters["playerReceivingGold"];
+            _playerReceivingGold = (Player)QuestFramework.GetQuestFramework().GetQuestOwner(playerTag);
         }
     }
 }
