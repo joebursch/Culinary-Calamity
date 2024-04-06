@@ -62,7 +62,7 @@ public class Character : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             Debug.DrawLine(transform.position, collider.gameObject.transform.position, Color.cyan);
-            if (collider.gameObject != gameObject && !collider.isTrigger)
+            if (collider.gameObject != gameObject && !collider.isTrigger && !collider.gameObject.CompareTag("Door"))
             {
                 return false;
             }
