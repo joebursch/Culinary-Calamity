@@ -13,10 +13,9 @@ public class TransportManager : MonoBehaviour
     private bool _isTeleporting = false;
     private Transform _currentExit; // To keep track of the exit location
 
-    [SerializeField] private FadeEffect fadeEffect;
+    [SerializeField] private FadeEffect _fadeEffect;
     [SerializeField] private float _exitRadius = 1f; // Minimum distance from the exit to re-enable teleporting
     [SerializeField] private float _teleportDelay = 2f; // Time to wait before actual teleport
-    [SerializeField] private Image fadeImage;
     [SerializeField] private float fadeDuration = 1f;
 
     /// <summary>
@@ -61,13 +60,13 @@ public class TransportManager : MonoBehaviour
         _isTeleporting = true;
         playerComponent.StartTeleportation();
 
-        fadeEffect.FadeToBlack(fadeDuration);
+        _fadeEffect.FadeToBlack(fadeDuration);
         yield return new WaitForSeconds(_teleportDelay);
 
         player.position = destination.position;
         _currentExit = destination;
 
-        fadeEffect.FadeFromBlack(fadeDuration);
+        _fadeEffect.FadeFromBlack(fadeDuration);
         yield return new WaitForSeconds(_teleportDelay);
         playerComponent.EndTeleportation();
         _isTeleporting = false;

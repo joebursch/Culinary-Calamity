@@ -378,20 +378,19 @@ public class Player : Character
     #region TeleportationControls
     public void StartTeleportation()
     {
-        Debug.Log("PlayerController StartTeleportation()");
         _isTeleporting = true;
-        Debug.Log("PlayerController StartTeleportation(): Set _isTeleporting to true");
         characterAnimator.SetBool("isTeleporting", true);
-        Debug.Log("PlayerController StartTeleportation(): Set isTeleporting Animator to true");
         characterAnimator.SetBool("isWalking", false);
+        characterAnimator.SetBool("isRunning", false);
     }
 
     public void EndTeleportation()
     {
-        Debug.Log("Teleporting Complete");
         _isTeleporting = false;
         characterAnimator.SetBool("isTeleporting", false);
+        characterAnimator.SetBool("isRunning", false);
         characterAnimator.SetBool("isWalking", true);
+       
     }
     #endregion
 }
