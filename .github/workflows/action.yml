@@ -1,12 +1,12 @@
 name: Lint
 
-on:  # yamllint disable-line rule:truthy
-  push:
-    branches:
-      - '**'
-  pull_request:
-    branches:
-      - '**'
+on: # yamllint disable-line rule:truthy
+  push: null
+  pull_request: null
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
 
 permissions: read-all
 
@@ -27,7 +27,8 @@ jobs:
           fetch-depth: 0
 
       - name: Super-linter
-        uses: super-linter/super-linter@v6.3.0
+        uses: super-linter/super-linter@v6.3.1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
           FILTER_REGEX_EXCLUDE: '.*/doc/*.*'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
