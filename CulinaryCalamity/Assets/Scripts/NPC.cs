@@ -143,7 +143,7 @@ public class NPC : Character, InteractableObject
     {
         var playerCollider = Physics2D.OverlapCircle(transform.position, 0.2f, _playerLayer);
         var faceX = playerCollider.gameObject.transform.position.x - transform.position.x;
-        var faceY = -(playerCollider.gameObject.transform.position.y - transform.position.y);
+        var faceY = playerCollider.gameObject.transform.position.y - transform.position.y;
         ConfigureAnimator(new Vector2(faceX, faceY));
     }
     /// <summary>
