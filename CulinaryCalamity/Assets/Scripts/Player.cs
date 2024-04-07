@@ -455,4 +455,17 @@ public class Player : Character, IQuestOwner
         _controlScheme.Dialogue.Enable();
     }
     #endregion
+
+    #region TeleportationControls
+    public void StartTeleportation()
+    {
+        _controlScheme.Standard.Disable();
+    }
+
+    public void EndTeleportation()
+    {
+        _controlScheme.Standard.Enable();
+    }
+    #endregion
 }
+
