@@ -11,7 +11,7 @@ public class MusicController : MonoBehaviour
     private static MusicController instance;
     private AudioSource audioSource;
     private AudioClip currentMusicClip;
-    private float fadeDuration = 1.5f;
+    private float fadeDuration = .75f;
     private float targetVolume = 1.0f;
 
     // Dictionary to map scene names to music clips
@@ -79,16 +79,25 @@ public class MusicController : MonoBehaviour
         // If a different music clip is found, fade out the current one and play the new one
         if (nextClip != null && nextClip != currentMusicClip)
         {
-            StartCoroutine(FadeOutMusic(nextClip));
+            StartCoroutine(TransitionMusic(nextClip));
+        }
+        else if (scene.name == "MiniGame")
+        {
+            StartCoroutine(FadeOutMusic());
         }
     }
 
+    IEnumerator TransitionMusic(AudioClip audioClip)
+    {
+        yield return FadeOutMusic();
+        yield return FadeInNewMusic(audioClip);
+    }
     /// <summary>
     /// Fades out the current music clip and starts playing the new one.
     /// </summary>
     /// <param name="nextClip"></param>
     /// <returns>An IEnumerator for coroutine handling.</returns>
-    IEnumerator FadeOutMusic(AudioClip nextClip)
+    IEnumerator FadeOutMusic()
     {
         float startVolume = audioSource.volume;
         float startTime = Time.time;
@@ -101,7 +110,6 @@ public class MusicController : MonoBehaviour
         }
 
         audioSource.Stop();
-        yield return StartCoroutine(FadeInNewMusic(nextClip));
     }
 
     /// <summary>

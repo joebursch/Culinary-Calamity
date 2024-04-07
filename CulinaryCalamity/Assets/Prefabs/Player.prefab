@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 3364728739925737039}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +258,7 @@ MonoBehaviour:
   _itemsLayer:
     serializedVersion: 2
     m_Bits: 512
+  _questMenuPrefab: {fileID: 6559050872861233011, guid: 781aff15e0ea45a4bbe87f1a0271be24, type: 3}
 --- !u!95 &2959650416833559264
 Animator:
   serializedVersion: 5

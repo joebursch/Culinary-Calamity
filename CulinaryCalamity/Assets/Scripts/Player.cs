@@ -7,6 +7,7 @@ using Saving;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,11 +15,13 @@ public class Player : Character, IQuestOwner
 {
     enum PLAYER_SPD : int
     {
-        Walk = 5,
-        Run = 10,
+        Walk = 8,
+        Run = 16,
     }
 
     #region Attributes
+    private static GameObject _playerInstance;
+
     // inventory
     [SerializeField] private GameObject _inventoryPrefab;
     [SerializeField] private int _amountOfGold = 0;
@@ -44,7 +47,14 @@ public class Player : Character, IQuestOwner
     #region UnityBuiltIn
     void Awake()
     {
-
+        if (_playerInstance == null)
+        {
+            _playerInstance = gameObject;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -195,6 +205,7 @@ public class Player : Character, IQuestOwner
 
     private Door lastInteractedDoor;
     private bool justTraveled = false;
+    private bool _isTeleporting;
 
     /// <summary>
     /// Runs when player enters a trigger.
@@ -212,6 +223,7 @@ public class Player : Character, IQuestOwner
                 {
                     if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                     {
+                        _isTeleporting = true;
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
@@ -222,20 +234,23 @@ public class Player : Character, IQuestOwner
                                 break;
                             }
                         }
+                        Invoke(nameof(UnlockTeleport), .5f);
                     }
                     else
                     {
+                        _isTeleporting = true;
                         SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
                         {
-                            if (door.transform.position == transform.position)
+                            if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
                             {
                                 lastInteractedDoor = door;
                                 break;
                             }
                         }
+                        Invoke(nameof(UnlockTeleport), .5f);
                     }
 
                     justTraveled = true;
@@ -250,11 +265,20 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (_isTeleporting) { return; }
         if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject == collision.gameObject))
         {
             justTraveled = false;
             lastInteractedDoor = null;
         }
+    }
+
+    /// <summary>
+    /// allows the player to use doors again
+    /// </summary>
+    private void UnlockTeleport()
+    {
+        _isTeleporting = false;
     }
 
     /// <summary>
@@ -350,7 +374,7 @@ public class Player : Character, IQuestOwner
     public bool QueryInventory(ItemId itemId, int qty = 1)
     {
         bool isItemPresent = _playerInventory.InventoryContents.TryGetValue(itemId, out int amtInInventory);
-        return isItemPresent && qty == amtInInventory;
+        return isItemPresent && qty <= amtInInventory;
     }
 
     public void AddGold(int amtToAdd)

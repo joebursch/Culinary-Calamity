@@ -36,6 +36,7 @@ public class MiniGameManager : MonoBehaviour
     private int _goldEarned;
     private int _currentNoteStreak;
     private float _percentHit;
+    private bool _gameOver = false;
 
 
     /// <summary>
@@ -73,9 +74,10 @@ public class MiniGameManager : MonoBehaviour
         }
         else
         {
-            if (IsGameOver())
+            if (IsGameOver() && !_gameOver)
             {
                 GameOver();
+                _gameOver = true;
             }
         }
     }
@@ -175,18 +177,11 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
-        /* add gold earned to the player
-         * 
-         * player = FindObjectOfType<Player>();
-        if (player != null)
+
+        if (_playerObject != null)
         {
-            player.AddGold(goldEarned);
+            _playerObject.GetComponent<Player>().AddGold(_goldEarned);
         }
-        else
-        {
-            Debug.LogWarning("Player object not found!");
-        }
-        */
     }
 
     /// <summary>
