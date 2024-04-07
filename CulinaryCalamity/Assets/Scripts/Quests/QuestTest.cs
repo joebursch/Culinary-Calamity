@@ -16,6 +16,13 @@ public class QuestTest : MonoBehaviour
     }
     void Start()
     {
-        QuestFramework.GetQuestFramework().AssignQuest(0, owner);
+        try
+        {
+            QuestFramework.GetQuestFramework().AssignQuest(0, owner);
+        }
+        catch
+        {
+            return;
+        }
     }
 }
