@@ -15,8 +15,7 @@ public class TransportManager : MonoBehaviour
 
     [SerializeField] private FadeEffect _fadeEffect;
     [SerializeField] private float _exitRadius = 1f; // Minimum distance from the exit to re-enable teleporting
-    [SerializeField] private float _teleportDelay = 2f; // Time to wait before actual teleport
-    [SerializeField] private float fadeDuration = 1f;
+    [SerializeField] private float _fadeDuration = 1f;
 
     /// <summary>
     /// Initializes the singleton instance of the TransportManager.
@@ -60,18 +59,15 @@ public class TransportManager : MonoBehaviour
         _isTeleporting = true;
         playerComponent.StartTeleportation();
 
-        _fadeEffect.FadeToBlack(fadeDuration);
-        yield return new WaitForSeconds(_teleportDelay);
+        yield return _fadeEffect.FadeToBlackCoroutine(_fadeDuration);
 
         player.position = destination.position;
         _currentExit = destination;
 
-        _fadeEffect.FadeFromBlack(fadeDuration);
-        yield return new WaitForSeconds(_teleportDelay);
+        yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
         playerComponent.EndTeleportation();
         _isTeleporting = false;
 
-        Debug.Log("TeleportManager waiting for player to leave exit radius");
         // Now wait until the player has left the exit radius
         while (Vector3.Distance(player.position, _currentExit.position) < _exitRadius)
         {

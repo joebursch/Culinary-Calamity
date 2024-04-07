@@ -14,29 +14,11 @@ public class FadeEffect : MonoBehaviour
     public Image fadeImage;
 
     /// <summary>
-    /// Initiates a fade to black effect over a specified duration.
-    /// </summary>
-    /// <param name="duration">The duration of the fade in seconds.</param>
-    public void FadeToBlack(float duration)
-    {
-        StartCoroutine(FadeToBlackCoroutine(duration));
-    }
-
-    /// <summary>
-    /// Initiates a fade from black effect over a specified duration.
-    /// </summary>
-    /// <param name="duration">The duration of the fade in seconds.</param>
-    public void FadeFromBlack(float duration)
-    {
-        StartCoroutine(FadeFromBlackCoroutine(duration));
-    }
-
-    /// <summary>
     /// Coroutine that gradually changes the alpha of the fadeImage to 1 (black) over the specified duration.
     /// </summary>
     /// <param name="duration">The duration of the fade in seconds.</param>
     /// <returns>IEnumerator for coroutine.</returns>
-    private IEnumerator FadeToBlackCoroutine(float duration)
+    public IEnumerator FadeToBlackCoroutine(float duration)
     {
         float alpha = fadeImage.color.a;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration)
@@ -53,7 +35,7 @@ public class FadeEffect : MonoBehaviour
     /// </summary>
     /// <param name="duration">The duration of the fade in seconds.</param>
     /// <returns>IEnumerator for coroutine.</returns>
-    private IEnumerator FadeFromBlackCoroutine(float duration)
+    public IEnumerator FadeFromBlackCoroutine(float duration)
     {
         float alpha = fadeImage.color.a;
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration)

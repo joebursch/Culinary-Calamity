@@ -148,8 +148,6 @@ public class Player : Character, IQuestOwner
     /// </summary>
     void MovePlayer()
     {
-        ///if (_isTeleporting) return;
-
         _movementDir = GetMovementDirection();
         CheckRunning();
         ConfigureAnimator(_movementDir, _running);
