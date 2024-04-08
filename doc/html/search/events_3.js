@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['save_0',['Save',['../class_saving_1_1_game_save_manager.html#a1ebf6938427e93258e2242fd0122f405',1,'Saving::GameSaveManager']]]
+  ['questmenuclose_0',['QuestMenuClose',['../class_quests_1_1_quest_menu_manager.html#abd6b2ee627f7983ed1becaa8a76f4429',1,'Quests::QuestMenuManager']]]
 ];
