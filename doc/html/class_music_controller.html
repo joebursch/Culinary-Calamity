@@ -126,6 +126,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aea165cfe03fdba7decf8759a52163767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66c022f1b9fac172387a35ea4df8525d" id="r_a66c022f1b9fac172387a35ea4df8525d"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66c022f1b9fac172387a35ea4df8525d">townMusic</a></td></tr>
 <tr class="separator:a66c022f1b9fac172387a35ea4df8525d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a402c6061e7f38bedbdac72ff23288dfb" id="r_a402c6061e7f38bedbdac72ff23288dfb"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a402c6061e7f38bedbdac72ff23288dfb">MiniGameMusic</a></td></tr>
+<tr class="separator:a402c6061e7f38bedbdac72ff23288dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -135,9 +137,11 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a651fe97c16c2a6c7ff0b88ce7f27d214" id="r_a651fe97c16c2a6c7ff0b88ce7f27d214"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a651fe97c16c2a6c7ff0b88ce7f27d214">OnSceneLoaded</a> (Scene scene, LoadSceneMode mode)</td></tr>
 <tr class="memdesc:a651fe97c16c2a6c7ff0b88ce7f27d214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles scene loading event and updates the music accordingly.  <br /></td></tr>
 <tr class="separator:a651fe97c16c2a6c7ff0b88ce7f27d214"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aff3c7324c0ce61b61b06f7459506275c" id="r_aff3c7324c0ce61b61b06f7459506275c"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff3c7324c0ce61b61b06f7459506275c">FadeOutMusic</a> (AudioClip nextClip)</td></tr>
-<tr class="memdesc:aff3c7324c0ce61b61b06f7459506275c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades out the current music clip and starts playing the new one.  <br /></td></tr>
-<tr class="separator:aff3c7324c0ce61b61b06f7459506275c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a331dcbacbad51a08c507f1f04120f6ce" id="r_a331dcbacbad51a08c507f1f04120f6ce"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a331dcbacbad51a08c507f1f04120f6ce">TransitionMusic</a> (AudioClip audioClip)</td></tr>
+<tr class="separator:a331dcbacbad51a08c507f1f04120f6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2621a2fc8dd841c3c6a1a070f4f1d7a5" id="r_a2621a2fc8dd841c3c6a1a070f4f1d7a5"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2621a2fc8dd841c3c6a1a070f4f1d7a5">FadeOutMusic</a> ()</td></tr>
+<tr class="memdesc:a2621a2fc8dd841c3c6a1a070f4f1d7a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades out the current music clip and starts playing the new one.  <br /></td></tr>
+<tr class="separator:a2621a2fc8dd841c3c6a1a070f4f1d7a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a998347e2c0c40c61b82b92cd4539d3ac" id="r_a998347e2c0c40c61b82b92cd4539d3ac"><td class="memItemLeft" align="right" valign="top">IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a998347e2c0c40c61b82b92cd4539d3ac">FadeInNewMusic</a> (AudioClip nextClip)</td></tr>
 <tr class="memdesc:a998347e2c0c40c61b82b92cd4539d3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fades in the new music clip.  <br /></td></tr>
 <tr class="separator:a998347e2c0c40c61b82b92cd4539d3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,7 +152,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:abd71c316e51d992e45ed3eef4c6e8bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd566787f19a1c97bf2ee9845c6ef6b8" id="r_afd566787f19a1c97bf2ee9845c6ef6b8"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd566787f19a1c97bf2ee9845c6ef6b8">currentMusicClip</a></td></tr>
 <tr class="separator:afd566787f19a1c97bf2ee9845c6ef6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a471beaece608e8c4e095e16f0d8e05e0" id="r_a471beaece608e8c4e095e16f0d8e05e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a471beaece608e8c4e095e16f0d8e05e0">fadeDuration</a> = 1.5f</td></tr>
+<tr class="memitem:a471beaece608e8c4e095e16f0d8e05e0" id="r_a471beaece608e8c4e095e16f0d8e05e0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a471beaece608e8c4e095e16f0d8e05e0">fadeDuration</a> = .75f</td></tr>
 <tr class="separator:a471beaece608e8c4e095e16f0d8e05e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38da557457e249f21b009f1e9d312272" id="r_a38da557457e249f21b009f1e9d312272"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38da557457e249f21b009f1e9d312272">targetVolume</a> = 1.0f</td></tr>
 <tr class="separator:a38da557457e249f21b009f1e9d312272"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,7 +194,7 @@ Static Private Attributes</h2></td></tr>
 
 <p>Initializes the <a class="el" href="class_music_controller.html" title="Controls the background music based on the current scene.">MusicController</a> as a singleton instance and subscribes it to scene loading events. </p>
 
-<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00032">32</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00033">33</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
 
 </div>
 </div>
@@ -226,12 +230,12 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An IEnumerator for coroutine handling.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00110">110</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00120">120</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
 
 </div>
 </div>
-<a id="aff3c7324c0ce61b61b06f7459506275c" name="aff3c7324c0ce61b61b06f7459506275c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff3c7324c0ce61b61b06f7459506275c">&#9670;&#160;</a></span>FadeOutMusic()</h2>
+<a id="a2621a2fc8dd841c3c6a1a070f4f1d7a5" name="a2621a2fc8dd841c3c6a1a070f4f1d7a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2621a2fc8dd841c3c6a1a070f4f1d7a5">&#9670;&#160;</a></span>FadeOutMusic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +246,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">IEnumerator MusicController.FadeOutMusic </td>
           <td>(</td>
-          <td class="paramtype">AudioClip</td>          <td class="paramname"><span class="paramname"><em>nextClip</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -262,7 +266,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An IEnumerator for coroutine handling.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00089">89</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00100">100</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
 
 </div>
 </div>
@@ -302,7 +306,34 @@ Static Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00067">67</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00069">69</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+
+</div>
+</div>
+<a id="a331dcbacbad51a08c507f1f04120f6ce" name="a331dcbacbad51a08c507f1f04120f6ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a331dcbacbad51a08c507f1f04120f6ce">&#9670;&#160;</a></span>TransitionMusic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumerator MusicController.TransitionMusic </td>
+          <td>(</td>
+          <td class="paramtype">AudioClip</td>          <td class="paramname"><span class="paramname"><em>audioClip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00090">90</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
 
 </div>
 </div>
@@ -381,7 +412,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float MusicController.fadeDuration = 1.5f</td>
+          <td class="memname">float MusicController.fadeDuration = .75f</td>
         </tr>
       </table>
   </td>
@@ -464,6 +495,22 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00024">24</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
+
+</div>
+</div>
+<a id="a402c6061e7f38bedbdac72ff23288dfb" name="a402c6061e7f38bedbdac72ff23288dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a402c6061e7f38bedbdac72ff23288dfb">&#9670;&#160;</a></span>MiniGameMusic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AudioClip MusicController.MiniGameMusic</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_music_controller_8cs_source.html#l00028">28</a> of file <a class="el" href="_music_controller_8cs_source.html">MusicController.cs</a>.</p>
 
 </div>
 </div>

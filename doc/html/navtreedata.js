@@ -38,8 +38,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Properties", "functions_prop.html", null ],
         [ "Events", "functions_evnt.html", null ]
@@ -53,10 +53,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_attack_strategy_8cs.html",
-"class_enemies_1_1_creature.html#ac060cc437fb398bdd02c77b5c6480874",
-"class_minigame.html#ac0609e4e13f627972c5cbb43a88a73c9",
-"functions_p.html"
+"_activator_8cs.html",
+"class_door.html#af8fed06499c3e6ffe6d993b5b341c54f",
+"class_items_1_1_item.html#a8faac14ecf39c70c9c1b216d0430b4bb",
+"class_quests_1_1_quest.html#a95e0c09dcda4cbe25dcc0b2abf202b60",
+"class_saving_1_1_saver.html#aeb4d930892fb14f8541db8ff13509a17"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['forageable_0',['Forageable',['../class_forageable.html',1,'']]]
+  ['fadeeffect_0',['FadeEffect',['../class_fade_effect.html',1,'']]],
+  ['forageable_1',['Forageable',['../class_forageable.html',1,'']]]
 ];
