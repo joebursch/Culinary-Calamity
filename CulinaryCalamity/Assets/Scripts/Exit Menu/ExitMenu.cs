@@ -14,12 +14,11 @@ public class ExitMenu : MonoBehaviour
     public void YesButton()
     {
         // Terminates the application, effectively ending the game.
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #elif UNITY_STANDALONE
-            Application.Quit();
-        #endif
-
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+        Application.Quit();
+#endif
     }
 
     /// <summary>
