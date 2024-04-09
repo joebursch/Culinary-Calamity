@@ -7,6 +7,7 @@ using Saving;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -39,6 +40,10 @@ public class Player : Character, IQuestOwner
     // combat 
     private AttackStrategy _attackStrategy;
     // quests
+
+    // scene tracking for exit menu
+    private string lastSceneName;
+
     public List<Quest> OwnedQuests { get; set; }
     private QuestMenuManager _questMenuManager;
     [SerializeField] private GameObject _questMenuPrefab;
@@ -101,6 +106,7 @@ public class Player : Character, IQuestOwner
         {
             DialogueManager.GetDialogueManager().AdvanceDialogue();
         }
+        if (_controlScheme.Standard.OpenExitMenu.triggered) { OpenExitMenu(); }
     }
     #endregion
 
@@ -444,6 +450,34 @@ public class Player : Character, IQuestOwner
         }
 
         _questMenuManager.ToggleQuestMenu();
+    }
+
+    /// <summary>
+    /// Handles opening the Exit game screen
+    /// </summary>
+    private void OpenExitMenu()
+    {
+        if (_questMenuManager != null)
+        {
+            _questMenuManager.CloseQuestMenu();
+        }
+
+        if (_inventoryManager != null)
+        {
+            _inventoryManager.CloseInventory();
+        }
+
+        if (!SceneManager.GetActiveScene().name.Equals("ExitScreen"))
+        {
+            lastSceneName = SceneManager.GetActiveScene().name;
+            this.transform.position = this.transform.position + new Vector3(0, 0, -100);
+        }
+
+        ExitMenu exit = this.AddComponent<ExitMenu>();
+        exit.SetPlayerData(lastSceneName, this.transform.position);
+        SceneManager.LoadSceneAsync("ExitScreen");
+        Time.timeScale = 0f;
+
     }
 
     /// <summary>
