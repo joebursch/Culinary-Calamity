@@ -5,11 +5,13 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Unity.InputSystem",
-        "Unity.InputSystem.TestFramework"
+        "Unity.InputSystem.TestFramework",
+        "Scripts",
+        "Actions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
-    "allowUnsafeCode": false,
+    "allowUnsafeCode": true,
     "overrideReferences": true,
     "precompiledReferences": [
         "nunit.framework.dll"

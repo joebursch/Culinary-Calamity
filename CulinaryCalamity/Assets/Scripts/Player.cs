@@ -7,7 +7,6 @@ using Saving;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +18,7 @@ public class Player : Character, IQuestOwner
         Run = 16,
     }
 
+    public GameObject invDisplay;
     #region Attributes
     private static GameObject _playerInstance;
 
@@ -33,7 +33,7 @@ public class Player : Character, IQuestOwner
     // layers
     [SerializeField] private LayerMask _itemsLayer;
     // input
-    private Actions _controlScheme = null;
+    public Actions _controlScheme = null;
     // saving
     private ObjectSaveData _playerSaveData;
     // combat 
@@ -62,8 +62,16 @@ public class Player : Character, IQuestOwner
 
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
+        try
+        {
+            DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+            DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
+        }
+
+        catch
+        {
+
+        }
 
         OwnedQuests = new();
     }
@@ -340,6 +348,7 @@ public class Player : Character, IQuestOwner
     private InventoryManager CreateInventoryDisplay()
     {
         GameObject display = Instantiate(_inventoryPrefab, gameObject.transform);
+        invDisplay = display;
         display.SetActive(false);
         InventoryManager displayMngr = display.GetComponent<InventoryManager>();
         displayMngr.SetPlayerName(characterName);
