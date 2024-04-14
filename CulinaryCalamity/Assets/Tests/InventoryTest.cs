@@ -12,7 +12,6 @@ namespace Tests
     /// <summary>
     /// Tests for Inventory Menu (user story #3)
     /// </summary>
-    [PrebuildSetup("InventoryTestPrebuildSetup")]
     public class InventoryTest
     {
         private InputTestFixture _input = new InputTestFixture();
@@ -25,13 +24,13 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            SceneManager.LoadScene("Home");
+            SceneManager.LoadScene("BlankTestingScene");
             _input.Setup();
+            // register action asset controls
+            InputSystem.RegisterLayout(playerActions);
             // Create Player prefab - player needs to be in scene in order for us to open inventory
             _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
             _playerScript = _player.GetComponent<Player>();
-            // register action asset controls
-            InputSystem.RegisterLayout(playerActions);
         }
 
         /// <summary>
@@ -41,6 +40,10 @@ namespace Tests
         public void TearDown()
         {
             _input.TearDown();
+            if (_player != null)
+            {
+                GameObject.Destroy(_player);
+            }
         }
 
         /// <summary>
@@ -800,17 +803,4 @@ namespace Tests
     ""controlSchemes"": []
 }";
     }
-
-    // #if UNITY_EDITOR
-    //     public class InventoryTestPrebuildSetup : IPrebuildSetup
-    //     {
-    //         public void Setup()
-    //         {
-    //             EditorBuildSettings.scenes = new[] 
-    //             {
-    //                 new EditorBuildSettingsScene("Assets/Scenes/Home.unity", true)
-    //             };
-    //         }
-    //     }
-    // #endif
 }
