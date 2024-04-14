@@ -8,52 +8,119 @@ using UnityEditor;
 
 namespace Tests
 {
+    /// <summary>
+    /// Tests for Inventory Menu (user story #3)
+    /// </summary>
     [PrebuildSetup("InventoryTestPrebuildSetup")]
     public class InventoryTest
     {
         private InputTestFixture _input = new InputTestFixture();
         private GameObject _player;
         private Player _playerScript;
-        private GameObject _manager;
 
+        /// <summary>
+        /// Test setup - runs before every test
+        /// </summary>
         [SetUp]
         public void Setup()
         {
             _input.Setup();
+            // Create Player prefab - player needs to be in scene in order for us to open inventory
+            _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
+            _playerScript = _player.GetComponent<Player>();
+            // register action asset controls
+            InputSystem.RegisterLayout(playerActions);
         }
 
+        /// <summary>
+        /// Test teardown - runs after every test
+        /// </summary>
         [TearDown]
         public void TearDown()
         {
             _input.TearDown();
         }
 
-        // A Test behaves as an ordinary method
+        /// <summary>
+        /// Test AC 1: "Pressing the inventory key (i) displays the inventory menu"
+        /// </summary>
         [UnityTest]
-        public IEnumerator Inventory_CanOpenInventory()
+        public IEnumerator Inventory_CanOpenInventory_UsingKeyboard()
         {
-
-            _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
-            _playerScript = _player.GetComponent<Player>();
-            InputSystem.RegisterLayout(playerActions);
+            // add keyboard
             var keyboard = InputSystem.AddDevice<Keyboard>();
-            // _playerScript._controlScheme = InputActionAsset.FromJson(playerActions);
 
+            // press and release the 'i' key
             _input.Press(keyboard.iKey);
             yield return new WaitForSeconds(.1f);
             _input.Release(keyboard.iKey);
 
-            Assert.IsNotNull(_playerScript.invDisplay);
-            Assert.IsTrue(_playerScript.invDisplay.activeSelf);
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
+            // Verify that inventory display object is active
+            Assert.IsTrue(invTransform.gameObject.activeSelf);
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
+        /// <summary>
+        /// Test AC 2: "The inventory menu contains an accurate representation of the items in the players inventory"
+        /// </summary>
         [UnityTest]
-        public IEnumerator InventoryTestWithEnumeratorPasses()
+        public IEnumerator Inventory_DisplayIsAccurate()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
+            yield return null;
+        }
+
+        /// <summary>
+        /// Test AC 3: "Pressing the inventory key again (i) closes the menu"
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Inventory_CanCloseInventory_UsingKeyboard()
+        {
+            // add keyboard
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+
+            // press and release the 'i' key to open
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            // press and release 'i' key again to close
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
+            // Verify that inventory display object is active
+            Assert.IsFalse(invTransform.gameObject.activeSelf);
+        }
+
+        /// <summary>
+        /// Test AC 4: "Pressing the red x in the top right of the menu closes the menu"
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Inventory_CanCloseInventory_UsingXButton()
+        {
+            yield return null;
+        }
+
+        /// <summary>
+        /// Test AC 5: "You can't open the inventory during dialogue/mini-games"
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Inventory_CannotOpenInventory_DuringDialogue()
+        {
+            yield return null;
+        }
+
+        /// <summary>
+        /// Test AC 5: "You can't open the inventory during dialogue/mini-games"
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Inventory_CannotOpenInventory_DuringMiniGame()
+        {
             yield return null;
         }
 
@@ -710,16 +777,16 @@ namespace Tests
 }";
     }
 
-#if UNITY_EDITOR
-    public class InventoryTestPrebuildSetup : IPrebuildSetup
-    {
-        public void Setup()
-        {
-            EditorBuildSettings.scenes = new[] 
-            {
-                new EditorBuildSettingsScene("Assets/Scenes/Home.unity", true)
-            };
-        }
-    }
-#endif
+    // #if UNITY_EDITOR
+    //     public class InventoryTestPrebuildSetup : IPrebuildSetup
+    //     {
+    //         public void Setup()
+    //         {
+    //             EditorBuildSettings.scenes = new[] 
+    //             {
+    //                 new EditorBuildSettingsScene("Assets/Scenes/Home.unity", true)
+    //             };
+    //         }
+    //     }
+    // #endif
 }

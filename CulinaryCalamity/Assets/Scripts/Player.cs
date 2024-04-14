@@ -18,7 +18,6 @@ public class Player : Character, IQuestOwner
         Run = 16,
     }
 
-    public GameObject invDisplay;
     #region Attributes
     private static GameObject _playerInstance;
 
@@ -33,7 +32,7 @@ public class Player : Character, IQuestOwner
     // layers
     [SerializeField] private LayerMask _itemsLayer;
     // input
-    public Actions _controlScheme = null;
+    private Actions _controlScheme = null;
     // saving
     private ObjectSaveData _playerSaveData;
     // combat 
@@ -67,10 +66,9 @@ public class Player : Character, IQuestOwner
             DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
             DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
         }
-
         catch
         {
-
+            // ?
         }
 
         OwnedQuests = new();
@@ -348,7 +346,6 @@ public class Player : Character, IQuestOwner
     private InventoryManager CreateInventoryDisplay()
     {
         GameObject display = Instantiate(_inventoryPrefab, gameObject.transform);
-        invDisplay = display;
         display.SetActive(false);
         InventoryManager displayMngr = display.GetComponent<InventoryManager>();
         displayMngr.SetPlayerName(characterName);
