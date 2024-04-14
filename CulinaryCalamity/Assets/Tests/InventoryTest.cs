@@ -5,6 +5,7 @@ using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEngine.UI;
 
 namespace Tests
 {
@@ -93,7 +94,7 @@ namespace Tests
             Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
             // Verify that inventory display object has been created
             Assert.IsNotNull(invTransform);
-            // Verify that inventory display object is active
+            // Verify that inventory display object is not active
             Assert.IsFalse(invTransform.gameObject.activeSelf);
         }
 
@@ -103,7 +104,29 @@ namespace Tests
         [UnityTest]
         public IEnumerator Inventory_CanCloseInventory_UsingXButton()
         {
-            yield return null;
+            // add mouse and keyboard
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            var mouse = InputSystem.AddDevice<Mouse>();
+
+            // press and release the 'i' key to open
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
+
+            // get 'x' button location
+            RectTransform exitTransform = invTransform.Find("ExitButton") as RectTransform;
+            Assert.IsNotNull(exitTransform);
+            // move mouse to location
+            _input.Move(mouse.position, Camera.main.WorldToScreenPoint(exitTransform.position));
+            // click
+            _input.Click(mouse.leftButton);
+
+            // Verify that inventory display object is not active
+            Assert.IsFalse(invTransform.gameObject.activeSelf);
         }
 
         /// <summary>
