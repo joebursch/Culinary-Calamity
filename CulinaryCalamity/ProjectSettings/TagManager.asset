@@ -9,6 +9,10 @@ TagManager:
   - spawn
   - Note
   - RordanGamsay
+  - Qnote
+  - Wnote
+  - Enote
+  - Rnote
   layers:
   - Default
   - TransparentFX

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Represents a note object in the mini-game.
@@ -8,8 +10,11 @@ public class NoteObject : MonoBehaviour
     private bool _canBePressed;
     private bool _obtained = false;
     private Activator _activator;
-    [SerializeField] private KeyCode _keyToPress;
     [SerializeField] private GameObject _note;
+
+
+    // input
+    private Actions _controlScheme = null;
 
     /// <summary>
     /// Finds the Activator GameObject and stores its reference.
@@ -17,6 +22,8 @@ public class NoteObject : MonoBehaviour
     void Start()
     {
         _activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
+        _controlScheme = new Actions();
+        _controlScheme.Enable();
     }
 
     /// <summary>
@@ -24,36 +31,18 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_note == null)
-        {
-            if (gameObject.name.Contains("orange"))
-            {
-                _keyToPress = KeyCode.Q;
-            }
-            else if (gameObject.name.Contains("pink"))
-            {
-                _keyToPress = KeyCode.W;
-            }
-            else if (gameObject.name.Contains("green"))
-            {
-                _keyToPress = KeyCode.E;
-            }
-            else if (gameObject.name.Contains("blue"))
-            {
-                _keyToPress = KeyCode.R;
-            }
-        }
-
         if (MiniGameManager.instance.createMode)
         {
-            if (Input.GetKeyDown(_keyToPress))
+            if (_controlScheme.MiniGame.orangeNote.triggered || _controlScheme.MiniGame.pinkNote.triggered ||
+                _controlScheme.MiniGame.greenNote.triggered || _controlScheme.MiniGame.blueNote.triggered)
             {
                 Instantiate(_note, transform.position, Quaternion.identity);
             }
         }
         else
         {
-            if (Input.GetKeyDown(_keyToPress))
+            if (_controlScheme.MiniGame.orangeNote.triggered || _controlScheme.MiniGame.pinkNote.triggered || 
+                _controlScheme.MiniGame.greenNote.triggered || _controlScheme.MiniGame.blueNote.triggered)
             {
                 if (_canBePressed)
                 {
@@ -108,12 +97,11 @@ public class NoteObject : MonoBehaviour
             {
                 MiniGameManager.instance.NoteMissed();
                 _activator.ChangeColorWithDelay(Color.red, 0.1f);
-                if (MiniGameManager.instance.gameObject.activeSelf) // Check if MiniGameManager GameObject is active
+                if (MiniGameManager.instance.gameObject.activeSelf)
                 {
                     StartCoroutine(MiniGameManager.instance.ShakeScene());
                 }
             }
         }
     }
-
 }

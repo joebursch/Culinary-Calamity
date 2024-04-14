@@ -34,8 +34,12 @@ public class MiniGameManager : MonoBehaviour
     private int _notesMissed;
     private int _noteStreak;
     private int _goldEarned;
+    public int activeNoteCount = 0;
     private int _currentNoteStreak;
     private float _percentHit;
+
+    // input
+    private Actions _controlScheme = null;
 
 
     /// <summary>
@@ -46,6 +50,9 @@ public class MiniGameManager : MonoBehaviour
         instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
         DisablePlayerObject();
+        totalNotes();
+        _controlScheme = new Actions();
+        _controlScheme.Enable();
         _startText.gameObject.SetActive(true);
         _scoreText.text = "Score: 0 ";
         _multiText.text = "Multiplier x1 ";
@@ -56,7 +63,9 @@ public class MiniGameManager : MonoBehaviour
         _resultPanel.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
+
     }
+
 
     /// <summary>
     /// Updates the game state every frame.
@@ -65,7 +74,7 @@ public class MiniGameManager : MonoBehaviour
     {
         if (!_startPlaying)
         {
-            if (Input.anyKeyDown)
+            if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
             }
@@ -93,6 +102,7 @@ public class MiniGameManager : MonoBehaviour
             UpdateNoteStreak();
             UpdateMultiplier();
             UpdateScore();
+            activeNoteCount--;
         }
     }
 
@@ -108,6 +118,7 @@ public class MiniGameManager : MonoBehaviour
             _currentMultiplier = 1;
             _multiplierTracker = 0;
             UpdateMultiplier();
+            activeNoteCount--;
         }
     }
 
@@ -159,10 +170,13 @@ public class MiniGameManager : MonoBehaviour
         _currentNoteStreak = 0;
     }
 
+    /// <summary>
+    /// Checks if the game is over
+    /// </summary>
+    /// <returns>True if there are no active notes in the game, indicating the game is over; otherwise, false.</returns>
     bool IsGameOver()
     {
-        GameObject[] noteObjects = GameObject.FindGameObjectsWithTag("Note");
-        return noteObjects.Length == 0;
+        return activeNoteCount == 0;
     }
 
     /// <summary>
@@ -175,18 +189,12 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
-        /* add gold earned to the player
-         * 
-         * player = FindObjectOfType<Player>();
-        if (player != null)
+
+       
+        if (_playerObject != null)
         {
-            player.AddGold(goldEarned);
+            _playerObject.GetComponent<Player>().AddGold(_goldEarned);
         }
-        else
-        {
-            Debug.LogWarning("Player object not found!");
-        }
-        */
     }
 
     /// <summary>
@@ -226,6 +234,19 @@ public class MiniGameManager : MonoBehaviour
         _currentScore += _scorePerNote * _currentMultiplier;
         _scoreText.text = "Score: " + _currentScore;
         _goldEarned = _currentScore / 200;
+    }
+
+    /// <summary>
+    /// Counts the total number of active notes in the game.
+    /// </summary>
+    public void totalNotes()
+    {
+        GameObject[] qNoteObjects = GameObject.FindGameObjectsWithTag("Qnote");
+        GameObject[] wNoteObjects = GameObject.FindGameObjectsWithTag("Wnote");
+        GameObject[] eNoteObjects = GameObject.FindGameObjectsWithTag("Enote");
+        GameObject[] rNoteObjects = GameObject.FindGameObjectsWithTag("Rnote");
+
+        activeNoteCount = qNoteObjects.Length + wNoteObjects.Length + eNoteObjects.Length + rNoteObjects.Length;
     }
 
     /// <summary>
