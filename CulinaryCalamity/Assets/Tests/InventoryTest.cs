@@ -25,6 +25,7 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
+            SceneManager.LoadScene("Home");
             _input.Setup();
             // Create Player prefab - player needs to be in scene in order for us to open inventory
             _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
