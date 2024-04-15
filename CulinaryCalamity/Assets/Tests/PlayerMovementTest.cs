@@ -9,116 +9,233 @@ using Inventory;
 using Items;
 using TMPro;
 
-/// <summary>
-/// Tests for player movement (user story #1)
-/// </summary>
-public class PlayerMovementTest : MonoBehaviour
+namespace Tests
 {
-    private InputTestFixture _input = new InputTestFixture();
-
-    private GameObject _player;
-
-    private Player _playerScript;
-
-
     /// <summary>
-    /// Test setup - runs before every test
+    /// Tests for player movement (user story #1)
     /// </summary>
-    [SetUp]
-    public void SetUp()
+    public class PlayerMovementTest : MonoBehaviour
     {
-        SceneManager.LoadScene("BlankTestingScene");
-        _input.Setup();
-        // register action asset controls
-        InputSystem.RegisterLayout(playerActions);
-        // create player prefab 
-        _player = Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
-        _playerScript = _player.GetComponent<Player>();
+        private InputTestFixture _input = new InputTestFixture();
 
-    }
-    /// <summary>
-    /// Test teardown - runs after every test
-    /// </summary>
-    [TearDown]
-    public void TearDown()
-    {
-        _input.TearDown();
-        if (_player != null)
+        private GameObject _player;
+
+        private Player _playerScript;
+
+
+        /// <summary>
+        /// Test setup - runs before every test
+        /// </summary>
+        [SetUp]
+        public void SetUp()
         {
-            Destroy(_player);
+            SceneManager.LoadScene("BlankTestingScene");
+            _input.Setup();
+            // register action asset controls
+            InputSystem.RegisterLayout(playerActions);
+            // create player prefab 
+            _player = Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
+            _playerScript = _player.GetComponent<Player>();
+
         }
-    }
+        /// <summary>
+        /// Test teardown - runs after every test
+        /// </summary>
+        [TearDown]
+        public void TearDown()
+        {
+            _input.TearDown();
+            if (_player != null)
+            {
+                Destroy(_player);
+            }
+        }
 
-    #region KEYBOARD_TESTS 
-    /// <summary>
-    /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
-    /// Upwards movement using the (w) key on the keyboard
-    /// </summary>
-    [UnityTest]
-    public IEnumerator Movement_CanMoveUp_UsingKeyboard()
-    {
-        var keyboard = InputSystem.AddDevice<Keyboard>();
-        // Get position of player before movement
-        float previousYPosition = _player.transform.position.y;
+        #region KEYBOARD_TESTS 
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Upwards movement using the (w) key on the keyboard
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveUp_UsingKeyboard()
+        {
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            // Get position of player before movement
+            float previousYPosition = _player.transform.position.y;
 
-        // press and release the "w" key
-        _input.Press(keyboard.wKey);
-        yield return new WaitForSeconds(1f);
-        _input.Release(keyboard.wKey);
+            // press and release the "w" key
+            _input.Press(keyboard.wKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.wKey);
 
-        // Get position of player after movement
-        float currentYPosition = _player.transform.position.y;
+            // Get position of player after movement
+            float currentYPosition = _player.transform.position.y;
 
-        // Verify that the player has moved up
-        Assert.Greater(currentYPosition, previousYPosition);
-    }
+            // Verify that the player has moved up
+            Assert.Greater(currentYPosition, previousYPosition);
+        }
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Downwards movement using the (s) key on the keyboard
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveDown_UsingKeyboard()
+        {
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            // player position prior to input
+            float previousYPosition = _player.transform.position.y;
 
-    [UnityTest]
-    public IEnumerator Movement_CanMoveDown_UsingKeyboard()
-    {
-        var keyboard = InputSystem.AddDevice<Keyboard>();
-        // player position prior to movement
-        float previousYPosition = _player.transform.position.y;
+            // press and release the "s" key
+            _input.Press(keyboard.sKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.sKey);
 
-        // press and release the "s" key
-        _input.Press(keyboard.sKey);
-        yield return new WaitForSeconds(1f);
-        _input.Release(keyboard.sKey);
+            // player position post input
+            float currentYPosition = _player.transform.position.y;
 
-        // player position post movement
-        float currentYPosition = _player.transform.position.y;
+            // Verify that the player has moved down
+            Assert.Less(currentYPosition, previousYPosition);
+        }
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Left movement using the (a) key on the keyboard
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveLeft_UsingKeyboard()
+        {
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            // player position prior to input
+            float previousXposition = _player.transform.position.x;
 
-        // Verify that the player has moved down
-        Assert.Less(currentYPosition, previousYPosition);
-    }
+            // press and release the "a" key
+            _input.Press(keyboard.aKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.aKey);
 
-    #endregion
-    #region  GAMEPAD_TESTS
-    /// <summary>
-    /// Testing upwards movement by pushing up on the left joystick
-    /// </summary>
-    [UnityTest]
-    public IEnumerator Movement_CanMoveUp_UsingGamepad()
-    {
-        var gamepad = InputSystem.AddDevice<Gamepad>();
-        // Get position of player prior to movement
-        float previousYPosition = _player.transform.position.y;
+            // player position post input
+            float currentXPosition = _player.transform.position.x;
 
-        // joystick control?
-        _input.Move(gamepad.leftStick, new Vector2(0, 1));
-        yield return new WaitForSeconds(1f);
-        _input.Move(gamepad.leftStick, new Vector2(0, 0));
+            // Verify that the player has moved left
+            Assert.Less(currentXPosition, previousXposition);
+        }
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Right movement using the (d) key on the keyboard
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveRight_UsingKeyboard()
+        {
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            // player position prior to input
+            float previousXposition = _player.transform.position.x;
 
-        // Get position of player post movement
-        float currentYPosition = _player.transform.position.y;
+            // press and release the "d" key
+            _input.Press(keyboard.dKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.dKey);
 
-        // Verify that the player has moved up
-        Assert.Greater(currentYPosition, previousYPosition);
-    }
+            // player position post input
+            float currentXPosition = _player.transform.position.x;
 
-    #endregion
+            // Verify that the player has moved right
+            Assert.Greater(currentXPosition, previousXposition);
+        }
 
-    const string playerActions = @"{
+        #endregion
+        #region  GAMEPAD_TESTS
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Upwards movement by pushing up on the left joystick
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveUp_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            // Get position of player prior to movement
+            float previousYPosition = _player.transform.position.y;
+
+            // push joystick up then stop
+            _input.Move(gamepad.leftStick, new Vector2(0, 1));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            // Get position of player post movement
+            float currentYPosition = _player.transform.position.y;
+
+            // Verify that the player has moved up
+            Assert.Greater(currentYPosition, previousYPosition);
+        }
+
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Downwards movement by pushing down on the left joystick
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveDown_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            // Get position of player prior to movement
+            float previousYPosition = _player.transform.position.y;
+
+            // push joystick down then stop
+            _input.Move(gamepad.leftStick, new Vector2(0, -1));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            // Get position of player post movement
+            float currentYPosition = _player.transform.position.y;
+
+            // Verify that the player has moved up
+            Assert.Less(currentYPosition, previousYPosition);
+        }
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Left movement by pushing left on the left joystick
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveLeft_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            // Get position of player prior to movement
+            float previousXPosition = _player.transform.position.x;
+
+            // push joystick left then stop
+            _input.Move(gamepad.leftStick, new Vector2(-1, 0));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            // Get position of player post movement
+            float currentXPosition = _player.transform.position.x;
+
+            // Verify that the player has moved up
+            Assert.Less(currentXPosition, previousXPosition);
+        }
+        /// <summary>
+        /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
+        /// Right movement by pushing right on the left joystick
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_CanMoveRight_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            // Get position of player prior to movement
+            float previousXPosition = _player.transform.position.x;
+
+            // push joystick left then stop
+            _input.Move(gamepad.leftStick, new Vector2(1, 0));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            // Get position of player post movement
+            float currentXPosition = _player.transform.position.x;
+
+            // Verify that the player has moved up
+            Assert.Greater(currentXPosition, previousXPosition);
+        }
+
+        #endregion
+
+        const string playerActions = @"{
     ""name"": ""Actions"",
     ""maps"": [
         {
@@ -769,4 +886,5 @@ public class PlayerMovementTest : MonoBehaviour
     ],
     ""controlSchemes"": []
 }";
+    }
 }
