@@ -141,6 +141,41 @@ namespace Tests
             Assert.Greater(currentXPosition, previousXposition);
         }
 
+        /// <summary>
+        /// Test AC 2: "Movement control will be limited to up, down, left, right"
+        /// 
+        /// NOT WORKING: Need to see if we can press two keys at the same time. Currently, the second key press is taking over. 
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_DiagonalMovementsProhibited_UsingKeyboard()
+        {
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            // player position prior to input
+            float previousXposition = _player.transform.position.x;
+            float previousYPosition = _player.transform.position.y;
+
+            // press and release the "d" key
+            _input.Press(keyboard.dKey);
+            _input.Press(keyboard.wKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.wKey);
+            _input.Release(keyboard.dKey);
+
+            // player position post input
+            float currentXPosition = _player.transform.position.x;
+            float currentYPosition = _player.transform.position.y;
+
+            // Verify that the player has only moved to the right
+            Assert.AreEqual(currentYPosition, previousYPosition);
+            Assert.Greater(currentXPosition, previousXposition);
+
+        }
+
+        [UnityTest]
+        public IEnumerator Movement_SolidObjectsStopMovement_UsingKeyboard()
+        {
+            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 1, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+        }
         #endregion
         #region  GAMEPAD_TESTS
         /// <summary>
@@ -185,7 +220,7 @@ namespace Tests
             // Get position of player post movement
             float currentYPosition = _player.transform.position.y;
 
-            // Verify that the player has moved up
+            // Verify that the player has moved down
             Assert.Less(currentYPosition, previousYPosition);
         }
         /// <summary>
@@ -207,7 +242,7 @@ namespace Tests
             // Get position of player post movement
             float currentXPosition = _player.transform.position.x;
 
-            // Verify that the player has moved up
+            // Verify that the player has moved left
             Assert.Less(currentXPosition, previousXPosition);
         }
         /// <summary>
@@ -229,7 +264,7 @@ namespace Tests
             // Get position of player post movement
             float currentXPosition = _player.transform.position.x;
 
-            // Verify that the player has moved up
+            // Verify that the player has moved right
             Assert.Greater(currentXPosition, previousXPosition);
         }
 
