@@ -170,11 +170,25 @@ namespace Tests
             Assert.Greater(currentXPosition, previousXposition);
 
         }
-
+        /// <summary>
+        /// Test AC 3: Movement can be impeded by solid objects.
+        /// </summary>
+        /// <returns></returns>
         [UnityTest]
         public IEnumerator Movement_SolidObjectsStopMovement_UsingKeyboard()
         {
-            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 1, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+            float unreachableXPosition = _player.transform.position.x + 5;
+            // Move
+            _input.Press(keyboard.dKey);
+            yield return new WaitForSeconds(1f);
+            _input.Release(keyboard.dKey);
+
+            float currentXPosition = _player.transform.position.x;
+
+            // Verify the player couldn't move past the solid object
+            Assert.Less(currentXPosition, unreachableXPosition);
         }
         #endregion
         #region  GAMEPAD_TESTS
@@ -266,6 +280,27 @@ namespace Tests
 
             // Verify that the player has moved right
             Assert.Greater(currentXPosition, previousXPosition);
+        }
+
+        /// <summary>
+        /// Test AC 3: Movement can be impeded by solid objects.
+        /// </summary>
+        /// <returns></returns>
+        [UnityTest]
+        public IEnumerator Movement_SolidObjectsStopMovement_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+            float unreachableXPosition = _player.transform.position.x + 5;
+            // Move
+            _input.Move(gamepad.leftStick, new Vector2(1, 0));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            float currentXPosition = _player.transform.position.x;
+
+            // Verify the player couldn't move past the solid object
+            Assert.Less(currentXPosition, unreachableXPosition);
         }
 
         #endregion
