@@ -148,7 +148,25 @@ namespace Tests
         [UnityTest]
         public IEnumerator Inventory_CannotOpenInventory_DuringMiniGame()
         {
-            yield return null;
+            // add keyboard
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+
+            // load into mini-game scene
+            SceneManager.LoadScene("MiniGame");
+            yield return new WaitForSeconds(.3f);
+
+            // press and release the 'i' key
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            // inventory screen may not be created if it wasn't used before coming into mini-game scene
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            bool invScreenExists = invTransform != null;
+            bool invScreenActive = invScreenExists && invTransform.gameObject.activeSelf;
+
+            // verify screen isn't active
+            Assert.IsFalse(invScreenActive);
         }
 
         const string playerActions = @"{

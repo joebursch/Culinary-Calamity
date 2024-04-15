@@ -61,15 +61,9 @@ public class Player : Character, IQuestOwner
 
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
-        try
-        {
-            DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
-            DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
-        }
-        catch
-        {
-            // ?
-        }
+
+
+
 
         OwnedQuests = new();
     }
@@ -86,6 +80,9 @@ public class Player : Character, IQuestOwner
         {
             Debug.Log("No Game Save Manager Found");
         }
+
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
     }
 
     void OnEnable() => _controlScheme.Standard.Enable();
