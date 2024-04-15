@@ -12,7 +12,16 @@ Created by:
 
 ### During Development
 
-You can run the current scene including all functionality by clicking the 'play' icon in the top center of the screen. This will play the current scene in the 'Game' window which is open by default. If you do not see the 'Game' window, select 'Window' from the top left menu, then 'General' then 'Game'.
+* Clone the Repository to your local machine: ```git clone https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1```
+* [Install Unity](https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1/wiki/Developer-Guide#ide--text-editor)
+* Open Unity hub
+* Navigate to the projects panel on the left hand menu
+* Near the top right corner, select the gray down arrow next to the add button and click 'add project from disk'
+* Navigate to the clone repository, select the 'CulinaryCalamity' folder
+* Once the project has finished loading, open the project
+* In the Unity editor 'Projects' window (default is bottom left) open the 'Scenes' folder
+* From the scenes folder, double click on the 'StartScreen' scene to open it
+* Click the play button (triangle icon) to start the game
 
 ### Building an Executable
 
