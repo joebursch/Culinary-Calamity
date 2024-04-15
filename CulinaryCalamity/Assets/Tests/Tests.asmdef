@@ -7,7 +7,8 @@
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
         "Scripts",
-        "Actions"
+        "Actions",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

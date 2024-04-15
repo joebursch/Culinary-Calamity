@@ -62,9 +62,6 @@ public class Player : Character, IQuestOwner
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
 
-
-
-
         OwnedQuests = new();
     }
 

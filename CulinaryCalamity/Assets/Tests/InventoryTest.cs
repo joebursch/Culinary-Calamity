@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using UnityEngine.UI;
+using Dialogue;
+using Inventory;
+using Items;
+using TMPro;
 
 namespace Tests
 {
@@ -31,6 +35,8 @@ namespace Tests
             // Create Player prefab - player needs to be in scene in order for us to open inventory
             _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
             _playerScript = _player.GetComponent<Player>();
+
+            GameObject.Instantiate(Resources.Load("Prefabs/Managers/ItemManager") as GameObject);
         }
 
         /// <summary>
@@ -73,7 +79,42 @@ namespace Tests
         [UnityTest]
         public IEnumerator Inventory_DisplayIsAccurate()
         {
-            yield return null;
+            // add keyboard
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+
+            // get inventory and add five berries
+            PlayerInventory inventory = _playerScript.GetInventory();
+            inventory.AddItems((ItemId)0, 5);
+
+            // open inventory screen
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            // Get and validate reference to inventory object
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
+            // Verify that inventory display object is active
+            Assert.IsTrue(invTransform.gameObject.activeSelf);
+
+            // verify display tiles exist for the 5 berries
+            Transform contentsPanel = invTransform.Find("InventoryContentsPanel");
+            Assert.IsNotNull(contentsPanel);
+            Transform itemTile = contentsPanel.Find("ItemTile(Clone)");
+            Assert.IsNotNull(itemTile);
+
+            // verify the values being displayed
+            Transform namePanel = itemTile.Find("ItemName");
+            Assert.IsNotNull(namePanel);
+            string name = namePanel.gameObject.GetComponent<TextMeshProUGUI>().text;
+            Assert.IsTrue(name == "Berry");
+
+            Transform amtPanel = itemTile.Find("ItemAmount");
+            Assert.IsNotNull(amtPanel);
+            string amt = amtPanel.gameObject.GetComponent<TextMeshProUGUI>().text;
+            Assert.IsTrue(amt == "x5");
+
         }
 
         /// <summary>
@@ -139,7 +180,23 @@ namespace Tests
         [UnityTest]
         public IEnumerator Inventory_CannotOpenInventory_DuringDialogue()
         {
-            yield return null;
+            // add keyboard
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+
+            DialogueManager.GetDialogueManager().InitializeDialogue(new TextAsset("hello"));
+
+            // press and release the 'i' key
+            _input.Press(keyboard.iKey);
+            yield return new WaitForSeconds(.1f);
+            _input.Release(keyboard.iKey);
+
+            // inventory screen may not be created if it wasn't used before coming into mini-game scene
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            bool invScreenExists = invTransform != null;
+            bool invScreenActive = invScreenExists && invTransform.gameObject.activeSelf;
+
+            // verify screen isn't active
+            Assert.IsFalse(invScreenActive);
         }
 
         /// <summary>
