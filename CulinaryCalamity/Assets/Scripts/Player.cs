@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Player : Character, IQuestOwner
 {
@@ -39,6 +40,8 @@ public class Player : Character, IQuestOwner
     private AttackStrategy _attackStrategy;
     // quests
     public List<Quest> OwnedQuests { get; set; }
+    public List<int> CompletedQuestIds { get; set; }
+
     private QuestMenuManager _questMenuManager;
     [SerializeField] private GameObject _questMenuPrefab;
     #endregion
@@ -63,6 +66,7 @@ public class Player : Character, IQuestOwner
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
 
         OwnedQuests = new();
+        CompletedQuestIds = new();
     }
 
     void Start()
@@ -115,7 +119,8 @@ public class Player : Character, IQuestOwner
         ObjectSaveData playerSaveData = new();
         Dictionary<string, string> playerData = new()
         {
-            { "PlayerName", playerName }
+            { "PlayerName", playerName },
+            { "OwnedQuestIds", "0"}
         };
         playerSaveData.UpdateSaveData(playerData);
         return playerSaveData;
@@ -128,10 +133,15 @@ public class Player : Character, IQuestOwner
     /// <param name="e"></param>
     public void OnSave(object sender, EventArgs e)
     {
+        string ownedQuestIdsString = string.Join(",", from q in OwnedQuests select q.GetQuestId());
+        string completedQuestIdsString = string.Join(",", CompletedQuestIds);
+
         Dictionary<string, string> playerData = new()
         {
             { "PlayerName", characterName },
-            { "PlayerGold", _amountOfGold.ToString()}
+            { "PlayerGold", _amountOfGold.ToString() },
+            { "OwnedQuestIds", ownedQuestIdsString },
+            {"CompletedQuestIds", completedQuestIdsString}
         };
 
         _playerSaveData.UpdateSaveData(playerData);
@@ -146,9 +156,34 @@ public class Player : Character, IQuestOwner
     public void OnLoad(object sender, EventArgs e)
     {
         _playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
+
+        // set player name and gold
         characterName = _playerSaveData.SaveData["PlayerName"];
         _playerSaveData.SaveData.TryGetValue("PlayerGold", out string gold);
         if (gold != null) { _amountOfGold = int.Parse(gold); }
+
+        Debug.Log(OwnedQuests.Count);
+        // if not already set 
+        if (OwnedQuests.Count <= 0)
+        {
+            _playerSaveData.SaveData.TryGetValue("CompletedQuestIds", out string completedQuestIds);
+            if (completedQuestIds != null)
+            {
+                string[] compIdArray = completedQuestIds.Split(',');
+                CompletedQuestIds = (from id in compIdArray select int.Parse(id)).ToList();
+            }
+
+            _playerSaveData.SaveData.TryGetValue("OwnedQuestIds", out string ownedQuestIds);
+            if (ownedQuestIds != null)
+            {
+                string[] ownIdArray = ownedQuestIds.Split(',');
+                foreach (string id in ownIdArray)
+                {
+                    QuestFramework.GetQuestFramework().AssignQuest(int.Parse(id), (IQuestOwner)this);
+                }
+
+            }
+        }
     }
     #endregion
 
