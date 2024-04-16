@@ -131,14 +131,20 @@ namespace Tests
             yield return new WaitForSeconds(.1f);
             _input.Release(keyboard.iKey);
 
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
+            // Verify that inventory display object is active
+            Assert.IsTrue(invTransform.gameObject.activeSelf);
+
             // press and release 'i' key again to close
             _input.Press(keyboard.iKey);
             yield return new WaitForSeconds(.1f);
             _input.Release(keyboard.iKey);
 
-            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
-            // Verify that inventory display object has been created
-            Assert.IsNotNull(invTransform);
+
+
+            invTransform = _player.transform.Find("InventoryScreen(Clone)");
             // Verify that inventory display object is not active
             Assert.IsFalse(invTransform.gameObject.activeSelf);
         }

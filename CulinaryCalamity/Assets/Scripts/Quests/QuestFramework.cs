@@ -32,38 +32,6 @@ namespace Quests
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        private void Start()
-        {
-            try
-            {
-                GameSaveManager.GetGameSaveManager().Save += OnSave;
-                GameSaveManager.GetGameSaveManager().Load += OnLoad;
-            }
-            catch (NullReferenceException)
-            {
-                Debug.Log("No Game Save Manager Found");
-            }
-        }
-
-        /// <summary>
-        /// Listener for the Save event. Pushes current state of the QuestFramework to the GameSaveManager
-        /// </summary>
-        /// <param name="sender">object, this</param>
-        /// <param name="e">EventArgs, EventArgs.Empty</param>
-        public void OnSave(object sender, EventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// Listener for the load event. Pulls save data from GameSaveManager and performs appropriate updates
-        /// </summary>
-        /// <param name="sender">object, this</param>
-        /// <param name="e">EventArgs, EventArgs.Empty</param>
-        public void OnLoad(object sender, EventArgs e)
-        {
-
-        }
-
         public void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
         {
             QuestHandler[] questHandlers = FindObjectsByType<QuestHandler>(FindObjectsSortMode.None);
