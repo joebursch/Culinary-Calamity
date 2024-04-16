@@ -14,7 +14,7 @@ namespace Tests
     /// <summary>
     /// Tests for player movement (user story #1)
     /// </summary>
-    public class PlayerMovementTest : MonoBehaviour
+    public class PlayerMovementTest
     {
         private InputTestFixture _input = new InputTestFixture();
 
@@ -34,7 +34,7 @@ namespace Tests
             // register action asset controls
             InputSystem.RegisterLayout(playerActions);
             // create player prefab 
-            _player = Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
+            _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
             _playerScript = _player.GetComponent<Player>();
 
         }
@@ -47,7 +47,7 @@ namespace Tests
             _input.TearDown();
             if (_player != null)
             {
-                Destroy(_player);
+                GameObject.Destroy(_player);
             }
         }
 
@@ -178,7 +178,7 @@ namespace Tests
         public IEnumerator Movement_SolidObjectsStopMovement_UsingKeyboard()
         {
             var keyboard = InputSystem.AddDevice<Keyboard>();
-            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+            GameObject.Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
             float unreachableXPosition = _player.transform.position.x + 5;
             // Move
             _input.Press(keyboard.dKey);
@@ -191,6 +191,8 @@ namespace Tests
             Assert.Less(currentXPosition, unreachableXPosition);
         }
         #endregion
+
+
         #region  GAMEPAD_TESTS
         /// <summary>
         /// Test AC 1: "Using predefined controls, input from the player will move the character around designated areas within the game map"
@@ -283,6 +285,31 @@ namespace Tests
         }
 
         /// <summary>
+        /// Test AC 2: "Movement control will be limited to up, down, left, right"
+        /// </summary>
+        [UnityTest]
+        public IEnumerator Movement_DiagonalMovementsProhibited_UsingGamepad()
+        {
+            var gamepad = InputSystem.AddDevice<Gamepad>();
+            // player position prior to input
+            float previousXposition = _player.transform.position.x;
+            float previousYPosition = _player.transform.position.y;
+
+            //move left joystick
+            _input.Move(gamepad.leftStick, new Vector2(1, 1));
+            yield return new WaitForSeconds(1f);
+            _input.Move(gamepad.leftStick, new Vector2(0, 0));
+
+            // player position post input
+            float currentXPosition = _player.transform.position.x;
+            float currentYPosition = _player.transform.position.y;
+
+            // Verify that the player has only moved to the right
+            Assert.AreEqual(currentYPosition, previousYPosition);
+            Assert.Greater(currentXPosition, previousXposition);
+        }
+
+        /// <summary>
         /// Test AC 3: Movement can be impeded by solid objects.
         /// </summary>
         /// <returns></returns>
@@ -290,7 +317,7 @@ namespace Tests
         public IEnumerator Movement_SolidObjectsStopMovement_UsingGamepad()
         {
             var gamepad = InputSystem.AddDevice<Gamepad>();
-            Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
+            GameObject.Instantiate(Resources.Load("Prefabs/CollisionTestingObstacle"), new Vector3(_player.transform.position.x + 5, _player.transform.position.y, _player.transform.position.z), Quaternion.identity);
             float unreachableXPosition = _player.transform.position.x + 5;
             // Move
             _input.Move(gamepad.leftStick, new Vector2(1, 0));
