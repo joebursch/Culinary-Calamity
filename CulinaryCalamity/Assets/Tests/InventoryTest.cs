@@ -139,6 +139,12 @@ namespace Tests
             Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
             // Verify that inventory display object has been created
             Assert.IsNotNull(invTransform);
+            // Verify that inventory display object is active
+            Assert.IsTrue(invTransform.gameObject.activeSelf);
+
+            Transform invTransform = _player.transform.Find("InventoryScreen(Clone)");
+            // Verify that inventory display object has been created
+            Assert.IsNotNull(invTransform);
             // Verify that inventory display object is not active
             Assert.IsFalse(invTransform.gameObject.activeSelf);
         }
