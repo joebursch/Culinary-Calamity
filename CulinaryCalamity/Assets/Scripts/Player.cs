@@ -7,7 +7,6 @@ using Saving;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
@@ -65,8 +64,6 @@ public class Player : Character, IQuestOwner
 
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
 
         OwnedQuests = new();
         CompletedQuestIds = new();
@@ -84,6 +81,9 @@ public class Player : Character, IQuestOwner
         {
             Debug.Log("No Game Save Manager Found");
         }
+
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
     }
 
     void OnEnable() => _controlScheme.Standard.Enable();
