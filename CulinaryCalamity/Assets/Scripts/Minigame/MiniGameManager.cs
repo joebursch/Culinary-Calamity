@@ -22,6 +22,7 @@ public class MiniGameManager : MonoBehaviour
     public bool createMode;
 
     private GameObject _playerObject;
+    private GameObject _noteSpawners;
     private ResultPanel _Resultpanel;
     private Transform _cameraTransform;
     private Vector3 _originalCameraPosition;
@@ -49,7 +50,9 @@ public class MiniGameManager : MonoBehaviour
     {
         instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
+        _noteSpawners = GameObject.Find("noteSpawners");
         DisablePlayerObject();
+        DisableNoteSpawners();
         totalNotes();
         _controlScheme = new Actions();
         _controlScheme.Enable();
@@ -63,7 +66,6 @@ public class MiniGameManager : MonoBehaviour
         _resultPanel.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
-
     }
 
 
@@ -78,13 +80,15 @@ public class MiniGameManager : MonoBehaviour
             {
                 StartGame();
             }
-
         }
         else
         {
-            if (IsGameOver())
+            if (!createMode)
             {
-                GameOver();
+                if (IsGameOver())
+                {
+                    GameOver();
+                }
             }
         }
     }
@@ -190,7 +194,7 @@ public class MiniGameManager : MonoBehaviour
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
 
-       
+
         if (_playerObject != null)
         {
             _playerObject.GetComponent<Player>().AddGold(_goldEarned);
@@ -279,6 +283,18 @@ public class MiniGameManager : MonoBehaviour
         if (_playerObject != null)
         {
             _playerObject.SetActive(true);
+        }
+    }
+
+    public void DisableNoteSpawners()
+    {
+        if (createMode)
+        {
+            _noteSpawners.SetActive(true);
+        }
+        else
+        {
+            _noteSpawners.SetActive(false);
         }
     }
 }

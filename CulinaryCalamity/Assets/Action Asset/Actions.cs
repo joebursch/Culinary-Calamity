@@ -687,7 +687,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""id"": ""81847a4c-2a66-44fb-b65c-9da899312dbc"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press"",
+                    ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {

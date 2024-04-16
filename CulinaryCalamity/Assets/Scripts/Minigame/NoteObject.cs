@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// Represents a note object in the mini-game.
@@ -12,49 +10,85 @@ public class NoteObject : MonoBehaviour
     private Activator _activator;
     [SerializeField] private GameObject _note;
 
-
-    // input
     private Actions _controlScheme = null;
+    private SpriteRenderer _spriteRenderer;
 
     /// <summary>
-    /// Finds the Activator GameObject and stores its reference.
+    /// Finds the Activator GameObject and stores its reference. Also sets up input actions.
     /// </summary>
     void Start()
     {
         _activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
         _controlScheme = new Actions();
         _controlScheme.Enable();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
-    /// Updates the note's behavior based on game mode.
+    /// Updates the note's behavior based on the game mode.
     /// </summary>
     void Update()
     {
         if (MiniGameManager.instance.createMode)
         {
-            if (_controlScheme.MiniGame.orangeNote.triggered || _controlScheme.MiniGame.pinkNote.triggered ||
-                _controlScheme.MiniGame.greenNote.triggered || _controlScheme.MiniGame.blueNote.triggered)
+            if (CorrectNoteInputTriggered())
             {
-                Instantiate(_note, transform.position, Quaternion.identity);
+                InstantiateNote();
             }
         }
         else
         {
-            if (_controlScheme.MiniGame.orangeNote.triggered || _controlScheme.MiniGame.pinkNote.triggered || 
-                _controlScheme.MiniGame.greenNote.triggered || _controlScheme.MiniGame.blueNote.triggered)
+            if (_canBePressed && CorrectNoteInputTriggered())
             {
-                if (_canBePressed)
-                {
-                    MiniGameManager.instance.NoteHit();
-                    _obtained = true;
-                    _activator.ChangeColorWithDelay(Color.yellow, 0.1f);
-                    gameObject.SetActive(false);
-                }
+                HandleNoteHit();
+            }
+
+            else if (!_canBePressed && AnyNoteInputTriggered())
+            {
+                NoteHitEarly();
             }
         }
 
         DestroyIfOutOfView();
+    }
+
+
+    /// <summary>
+    /// Checks if the correct note input action is triggered based on the tag of the note object.
+    /// </summary>
+    /// <returns>True if the correct input action is triggered for the note object; otherwise, false.</returns>
+    bool CorrectNoteInputTriggered()
+    {
+        return (_controlScheme.MiniGame.orangeNote.triggered && CompareTag("Qnote")) ||
+               (_controlScheme.MiniGame.pinkNote.triggered && CompareTag("Wnote")) ||
+               (_controlScheme.MiniGame.greenNote.triggered && CompareTag("Enote")) ||
+               (_controlScheme.MiniGame.blueNote.triggered && CompareTag("Rnote"));
+    }
+
+    bool AnyNoteInputTriggered()
+    {
+        return _controlScheme.MiniGame.orangeNote.triggered ||
+               _controlScheme.MiniGame.pinkNote.triggered ||
+               _controlScheme.MiniGame.greenNote.triggered ||
+               _controlScheme.MiniGame.blueNote.triggered;
+    }
+    /// <summary>
+    /// Instantiates the note object at the current position.
+    /// </summary>
+    void InstantiateNote()
+    {
+        Instantiate(_note, transform.position, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Handles a successful note hit
+    /// </summary>
+    void HandleNoteHit()
+    {
+        MiniGameManager.instance.NoteHit();
+        _obtained = true;
+        _activator.ChangeColorWithDelay(Color.yellow, 0.15f);
+        gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -62,9 +96,8 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     private void DestroyIfOutOfView()
     {
-        float rightEdge = transform.position.x + GetComponent<SpriteRenderer>().bounds.extents.x;
-        float rightEdgeViewport = Camera.main.WorldToViewportPoint
-            (new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
+        float rightEdge = transform.position.x + _spriteRenderer.bounds.extents.x;
+        float rightEdgeViewport = Camera.main.WorldToViewportPoint(new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
 
         if (!_obtained && rightEdgeViewport < 0)
         {
@@ -97,11 +130,52 @@ public class NoteObject : MonoBehaviour
             {
                 MiniGameManager.instance.NoteMissed();
                 _activator.ChangeColorWithDelay(Color.red, 0.1f);
-                if (MiniGameManager.instance.gameObject.activeSelf)
-                {
-                    StartCoroutine(MiniGameManager.instance.ShakeScene());
-                }
+                StartCoroutine(MiniGameManager.instance.ShakeScene());
             }
         }
     }
+
+    /// <summary>
+    /// Handles notes hit early by resetting the multiplier, updating the UI, and deactivating or destroying the note.
+    /// </summary>
+    public void NoteHitEarly()
+    {
+
+        if (_obtained)
+        {
+            return;
+        }
+
+        Vector3 activatorPosition = _activator.transform.position;
+
+        float minDistance = float.MaxValue;
+        NoteObject closestNoteMissed = null;
+
+        foreach (var note in FindObjectsOfType<NoteObject>())
+        {
+            if (note.transform.position.x <= activatorPosition.x)
+                continue;
+
+            if (!note._obtained)
+            {
+                float distance = note.transform.position.x - activatorPosition.x;
+
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    closestNoteMissed = note;
+                }
+            }
+        }
+
+        // Destroy the closest missed note if found
+        if (closestNoteMissed != null && closestNoteMissed == this)
+        {
+            Destroy(closestNoteMissed.gameObject);
+        }
+    }
+
+
+
 }
+
