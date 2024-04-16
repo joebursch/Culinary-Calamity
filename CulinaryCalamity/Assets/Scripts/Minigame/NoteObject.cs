@@ -13,6 +13,7 @@ public class NoteObject : MonoBehaviour
     private Actions _controlScheme = null;
     private SpriteRenderer _spriteRenderer;
 
+
     /// <summary>
     /// Finds the Activator GameObject and stores its reference. Also sets up input actions.
     /// </summary>
@@ -22,6 +23,8 @@ public class NoteObject : MonoBehaviour
         _controlScheme = new Actions();
         _controlScheme.Enable();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+
     }
 
     /// <summary>
@@ -41,16 +44,21 @@ public class NoteObject : MonoBehaviour
             if (_canBePressed && CorrectNoteInputTriggered())
             {
                 HandleNoteHit();
+                Debug.Log("NOTE HIT");
             }
-
             else if (!_canBePressed && AnyNoteInputTriggered())
             {
-                NoteHitEarly();
+                if (FindClosestNote() == this)
+                {
+                    NoteHitEarly();
+                    Debug.Log("NOTE EARLY");
+                }
             }
         }
 
         DestroyIfOutOfView();
     }
+
 
 
     /// <summary>
@@ -59,6 +67,9 @@ public class NoteObject : MonoBehaviour
     /// <returns>True if the correct input action is triggered for the note object; otherwise, false.</returns>
     bool CorrectNoteInputTriggered()
     {
+
+        ///if something can be 
+
         return (_controlScheme.MiniGame.orangeNote.triggered && CompareTag("Qnote")) ||
                (_controlScheme.MiniGame.pinkNote.triggered && CompareTag("Wnote")) ||
                (_controlScheme.MiniGame.greenNote.triggered && CompareTag("Enote")) ||
@@ -140,16 +151,26 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     public void NoteHitEarly()
     {
-
         if (_obtained)
         {
             return;
         }
 
+        NoteObject closestNote = FindClosestNote();
+
+        // Destroy the closest missed note if found
+        if (closestNote != null && closestNote == this)
+        {
+            Destroy(closestNote.gameObject);
+        }
+    }
+
+    private NoteObject FindClosestNote()
+    {
         Vector3 activatorPosition = _activator.transform.position;
 
         float minDistance = float.MaxValue;
-        NoteObject closestNoteMissed = null;
+        NoteObject closestNote = null;
 
         foreach (var note in FindObjectsOfType<NoteObject>())
         {
@@ -163,19 +184,10 @@ public class NoteObject : MonoBehaviour
                 if (distance < minDistance)
                 {
                     minDistance = distance;
-                    closestNoteMissed = note;
+                    closestNote = note;
                 }
             }
         }
-
-        // Destroy the closest missed note if found
-        if (closestNoteMissed != null && closestNoteMissed == this)
-        {
-            Destroy(closestNoteMissed.gameObject);
-        }
+        return closestNote;
     }
-
-
-
 }
-
