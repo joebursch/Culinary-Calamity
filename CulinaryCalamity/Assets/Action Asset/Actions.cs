@@ -80,6 +80,15 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenExitMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f7ccdee-99fd-48b5-af44-99d85a63455f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,28 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""OpenQuestMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7a7233c-1acc-48dc-bb7e-db60f3bc8108"",
+                    ""path"": ""<Keyboard>/{Cancel}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenExitMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39f7d5da-c89f-4b4b-a17b-2cb61fe7c444"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenExitMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -679,6 +710,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_Standard_OpenInventory = m_Standard.FindAction("OpenInventory", throwIfNotFound: true);
         m_Standard_Attack = m_Standard.FindAction("Attack", throwIfNotFound: true);
         m_Standard_OpenQuestMenu = m_Standard.FindAction("OpenQuestMenu", throwIfNotFound: true);
+        m_Standard_OpenExitMenu = m_Standard.FindAction("OpenExitMenu", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Navigate = m_Menu.FindAction("Navigate", throwIfNotFound: true);
@@ -758,6 +790,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Standard_OpenInventory;
     private readonly InputAction m_Standard_Attack;
     private readonly InputAction m_Standard_OpenQuestMenu;
+    private readonly InputAction m_Standard_OpenExitMenu;
     public struct StandardActions
     {
         private @Actions m_Wrapper;
@@ -768,6 +801,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @OpenInventory => m_Wrapper.m_Standard_OpenInventory;
         public InputAction @Attack => m_Wrapper.m_Standard_Attack;
         public InputAction @OpenQuestMenu => m_Wrapper.m_Standard_OpenQuestMenu;
+        public InputAction @OpenExitMenu => m_Wrapper.m_Standard_OpenExitMenu;
         public InputActionMap Get() { return m_Wrapper.m_Standard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -795,6 +829,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @OpenQuestMenu.started += instance.OnOpenQuestMenu;
             @OpenQuestMenu.performed += instance.OnOpenQuestMenu;
             @OpenQuestMenu.canceled += instance.OnOpenQuestMenu;
+            @OpenExitMenu.started += instance.OnOpenExitMenu;
+            @OpenExitMenu.performed += instance.OnOpenExitMenu;
+            @OpenExitMenu.canceled += instance.OnOpenExitMenu;
         }
 
         private void UnregisterCallbacks(IStandardActions instance)
@@ -817,6 +854,9 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @OpenQuestMenu.started -= instance.OnOpenQuestMenu;
             @OpenQuestMenu.performed -= instance.OnOpenQuestMenu;
             @OpenQuestMenu.canceled -= instance.OnOpenQuestMenu;
+            @OpenExitMenu.started -= instance.OnOpenExitMenu;
+            @OpenExitMenu.performed -= instance.OnOpenExitMenu;
+            @OpenExitMenu.canceled -= instance.OnOpenExitMenu;
         }
 
         public void RemoveCallbacks(IStandardActions instance)
@@ -982,6 +1022,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnOpenQuestMenu(InputAction.CallbackContext context);
+        void OnOpenExitMenu(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
