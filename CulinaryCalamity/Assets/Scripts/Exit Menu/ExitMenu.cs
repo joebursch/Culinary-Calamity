@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class ExitMenu : MonoBehaviour
 {
     private static string lastSceneName;
-    private static Vector3 playerPos;
 
     /// <summary>
     /// Method called when the "Yes" button is clicked.
@@ -26,20 +25,14 @@ public class ExitMenu : MonoBehaviour
     /// </summary>
     public void NoButton()
     {
-        SceneManager.LoadSceneAsync(lastSceneName);
-        playerPos = new Vector3(playerPos.x, playerPos.y, playerPos.z + 100);
-        GameObject.FindAnyObjectByType<Player>().transform.position = playerPos;
-        Time.timeScale = 1.0f;
+        Toggle();
     }
 
     /// <summary>
-    /// Method to receive player data and put it into private static variables.
+    /// display/hide the exit menu
     /// </summary>
-    /// <param name="sceneName">The string name of the scene before opening the exit menu.</param>
-    /// <param name="loweredPlayerPos">The position of the player after they are lowered below the world.</param>
-    public void SetPlayerData(string sceneName, Vector3 loweredPlayerPos)
+    public void Toggle()
     {
-        lastSceneName = sceneName;
-        playerPos = loweredPlayerPos;
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }

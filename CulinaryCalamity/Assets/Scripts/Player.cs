@@ -40,15 +40,15 @@ public class Player : Character, IQuestOwner
     // combat 
     private AttackStrategy _attackStrategy;
     // quests
-
-    // scene tracking for exit menu
-    private string lastSceneName;
-
     public List<Quest> OwnedQuests { get; set; }
     public List<int> CompletedQuestIds { get; set; }
-
     private QuestMenuManager _questMenuManager;
     [SerializeField] private GameObject _questMenuPrefab;
+    // quit menu
+    private ExitMenu _exitMenu;
+
+
+
     #endregion
 
     #region UnityBuiltIn
@@ -110,7 +110,7 @@ public class Player : Character, IQuestOwner
         {
             DialogueManager.GetDialogueManager().AdvanceDialogue();
         }
-        if (_controlScheme.Standard.OpenExitMenu.triggered) { OpenExitMenu(); }
+        if (_controlScheme.Standard.OpenExitMenu.triggered) { ToggleExitMenu(); }
     }
     #endregion
 
@@ -490,28 +490,16 @@ public class Player : Character, IQuestOwner
     /// <summary>
     /// Handles opening the Exit game screen
     /// </summary>
-    private void OpenExitMenu()
+    private void ToggleExitMenu()
     {
-        if (_questMenuManager != null)
+        if (_exitMenu == null)
         {
-            _questMenuManager.CloseQuestMenu();
+            _exitMenu = Instantiate(Resources.Load("Prefabs/ExitMenu") as GameObject, gameObject.transform).GetComponent<ExitMenu>();
         }
-
-        if (_inventoryManager != null)
+        else
         {
-            _inventoryManager.CloseInventory();
+            _exitMenu.Toggle();
         }
-
-        if (!SceneManager.GetActiveScene().name.Equals("ExitScreen"))
-        {
-            lastSceneName = SceneManager.GetActiveScene().name;
-            this.transform.position = this.transform.position + new Vector3(0, 0, -100);
-        }
-
-        ExitMenu exit = this.AddComponent<ExitMenu>();
-        exit.SetPlayerData(lastSceneName, this.transform.position);
-        SceneManager.LoadSceneAsync("ExitScreen");
-        Time.timeScale = 0f;
 
     }
 
