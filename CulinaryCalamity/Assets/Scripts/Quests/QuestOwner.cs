@@ -10,6 +10,7 @@ namespace Quests
     {
         // list of currently assigned quests
         public List<Quest> OwnedQuests { get; set; }
+        public List<int> CompletedQuestIds { get; set; }
 
         /// <summary>
         /// Returns OwnedQuest with the corresponding id
@@ -51,6 +52,7 @@ namespace Quests
                 q.CompleteQuest();
                 OwnedQuests.Remove(q);
             }
+            CompletedQuestIds.Add(questId);
         }
 
         /// <summary>
@@ -79,6 +81,17 @@ namespace Quests
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// Checks if this quest owner has completed a particular quest based on the quest id.
+        /// Returns true if questId has been completed, false in any other circumstance.
+        /// </summary>
+        /// <param name="questId">int</param>
+        /// <returns>bool</returns>
+        public bool IsQuestCompleted(int questId)
+        {
+            return CompletedQuestIds.Contains(questId);
         }
     }
 }
