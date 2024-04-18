@@ -22,6 +22,7 @@ public class MiniGameManager : MonoBehaviour
     public bool createMode;
 
     private GameObject _playerObject;
+    private GameObject _noteSpawners;
     private ResultPanel _Resultpanel;
     private Transform _cameraTransform;
     private Vector3 _originalCameraPosition;
@@ -34,9 +35,13 @@ public class MiniGameManager : MonoBehaviour
     private int _notesMissed;
     private int _noteStreak;
     private int _goldEarned;
+    public int activeNoteCount = 0;
     private int _currentNoteStreak;
     private float _percentHit;
     private bool _gameOver = false;
+
+    // input
+    private Actions _controlScheme = null;
 
 
     /// <summary>
@@ -46,7 +51,12 @@ public class MiniGameManager : MonoBehaviour
     {
         instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
+        _noteSpawners = GameObject.Find("noteSpawners");
         DisablePlayerObject();
+        DisableNoteSpawners();
+        totalNotes();
+        _controlScheme = new Actions();
+        _controlScheme.Enable();
         _startText.gameObject.SetActive(true);
         _scoreText.text = "Score: 0 ";
         _multiText.text = "Multiplier x1 ";
@@ -59,6 +69,7 @@ public class MiniGameManager : MonoBehaviour
         _originalCameraPosition = _cameraTransform.position;
     }
 
+
     /// <summary>
     /// Updates the game state every frame.
     /// </summary>
@@ -66,15 +77,14 @@ public class MiniGameManager : MonoBehaviour
     {
         if (!_startPlaying)
         {
-            if (Input.anyKeyDown)
+            if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
             }
-
         }
         else
         {
-            if (IsGameOver() && !_gameOver)
+            if (!createMode && IsGameOver() && !_gameOver)
             {
                 GameOver();
                 _gameOver = true;
@@ -95,6 +105,7 @@ public class MiniGameManager : MonoBehaviour
             UpdateNoteStreak();
             UpdateMultiplier();
             UpdateScore();
+            activeNoteCount--;
         }
     }
 
@@ -110,6 +121,7 @@ public class MiniGameManager : MonoBehaviour
             _currentMultiplier = 1;
             _multiplierTracker = 0;
             UpdateMultiplier();
+            activeNoteCount--;
         }
     }
 
@@ -161,10 +173,13 @@ public class MiniGameManager : MonoBehaviour
         _currentNoteStreak = 0;
     }
 
+    /// <summary>
+    /// Checks if the game is over
+    /// </summary>
+    /// <returns>True if there are no active notes in the game, indicating the game is over; otherwise, false.</returns>
     bool IsGameOver()
     {
-        GameObject[] noteObjects = GameObject.FindGameObjectsWithTag("Note");
-        return noteObjects.Length == 0;
+        return activeNoteCount == 0;
     }
 
     /// <summary>
@@ -177,7 +192,6 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
-
         if (_playerObject != null)
         {
             _playerObject.GetComponent<Player>().AddGold(_goldEarned);
@@ -224,6 +238,19 @@ public class MiniGameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Counts the total number of active notes in the game.
+    /// </summary>
+    public void totalNotes()
+    {
+        GameObject[] qNoteObjects = GameObject.FindGameObjectsWithTag("Qnote");
+        GameObject[] wNoteObjects = GameObject.FindGameObjectsWithTag("Wnote");
+        GameObject[] eNoteObjects = GameObject.FindGameObjectsWithTag("Enote");
+        GameObject[] rNoteObjects = GameObject.FindGameObjectsWithTag("Rnote");
+
+        activeNoteCount = qNoteObjects.Length + wNoteObjects.Length + eNoteObjects.Length + rNoteObjects.Length;
+    }
+
+    /// <summary>
     /// Updates the current note streak by comparing it with the previous maximum streak.
     /// </summary>
     private void UpdateNoteStreak()
@@ -253,6 +280,18 @@ public class MiniGameManager : MonoBehaviour
         if (_playerObject != null)
         {
             _playerObject.SetActive(true);
+        }
+    }
+
+    public void DisableNoteSpawners()
+    {
+        if (createMode)
+        {
+            _noteSpawners.SetActive(true);
+        }
+        else
+        {
+            _noteSpawners.SetActive(false);
         }
     }
 }

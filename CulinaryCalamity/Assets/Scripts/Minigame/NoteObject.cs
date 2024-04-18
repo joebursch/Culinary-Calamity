@@ -1,66 +1,55 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Represents a note object in the mini-game.
-/// </summary>
 public class NoteObject : MonoBehaviour
 {
     private bool _canBePressed;
-    private bool _obtained = false;
+    public bool _obtained = false;
     private Activator _activator;
-    [SerializeField] private KeyCode _keyToPress;
     [SerializeField] private GameObject _note;
 
-    /// <summary>
-    /// Finds the Activator GameObject and stores its reference.
-    /// </summary>
+    private List<NoteObject> _noteList = new List<NoteObject>();
+    private int _currentNoteIndex = 0;
+
+    private SpriteRenderer _spriteRenderer;
+
     void Start()
     {
         _activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        // Find all NoteObject instances and add them to the list
+        NoteObject[] notes = FindObjectsOfType<NoteObject>();
+        _noteList.AddRange(notes);
+
+        // Sort the list based on the initial x-coordinate positions of the notes
+        _noteList.Sort((note1, note2) => note1.transform.position.x.CompareTo(note2.transform.position.x));
     }
 
-    /// <summary>
-    /// Updates the note's behavior based on game mode.
-    /// </summary>
     void Update()
     {
-        if (_note == null)
-        {
-            if (gameObject.name.Contains("orange"))
-            {
-                _keyToPress = KeyCode.Q;
-            }
-            else if (gameObject.name.Contains("pink"))
-            {
-                _keyToPress = KeyCode.W;
-            }
-            else if (gameObject.name.Contains("green"))
-            {
-                _keyToPress = KeyCode.E;
-            }
-            else if (gameObject.name.Contains("blue"))
-            {
-                _keyToPress = KeyCode.R;
-            }
-        }
-
         if (MiniGameManager.instance.createMode)
         {
-            if (Input.GetKeyDown(_keyToPress))
+            // Instantiate note if in create mode
+            if (InputManager.instance.AnyNoteInputTriggered())
             {
-                Instantiate(_note, transform.position, Quaternion.identity);
+                InstantiateNote();
             }
         }
         else
         {
-            if (Input.GetKeyDown(_keyToPress))
+            if (_canBePressed && InputManager.instance.CorrectNoteInputTriggered(gameObject.tag))
             {
-                if (_canBePressed)
+                HandleNoteHit();
+                Debug.Log("NOTE HIT");
+            }
+            else if (!_obtained && !_canBePressed && InputManager.instance.AnyNoteInputTriggered())
+            {
+                // Check if the current note is hit early
+                if (_noteList[_currentNoteIndex] == this)
                 {
-                    MiniGameManager.instance.NoteHit();
-                    _obtained = true;
-                    _activator.ChangeColorWithDelay(Color.yellow, 0.1f);
-                    gameObject.SetActive(false);
+                    NoteHitEarly();
+                    Debug.Log("NOTE EARLY");
                 }
             }
         }
@@ -68,14 +57,26 @@ public class NoteObject : MonoBehaviour
         DestroyIfOutOfView();
     }
 
-    /// <summary>
-    /// Destroys the game object if it is out of the camera view.
-    /// </summary>
+    void InstantiateNote()
+    {
+        Instantiate(_note, transform.position, Quaternion.identity);
+    }
+
+    void HandleNoteHit()
+    {
+        MiniGameManager.instance.NoteHit();
+        _obtained = true;
+        _activator.ChangeColorWithDelay(Color.yellow, 0.15f);
+        gameObject.SetActive(false);
+
+        // Move to the next note in the list
+        _currentNoteIndex++;
+    }
+
     private void DestroyIfOutOfView()
     {
-        float rightEdge = transform.position.x + GetComponent<SpriteRenderer>().bounds.extents.x;
-        float rightEdgeViewport = Camera.main.WorldToViewportPoint
-            (new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
+        float rightEdge = transform.position.x + _spriteRenderer.bounds.extents.x;
+        float rightEdgeViewport = Camera.main.WorldToViewportPoint(new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
 
         if (!_obtained && rightEdgeViewport < 0)
         {
@@ -83,10 +84,6 @@ public class NoteObject : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Triggered when collider enters activator zone.
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!MiniGameManager.instance.createMode && other.gameObject == _activator.gameObject)
@@ -95,10 +92,6 @@ public class NoteObject : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Triggered when collider exits activator zone.
-    /// </summary>
-    /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!MiniGameManager.instance.createMode && other.gameObject == _activator.gameObject)
@@ -108,12 +101,31 @@ public class NoteObject : MonoBehaviour
             {
                 MiniGameManager.instance.NoteMissed();
                 _activator.ChangeColorWithDelay(Color.red, 0.1f);
-                if (MiniGameManager.instance.gameObject.activeSelf) // Check if MiniGameManager GameObject is active
-                {
-                    StartCoroutine(MiniGameManager.instance.ShakeScene());
-                }
+                StartCoroutine(MiniGameManager.instance.ShakeScene());
             }
         }
     }
+
+    public void NoteHitEarly()
+    {
+        if (!_obtained)
+        {
+            // Destroy the current note
+            Destroy(_noteList[_currentNoteIndex].gameObject);
+
+            // Move to the next note in the list
+            _currentNoteIndex++;
+
+            if (_currentNoteIndex >= _noteList.Count)
+            {
+                // If there are no more notes in the list, reset the index
+                _currentNoteIndex = 0;
+            }
+        }
+    }
+
+
+
+
 
 }
