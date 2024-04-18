@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &62765
 CircleCollider2D:
@@ -318,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &9079565
 CircleCollider2D:
@@ -467,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &17205142
 CircleCollider2D:
@@ -616,6 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &18160342
 CircleCollider2D:
@@ -765,6 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &23686578
 CircleCollider2D:
@@ -914,6 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &25075531
 CircleCollider2D:
@@ -1063,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &27800977
 CircleCollider2D:
@@ -1212,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &48216644
 CircleCollider2D:
@@ -1361,6 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &53379480
 CircleCollider2D:
@@ -1510,6 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &62458935
 CircleCollider2D:
@@ -1659,6 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &64723511
 CircleCollider2D:
@@ -1808,6 +1819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &78458848
 CircleCollider2D:
@@ -1957,6 +1969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &81777418
 CircleCollider2D:
@@ -2106,6 +2119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &87885052
 CircleCollider2D:
@@ -2255,6 +2269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &112022558
 CircleCollider2D:
@@ -2404,6 +2419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &112148369
 CircleCollider2D:
@@ -2553,6 +2569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &136191218
 CircleCollider2D:
@@ -2702,6 +2719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &159458501
 CircleCollider2D:
@@ -2851,6 +2869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &161982522
 CircleCollider2D:
@@ -3000,6 +3019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &163269234
 CircleCollider2D:
@@ -3149,6 +3169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &165897123
 CircleCollider2D:
@@ -3298,6 +3319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &172989468
 CircleCollider2D:
@@ -3447,6 +3469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &202369484
 CircleCollider2D:
@@ -3596,6 +3619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &210261248
 CircleCollider2D:
@@ -3745,6 +3769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &219889689
 CircleCollider2D:
@@ -3894,6 +3919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &228826500
 CircleCollider2D:
@@ -4043,6 +4069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &230525544
 CircleCollider2D:
@@ -4192,6 +4219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &236604379
 CircleCollider2D:
@@ -4305,6 +4333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 244847156}
   - component: {fileID: 244847157}
+  - component: {fileID: 244847158}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4351,6 +4380,18 @@ MonoBehaviour:
   _resultPanel: {fileID: 1896315021}
   createMode: 0
   activeNoteCount: 0
+--- !u!114 &244847158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244847154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e2322ecc3ef4e4da9fd38ee2361db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &248668604
 GameObject:
   m_ObjectHideFlags: 0
@@ -4397,6 +4438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &248668607
 CircleCollider2D:
@@ -4546,6 +4588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &264731001
 CircleCollider2D:
@@ -4695,6 +4738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &266429425
 CircleCollider2D:
@@ -4844,6 +4888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &279356025
 CircleCollider2D:
@@ -4993,6 +5038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &295492846
 CircleCollider2D:
@@ -5576,6 +5622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &317171013
 CircleCollider2D:
@@ -5725,6 +5772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &324060084
 CircleCollider2D:
@@ -5874,6 +5922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &327087015
 CircleCollider2D:
@@ -6023,6 +6072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &330206867
 CircleCollider2D:
@@ -6172,6 +6222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &336120655
 CircleCollider2D:
@@ -6321,6 +6372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &342938695
 CircleCollider2D:
@@ -6470,6 +6522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &348921652
 CircleCollider2D:
@@ -6619,6 +6672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &351623487
 CircleCollider2D:
@@ -6768,6 +6822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &355006141
 CircleCollider2D:
@@ -6917,6 +6972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &360861590
 CircleCollider2D:
@@ -7066,6 +7122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &383282547
 CircleCollider2D:
@@ -7215,6 +7272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &403833603
 CircleCollider2D:
@@ -7364,6 +7422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &409579714
 CircleCollider2D:
@@ -7513,6 +7572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &429535249
 CircleCollider2D:
@@ -7662,6 +7722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &440236622
 CircleCollider2D:
@@ -7811,6 +7872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &441835306
 CircleCollider2D:
@@ -7960,6 +8022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &442227602
 CircleCollider2D:
@@ -8109,6 +8172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &454931171
 CircleCollider2D:
@@ -8258,6 +8322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &456585762
 CircleCollider2D:
@@ -8407,6 +8472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &457574899
 CircleCollider2D:
@@ -8556,6 +8622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &459428829
 CircleCollider2D:
@@ -8705,6 +8772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &463972545
 CircleCollider2D:
@@ -8854,6 +8922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &468767030
 CircleCollider2D:
@@ -9003,6 +9072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &476583450
 CircleCollider2D:
@@ -9286,6 +9356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &505114352
 CircleCollider2D:
@@ -9435,6 +9506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &505401967
 CircleCollider2D:
@@ -9584,6 +9656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &510132207
 CircleCollider2D:
@@ -9733,6 +9806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &520289250
 CircleCollider2D:
@@ -9882,6 +9956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &520329475
 CircleCollider2D:
@@ -10031,6 +10106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &525709894
 CircleCollider2D:
@@ -10180,6 +10256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &529608547
 CircleCollider2D:
@@ -10364,6 +10441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &573675596
 CircleCollider2D:
@@ -10641,6 +10719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &594125620
 CircleCollider2D:
@@ -10790,6 +10869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &600283580
 CircleCollider2D:
@@ -10939,6 +11019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &600681516
 CircleCollider2D:
@@ -11088,6 +11169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &602870660
 CircleCollider2D:
@@ -11237,6 +11319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &604630325
 CircleCollider2D:
@@ -11492,6 +11575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &627102454
 CircleCollider2D:
@@ -11641,6 +11725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &627962181
 CircleCollider2D:
@@ -11928,6 +12013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &649638423
 CircleCollider2D:
@@ -12077,6 +12163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &649928142
 CircleCollider2D:
@@ -12226,6 +12313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &676223208
 CircleCollider2D:
@@ -12375,6 +12463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &677673938
 CircleCollider2D:
@@ -12658,6 +12747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &690832244
 CircleCollider2D:
@@ -12807,6 +12897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &705982185
 CircleCollider2D:
@@ -12956,6 +13047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &707963481
 CircleCollider2D:
@@ -13105,6 +13197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &718261738
 CircleCollider2D:
@@ -13254,6 +13347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &739589885
 CircleCollider2D:
@@ -13403,6 +13497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &749801394
 CircleCollider2D:
@@ -13552,6 +13647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &770941548
 CircleCollider2D:
@@ -13701,6 +13797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &775030522
 CircleCollider2D:
@@ -13850,6 +13947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &775235039
 CircleCollider2D:
@@ -13999,6 +14097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &775728286
 CircleCollider2D:
@@ -14148,6 +14247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &795170409
 CircleCollider2D:
@@ -14297,6 +14397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &802113447
 CircleCollider2D:
@@ -14446,6 +14547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &803039575
 CircleCollider2D:
@@ -14595,6 +14697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &830636216
 CircleCollider2D:
@@ -14744,6 +14847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &831386401
 CircleCollider2D:
@@ -14893,6 +14997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &832143408
 CircleCollider2D:
@@ -15042,6 +15147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &834562996
 CircleCollider2D:
@@ -15191,6 +15297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &852481184
 CircleCollider2D:
@@ -15340,6 +15447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &853814252
 CircleCollider2D:
@@ -15623,6 +15731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &859511970
 CircleCollider2D:
@@ -15772,6 +15881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &869292307
 CircleCollider2D:
@@ -15921,6 +16031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &869844164
 CircleCollider2D:
@@ -16070,6 +16181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &870912205
 CircleCollider2D:
@@ -16219,6 +16331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &879256283
 CircleCollider2D:
@@ -16368,6 +16481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &879376996
 CircleCollider2D:
@@ -16517,6 +16631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &891734256
 CircleCollider2D:
@@ -16800,6 +16915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &906876310
 CircleCollider2D:
@@ -16949,6 +17065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &917999668
 CircleCollider2D:
@@ -17098,6 +17215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &929663736
 CircleCollider2D:
@@ -17247,6 +17365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &939594699
 CircleCollider2D:
@@ -17396,6 +17515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &952756109
 CircleCollider2D:
@@ -17545,6 +17665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &964348539
 CircleCollider2D:
@@ -17694,6 +17815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &984821580
 CircleCollider2D:
@@ -17843,6 +17965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1002248820
 CircleCollider2D:
@@ -17992,6 +18115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1012806642
 CircleCollider2D:
@@ -18141,6 +18265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1019001494
 CircleCollider2D:
@@ -18290,6 +18415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1023368153
 CircleCollider2D:
@@ -18439,6 +18565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1023641715
 CircleCollider2D:
@@ -18588,6 +18715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1037393613
 CircleCollider2D:
@@ -18737,6 +18865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1048774257
 CircleCollider2D:
@@ -18886,6 +19015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1059576331
 CircleCollider2D:
@@ -19035,6 +19165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1079596533
 CircleCollider2D:
@@ -19184,6 +19315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1079872955
 CircleCollider2D:
@@ -19333,6 +19465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1084477064
 CircleCollider2D:
@@ -19482,6 +19615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1087620024
 CircleCollider2D:
@@ -19631,6 +19765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1088176603
 CircleCollider2D:
@@ -19855,6 +19990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1112542297
 CircleCollider2D:
@@ -20004,6 +20140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1137302187
 CircleCollider2D:
@@ -20153,6 +20290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1143850771
 CircleCollider2D:
@@ -20302,6 +20440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1149186583
 CircleCollider2D:
@@ -20451,6 +20590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1152646423
 CircleCollider2D:
@@ -20600,6 +20740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1153172452
 CircleCollider2D:
@@ -20817,6 +20958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1153667919
 CircleCollider2D:
@@ -20966,6 +21108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1157215290
 CircleCollider2D:
@@ -21115,6 +21258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1171417958
 CircleCollider2D:
@@ -21264,6 +21408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1173340575
 CircleCollider2D:
@@ -21413,6 +21558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1174273216
 CircleCollider2D:
@@ -21696,6 +21842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1183350109
 CircleCollider2D:
@@ -21845,6 +21992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1194454580
 CircleCollider2D:
@@ -22128,6 +22276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1201964236
 CircleCollider2D:
@@ -22277,6 +22426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1203790747
 CircleCollider2D:
@@ -22426,6 +22576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1215456459
 CircleCollider2D:
@@ -22575,6 +22726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1217362851
 CircleCollider2D:
@@ -22724,6 +22876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1223593221
 CircleCollider2D:
@@ -22873,6 +23026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1224630038
 CircleCollider2D:
@@ -23022,6 +23176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1224685350
 CircleCollider2D:
@@ -23171,6 +23326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1225232587
 CircleCollider2D:
@@ -23320,6 +23476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1233287640
 CircleCollider2D:
@@ -23469,6 +23626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1239670979
 CircleCollider2D:
@@ -23618,6 +23776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1239973074
 CircleCollider2D:
@@ -23767,6 +23926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1245942317
 CircleCollider2D:
@@ -23916,6 +24076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1254754273
 CircleCollider2D:
@@ -24065,6 +24226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1256462467
 CircleCollider2D:
@@ -24214,6 +24376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1276082665
 CircleCollider2D:
@@ -24363,6 +24526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1286096831
 CircleCollider2D:
@@ -24512,6 +24676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1292860305
 CircleCollider2D:
@@ -24795,6 +24960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1303297656
 CircleCollider2D:
@@ -25005,6 +25171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1333229189
 CircleCollider2D:
@@ -25154,6 +25321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1335587496
 CircleCollider2D:
@@ -25437,6 +25605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1357963139
 CircleCollider2D:
@@ -25586,6 +25755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1361399573
 CircleCollider2D:
@@ -25735,6 +25905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1363599547
 CircleCollider2D:
@@ -25884,6 +26055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1369177730
 CircleCollider2D:
@@ -26033,6 +26205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1373770718
 CircleCollider2D:
@@ -26182,6 +26355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1376990149
 CircleCollider2D:
@@ -26331,6 +26505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1377001241
 CircleCollider2D:
@@ -26480,6 +26655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1381473920
 CircleCollider2D:
@@ -26629,6 +26805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1382091395
 CircleCollider2D:
@@ -26778,6 +26955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1389008221
 CircleCollider2D:
@@ -26927,6 +27105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1394079629
 CircleCollider2D:
@@ -27076,6 +27255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1395886722
 CircleCollider2D:
@@ -27225,6 +27405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1409286003
 CircleCollider2D:
@@ -27374,6 +27555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1409864224
 CircleCollider2D:
@@ -27523,6 +27705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1441626002
 CircleCollider2D:
@@ -27672,6 +27855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1442211131
 CircleCollider2D:
@@ -27821,6 +28005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1446427395
 CircleCollider2D:
@@ -27970,6 +28155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1450188836
 CircleCollider2D:
@@ -28119,6 +28305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1461768082
 CircleCollider2D:
@@ -28536,6 +28723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1474935428
 CircleCollider2D:
@@ -28685,6 +28873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1480147320
 CircleCollider2D:
@@ -28834,6 +29023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1503921861
 CircleCollider2D:
@@ -28983,6 +29173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1512377167
 CircleCollider2D:
@@ -29132,6 +29323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1517261132
 CircleCollider2D:
@@ -29281,6 +29473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1519471706
 CircleCollider2D:
@@ -29430,6 +29623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1523115977
 CircleCollider2D:
@@ -29579,6 +29773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1532641373
 CircleCollider2D:
@@ -29728,6 +29923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1537167985
 CircleCollider2D:
@@ -29877,6 +30073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1548334608
 CircleCollider2D:
@@ -30026,6 +30223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1549218998
 CircleCollider2D:
@@ -30175,6 +30373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1553366043
 CircleCollider2D:
@@ -30324,6 +30523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1568537317
 CircleCollider2D:
@@ -30473,6 +30673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1578733976
 CircleCollider2D:
@@ -30622,6 +30823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1601094285
 CircleCollider2D:
@@ -30771,6 +30973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1614043643
 CircleCollider2D:
@@ -30920,6 +31123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1621243595
 CircleCollider2D:
@@ -31069,6 +31273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1623231083
 CircleCollider2D:
@@ -31218,6 +31423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1623679793
 CircleCollider2D:
@@ -31367,6 +31573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1634998428
 CircleCollider2D:
@@ -31516,6 +31723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1636095313
 CircleCollider2D:
@@ -31665,6 +31873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1639593004
 CircleCollider2D:
@@ -31814,6 +32023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1643870187
 CircleCollider2D:
@@ -31963,6 +32173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1646500089
 CircleCollider2D:
@@ -32246,6 +32457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1651102916
 CircleCollider2D:
@@ -32395,6 +32607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1659196315
 CircleCollider2D:
@@ -32544,6 +32757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1666077032
 CircleCollider2D:
@@ -32693,6 +32907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1679083380
 CircleCollider2D:
@@ -32842,6 +33057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1679954999
 CircleCollider2D:
@@ -32991,6 +33207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1688712661
 CircleCollider2D:
@@ -33140,6 +33357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1691380005
 CircleCollider2D:
@@ -33289,6 +33507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1699060379
 CircleCollider2D:
@@ -33438,6 +33657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1705817521
 CircleCollider2D:
@@ -33587,6 +33807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1707485666
 CircleCollider2D:
@@ -33736,6 +33957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1709090758
 CircleCollider2D:
@@ -33885,6 +34107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1711935776
 CircleCollider2D:
@@ -34034,6 +34257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1718092888
 CircleCollider2D:
@@ -34183,6 +34407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1732051756
 CircleCollider2D:
@@ -34332,6 +34557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1762608781
 CircleCollider2D:
@@ -34481,6 +34707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1774453133
 CircleCollider2D:
@@ -34630,6 +34857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1778706238
 CircleCollider2D:
@@ -34779,6 +35007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1781930948
 CircleCollider2D:
@@ -34928,6 +35157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1787248859
 CircleCollider2D:
@@ -35077,6 +35307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1793152313
 CircleCollider2D:
@@ -35226,6 +35457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1797555328
 CircleCollider2D:
@@ -35375,6 +35607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1799114241
 CircleCollider2D:
@@ -35524,6 +35757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1807626968
 CircleCollider2D:
@@ -35673,6 +35907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1817158604
 CircleCollider2D:
@@ -35822,6 +36057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1825846964
 CircleCollider2D:
@@ -35971,6 +36207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1828431163
 CircleCollider2D:
@@ -36428,6 +36665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1838007582
 CircleCollider2D:
@@ -36577,6 +36815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1841233034
 CircleCollider2D:
@@ -36726,6 +36965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1856304712
 CircleCollider2D:
@@ -36875,6 +37115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1869342954
 CircleCollider2D:
@@ -37024,6 +37265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1884572610
 CircleCollider2D:
@@ -37173,6 +37415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1885181616
 CircleCollider2D:
@@ -37322,6 +37565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1886895819
 CircleCollider2D:
@@ -37471,6 +37715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1889170006
 CircleCollider2D:
@@ -37723,6 +37968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1910426710
 CircleCollider2D:
@@ -37872,6 +38118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1920773499
 CircleCollider2D:
@@ -38021,6 +38268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1932875729
 CircleCollider2D:
@@ -38170,6 +38418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1941377190
 CircleCollider2D:
@@ -38319,6 +38568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1949612407
 CircleCollider2D:
@@ -38601,6 +38851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &1967622036
 CircleCollider2D:
@@ -38750,6 +39001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!58 &1970388672
 CircleCollider2D:
@@ -38899,6 +39151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &1994924586
 CircleCollider2D:
@@ -39048,6 +39301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!58 &1998573913
 CircleCollider2D:
@@ -39197,6 +39451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2000581031
 CircleCollider2D:
@@ -39346,6 +39601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2005092739
 CircleCollider2D:
@@ -39495,6 +39751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2013780904
 CircleCollider2D:
@@ -39644,6 +39901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2017945955
 CircleCollider2D:
@@ -39793,6 +40051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2023004182
 CircleCollider2D:
@@ -40076,6 +40335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2037914560
 CircleCollider2D:
@@ -40225,6 +40485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2046577945
 CircleCollider2D:
@@ -40374,6 +40635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2050585656
 CircleCollider2D:
@@ -40657,6 +40919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2120664636
 CircleCollider2D:
@@ -40806,6 +41069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2125374163
 CircleCollider2D:
@@ -40955,6 +41219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!58 &2138022977
 CircleCollider2D:
@@ -41104,6 +41369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2139498424
 CircleCollider2D:
@@ -41253,6 +41519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!58 &2139588452
 CircleCollider2D:
@@ -41556,6 +41823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 9025293754901038506, guid: 7d71c27cb1453b54794f294c72c0923b, type: 3}
 --- !u!4 &7049356612955672858
 Transform:
@@ -41651,6 +41919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7268535250244402374, guid: a263909a4b1251549bc063795e3c0036, type: 3}
 --- !u!212 &8715258530096458070
 SpriteRenderer:
@@ -41716,6 +41985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 1340600606089281199, guid: 6e5441adff7deee4b980ad1a203fe761, type: 3}
 --- !u!1 &8824155845646916135
 GameObject:
@@ -41747,6 +42017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb197c0c98b1a546a620cb2809a13d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obtained: 0
   _note: {fileID: 7631915176244632662, guid: ed5b9cdfcfc87ed4cae211e5f76f429f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -41759,3 +42030,4 @@ SceneRoots:
   - {fileID: 310637278}
   - {fileID: 614614558}
   - {fileID: 1153416358}
+  - {fileID: 1308011428}
