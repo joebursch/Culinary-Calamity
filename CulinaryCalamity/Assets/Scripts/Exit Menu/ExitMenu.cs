@@ -1,12 +1,11 @@
-using Unity.Loading;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Exit Menu functionality
+/// </summary>
 public class ExitMenu : MonoBehaviour
 {
-    private static string lastSceneName;
-
     /// <summary>
     /// Method called when the "Yes" button is clicked.
     /// </summary>

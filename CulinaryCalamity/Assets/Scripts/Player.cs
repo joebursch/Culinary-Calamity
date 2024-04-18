@@ -488,7 +488,7 @@ public class Player : Character, IQuestOwner
     }
 
     /// <summary>
-    /// Handles opening the Exit game screen
+    /// Handles opening the Exit game menu
     /// </summary>
     private void ToggleExitMenu()
     {
