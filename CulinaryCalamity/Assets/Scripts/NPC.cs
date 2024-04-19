@@ -139,7 +139,7 @@ public class NPC : Character, InteractableObject
     /// <summary>
     /// Makes NPC face the direction of interaction...
     /// </summary>
-    private void SetInteractionFacingDirection()
+    public void SetInteractionFacingDirection()
     {
         var playerCollider = Physics2D.OverlapCircle(transform.position, 0.2f, _playerLayer);
         var faceX = playerCollider.gameObject.transform.position.x - transform.position.x;

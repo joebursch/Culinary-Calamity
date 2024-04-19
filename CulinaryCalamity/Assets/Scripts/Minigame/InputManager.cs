@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
         }
 
         _controlScheme = new Actions();
-        _controlScheme.Enable();
+        _controlScheme.MiniGame.Enable();
     }
 
     private void OnDestroy()

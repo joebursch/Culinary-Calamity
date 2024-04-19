@@ -7,6 +7,7 @@ var searchData=
   ['invgoldpanel_4',['InvGoldPanel',['../class_inventory_1_1_inv_gold_panel.html',1,'Inventory']]],
   ['invplayerpanel_5',['InvPlayerPanel',['../class_inventory_1_1_inv_player_panel.html',1,'Inventory']]],
   ['invweaponpanel_6',['InvWeaponPanel',['../class_inventory_1_1_inv_weapon_panel.html',1,'Inventory']]],
-  ['item_7',['Item',['../class_items_1_1_item.html',1,'Items']]],
-  ['itemmanager_8',['ItemManager',['../class_items_1_1_item_manager.html',1,'Items']]]
+  ['iquestowner_7',['IQuestOwner',['../interface_quests_1_1_i_quest_owner.html',1,'Quests']]],
+  ['item_8',['Item',['../class_items_1_1_item.html',1,'Items']]],
+  ['itemmanager_9',['ItemManager',['../class_items_1_1_item_manager.html',1,'Items']]]
 ];

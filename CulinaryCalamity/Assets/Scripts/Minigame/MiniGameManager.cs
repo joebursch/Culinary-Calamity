@@ -38,6 +38,7 @@ public class MiniGameManager : MonoBehaviour
     public int activeNoteCount = 0;
     private int _currentNoteStreak;
     private float _percentHit;
+    private bool _gameOver = false;
 
     // input
     private Actions _controlScheme = null;
@@ -83,12 +84,10 @@ public class MiniGameManager : MonoBehaviour
         }
         else
         {
-            if (!createMode)
+            if (!createMode && IsGameOver() && !_gameOver)
             {
-                if (IsGameOver())
-                {
-                    GameOver();
-                }
+                GameOver();
+                _gameOver = true;
             }
         }
     }
@@ -193,8 +192,6 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
-
-
         if (_playerObject != null)
         {
             _playerObject.GetComponent<Player>().AddGold(_goldEarned);

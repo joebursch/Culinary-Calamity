@@ -92,31 +92,249 @@ $(function(){initNavTree('class_quests_1_1_quest.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_quests_1_1_quest-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Quests.Quest Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for Quests.Quest:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_quests_1_1_quest.png" alt=""/>
- </div></div>
+
+<p>Represents a quest which a player can complete. A player must satisify one or more criteria for a quest to be completed. Upon completion, one or more actions are taken (ie: adding money to player, adding item to player inventory, removing quest items from player inventory)  
+ <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:acccb342b56f4d3d84b49036a6bcbaa70" id="r_acccb342b56f4d3d84b49036a6bcbaa70"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acccb342b56f4d3d84b49036a6bcbaa70">Quest</a> (int questId, string title, TextAsset dialogue, List&lt; <a class="el" href="class_quests_1_1_quest_completion_criterion.html">QuestCompletionCriterion</a> &gt; criteria, List&lt; <a class="el" href="class_quests_1_1_quest_completion_action.html">QuestCompletionAction</a> &gt; actions)</td></tr>
+<tr class="memdesc:acccb342b56f4d3d84b49036a6bcbaa70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quest constructor.  <br /></td></tr>
+<tr class="separator:acccb342b56f4d3d84b49036a6bcbaa70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac298dcfd4c00ca77da2a0a30c184df0e" id="r_ac298dcfd4c00ca77da2a0a30c184df0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac298dcfd4c00ca77da2a0a30c184df0e">Quest</a> (int questId, Dictionary&lt; string, object &gt; parameters)</td></tr>
+<tr class="memdesc:ac298dcfd4c00ca77da2a0a30c184df0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quest constructor from quest description json.  <br /></td></tr>
+<tr class="separator:ac298dcfd4c00ca77da2a0a30c184df0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c1d4fb8948a719309a541b426426ea0" id="r_a8c1d4fb8948a719309a541b426426ea0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c1d4fb8948a719309a541b426426ea0">GetQuestId</a> ()</td></tr>
+<tr class="memdesc:a8c1d4fb8948a719309a541b426426ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for _questId.  <br /></td></tr>
+<tr class="separator:a8c1d4fb8948a719309a541b426426ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac344251387f89c39977db6ffb8c0e40e" id="r_ac344251387f89c39977db6ffb8c0e40e"><td class="memItemLeft" align="right" valign="top">TextAsset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac344251387f89c39977db6ffb8c0e40e">GetCompletionDialogue</a> ()</td></tr>
+<tr class="memdesc:ac344251387f89c39977db6ffb8c0e40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for _dialogue.  <br /></td></tr>
+<tr class="separator:ac344251387f89c39977db6ffb8c0e40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95568c2c7a63d9fa3cf349c5b132c0e6" id="r_a95568c2c7a63d9fa3cf349c5b132c0e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95568c2c7a63d9fa3cf349c5b132c0e6">IsCompleteable</a> ()</td></tr>
+<tr class="memdesc:a95568c2c7a63d9fa3cf349c5b132c0e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all the quests criteria are satisified but does NOT complete the quest.  <br /></td></tr>
+<tr class="separator:a95568c2c7a63d9fa3cf349c5b132c0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95e0c09dcda4cbe25dcc0b2abf202b60" id="r_a95e0c09dcda4cbe25dcc0b2abf202b60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95e0c09dcda4cbe25dcc0b2abf202b60">CompleteQuest</a> ()</td></tr>
+<tr class="memdesc:a95e0c09dcda4cbe25dcc0b2abf202b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assumes that IsCompleteable is true Completes the quest by taking the various quest actions associated with the quest.  <br /></td></tr>
+<tr class="separator:a95e0c09dcda4cbe25dcc0b2abf202b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a688e3755df4e74ce4ecd0fcf568f44e0" id="r_a688e3755df4e74ce4ecd0fcf568f44e0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a688e3755df4e74ce4ecd0fcf568f44e0">GetTitle</a> ()</td></tr>
+<tr class="memdesc:a688e3755df4e74ce4ecd0fcf568f44e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for title attribute.  <br /></td></tr>
+<tr class="separator:a688e3755df4e74ce4ecd0fcf568f44e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a986e1ebbc439d3dfaa19feeaef71f0e4" id="r_a986e1ebbc439d3dfaa19feeaef71f0e4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a986e1ebbc439d3dfaa19feeaef71f0e4">questID</a></td></tr>
-<tr class="separator:a986e1ebbc439d3dfaa19feeaef71f0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94e4a873487ba06f91276272ce971272" id="r_a94e4a873487ba06f91276272ce971272"><td class="memItemLeft" align="right" valign="top">Dictionary&lt; string, object &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94e4a873487ba06f91276272ce971272">questAttributes</a></td></tr>
-<tr class="separator:a94e4a873487ba06f91276272ce971272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acebf7dd010de3237cfc57c546dd3935c" id="r_acebf7dd010de3237cfc57c546dd3935c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acebf7dd010de3237cfc57c546dd3935c">_questID</a></td></tr>
+<tr class="separator:acebf7dd010de3237cfc57c546dd3935c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdec37232a3eba88d0ff2d0fccbb2f8e" id="r_afdec37232a3eba88d0ff2d0fccbb2f8e"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdec37232a3eba88d0ff2d0fccbb2f8e">_title</a></td></tr>
+<tr class="separator:afdec37232a3eba88d0ff2d0fccbb2f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33d689de3e55863a2e9e680cd5803d9" id="r_ac33d689de3e55863a2e9e680cd5803d9"><td class="memItemLeft" align="right" valign="top">TextAsset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac33d689de3e55863a2e9e680cd5803d9">_endingDialogue</a></td></tr>
+<tr class="separator:ac33d689de3e55863a2e9e680cd5803d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c7cfec37d05454170d16bd40afe586" id="r_a90c7cfec37d05454170d16bd40afe586"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_quests_1_1_quest_completion_criterion.html">QuestCompletionCriterion</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c7cfec37d05454170d16bd40afe586">_completionCriteria</a></td></tr>
+<tr class="separator:a90c7cfec37d05454170d16bd40afe586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4540e06f017fe144e82cdd83e314b6" id="r_a3b4540e06f017fe144e82cdd83e314b6"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="class_quests_1_1_quest_completion_action.html">QuestCompletionAction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b4540e06f017fe144e82cdd83e314b6">_questCompletionActions</a></td></tr>
+<tr class="separator:a3b4540e06f017fe144e82cdd83e314b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00006">6</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a94e4a873487ba06f91276272ce971272" name="a94e4a873487ba06f91276272ce971272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94e4a873487ba06f91276272ce971272">&#9670;&#160;</a></span>questAttributes</h2>
+<div class="textblock"><p>Represents a quest which a player can complete. A player must satisify one or more criteria for a quest to be completed. Upon completion, one or more actions are taken (ie: adding money to player, adding item to player inventory, removing quest items from player inventory) </p>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00015">15</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acccb342b56f4d3d84b49036a6bcbaa70" name="acccb342b56f4d3d84b49036a6bcbaa70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acccb342b56f4d3d84b49036a6bcbaa70">&#9670;&#160;</a></span>Quest() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Quests.Quest.Quest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>questId</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>title</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TextAsset</td>          <td class="paramname"><span class="paramname"><em>dialogue</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; <a class="el" href="class_quests_1_1_quest_completion_criterion.html">QuestCompletionCriterion</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>criteria</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">List&lt; <a class="el" href="class_quests_1_1_quest_completion_action.html">QuestCompletionAction</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>actions</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quest constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">questId</td><td>int, should be unique</td></tr>
+    <tr><td class="paramname">dialogue</td><td>TextAsset, stores dialogue to queue upon quest completion</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00028">28</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac298dcfd4c00ca77da2a0a30c184df0e" name="ac298dcfd4c00ca77da2a0a30c184df0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac298dcfd4c00ca77da2a0a30c184df0e">&#9670;&#160;</a></span>Quest() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Quests.Quest.Quest </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>questId</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Dictionary&lt; string, object &gt;</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quest constructor from quest description json. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Dictionary(string, object), JSON of quest attributes. See Resources/QuestDescriptions folder for examples of format.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00041">41</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a95e0c09dcda4cbe25dcc0b2abf202b60" name="a95e0c09dcda4cbe25dcc0b2abf202b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95e0c09dcda4cbe25dcc0b2abf202b60">&#9670;&#160;</a></span>CompleteQuest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Quests.Quest.CompleteQuest </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assumes that IsCompleteable is true Completes the quest by taking the various quest actions associated with the quest. </p>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00115">115</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="ac344251387f89c39977db6ffb8c0e40e" name="ac344251387f89c39977db6ffb8c0e40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac344251387f89c39977db6ffb8c0e40e">&#9670;&#160;</a></span>GetCompletionDialogue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextAsset Quests.Quest.GetCompletionDialogue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for _dialogue. </p>
+<dl class="section return"><dt>Returns</dt><dd>TextAsset</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00090">90</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="a8c1d4fb8948a719309a541b426426ea0" name="a8c1d4fb8948a719309a541b426426ea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c1d4fb8948a719309a541b426426ea0">&#9670;&#160;</a></span>GetQuestId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Quests.Quest.GetQuestId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for _questId. </p>
+<dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00081">81</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="a688e3755df4e74ce4ecd0fcf568f44e0" name="a688e3755df4e74ce4ecd0fcf568f44e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a688e3755df4e74ce4ecd0fcf568f44e0">&#9670;&#160;</a></span>GetTitle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Quests.Quest.GetTitle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for title attribute. </p>
+<dl class="section return"><dt>Returns</dt><dd>string</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00127">127</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="a95568c2c7a63d9fa3cf349c5b132c0e6" name="a95568c2c7a63d9fa3cf349c5b132c0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95568c2c7a63d9fa3cf349c5b132c0e6">&#9670;&#160;</a></span>IsCompleteable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Quests.Quest.IsCompleteable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if all the quests criteria are satisified but does NOT complete the quest. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool, true if all criteria are satisified false otherwise</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00099">99</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a90c7cfec37d05454170d16bd40afe586" name="a90c7cfec37d05454170d16bd40afe586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c7cfec37d05454170d16bd40afe586">&#9670;&#160;</a></span>_completionCriteria</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +343,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Dictionary&lt;string, object&gt; Quests.Quest.questAttributes</td>
+          <td class="memname">List&lt;<a class="el" href="class_quests_1_1_quest_completion_criterion.html">QuestCompletionCriterion</a>&gt; Quests.Quest._completionCriteria</td>
         </tr>
       </table>
   </td>
@@ -135,12 +353,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00009">9</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00020">20</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
 
 </div>
 </div>
-<a id="a986e1ebbc439d3dfaa19feeaef71f0e4" name="a986e1ebbc439d3dfaa19feeaef71f0e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a986e1ebbc439d3dfaa19feeaef71f0e4">&#9670;&#160;</a></span>questID</h2>
+<a id="ac33d689de3e55863a2e9e680cd5803d9" name="ac33d689de3e55863a2e9e680cd5803d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33d689de3e55863a2e9e680cd5803d9">&#9670;&#160;</a></span>_endingDialogue</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +367,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Quests.Quest.questID</td>
+          <td class="memname">TextAsset Quests.Quest._endingDialogue</td>
         </tr>
       </table>
   </td>
@@ -159,7 +377,79 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00008">8</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00019">19</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="a3b4540e06f017fe144e82cdd83e314b6" name="a3b4540e06f017fe144e82cdd83e314b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4540e06f017fe144e82cdd83e314b6">&#9670;&#160;</a></span>_questCompletionActions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">List&lt;<a class="el" href="class_quests_1_1_quest_completion_action.html">QuestCompletionAction</a>&gt; Quests.Quest._questCompletionActions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00021">21</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="acebf7dd010de3237cfc57c546dd3935c" name="acebf7dd010de3237cfc57c546dd3935c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acebf7dd010de3237cfc57c546dd3935c">&#9670;&#160;</a></span>_questID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Quests.Quest._questID</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00017">17</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
+
+</div>
+</div>
+<a id="afdec37232a3eba88d0ff2d0fccbb2f8e" name="afdec37232a3eba88d0ff2d0fccbb2f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdec37232a3eba88d0ff2d0fccbb2f8e">&#9670;&#160;</a></span>_title</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Quests.Quest._title</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_quest_8cs_source.html#l00018">18</a> of file <a class="el" href="_quest_8cs_source.html">Quest.cs</a>.</p>
 
 </div>
 </div>

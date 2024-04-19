@@ -9,16 +9,19 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Player : Character, IQuestOwner
 {
     enum PLAYER_SPD : int
     {
-        Walk = 5,
-        Run = 10,
+        Walk = 8,
+        Run = 16,
     }
 
     #region Attributes
+    private static GameObject _playerInstance;
+
     // inventory
     [SerializeField] private GameObject _inventoryPrefab;
     [SerializeField] private int _amountOfGold = 0;
@@ -37,6 +40,8 @@ public class Player : Character, IQuestOwner
     private AttackStrategy _attackStrategy;
     // quests
     public List<Quest> OwnedQuests { get; set; }
+    public List<int> CompletedQuestIds { get; set; }
+
     private QuestMenuManager _questMenuManager;
     [SerializeField] private GameObject _questMenuPrefab;
     #endregion
@@ -44,7 +49,14 @@ public class Player : Character, IQuestOwner
     #region UnityBuiltIn
     void Awake()
     {
-
+        if (_playerInstance == null)
+        {
+            _playerInstance = gameObject;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         movementSpeed = (int)PLAYER_SPD.Walk;
         _controlScheme = new Actions();
         characterAnimator = GetComponent<Animator>();
@@ -52,10 +64,9 @@ public class Player : Character, IQuestOwner
 
         currentHealth = characterHealth;
         _attackStrategy = new MeleeAttack(0.25f, LayerMask.GetMask("Enemies")); // Should probably grab damage from the equipt weapon when thats done
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
-        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
 
         OwnedQuests = new();
+        CompletedQuestIds = new();
     }
 
     void Start()
@@ -70,6 +81,9 @@ public class Player : Character, IQuestOwner
         {
             Debug.Log("No Game Save Manager Found");
         }
+
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayActivated += ActivateDialogueControls;
+        DialogueCanvasManager.GetDialogueCanvasManager().DisplayDeactivated += ActivateStandardControls;
     }
 
     void OnEnable() => _controlScheme.Standard.Enable();
@@ -105,7 +119,8 @@ public class Player : Character, IQuestOwner
         ObjectSaveData playerSaveData = new();
         Dictionary<string, string> playerData = new()
         {
-            { "PlayerName", playerName }
+            { "PlayerName", playerName },
+            { "OwnedQuestIds", "0"}
         };
         playerSaveData.UpdateSaveData(playerData);
         return playerSaveData;
@@ -118,10 +133,15 @@ public class Player : Character, IQuestOwner
     /// <param name="e"></param>
     public void OnSave(object sender, EventArgs e)
     {
+        string ownedQuestIdsString = string.Join(",", from q in OwnedQuests select q.GetQuestId());
+        string completedQuestIdsString = string.Join(",", CompletedQuestIds);
+
         Dictionary<string, string> playerData = new()
         {
             { "PlayerName", characterName },
-            { "PlayerGold", _amountOfGold.ToString()}
+            { "PlayerGold", _amountOfGold.ToString() },
+            { "OwnedQuestIds", ownedQuestIdsString },
+            {"CompletedQuestIds", completedQuestIdsString}
         };
 
         _playerSaveData.UpdateSaveData(playerData);
@@ -136,9 +156,34 @@ public class Player : Character, IQuestOwner
     public void OnLoad(object sender, EventArgs e)
     {
         _playerSaveData = GameSaveManager.GetGameSaveManager().GetObjectSaveData("PlayerObject");
+
+        // set player name and gold
         characterName = _playerSaveData.SaveData["PlayerName"];
         _playerSaveData.SaveData.TryGetValue("PlayerGold", out string gold);
         if (gold != null) { _amountOfGold = int.Parse(gold); }
+
+        Debug.Log(OwnedQuests.Count);
+        // if not already set 
+        if (OwnedQuests.Count <= 0)
+        {
+            _playerSaveData.SaveData.TryGetValue("CompletedQuestIds", out string completedQuestIds);
+            if (completedQuestIds != null)
+            {
+                string[] compIdArray = completedQuestIds.Split(',');
+                CompletedQuestIds = (from id in compIdArray select int.Parse(id)).ToList();
+            }
+
+            _playerSaveData.SaveData.TryGetValue("OwnedQuestIds", out string ownedQuestIds);
+            if (ownedQuestIds != null)
+            {
+                string[] ownIdArray = ownedQuestIds.Split(',');
+                foreach (string id in ownIdArray)
+                {
+                    QuestFramework.GetQuestFramework().AssignQuest(int.Parse(id), (IQuestOwner)this);
+                }
+
+            }
+        }
     }
     #endregion
 
@@ -195,6 +240,7 @@ public class Player : Character, IQuestOwner
 
     private Door lastInteractedDoor;
     private bool justTraveled = false;
+    private bool _isTeleporting;
 
     /// <summary>
     /// Runs when player enters a trigger.
@@ -212,6 +258,7 @@ public class Player : Character, IQuestOwner
                 {
                     if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                     {
+                        _isTeleporting = true;
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
@@ -222,20 +269,23 @@ public class Player : Character, IQuestOwner
                                 break;
                             }
                         }
+                        Invoke(nameof(UnlockTeleport), .5f);
                     }
                     else
                     {
+                        _isTeleporting = true;
                         SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
                         {
-                            if (door.transform.position == transform.position)
+                            if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
                             {
                                 lastInteractedDoor = door;
                                 break;
                             }
                         }
+                        Invoke(nameof(UnlockTeleport), .5f);
                     }
 
                     justTraveled = true;
@@ -250,11 +300,20 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (_isTeleporting) { return; }
         if (lastInteractedDoor == null || (collision.gameObject.CompareTag("Door") && lastInteractedDoor.gameObject == collision.gameObject))
         {
             justTraveled = false;
             lastInteractedDoor = null;
         }
+    }
+
+    /// <summary>
+    /// allows the player to use doors again
+    /// </summary>
+    private void UnlockTeleport()
+    {
+        _isTeleporting = false;
     }
 
     /// <summary>
@@ -350,7 +409,7 @@ public class Player : Character, IQuestOwner
     public bool QueryInventory(ItemId itemId, int qty = 1)
     {
         bool isItemPresent = _playerInventory.InventoryContents.TryGetValue(itemId, out int amtInInventory);
-        return isItemPresent && qty == amtInInventory;
+        return isItemPresent && qty <= amtInInventory;
     }
 
     public void AddGold(int amtToAdd)

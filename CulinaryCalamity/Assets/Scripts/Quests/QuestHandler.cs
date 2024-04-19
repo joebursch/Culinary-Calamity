@@ -23,6 +23,7 @@ namespace Quests
         /// <param name="dialogue">TextAsset, dialogue resource to play on quest completion</param>
         public void CompleteQuest(int questId, TextAsset dialogue)
         {
+            gameObject.GetComponent<NPC>().SetInteractionFacingDirection();
             DialogueManager.GetDialogueManager().InitializeDialogue(dialogue);
             RemoveHandledQuest(questId);
         }
