@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the gameplay mechanics of the mini-game, including score calculation,
@@ -15,7 +17,9 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] private int[] _multiplierThresholds;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _multiText;
-    [SerializeField] private TextMeshProUGUI _startText;
+    [SerializeField] private Image _startPrompt;
+    [SerializeField] private GameObject _allNotes;
+
     [SerializeField] private GameObject _resultPanel;
 
     public static MiniGameManager instance;
@@ -38,7 +42,7 @@ public class MiniGameManager : MonoBehaviour
     public int activeNoteCount = 0;
     private int _currentNoteStreak;
     private float _percentHit;
-    private bool _gameOver = false;
+    private bool _miniGameCompleted = false;
 
     // input
     private Actions _controlScheme = null;
@@ -57,7 +61,7 @@ public class MiniGameManager : MonoBehaviour
         totalNotes();
         _controlScheme = new Actions();
         _controlScheme.Enable();
-        _startText.gameObject.SetActive(true);
+        _startPrompt.gameObject.SetActive(true);
         _scoreText.text = "Score: 0 ";
         _multiText.text = "Multiplier x1 ";
         _noteStreak = 0;
@@ -65,6 +69,7 @@ public class MiniGameManager : MonoBehaviour
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
         _resultPanel.SetActive(false);
+        _allNotes.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
     }
@@ -84,10 +89,10 @@ public class MiniGameManager : MonoBehaviour
         }
         else
         {
-            if (!createMode && IsGameOver() && !_gameOver)
+            if (!createMode && IsGameOver() && !_miniGameCompleted)
             {
                 GameOver();
-                _gameOver = true;
+                _miniGameCompleted = true;
             }
         }
     }
@@ -169,8 +174,9 @@ public class MiniGameManager : MonoBehaviour
         _startPlaying = true;
         _theBS.hasStarted = true;
         _audioSource.Play();
-        _startText.gameObject.SetActive(false);
+        _startPrompt.gameObject.SetActive(false);
         _currentNoteStreak = 0;
+        _allNotes.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -192,6 +198,7 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
+
         if (_playerObject != null)
         {
             _playerObject.GetComponent<Player>().AddGold(_goldEarned);
@@ -293,5 +300,15 @@ public class MiniGameManager : MonoBehaviour
         {
             _noteSpawners.SetActive(false);
         }
+    }
+
+    /// <summary>
+    /// Handles the give up button click event by calling the GiveUp method in MiniGameManager.
+    /// </summary>
+    public void OnGiveUpButtonClick()
+    {
+        SceneManager.LoadScene("Restaurant");
+        ReactivatePlayerObject();
+
     }
 }
