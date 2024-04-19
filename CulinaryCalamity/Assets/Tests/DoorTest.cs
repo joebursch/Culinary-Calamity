@@ -2,9 +2,9 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System.Reflection;
+using Dialogue;
 
 namespace Tests
 {
@@ -85,14 +85,11 @@ namespace Tests
 
             typeof(Door).GetField("unlocked", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(door, false);
 
-            string expectedMessage = "Door is locked";
-            LogAssert.Expect(LogType.Log, expectedMessage);
-
             player.transform.position = door.transform.position;
 
             yield return new WaitForSeconds(.1f);
 
-            yield return null;
+            Assert.IsTrue(DialogueManager.GetDialogueManager().IsDialogueInProgress());
         }
     }
 }
