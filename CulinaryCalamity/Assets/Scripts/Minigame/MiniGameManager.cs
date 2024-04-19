@@ -1,6 +1,8 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /// <summary>
 /// Manages the gameplay mechanics of the mini-game, including score calculation,
@@ -15,13 +17,16 @@ public class MiniGameManager : MonoBehaviour
     [SerializeField] private int[] _multiplierThresholds;
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _multiText;
-    [SerializeField] private TextMeshProUGUI _startText;
+    [SerializeField] private Image _startPrompt;
+    [SerializeField] private GameObject _allNotes;
+
     [SerializeField] private GameObject _resultPanel;
 
     public static MiniGameManager instance;
     public bool createMode;
 
     private GameObject _playerObject;
+    private GameObject _noteSpawners;
     private ResultPanel _Resultpanel;
     private Transform _cameraTransform;
     private Vector3 _originalCameraPosition;
@@ -34,9 +39,13 @@ public class MiniGameManager : MonoBehaviour
     private int _notesMissed;
     private int _noteStreak;
     private int _goldEarned;
+    public int activeNoteCount = 0;
     private int _currentNoteStreak;
     private float _percentHit;
-    private bool _gameOver = false;
+    private bool _miniGameCompleted = false;
+
+    // input
+    private Actions _controlScheme = null;
 
 
     /// <summary>
@@ -46,8 +55,13 @@ public class MiniGameManager : MonoBehaviour
     {
         instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
+        _noteSpawners = GameObject.Find("noteSpawners");
         DisablePlayerObject();
-        _startText.gameObject.SetActive(true);
+        DisableNoteSpawners();
+        totalNotes();
+        _controlScheme = new Actions();
+        _controlScheme.Enable();
+        _startPrompt.gameObject.SetActive(true);
         _scoreText.text = "Score: 0 ";
         _multiText.text = "Multiplier x1 ";
         _noteStreak = 0;
@@ -55,9 +69,11 @@ public class MiniGameManager : MonoBehaviour
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
         _resultPanel.SetActive(false);
+        _allNotes.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
     }
+
 
     /// <summary>
     /// Updates the game state every frame.
@@ -66,18 +82,17 @@ public class MiniGameManager : MonoBehaviour
     {
         if (!_startPlaying)
         {
-            if (Input.anyKeyDown)
+            if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
             }
-
         }
         else
         {
-            if (IsGameOver() && !_gameOver)
+            if (!createMode && IsGameOver() && !_miniGameCompleted)
             {
                 GameOver();
-                _gameOver = true;
+                _miniGameCompleted = true;
             }
         }
     }
@@ -95,6 +110,7 @@ public class MiniGameManager : MonoBehaviour
             UpdateNoteStreak();
             UpdateMultiplier();
             UpdateScore();
+            activeNoteCount--;
         }
     }
 
@@ -110,6 +126,7 @@ public class MiniGameManager : MonoBehaviour
             _currentMultiplier = 1;
             _multiplierTracker = 0;
             UpdateMultiplier();
+            activeNoteCount--;
         }
     }
 
@@ -157,14 +174,18 @@ public class MiniGameManager : MonoBehaviour
         _startPlaying = true;
         _theBS.hasStarted = true;
         _audioSource.Play();
-        _startText.gameObject.SetActive(false);
+        _startPrompt.gameObject.SetActive(false);
         _currentNoteStreak = 0;
+        _allNotes.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// Checks if the game is over
+    /// </summary>
+    /// <returns>True if there are no active notes in the game, indicating the game is over; otherwise, false.</returns>
     bool IsGameOver()
     {
-        GameObject[] noteObjects = GameObject.FindGameObjectsWithTag("Note");
-        return noteObjects.Length == 0;
+        return activeNoteCount == 0;
     }
 
     /// <summary>
@@ -224,6 +245,19 @@ public class MiniGameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Counts the total number of active notes in the game.
+    /// </summary>
+    public void totalNotes()
+    {
+        GameObject[] qNoteObjects = GameObject.FindGameObjectsWithTag("Qnote");
+        GameObject[] wNoteObjects = GameObject.FindGameObjectsWithTag("Wnote");
+        GameObject[] eNoteObjects = GameObject.FindGameObjectsWithTag("Enote");
+        GameObject[] rNoteObjects = GameObject.FindGameObjectsWithTag("Rnote");
+
+        activeNoteCount = qNoteObjects.Length + wNoteObjects.Length + eNoteObjects.Length + rNoteObjects.Length;
+    }
+
+    /// <summary>
     /// Updates the current note streak by comparing it with the previous maximum streak.
     /// </summary>
     private void UpdateNoteStreak()
@@ -254,5 +288,27 @@ public class MiniGameManager : MonoBehaviour
         {
             _playerObject.SetActive(true);
         }
+    }
+
+    public void DisableNoteSpawners()
+    {
+        if (createMode)
+        {
+            _noteSpawners.SetActive(true);
+        }
+        else
+        {
+            _noteSpawners.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Handles the give up button click event by calling the GiveUp method in MiniGameManager.
+    /// </summary>
+    public void OnGiveUpButtonClick()
+    {
+        SceneManager.LoadScene("Restaurant");
+        ReactivatePlayerObject();
+
     }
 }

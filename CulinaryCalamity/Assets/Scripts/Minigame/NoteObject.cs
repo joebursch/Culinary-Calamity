@@ -6,17 +6,19 @@ using UnityEngine;
 public class NoteObject : MonoBehaviour
 {
     private bool _canBePressed;
-    private bool _obtained = false;
+    public bool _obtained = false;
     private Activator _activator;
-    [SerializeField] private KeyCode _keyToPress;
     [SerializeField] private GameObject _note;
+    private SpriteRenderer _spriteRenderer;
 
     /// <summary>
-    /// Finds the Activator GameObject and stores its reference.
+    /// Finds the Activator GameObject and stores its reference, 
+    /// and gets the sprite renderer component.
     /// </summary>
     void Start()
     {
         _activator = GameObject.FindGameObjectWithTag("Activator").GetComponent<Activator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     /// <summary>
@@ -24,44 +26,20 @@ public class NoteObject : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_note == null)
-        {
-            if (gameObject.name.Contains("orange"))
-            {
-                _keyToPress = KeyCode.Q;
-            }
-            else if (gameObject.name.Contains("pink"))
-            {
-                _keyToPress = KeyCode.W;
-            }
-            else if (gameObject.name.Contains("green"))
-            {
-                _keyToPress = KeyCode.E;
-            }
-            else if (gameObject.name.Contains("blue"))
-            {
-                _keyToPress = KeyCode.R;
-            }
-        }
-
         if (MiniGameManager.instance.createMode)
         {
-            if (Input.GetKeyDown(_keyToPress))
+            // Instantiate note if in create mode
+            if (InputManager.instance.AnyNoteInputTriggered())
             {
-                Instantiate(_note, transform.position, Quaternion.identity);
+                InstantiateNote();
             }
         }
         else
         {
-            if (Input.GetKeyDown(_keyToPress))
+            if (_canBePressed && InputManager.instance.CorrectNoteInputTriggered(gameObject.tag))
             {
-                if (_canBePressed)
-                {
-                    MiniGameManager.instance.NoteHit();
-                    _obtained = true;
-                    _activator.ChangeColorWithDelay(Color.yellow, 0.1f);
-                    gameObject.SetActive(false);
-                }
+                HandleNoteHit();
+                Debug.Log("NOTE HIT");
             }
         }
 
@@ -69,13 +47,31 @@ public class NoteObject : MonoBehaviour
     }
 
     /// <summary>
+    /// Instantiates a note object.
+    /// </summary>
+    void InstantiateNote()
+    {
+        Instantiate(_note, transform.position, Quaternion.identity);
+    }
+
+    /// <summary>
+    /// Handles the note hit event.
+    /// </summary>
+    void HandleNoteHit()
+    {
+        MiniGameManager.instance.NoteHit();
+        _obtained = true;
+        _activator.ChangeColorWithDelay(Color.yellow, 0.15f);
+        gameObject.SetActive(false);
+    }
+
+    /// <summary>
     /// Destroys the game object if it is out of the camera view.
     /// </summary>
     private void DestroyIfOutOfView()
     {
-        float rightEdge = transform.position.x + GetComponent<SpriteRenderer>().bounds.extents.x;
-        float rightEdgeViewport = Camera.main.WorldToViewportPoint
-            (new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
+        float rightEdge = transform.position.x + _spriteRenderer.bounds.extents.x;
+        float rightEdgeViewport = Camera.main.WorldToViewportPoint(new Vector3(rightEdge, transform.position.y, transform.position.z)).x;
 
         if (!_obtained && rightEdgeViewport < 0)
         {
@@ -108,12 +104,8 @@ public class NoteObject : MonoBehaviour
             {
                 MiniGameManager.instance.NoteMissed();
                 _activator.ChangeColorWithDelay(Color.red, 0.1f);
-                if (MiniGameManager.instance.gameObject.activeSelf) // Check if MiniGameManager GameObject is active
-                {
-                    StartCoroutine(MiniGameManager.instance.ShakeScene());
-                }
+                StartCoroutine(MiniGameManager.instance.ShakeScene());
             }
         }
     }
-
 }
