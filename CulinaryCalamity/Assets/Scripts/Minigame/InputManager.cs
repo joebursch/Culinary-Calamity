@@ -1,12 +1,18 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+
+/// <summary>
+/// Manages input actions for the mini-game.
+/// </summary>
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
 
     private Actions _controlScheme;
 
+    /// <summary>
+    /// Initializes the singleton instance and enables input actions.
+    /// </summary>
     private void Awake()
     {
         if (instance == null)
@@ -23,11 +29,19 @@ public class InputManager : MonoBehaviour
         _controlScheme.MiniGame.Enable();
     }
 
+    /// <summary>
+    /// Disables input actions when the object is destroyed.
+    /// </summary>
     private void OnDestroy()
     {
         _controlScheme.Disable();
     }
 
+    /// <summary>
+    /// Checks if the correct note input is triggered based on the provided note tag.
+    /// </summary>
+    /// <param name="noteTag"></param>
+    /// <returns>True if the correct note input is triggered, otherwise false.</returns>
     public bool CorrectNoteInputTriggered(string noteTag)
     {
         switch (noteTag)
@@ -45,6 +59,10 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks if any note input is triggered.
+    /// </summary>
+    /// <returns>True if any note input is triggered, otherwise false.</returns>
     public bool AnyNoteInputTriggered()
     {
         return _controlScheme.MiniGame.orangeNote.triggered ||
