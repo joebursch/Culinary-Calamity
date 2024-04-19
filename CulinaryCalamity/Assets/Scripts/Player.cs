@@ -173,14 +173,14 @@ public class Player : Character, IQuestOwner
         if (OwnedQuests.Count <= 0)
         {
             _playerSaveData.SaveData.TryGetValue("CompletedQuestIds", out string completedQuestIds);
-            if (completedQuestIds != null)
+            if (completedQuestIds != null & completedQuestIds != "")
             {
                 string[] compIdArray = completedQuestIds.Split(',');
                 CompletedQuestIds = (from id in compIdArray select int.Parse(id)).ToList();
             }
 
             _playerSaveData.SaveData.TryGetValue("OwnedQuestIds", out string ownedQuestIds);
-            if (ownedQuestIds != null)
+            if (ownedQuestIds != null & ownedQuestIds != "")
             {
                 string[] ownIdArray = ownedQuestIds.Split(',');
                 foreach (string id in ownIdArray)

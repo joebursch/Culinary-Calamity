@@ -698,6 +698,169 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MiniGame"",
+            ""id"": ""5f6bf02a-6986-4792-9076-bb497b77c1fa"",
+            ""actions"": [
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f2d6627-f7f6-4722-97c3-fca0fb2adb74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""orangeNote"",
+                    ""type"": ""Button"",
+                    ""id"": ""81847a4c-2a66-44fb-b65c-9da899312dbc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""pinkNote"",
+                    ""type"": ""Button"",
+                    ""id"": ""565e4cb6-5ea6-48ac-baf7-35fb2194e972"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""greenNote"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e0096a1-7f00-4a39-8b9b-136fff8198ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""blueNote"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3aa86c2-98dd-4aea-91bb-edb85b53de70"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4b2be41c-ff84-4795-a604-5ea86d8ad54d"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a815aed3-0547-4499-a0b0-796efb937800"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a93a5ce0-486a-4505-a1d0-0b35927fc42c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""orangeNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f797be98-ee78-479c-88dc-0b82884efce2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""orangeNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cb61964f-40cf-4c45-a2e7-5c9d247c2ace"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pinkNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ceee006b-8c21-4a74-8b10-082f88dce7cd"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pinkNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""699a7376-9ec0-4cd3-916e-3a5b26b3e72e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""greenNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""954c7a35-5264-41f5-81bb-9e58ccffc422"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""greenNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4960dcf-ab5d-4a4d-87bf-5fa2408908f8"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""blueNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47a07507-07c5-4489-90b2-f67f08e58334"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""blueNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -723,6 +886,13 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_AdvanceDialogue = m_Dialogue.FindAction("AdvanceDialogue", throwIfNotFound: true);
+        // MiniGame
+        m_MiniGame = asset.FindActionMap("MiniGame", throwIfNotFound: true);
+        m_MiniGame_StartGame = m_MiniGame.FindAction("StartGame", throwIfNotFound: true);
+        m_MiniGame_orangeNote = m_MiniGame.FindAction("orangeNote", throwIfNotFound: true);
+        m_MiniGame_pinkNote = m_MiniGame.FindAction("pinkNote", throwIfNotFound: true);
+        m_MiniGame_greenNote = m_MiniGame.FindAction("greenNote", throwIfNotFound: true);
+        m_MiniGame_blueNote = m_MiniGame.FindAction("blueNote", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1014,6 +1184,84 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         }
     }
     public DialogueActions @Dialogue => new DialogueActions(this);
+
+    // MiniGame
+    private readonly InputActionMap m_MiniGame;
+    private List<IMiniGameActions> m_MiniGameActionsCallbackInterfaces = new List<IMiniGameActions>();
+    private readonly InputAction m_MiniGame_StartGame;
+    private readonly InputAction m_MiniGame_orangeNote;
+    private readonly InputAction m_MiniGame_pinkNote;
+    private readonly InputAction m_MiniGame_greenNote;
+    private readonly InputAction m_MiniGame_blueNote;
+    public struct MiniGameActions
+    {
+        private @Actions m_Wrapper;
+        public MiniGameActions(@Actions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StartGame => m_Wrapper.m_MiniGame_StartGame;
+        public InputAction @orangeNote => m_Wrapper.m_MiniGame_orangeNote;
+        public InputAction @pinkNote => m_Wrapper.m_MiniGame_pinkNote;
+        public InputAction @greenNote => m_Wrapper.m_MiniGame_greenNote;
+        public InputAction @blueNote => m_Wrapper.m_MiniGame_blueNote;
+        public InputActionMap Get() { return m_Wrapper.m_MiniGame; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MiniGameActions set) { return set.Get(); }
+        public void AddCallbacks(IMiniGameActions instance)
+        {
+            if (instance == null || m_Wrapper.m_MiniGameActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_MiniGameActionsCallbackInterfaces.Add(instance);
+            @StartGame.started += instance.OnStartGame;
+            @StartGame.performed += instance.OnStartGame;
+            @StartGame.canceled += instance.OnStartGame;
+            @orangeNote.started += instance.OnOrangeNote;
+            @orangeNote.performed += instance.OnOrangeNote;
+            @orangeNote.canceled += instance.OnOrangeNote;
+            @pinkNote.started += instance.OnPinkNote;
+            @pinkNote.performed += instance.OnPinkNote;
+            @pinkNote.canceled += instance.OnPinkNote;
+            @greenNote.started += instance.OnGreenNote;
+            @greenNote.performed += instance.OnGreenNote;
+            @greenNote.canceled += instance.OnGreenNote;
+            @blueNote.started += instance.OnBlueNote;
+            @blueNote.performed += instance.OnBlueNote;
+            @blueNote.canceled += instance.OnBlueNote;
+        }
+
+        private void UnregisterCallbacks(IMiniGameActions instance)
+        {
+            @StartGame.started -= instance.OnStartGame;
+            @StartGame.performed -= instance.OnStartGame;
+            @StartGame.canceled -= instance.OnStartGame;
+            @orangeNote.started -= instance.OnOrangeNote;
+            @orangeNote.performed -= instance.OnOrangeNote;
+            @orangeNote.canceled -= instance.OnOrangeNote;
+            @pinkNote.started -= instance.OnPinkNote;
+            @pinkNote.performed -= instance.OnPinkNote;
+            @pinkNote.canceled -= instance.OnPinkNote;
+            @greenNote.started -= instance.OnGreenNote;
+            @greenNote.performed -= instance.OnGreenNote;
+            @greenNote.canceled -= instance.OnGreenNote;
+            @blueNote.started -= instance.OnBlueNote;
+            @blueNote.performed -= instance.OnBlueNote;
+            @blueNote.canceled -= instance.OnBlueNote;
+        }
+
+        public void RemoveCallbacks(IMiniGameActions instance)
+        {
+            if (m_Wrapper.m_MiniGameActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IMiniGameActions instance)
+        {
+            foreach (var item in m_Wrapper.m_MiniGameActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_MiniGameActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public MiniGameActions @MiniGame => new MiniGameActions(this);
     public interface IStandardActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -1037,5 +1285,13 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     public interface IDialogueActions
     {
         void OnAdvanceDialogue(InputAction.CallbackContext context);
+    }
+    public interface IMiniGameActions
+    {
+        void OnStartGame(InputAction.CallbackContext context);
+        void OnOrangeNote(InputAction.CallbackContext context);
+        void OnPinkNote(InputAction.CallbackContext context);
+        void OnGreenNote(InputAction.CallbackContext context);
+        void OnBlueNote(InputAction.CallbackContext context);
     }
 }
