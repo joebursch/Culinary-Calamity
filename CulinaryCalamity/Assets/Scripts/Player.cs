@@ -7,6 +7,7 @@ using Saving;
 using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
@@ -41,9 +42,13 @@ public class Player : Character, IQuestOwner
     // quests
     public List<Quest> OwnedQuests { get; set; }
     public List<int> CompletedQuestIds { get; set; }
-
     private QuestMenuManager _questMenuManager;
     [SerializeField] private GameObject _questMenuPrefab;
+    // quit menu
+    private ExitMenu _exitMenu;
+
+
+
     #endregion
 
     #region UnityBuiltIn
@@ -105,6 +110,7 @@ public class Player : Character, IQuestOwner
         {
             DialogueManager.GetDialogueManager().AdvanceDialogue();
         }
+        if (_controlScheme.Standard.OpenExitMenu.triggered) { ToggleExitMenu(); }
     }
     #endregion
 
@@ -479,6 +485,22 @@ public class Player : Character, IQuestOwner
         }
 
         _questMenuManager.ToggleQuestMenu();
+    }
+
+    /// <summary>
+    /// Handles opening the Exit game menu
+    /// </summary>
+    private void ToggleExitMenu()
+    {
+        if (_exitMenu == null)
+        {
+            _exitMenu = Instantiate(Resources.Load("Prefabs/ExitMenu") as GameObject, gameObject.transform).GetComponent<ExitMenu>();
+        }
+        else
+        {
+            _exitMenu.Toggle();
+        }
+
     }
 
     /// <summary>
