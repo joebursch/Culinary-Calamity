@@ -168,7 +168,6 @@ public class Player : Character, IQuestOwner
         _playerSaveData.SaveData.TryGetValue("PlayerGold", out string gold);
         if (gold != null) { _amountOfGold = int.Parse(gold); }
 
-        Debug.Log(OwnedQuests.Count);
         // if not already set 
         if (OwnedQuests.Count <= 0)
         {

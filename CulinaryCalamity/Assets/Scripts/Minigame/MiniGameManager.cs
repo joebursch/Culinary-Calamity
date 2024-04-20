@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 /// <summary>
 /// Manages the gameplay mechanics of the mini-game, including score calculation,
@@ -45,16 +46,19 @@ public class MiniGameManager : MonoBehaviour
     private bool _miniGameCompleted = false;
     private GameObject _giveUpButton;
 
+    public event EventHandler MiniGameCompleted;
     // input
     private Actions _controlScheme = null;
 
-
+    void Awake()
+    {
+        instance = this;
+    }
     /// <summary>
     /// Initializes the MiniGameManager instance and sets up necessary components.
     /// </summary>
     void Start()
     {
-        instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
         _noteSpawners = GameObject.Find("noteSpawners");
         _giveUpButton = GameObject.Find("giveUpButton");
@@ -93,6 +97,7 @@ public class MiniGameManager : MonoBehaviour
         else if (!createMode && IsGameOver() && !_miniGameCompleted)
         {
             GameOver();
+            OnMiniGameCompleted(EventArgs.Empty);
             _miniGameCompleted = true;
         }
         else if (!createMode && _controlScheme.MiniGame.GiveUp.triggered)
@@ -154,8 +159,8 @@ public class MiniGameManager : MonoBehaviour
             {
                 yield break;
             }
-            float x = _originalCameraPosition.x + Random.Range(-_shakeMagnitude, _shakeMagnitude);
-            float y = _originalCameraPosition.y + Random.Range(-_shakeMagnitude, _shakeMagnitude);
+            float x = _originalCameraPosition.x + UnityEngine.Random.Range(-_shakeMagnitude, _shakeMagnitude);
+            float y = _originalCameraPosition.y + UnityEngine.Random.Range(-_shakeMagnitude, _shakeMagnitude);
 
             _cameraTransform.position = new Vector3(x, y, _originalCameraPosition.z);
 
@@ -314,5 +319,19 @@ public class MiniGameManager : MonoBehaviour
     {
         ReactivatePlayerObject();
         SceneManager.LoadScene("Restaurant");
+    }
+
+    public bool GetCompletion()
+    {
+        return _miniGameCompleted;
+    }
+
+    /// <summary>
+    /// Emits Save event - prompts subscribers to update their save data
+    /// </summary>
+    /// <param name="e">EventArgs.Empty</param>
+    protected virtual void OnMiniGameCompleted(EventArgs e)
+    {
+        MiniGameCompleted?.Invoke(this, e);
     }
 }

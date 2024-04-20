@@ -1,0 +1,12 @@
+{
+    "QuestTitle": "Complete the Cooking Mini Game",
+    "QuestEndDialoguePath": "QuestDialogue/StorylineQuest_2EndDialogue",
+    "QuestCompletionCriteria": [
+        {"Type": "MiniGameQuestCompletionCriterion", "Parameters": {}}
+    ],
+    "QuestCompletionActions": [
+        {"Type": "AddItemAction", "Parameters": {"itemIdToAdd" : "2",
+                                                "playerHavingInventory": "MainCharacter",
+                                                "qtyToAdd": "1"}}
+    ]
+}
