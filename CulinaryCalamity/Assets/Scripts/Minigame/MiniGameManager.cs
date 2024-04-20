@@ -43,6 +43,7 @@ public class MiniGameManager : MonoBehaviour
     private int _currentNoteStreak;
     private float _percentHit;
     private bool _miniGameCompleted = false;
+    private GameObject _giveUpButton;
 
     // input
     private Actions _controlScheme = null;
@@ -56,6 +57,7 @@ public class MiniGameManager : MonoBehaviour
         instance = this;
         _playerObject = FindObjectOfType<Player>()?.gameObject;
         _noteSpawners = GameObject.Find("noteSpawners");
+        _giveUpButton = GameObject.Find("giveUpButton");
         DisablePlayerObject();
         DisableNoteSpawners();
         totalNotes();
@@ -69,6 +71,7 @@ public class MiniGameManager : MonoBehaviour
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
         _resultPanel.SetActive(false);
+        _giveUpButton.SetActive(true);
         _allNotes.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
@@ -87,13 +90,15 @@ public class MiniGameManager : MonoBehaviour
                 StartGame();
             }
         }
-        else
+        else if (!createMode && IsGameOver() && !_miniGameCompleted)
         {
-            if (!createMode && IsGameOver() && !_miniGameCompleted)
-            {
-                GameOver();
-                _miniGameCompleted = true;
-            }
+            GameOver();
+            _miniGameCompleted = true;
+        }
+        else if (!createMode && _controlScheme.MiniGame.GiveUp.triggered)
+        {
+            OnGiveUpButtonClick();
+            _miniGameCompleted = false;
         }
     }
 
@@ -307,8 +312,7 @@ public class MiniGameManager : MonoBehaviour
     /// </summary>
     public void OnGiveUpButtonClick()
     {
-        SceneManager.LoadScene("Restaurant");
         ReactivatePlayerObject();
-
+        SceneManager.LoadScene("Restaurant");
     }
 }

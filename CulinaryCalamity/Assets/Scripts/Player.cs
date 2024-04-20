@@ -427,6 +427,11 @@ public class Player : Character, IQuestOwner
         }
     }
 
+    public int GetGoldAmount()
+    {
+        return _amountOfGold;
+    }
+
     public PlayerInventory GetInventory()
     {
         return _playerInventory;
