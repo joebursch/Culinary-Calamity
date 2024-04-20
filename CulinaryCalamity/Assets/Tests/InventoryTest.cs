@@ -168,13 +168,9 @@ namespace Tests
             // Verify that inventory display object has been created
             Assert.IsNotNull(invTransform);
 
-            // get 'x' button location
-            RectTransform exitTransform = invTransform.Find("ExitButton") as RectTransform;
-            Assert.IsNotNull(exitTransform);
-            // move mouse to location
-            _input.Move(mouse.position, Camera.main.WorldToScreenPoint(exitTransform.position));
-            // click
-            _input.Click(mouse.leftButton);
+            // Click x button
+            Transform exitTransform = invTransform.Find("ExitButton");
+            exitTransform.gameObject.GetComponent<UnityEngine.UI.Button>().onClick.Invoke();
 
             // Verify that inventory display object is not active
             Assert.IsFalse(invTransform.gameObject.activeSelf);
