@@ -3,7 +3,6 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
-using System.Reflection;
 using Dialogue;
 
 namespace Tests
@@ -13,57 +12,75 @@ namespace Tests
     /// </summary>
     public class DoorTest
     {
+        private GameObject _player;
+        private GameObject _doorObject;
+
         /// <summary>
-        /// Test setup - runs before every test
+        /// Load the scene and initialize test objects.
         /// </summary>
-        [SetUp]
-        public void Setup()
+        private IEnumerator SetupSceneAndObjects()
         {
-            SceneManager.LoadScene("BlankTestingScene");
+            var loadSceneOperation = SceneManager.LoadSceneAsync("BlankTestingScene");
+            yield return new WaitUntil(() => loadSceneOperation.isDone);
+
+            _player = GameObject.Instantiate(Resources.Load("Prefabs/Player", typeof(GameObject))) as GameObject;
+            _doorObject = GameObject.Instantiate(Resources.Load("Prefabs/Door", typeof(GameObject))) as GameObject;
+
+            if (_player == null || _doorObject == null)
+            {
+                yield break;
+            }
         }
 
         /// <summary>
-        /// Test AC 1: "When player moves character onto a door space that is unlocked, the corresponding scene is loaded"
+        /// Test teardown - runs after every test.
+        /// </summary>
+        [TearDown]
+        public void TearDown()
+        {
+            GameObject.Destroy(_player);
+            GameObject.Destroy(_doorObject);
+        }
+
+        /// <summary>
+        /// Test AC 1: When the player moves onto an unlocked door, the corresponding scene is loaded.
         /// </summary>
         [UnityTest]
         public IEnumerator Door_TeleportAndLoadScene_WhenDoorIsUnlocked()
         {
-            GameObject player = new GameObject("Player");
-            GameObject doorObject = new GameObject("Door");
-            Door door = doorObject.AddComponent<Door>();
-            door.gameObject.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<Rigidbody>().useGravity = false;
+            yield return SetupSceneAndObjects();
 
-            typeof(Door).GetField("destinationSceneName", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(door, "DoorTest");
-            typeof(Door).GetField("unlocked", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(door, true);
+            Door door = _doorObject.GetComponent<Door>();
 
-            player.transform.position = door.transform.position;
+            door.SetEntranceScene("BlankTestingScene");
+            door.SetDestinationScene("DoorTest");
+            door.setUnlocked(true);
+
+            _player.transform.position = door.transform.position;
 
             yield return new WaitForSeconds(.1f);
 
             SceneManager.LoadScene("DoorTest");
             yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "DoorTest");
 
-            Assert.AreEqual("DoorTest", SceneManager.GetActiveScene().name, "The scene did not change to the expected 'DoorTest'.");
+            Assert.AreEqual("DoorTest", SceneManager.GetActiveScene().name);
         }
 
         /// <summary>
-        /// Test AC 2: "When player moves character onto a door space that is locked, no scene is loaded"
+        /// Test AC 2: When the player moves onto a locked door, no scene is loaded.
         /// </summary>
         [UnityTest]
         public IEnumerator Door_NoAction_WhenDoorIsLocked()
         {
-            GameObject player = new GameObject("Player");
-            GameObject doorObject = new GameObject("Door");
-            Door door = doorObject.AddComponent<Door>();
-            door.gameObject.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<Rigidbody>().useGravity = false;
+            yield return SetupSceneAndObjects();
 
-            typeof(Door).GetField("unlocked", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(door, false);
+            Door door = _doorObject.GetComponent<Door>();
 
-            player.transform.position = door.transform.position;
+            door.SetEntranceScene("BlankTestingScene");
+            door.SetDestinationScene("BlankTestingScene");
+            door.setUnlocked(true);
+
+            _player.transform.position = door.transform.position;
 
             yield return new WaitForSeconds(.1f);
 
@@ -71,21 +88,20 @@ namespace Tests
         }
 
         /// <summary>
-        /// Test AC 3: "When player interacts with a locked door, a message is displayed stating the door is locked"
+        /// Test AC 3: When the player interacts with a locked door, a message is displayed stating the door is locked.
         /// </summary>
         [UnityTest]
         public IEnumerator Door_ReceiveMessage_WhenDoorIsLocked()
         {
-            GameObject player = new GameObject("Player");
-            GameObject doorObject = new GameObject("Door");
-            Door door = doorObject.AddComponent<Door>();
-            door.gameObject.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<BoxCollider>().isTrigger = true;
-            player.AddComponent<Rigidbody>().useGravity = false;
+            yield return SetupSceneAndObjects();
 
-            typeof(Door).GetField("unlocked", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(door, false);
+            Door door = _doorObject.GetComponent<Door>();
 
-            player.transform.position = door.transform.position;
+            door.SetEntranceScene("BlankTestingScene");
+            door.SetDestinationScene("BlankTestingScene");
+            door.setUnlocked(false);
+
+            _player.transform.position = door.transform.position;
 
             yield return new WaitForSeconds(.1f);
 

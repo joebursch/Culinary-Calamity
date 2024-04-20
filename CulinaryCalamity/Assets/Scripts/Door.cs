@@ -35,6 +35,27 @@ public class Door : MonoBehaviour, InteractableObject
     }
 
     /// <summary>
+    /// Method to set the door's destination scene.
+    /// </summary>
+    public void SetDestinationScene(string scene)
+    {
+        destinationSceneName = scene;
+    }
+
+    /// <summary>
+    /// Method to set the door's start scene.
+    /// </summary>
+    public void SetEntranceScene(string scene)
+    {
+        entranceSceneName = scene;
+    }
+
+    public void setUnlocked(bool unlocked)
+    {
+        this.unlocked = unlocked;
+    }
+
+    /// <summary>
     /// Method to check if the door is unlocked.
     /// </summary>
     /// <returns>bool: True if door is unlocked, false otherwise.</returns>
