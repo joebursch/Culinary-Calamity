@@ -725,6 +725,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "GiveUp",
+                    "type": "Button",
+                    "id": "a99b7ceb-c99f-447d-850e-bbd4853031c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exit",
+                    "type": "Button",
+                    "id": "3b8c7316-af05-480e-a86c-d56d47c708de",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -764,7 +782,7 @@
                 {
                     "name": "",
                     "id": "f797be98-ee78-479c-88dc-0b82884efce2",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -786,7 +804,7 @@
                 {
                     "name": "",
                     "id": "ceee006b-8c21-4a74-8b10-082f88dce7cd",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -808,7 +826,7 @@
                 {
                     "name": "",
                     "id": "954c7a35-5264-41f5-81bb-9e58ccffc422",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
@@ -835,6 +853,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "blueNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ea4dc6e-775a-47ad-9076-bc965907815d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GiveUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d61bdb3a-aad1-4851-83b1-cd2548039270",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -747,6 +747,24 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GiveUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""a99b7ceb-c99f-447d-850e-bbd4853031c9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Exit"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b8c7316-af05-480e-a86c-d56d47c708de"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -786,7 +804,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f797be98-ee78-479c-88dc-0b82884efce2"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -808,7 +826,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ceee006b-8c21-4a74-8b10-082f88dce7cd"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -830,7 +848,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""954c7a35-5264-41f5-81bb-9e58ccffc422"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
@@ -857,6 +875,28 @@ public partial class @Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""blueNote"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ea4dc6e-775a-47ad-9076-bc965907815d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GiveUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d61bdb3a-aad1-4851-83b1-cd2548039270"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Exit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -893,6 +933,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         m_MiniGame_pinkNote = m_MiniGame.FindAction("pinkNote", throwIfNotFound: true);
         m_MiniGame_greenNote = m_MiniGame.FindAction("greenNote", throwIfNotFound: true);
         m_MiniGame_blueNote = m_MiniGame.FindAction("blueNote", throwIfNotFound: true);
+        m_MiniGame_GiveUp = m_MiniGame.FindAction("GiveUp", throwIfNotFound: true);
+        m_MiniGame_Exit = m_MiniGame.FindAction("Exit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1193,6 +1235,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_MiniGame_pinkNote;
     private readonly InputAction m_MiniGame_greenNote;
     private readonly InputAction m_MiniGame_blueNote;
+    private readonly InputAction m_MiniGame_GiveUp;
+    private readonly InputAction m_MiniGame_Exit;
     public struct MiniGameActions
     {
         private @Actions m_Wrapper;
@@ -1202,6 +1246,8 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         public InputAction @pinkNote => m_Wrapper.m_MiniGame_pinkNote;
         public InputAction @greenNote => m_Wrapper.m_MiniGame_greenNote;
         public InputAction @blueNote => m_Wrapper.m_MiniGame_blueNote;
+        public InputAction @GiveUp => m_Wrapper.m_MiniGame_GiveUp;
+        public InputAction @Exit => m_Wrapper.m_MiniGame_Exit;
         public InputActionMap Get() { return m_Wrapper.m_MiniGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1226,6 +1272,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @blueNote.started += instance.OnBlueNote;
             @blueNote.performed += instance.OnBlueNote;
             @blueNote.canceled += instance.OnBlueNote;
+            @GiveUp.started += instance.OnGiveUp;
+            @GiveUp.performed += instance.OnGiveUp;
+            @GiveUp.canceled += instance.OnGiveUp;
+            @Exit.started += instance.OnExit;
+            @Exit.performed += instance.OnExit;
+            @Exit.canceled += instance.OnExit;
         }
 
         private void UnregisterCallbacks(IMiniGameActions instance)
@@ -1245,6 +1297,12 @@ public partial class @Actions: IInputActionCollection2, IDisposable
             @blueNote.started -= instance.OnBlueNote;
             @blueNote.performed -= instance.OnBlueNote;
             @blueNote.canceled -= instance.OnBlueNote;
+            @GiveUp.started -= instance.OnGiveUp;
+            @GiveUp.performed -= instance.OnGiveUp;
+            @GiveUp.canceled -= instance.OnGiveUp;
+            @Exit.started -= instance.OnExit;
+            @Exit.performed -= instance.OnExit;
+            @Exit.canceled -= instance.OnExit;
         }
 
         public void RemoveCallbacks(IMiniGameActions instance)
@@ -1293,5 +1351,7 @@ public partial class @Actions: IInputActionCollection2, IDisposable
         void OnPinkNote(InputAction.CallbackContext context);
         void OnGreenNote(InputAction.CallbackContext context);
         void OnBlueNote(InputAction.CallbackContext context);
+        void OnGiveUp(InputAction.CallbackContext context);
+        void OnExit(InputAction.CallbackContext context);
     }
 }

@@ -14,8 +14,12 @@ public class ResultPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _finalScoreText;
     [SerializeField] private TextMeshProUGUI _goldEarnedText;
     [SerializeField] private TextMeshProUGUI _percentHitText;
+    [SerializeField] private GameObject _giveUpButton;
 
     private MiniGameManager _miniGameManager;
+
+    // input
+    private Actions _controlScheme = null;
 
     /// <summary>
     /// Initializes the ResultPanel instance by assigning a reference to the MiniGameManager object in the scene.
@@ -23,7 +27,20 @@ public class ResultPanel : MonoBehaviour
     void Start()
     {
         _miniGameManager = FindObjectOfType<MiniGameManager>();
+        _controlScheme = new Actions();
+        _controlScheme.Enable();
+        // Disable the "Give Up" button
+        _giveUpButton.SetActive(false);
     }
+
+    private void Update()
+    {
+        if (_controlScheme != null && _controlScheme.MiniGame.Exit.triggered)
+        {
+            OnExitButtonClick();
+        }
+    }
+
 
     /// <summary>
     /// Displays the result panel with provided performance data.
