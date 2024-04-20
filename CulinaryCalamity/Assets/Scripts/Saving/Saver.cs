@@ -21,7 +21,6 @@ namespace Saving
         {
             string saveJson = saveState.SerializeSaveState();
             string filepath = string.Format(_savePathFormat, saveState.SaveId);
-            Debug.Log(saveJson);
             using StreamWriter writer = new(filepath);
             writer.Write(saveJson);
         }

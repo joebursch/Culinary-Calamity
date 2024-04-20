@@ -53,6 +53,7 @@ namespace Quests
                 QuestCompletionCriterion temp = (string)criterion["Type"] switch
                 {
                     "GatheringQuestCompletionCriterion" => new GatheringQuestCompletionCriterion(),
+                    "MiniGameQuestCompletionCriterion" => new MiniGameQuestCompletionCriterion(),
                     _ => null,
                 };
                 temp.CopyFromDescription(((JObject)criterion["Parameters"]).ToObject<Dictionary<string, string>>());

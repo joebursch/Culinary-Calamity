@@ -8,7 +8,8 @@ namespace Items
     /// </summary>
     public enum ItemId : int
     {
-        Berry = 0
+        Berry = 0,
+        HappyBurger = 2
     }
 
     /// <summary>

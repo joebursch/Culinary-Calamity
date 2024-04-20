@@ -6,6 +6,8 @@
     ],
     "QuestCompletionActions": [
         {"Type": "AddGoldAction", "Parameters": {"goldToAdd" : "100",
-                                                "playerReceivingGold": "MainCharacter"}}
+                                                "playerReceivingGold": "MainCharacter"}},
+        {"Type": "StartNextQuestAction", "Parameters": {"nextQuestId" : "2",
+                                                "nextQuestOwner": "MainCharacter"}}
     ]
 }

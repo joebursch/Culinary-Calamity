@@ -39,7 +39,6 @@ public class NoteObject : MonoBehaviour
             if (_canBePressed && InputManager.instance.CorrectNoteInputTriggered(gameObject.tag))
             {
                 HandleNoteHit();
-                Debug.Log("NOTE HIT");
             }
         }
 

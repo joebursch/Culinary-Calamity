@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemList:
   - {fileID: 8780667433805075240, guid: 0cb89633e68853d49a137d5f129092bb, type: 3}
+  - {fileID: 0}
+  - {fileID: 8780667433805075240, guid: ff550ab461a343149ae24ef5a98c1932, type: 3}
 --- !u!114 &681658047404315778
 MonoBehaviour:
   m_ObjectHideFlags: 0
