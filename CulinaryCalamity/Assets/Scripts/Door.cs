@@ -50,6 +50,9 @@ public class Door : MonoBehaviour, InteractableObject
         entranceSceneName = scene;
     }
 
+    /// <summary>
+    /// Method to set the door's unlocked status.
+    /// </summary>
     public void setUnlocked(bool unlocked)
     {
         this.unlocked = unlocked;
