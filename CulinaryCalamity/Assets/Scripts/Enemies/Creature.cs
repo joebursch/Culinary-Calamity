@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Items;
 using Attacks;
+using System;
 
 namespace Enemies
 {
@@ -31,6 +32,7 @@ namespace Enemies
         private float _currentWanderTime;
         private float _timeSinceLastAttack;
         private AttackStrategy _attackStrategy;
+        public event Action<Creature> OnCreatureDeath;
         #endregion
 
         #region UnityBuiltIn
@@ -135,7 +137,7 @@ namespace Enemies
         private Vector2 GetWanderDirection()
         {
             Vector2 wanderVector = new Vector2();
-            var wanderDirection = Random.Range(0, 4);
+            var wanderDirection = UnityEngine.Random.Range(0, 4);
             switch (wanderDirection)
             {
                 case 0:
@@ -222,8 +224,9 @@ namespace Enemies
         protected override void Death()
         {
             Debug.Log("A creature has died");
+            OnCreatureDeath?.Invoke(this);
             // 25% chance to drop an item
-            int randomNum = Random.Range(0, 4);
+            int randomNum = UnityEngine.Random.Range(0, 4);
             if (randomNum == 2)
             {
                 ItemManager.GetItemManager().SpawnItem((ItemId)_itemIdToDrop, transform.position, Quaternion.identity);
