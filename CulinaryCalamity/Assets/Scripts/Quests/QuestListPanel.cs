@@ -76,7 +76,7 @@ namespace Quests
             // tiles are created at 0,0 (center) by default, so we have to shift their position
             float xRange = _panelWidth - _tilePrefabWidth; // since positions are centered, remove half from both end
             float yRange = _panelHeight - _tilePrefabHeight;
-            float xPos = -(xRange / 2);
+            float xPos = 0;
             float yPos = yRange / 2;
             for (int idx = 0; idx < _questTiles.Count; idx++)
             {
