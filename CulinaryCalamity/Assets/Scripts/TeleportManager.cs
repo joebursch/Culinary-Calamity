@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -30,6 +32,11 @@ public class TransportManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public static TransportManager GetTransportManager()
+    {
+        return Instance;
     }
 
     /// <summary>
@@ -75,6 +82,30 @@ public class TransportManager : MonoBehaviour
 
         _currentExit = null; // Clear the exit point
     }
+    public IEnumerator TeleportPlayerOutOfMiniGame(Transform player, string sceneName)
+    {
+        Player playerComponent = player.GetComponent<Player>();
 
+        playerComponent.StartTeleportation();
 
+        SceneManager.LoadScene(sceneName);
+
+        playerComponent.EndTeleportation();
+
+        yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
+
+    }
+    public IEnumerator TeleportPlayerAcrossScenes(Transform player, Door activeDoor)
+    {
+        Player playerComponent = player.GetComponent<Player>();
+
+        playerComponent.StartTeleportation();
+
+        yield return _fadeEffect.FadeToBlackCoroutine(_fadeDuration);
+
+        SceneManager.LoadScene(activeDoor.GetDestinationSceneName());
+        playerComponent.EndTeleportation(activeDoor);
+
+        yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
+    }
 }

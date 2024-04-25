@@ -93,4 +93,10 @@ public class Door : MonoBehaviour, InteractableObject
     {
         return active;
     }
+
+
+    public void MovePlayer(Transform playerTransform)
+    {
+        playerTransform.position = GetDestinationLocation();
+    }
 }

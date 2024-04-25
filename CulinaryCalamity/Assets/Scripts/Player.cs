@@ -47,7 +47,7 @@ public class Player : Character, IQuestOwner
     // quit menu
     private ExitMenu _exitMenu;
 
-
+    [SerializeField] private FadeEffect _fadeEffect;
 
     #endregion
 
@@ -255,15 +255,19 @@ public class Player : Character, IQuestOwner
     {
         if (collision.gameObject.CompareTag("Door"))
         {
+            // _controlScheme.Disable();
+
+            // StartCoroutine(_fadeEffect.FadeToBlackCoroutine(1f));
+
             Door tempDoor = collision.gameObject.GetComponent<Door>();
             // Active doors require interaction whereas passive doors do not.
             if (!tempDoor.IsActive())
             {
                 if (lastInteractedDoor == null && justTraveled == false)
                 {
+                    _isTeleporting = true;
                     if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                     {
-                        _isTeleporting = true;
                         transform.position = tempDoor.GetDestinationLocation();
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
@@ -274,13 +278,10 @@ public class Player : Character, IQuestOwner
                                 break;
                             }
                         }
-                        Invoke(nameof(UnlockTeleport), .5f);
                     }
                     else
                     {
-                        _isTeleporting = true;
-                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-                        transform.position = tempDoor.GetDestinationLocation();
+                        StartCoroutine(TransportManager.GetTransportManager().TeleportPlayerAcrossScenes(transform, tempDoor));
                         Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                         foreach (Door door in doorObjects)
                         {
@@ -290,9 +291,8 @@ public class Player : Character, IQuestOwner
                                 break;
                             }
                         }
-                        Invoke(nameof(UnlockTeleport), .5f);
                     }
-
+                    Invoke(nameof(UnlockTeleport), 2f);
                     justTraveled = true;
                 }
             }
@@ -318,7 +318,9 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void UnlockTeleport()
     {
+        _fadeEffect.FadeFromBlackCoroutine(1f);
         _isTeleporting = false;
+        _controlScheme.Enable();
     }
 
     /// <summary>
@@ -547,9 +549,15 @@ public class Player : Character, IQuestOwner
         _controlScheme.Standard.Disable();
     }
 
+
     public void EndTeleportation()
     {
         _controlScheme.Standard.Enable();
+    }
+    public void EndTeleportation(Door tempDoor)
+    {
+        _controlScheme.Standard.Enable();
+        transform.position = tempDoor.GetDestinationLocation();
     }
     #endregion
 }
