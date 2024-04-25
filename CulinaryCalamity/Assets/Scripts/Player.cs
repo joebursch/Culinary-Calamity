@@ -253,42 +253,53 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // if (collision.gameObject.CompareTag("MiniGameDoor"))
+        // {
+        //     _isTeleporting = true;
+        //     Door tempDoor = collision.gameObject.GetComponent<Door>();
+        //     SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
+        //     Invoke(nameof(UnlockTeleport), .5f);
+        // }
         if (collision.gameObject.CompareTag("Door"))
         {
-            // _controlScheme.Disable();
-
-            // StartCoroutine(_fadeEffect.FadeToBlackCoroutine(1f));
-
             Door tempDoor = collision.gameObject.GetComponent<Door>();
             // Active doors require interaction whereas passive doors do not.
             if (!tempDoor.IsActive())
             {
                 if (lastInteractedDoor == null && justTraveled == false)
                 {
+
                     _isTeleporting = true;
-                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+                    if (tempDoor.GetDestinationSceneName() == "MiniGame")
                     {
-                        transform.position = tempDoor.GetDestinationLocation();
-                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
-                        foreach (Door door in doorObjects)
-                        {
-                            if (door.transform.position == transform.position)
-                            {
-                                lastInteractedDoor = door;
-                                break;
-                            }
-                        }
+                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                     }
                     else
                     {
-                        StartCoroutine(TransportManager.GetTransportManager().TeleportPlayerAcrossScenes(transform, tempDoor));
-                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
-                        foreach (Door door in doorObjects)
+                        if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                         {
-                            if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
+                            transform.position = tempDoor.GetDestinationLocation();
+                            Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                            foreach (Door door in doorObjects)
                             {
-                                lastInteractedDoor = door;
-                                break;
+                                if (door.transform.position == transform.position)
+                                {
+                                    lastInteractedDoor = door;
+                                    break;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            StartCoroutine(TransportManager.GetTransportManager().TeleportPlayerAcrossScenes(transform, tempDoor));
+                            Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                            foreach (Door door in doorObjects)
+                            {
+                                if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
+                                {
+                                    lastInteractedDoor = door;
+                                    break;
+                                }
                             }
                         }
                     }

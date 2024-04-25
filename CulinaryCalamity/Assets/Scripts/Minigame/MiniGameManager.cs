@@ -318,7 +318,7 @@ public class MiniGameManager : MonoBehaviour
     public void OnGiveUpButtonClick()
     {
         ReactivatePlayerObject();
-        StartCoroutine(TransportManager.GetTransportManager().TeleportPlayerOutOfMiniGame(_playerObject.transform, "Restaurant"));
+        SceneManager.LoadScene("Restaurant");
     }
 
     public bool GetCompletion()

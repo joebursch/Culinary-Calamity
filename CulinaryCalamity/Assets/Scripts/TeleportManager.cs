@@ -82,19 +82,19 @@ public class TransportManager : MonoBehaviour
 
         _currentExit = null; // Clear the exit point
     }
-    public IEnumerator TeleportPlayerOutOfMiniGame(Transform player, string sceneName)
-    {
-        Player playerComponent = player.GetComponent<Player>();
+    // public IEnumerator TeleportPlayerOutOfMiniGame(Transform player, string sceneName)
+    // {
+    //     Player playerComponent = player.GetComponent<Player>();
 
-        playerComponent.StartTeleportation();
+    //     playerComponent.StartTeleportation();
 
-        SceneManager.LoadScene(sceneName);
+    //     SceneManager.LoadScene(sceneName);
 
-        playerComponent.EndTeleportation();
+    //     playerComponent.EndTeleportation();
 
-        yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
+    //     yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
 
-    }
+    // }
     public IEnumerator TeleportPlayerAcrossScenes(Transform player, Door activeDoor)
     {
         Player playerComponent = player.GetComponent<Player>();
