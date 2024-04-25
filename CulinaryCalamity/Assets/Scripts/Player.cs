@@ -253,13 +253,6 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // if (collision.gameObject.CompareTag("MiniGameDoor"))
-        // {
-        //     _isTeleporting = true;
-        //     Door tempDoor = collision.gameObject.GetComponent<Door>();
-        //     SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-        //     Invoke(nameof(UnlockTeleport), .5f);
-        // }
         if (collision.gameObject.CompareTag("Door"))
         {
             Door tempDoor = collision.gameObject.GetComponent<Door>();
@@ -270,7 +263,7 @@ public class Player : Character, IQuestOwner
                 {
 
                     _isTeleporting = true;
-                    if (tempDoor.GetDestinationSceneName() == "MiniGame")
+                    if (tempDoor.GetDestinationSceneName() == "MiniGame") // Just a hotfix for leaving/entering the minigame
                     {
                         SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                     }
@@ -559,12 +552,17 @@ public class Player : Character, IQuestOwner
     {
         _controlScheme.Standard.Disable();
     }
-
-
+    /// <summary>
+    /// Teleportation of the player is over. Restore control. 
+    /// </summary>
     public void EndTeleportation()
     {
         _controlScheme.Standard.Enable();
     }
+    /// <summary>
+    /// Teleportation of the player is over. Restore control and move to destination. 
+    /// </summary>
+    /// <param name="tempDoor"></param>
     public void EndTeleportation(Door tempDoor)
     {
         _controlScheme.Standard.Enable();

@@ -33,7 +33,10 @@ public class TransportManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    /// <summary>
+    /// Accessor for TransportManager singleton instance
+    /// </summary>
+    /// <returns>Singleton instance of TransportManager</returns>
     public static TransportManager GetTransportManager()
     {
         return Instance;
@@ -82,19 +85,12 @@ public class TransportManager : MonoBehaviour
 
         _currentExit = null; // Clear the exit point
     }
-    // public IEnumerator TeleportPlayerOutOfMiniGame(Transform player, string sceneName)
-    // {
-    //     Player playerComponent = player.GetComponent<Player>();
-
-    //     playerComponent.StartTeleportation();
-
-    //     SceneManager.LoadScene(sceneName);
-
-    //     playerComponent.EndTeleportation();
-
-    //     yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
-
-    // }
+    /// <summary>
+    /// Coroutine that handles teleporting the player across scenes.
+    /// </summary>
+    /// <param name="player">Transform of the player GameObject</param>
+    /// <param name="activeDoor">The door from which the player is teleporting</param>
+    /// <returns></returns>
     public IEnumerator TeleportPlayerAcrossScenes(Transform player, Door activeDoor)
     {
         Player playerComponent = player.GetComponent<Player>();
