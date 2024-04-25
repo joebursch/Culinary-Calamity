@@ -26,6 +26,7 @@ public class MiniGameManager : MonoBehaviour
     public static MiniGameManager instance;
     public bool createMode;
 
+    private GameObject _scoring;
     private GameObject _playerObject;
     private GameObject _noteSpawners;
     private ResultPanel _Resultpanel;
@@ -62,6 +63,7 @@ public class MiniGameManager : MonoBehaviour
         _playerObject = FindObjectOfType<Player>()?.gameObject;
         _noteSpawners = GameObject.Find("noteSpawners");
         _giveUpButton = GameObject.Find("giveUpButton");
+        _scoring = GameObject.Find("_scoring");
         DisablePlayerObject();
         DisableNoteSpawners();
         totalNotes();
@@ -75,7 +77,7 @@ public class MiniGameManager : MonoBehaviour
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
         _resultPanel.SetActive(false);
-        _giveUpButton.SetActive(true);
+        _giveUpButton.SetActive(false);
         _allNotes.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
@@ -92,6 +94,8 @@ public class MiniGameManager : MonoBehaviour
             if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
+                _giveUpButton.SetActive(true);
+
             }
         }
         else if (!createMode && IsGameOver() && !_miniGameCompleted)
@@ -208,6 +212,8 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
+        _scoring.gameObject.SetActive(false);
+
 
         if (_playerObject != null)
         {
