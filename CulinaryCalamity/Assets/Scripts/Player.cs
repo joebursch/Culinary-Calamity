@@ -47,8 +47,6 @@ public class Player : Character, IQuestOwner
     // quit menu
     private ExitMenu _exitMenu;
 
-    [SerializeField] private FadeEffect _fadeEffect;
-
     #endregion
 
     #region UnityBuiltIn
@@ -322,7 +320,6 @@ public class Player : Character, IQuestOwner
     /// </summary>
     private void UnlockTeleport()
     {
-        _fadeEffect.FadeFromBlackCoroutine(1f);
         _isTeleporting = false;
         _controlScheme.Enable();
     }
