@@ -100,8 +100,9 @@ public class TransportManager : MonoBehaviour
         yield return _fadeEffect.FadeToBlackCoroutine(_fadeDuration);
 
         SceneManager.LoadScene(activeDoor.GetDestinationSceneName());
-        playerComponent.EndTeleportation(activeDoor);
+        player.position = activeDoor.GetDestinationLocation();
 
         yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
+        playerComponent.EndTeleportation(activeDoor);
     }
 }

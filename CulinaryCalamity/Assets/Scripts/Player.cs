@@ -269,7 +269,6 @@ public class Player : Character, IQuestOwner
                     {
                         if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                         {
-                            transform.position = tempDoor.GetDestinationLocation();
                             Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
                             foreach (Door door in doorObjects)
                             {
