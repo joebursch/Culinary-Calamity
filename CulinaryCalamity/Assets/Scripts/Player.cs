@@ -47,8 +47,6 @@ public class Player : Character, IQuestOwner
     // quit menu
     private ExitMenu _exitMenu;
 
-
-
     #endregion
 
     #region UnityBuiltIn
@@ -261,38 +259,41 @@ public class Player : Character, IQuestOwner
             {
                 if (lastInteractedDoor == null && justTraveled == false)
                 {
-                    if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
+
+                    _isTeleporting = true;
+                    if (tempDoor.GetDestinationSceneName() == "MiniGame") // Just a hotfix for leaving/entering the minigame
                     {
-                        _isTeleporting = true;
-                        transform.position = tempDoor.GetDestinationLocation();
-                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
-                        foreach (Door door in doorObjects)
-                        {
-                            if (door.transform.position == transform.position)
-                            {
-                                lastInteractedDoor = door;
-                                break;
-                            }
-                        }
-                        Invoke(nameof(UnlockTeleport), .5f);
+                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
                     }
                     else
                     {
-                        _isTeleporting = true;
-                        SceneManager.LoadScene(tempDoor.GetDestinationSceneName());
-                        transform.position = tempDoor.GetDestinationLocation();
-                        Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
-                        foreach (Door door in doorObjects)
+                        if (SceneManager.GetActiveScene().name == tempDoor.GetDestinationSceneName())
                         {
-                            if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
+                            Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                            foreach (Door door in doorObjects)
                             {
-                                lastInteractedDoor = door;
-                                break;
+                                if (door.transform.position == transform.position)
+                                {
+                                    lastInteractedDoor = door;
+                                    break;
+                                }
                             }
                         }
-                        Invoke(nameof(UnlockTeleport), .5f);
+                        else
+                        {
+                            StartCoroutine(TransportManager.GetTransportManager().TeleportPlayerAcrossScenes(transform, tempDoor));
+                            Door[] doorObjects = FindObjectsByType<Door>(FindObjectsSortMode.None);
+                            foreach (Door door in doorObjects)
+                            {
+                                if (math.abs(door.transform.position.x - transform.position.x) < 1 && math.abs(door.transform.position.y - transform.position.y) < 1)
+                                {
+                                    lastInteractedDoor = door;
+                                    break;
+                                }
+                            }
+                        }
                     }
-
+                    Invoke(nameof(UnlockTeleport), 2f);
                     justTraveled = true;
                 }
             }
@@ -319,6 +320,7 @@ public class Player : Character, IQuestOwner
     private void UnlockTeleport()
     {
         _isTeleporting = false;
+        _controlScheme.Enable();
     }
 
     /// <summary>
@@ -546,10 +548,21 @@ public class Player : Character, IQuestOwner
     {
         _controlScheme.Standard.Disable();
     }
-
+    /// <summary>
+    /// Teleportation of the player is over. Restore control. 
+    /// </summary>
     public void EndTeleportation()
     {
         _controlScheme.Standard.Enable();
+    }
+    /// <summary>
+    /// Teleportation of the player is over. Restore control and move to destination. 
+    /// </summary>
+    /// <param name="tempDoor"></param>
+    public void EndTeleportation(Door tempDoor)
+    {
+        _controlScheme.Standard.Enable();
+        transform.position = tempDoor.GetDestinationLocation();
     }
     #endregion
 }
