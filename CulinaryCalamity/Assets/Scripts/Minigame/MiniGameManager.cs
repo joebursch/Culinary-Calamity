@@ -79,6 +79,7 @@ public class MiniGameManager : MonoBehaviour
         _resultPanel.SetActive(false);
         _giveUpButton.SetActive(false);
         _allNotes.SetActive(false);
+        _scoring.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
     }
@@ -94,7 +95,6 @@ public class MiniGameManager : MonoBehaviour
             if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
-                _giveUpButton.SetActive(true);
 
             }
         }
@@ -191,6 +191,8 @@ public class MiniGameManager : MonoBehaviour
         _startPrompt.gameObject.SetActive(false);
         _currentNoteStreak = 0;
         _allNotes.gameObject.SetActive(true);
+        _giveUpButton.SetActive(true);
+        _scoring.SetActive(true);
     }
 
     /// <summary>
