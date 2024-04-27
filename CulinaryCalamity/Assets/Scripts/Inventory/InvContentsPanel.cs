@@ -96,7 +96,7 @@ namespace Inventory
                 _itemTiles[idx].GetComponent<RectTransform>().localPosition += new Vector3(xPos, yPos, 0);
                 _itemTiles[idx].SetActive(true);
                 xPos += _tilePrefabWidth;
-                if (idx % tilesInRow == 0)
+                if (idx % tilesInRow == 0 && idx != 0)
                 {
                     yPos -= _tilePrefabHeight;
                 }
