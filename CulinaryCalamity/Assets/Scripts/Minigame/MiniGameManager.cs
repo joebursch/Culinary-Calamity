@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System;
 
 /// <summary>
 /// Manages the gameplay mechanics of the mini-game, including score calculation,
