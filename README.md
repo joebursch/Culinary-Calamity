@@ -24,7 +24,6 @@ Note: Unity will automatically download the packages needed when the project is 
 * From the scenes folder, double click on the 'StartScreen' scene to open it
 * Click the play button (triangle icon) to start the game
 
-
 ### Building an Executable
 
 #### Build Settings
@@ -40,6 +39,11 @@ From the build settings menu select 'build' or 'build and run'. Select the locat
 The build process will initiate and complete or provide error messages if there are any issues.
 You can play the game by navigating to the build folder and invoking the executable.
 
+### Playing Without Building
+
+Players may also choose to play the game without building from the source code.
+The game is hosted [here](https://bradleyhays.itch.io/rordon-gamsays-culinary-calamity). The current password to access this page is ```csc550iscool```.
+After-download instructions are provided on the download page.
 
 ## Black Box Testing Instructions
 
@@ -48,5 +52,3 @@ You can play the game by navigating to the build folder and invoking the executa
 * In the window that opens, switch to play mode
 * Click run all to run all tests
 * Click on a specific test suite or test case to run only that suite/case
-
-
