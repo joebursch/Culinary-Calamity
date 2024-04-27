@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System;
 
 /// <summary>
 /// Manages the gameplay mechanics of the mini-game, including score calculation,
@@ -26,6 +26,7 @@ public class MiniGameManager : MonoBehaviour
     public static MiniGameManager instance;
     public bool createMode;
 
+    private GameObject _scoring;
     private GameObject _playerObject;
     private GameObject _noteSpawners;
     private ResultPanel _Resultpanel;
@@ -62,6 +63,7 @@ public class MiniGameManager : MonoBehaviour
         _playerObject = FindObjectOfType<Player>()?.gameObject;
         _noteSpawners = GameObject.Find("noteSpawners");
         _giveUpButton = GameObject.Find("giveUpButton");
+        _scoring = GameObject.Find("_scoring");
         DisablePlayerObject();
         DisableNoteSpawners();
         totalNotes();
@@ -75,8 +77,9 @@ public class MiniGameManager : MonoBehaviour
         _currentMultiplier = 1;
         _Resultpanel = _resultPanel.GetComponent<ResultPanel>();
         _resultPanel.SetActive(false);
-        _giveUpButton.SetActive(true);
+        _giveUpButton.SetActive(false);
         _allNotes.SetActive(false);
+        _scoring.SetActive(false);
         _cameraTransform = Camera.main.transform;
         _originalCameraPosition = _cameraTransform.position;
     }
@@ -92,6 +95,7 @@ public class MiniGameManager : MonoBehaviour
             if (_controlScheme.MiniGame.StartGame.triggered)
             {
                 StartGame();
+
             }
         }
         else if (!createMode && IsGameOver() && !_miniGameCompleted)
@@ -187,6 +191,8 @@ public class MiniGameManager : MonoBehaviour
         _startPrompt.gameObject.SetActive(false);
         _currentNoteStreak = 0;
         _allNotes.gameObject.SetActive(true);
+        _giveUpButton.SetActive(true);
+        _scoring.SetActive(true);
     }
 
     /// <summary>
@@ -208,6 +214,8 @@ public class MiniGameManager : MonoBehaviour
         _theBS.hasStarted = false;
         _percentHit = CalculatePercentHit();
         _Resultpanel.ShowResults(_notesHit, _notesMissed, _noteStreak, _percentHit, _currentScore, _goldEarned);
+        _scoring.gameObject.SetActive(false);
+
 
         if (_playerObject != null)
         {
