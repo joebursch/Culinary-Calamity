@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -30,6 +32,14 @@ public class TransportManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    /// <summary>
+    /// Accessor for TransportManager singleton instance
+    /// </summary>
+    /// <returns>Singleton instance of TransportManager</returns>
+    public static TransportManager GetTransportManager()
+    {
+        return Instance;
     }
 
     /// <summary>
@@ -75,6 +85,24 @@ public class TransportManager : MonoBehaviour
 
         _currentExit = null; // Clear the exit point
     }
+    /// <summary>
+    /// Coroutine that handles teleporting the player across scenes.
+    /// </summary>
+    /// <param name="player">Transform of the player GameObject</param>
+    /// <param name="activeDoor">The door from which the player is teleporting</param>
+    /// <returns></returns>
+    public IEnumerator TeleportPlayerAcrossScenes(Transform player, Door activeDoor)
+    {
+        Player playerComponent = player.GetComponent<Player>();
 
+        playerComponent.StartTeleportation();
 
+        yield return _fadeEffect.FadeToBlackCoroutine(_fadeDuration);
+
+        SceneManager.LoadScene(activeDoor.GetDestinationSceneName());
+        player.position = activeDoor.GetDestinationLocation();
+
+        yield return _fadeEffect.FadeFromBlackCoroutine(_fadeDuration);
+        playerComponent.EndTeleportation(activeDoor);
+    }
 }

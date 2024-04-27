@@ -73,23 +73,17 @@ namespace Quests
 
         private void PlaceQuestTiles()
         {
-            int tilesInRow = (int)(_panelWidth / _tilePrefabWidth);
-            int totalTiles = ((int)(_panelHeight / _tilePrefabHeight)) * tilesInRow;
-
             // tiles are created at 0,0 (center) by default, so we have to shift their position
             float xRange = _panelWidth - _tilePrefabWidth; // since positions are centered, remove half from both end
             float yRange = _panelHeight - _tilePrefabHeight;
-            float xPos = -(xRange / 2);
+            float xPos = 0;
             float yPos = yRange / 2;
-            for (int idx = 0; idx < totalTiles && idx < _questTiles.Count; idx++)
+            for (int idx = 0; idx < _questTiles.Count; idx++)
             {
                 _questTiles[idx].GetComponent<RectTransform>().localPosition += new Vector3(xPos, yPos, 0);
                 _questTiles[idx].SetActive(true);
-                xPos += _tilePrefabWidth;
-                if (idx % tilesInRow == 0)
-                {
-                    yPos -= _tilePrefabHeight;
-                }
+                yPos -= _tilePrefabHeight;
+
             }
         }
     }
