@@ -4,6 +4,7 @@ using UnityEngine;
 public class StartMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _saveSelectMenu;
+    [SerializeField] private GameObject _controlSchemeMenu;
 
     /// <summary>
     /// Method called when the "Start" button is clicked.
@@ -25,6 +26,11 @@ public class StartMenu : MonoBehaviour
 #elif UNITY_STANDALONE
             Application.Quit();
 #endif
+    }
+    public void ControlSchemeButton()
+    {
+        _controlSchemeMenu.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
 
