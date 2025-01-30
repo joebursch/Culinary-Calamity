@@ -12,7 +12,7 @@ Created by:
 
 ### During Development
 
-Note: Unity will automatically download the packages needed when the project is opened for the first time. See the [developer guide](https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1/wiki/Developer-Guide) for information on text editors/IDEs
+Note: Unity will automatically download the packages needed when the project is opened for the first time.
 * Clone the Repository to your local machine
 * [Install Unity]
 * Open Unity hub
