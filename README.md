@@ -13,8 +13,8 @@ Created by:
 ### During Development
 
 Note: Unity will automatically download the packages needed when the project is opened for the first time. See the [developer guide](https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1/wiki/Developer-Guide) for information on text editors/IDEs
-* Clone the Repository to your local machine: ```git clone https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1```
-* [Install Unity](https://github.com/UNCW-CSC-450/csc450-sp24-project-team_1/wiki/Developer-Guide#ide--text-editor)
+* Clone the Repository to your local machine
+* [Install Unity]
 * Open Unity hub
 * Navigate to the projects panel on the left hand menu
 * Near the top right corner, select the gray down arrow next to the add button and click 'add project from disk'
